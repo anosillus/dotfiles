@@ -6,3 +6,4 @@ completions/
 fish_variables/
 keys/
 .DS_Store
+.ccls-cache/
