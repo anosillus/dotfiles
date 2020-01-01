@@ -30,7 +30,8 @@ function! s:bufnew()
 endfunction
 
 function! s:terminal_settings()
-	" tnoremap <Esc> <C-\><C-n>
+	tnoremap <Esc> <C-\><C-n>
+	tnoremap <C-g> <C-\><C-n>:q!<CR>,
 	" tnoremap <C-c> <C-\><C-n>
 	" tnoremap <C-,> <C-\><C-n><C-w>W
 	" 他のウィンドウを閉じて最大化する

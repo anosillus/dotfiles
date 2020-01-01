@@ -32,8 +32,9 @@ function! s:source_rc(path, ...) abort
     return
   endif
 endfunction
+" }}}
 
-"----------- System -----------
+"----------- System ----------- "{{{
 let $CACHE = expand('~/.cache')
 if !isdirectory(expand($CACHE))
     call mkdir(expand($CACHE), 'p')
@@ -59,6 +60,7 @@ set noswapfile
 set undofile
 set history=100
 set undolevels=100
+" }}}
 
 runtime! debian.vim
 
@@ -72,7 +74,7 @@ if has('vim_starting') && !empty(argv())
     syntax on
   endif
   " colorscheme jellybeans
-	colorscheme atom-dark
+	colorscheme atom-dark-256
 endif
 
 

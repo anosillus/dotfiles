@@ -6,6 +6,7 @@
 alias p='python3'
 alias python='python3'
 alias python2='python2'
+alias ipython='ipython3'
 alias p2='python2'
 alias pi='pip3 install'
 alias pip='pip3'

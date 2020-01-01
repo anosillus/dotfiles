@@ -433,9 +433,6 @@ nnoremap <Leader>O :<C-u>for i in range(v:count1) \| call append(line('.')-1, ''
 
 " noremap <Leader>g :call denite#custom#source('file_rec', 'matchers', ['mather_fuzzy'])<CR>
 
-tnoremap <Esc> <C-\><C-n>
-tnoremap <C-g> <C-\><C-n>:q!<CR>,
-
 "this key is for quickrun
 "nnoremap <Leader>w <C-w>w
 "}}}
