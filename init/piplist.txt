@@ -1,0 +1,10 @@
+bandit
+black
+cmake-format
+cmakelint
+mypy
+pylama
+pynvim
+reorder-python-imports
+rope
+vint

@@ -1,0 +1,33 @@
+" display & information
+set lines=88     " typical
+set columns=180      " margin for 'number' and 'foldcolumn'
+set cmdheight=1     " MacVim $VIM/gvimrc overwrites my .vimrc settings
+set guioptions=c    " show no GUI components
+
+" no way to use a mouse
+set mouse=
+set nomousefocus
+set mousehide
+
+" font
+if has('win32')
+    set guifont=Cica:h12 ":cSHIFTJIS,MS_Gothic:h12:cSHIFTJIS
+    " When VL Gothic isn't found in the system, use MS Gothic.
+    " set guifont=VL_Gothic:h12:cSHIFTJIS,MS_Gothic:h12:cSHIFTJIS
+    set linespace=0
+elseif has('mac')
+    set guifont=Cica-Regular:h18
+    ":cSHIFTJIS,MS_Gothic:h12:cSHIFTJIS
+    " set guifont=VL_Gothic:h16
+    set linespace=0
+else
+    set guifont=Cica\ 16
+    " set guifont=Ubuntu\ Mono\ Regular\ 12
+endif
+
+" colorscheme spacecamp
+
+" turn off disabling IM at entering input mode
+if exists('&imdisableactivate')
+    set noimdisableactivate
+endif

@@ -1,0 +1,10 @@
+cmakelint
+cpplint
+flake8
+gitlint
+neovim
+pyflakes
+pynvim
+sh
+vim-vint
+yamllint

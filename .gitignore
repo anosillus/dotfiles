@@ -1,0 +1,8 @@
+dots/vim/plugged/
+extensions/
+conf.d/
+functions/
+completions/
+fish_variables/
+keys/
+.DS_Store
