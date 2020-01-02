@@ -19,9 +19,7 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 Plug 'Shougo/deol.nvim'
-" Plug 'jaredgorski/spacecamp'
-" Plug 'jacoborus/tender.vim'
-" let macvim_skip_colorscheme=1
+Plug 'anosillus/notebook.vim'
 Plug 'rhysd/vim-grammarous'
 let g:grammarous#disabled_rules = {
 \ '*' : ['WHITESPACE_RULE', 'EN_QUOTES'],
@@ -30,8 +28,6 @@ let g:grammarous#disabled_rules = {
 Plug 'gosukiwi/vim-atom-dark'
 Plug 'mopp/layoutplugin.vim', { 'on': 'LayoutPlugin'}
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-" Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-" Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle' }
 Plug 'chemzqm/denite-git'
 Plug 'ludovicchabant/vim-gutentags'
 let g:gutentags_modules = ['ctags', 'gtags_cscope']

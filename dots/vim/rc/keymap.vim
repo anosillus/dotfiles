@@ -196,7 +196,7 @@ cnoremap <C-y> <Right>
 nnoremap <silent> m. :<C-u>Denite file/rec:~/.vim/rc<CR>
 nnoremap <leader>m M
 nnoremap m, :Denite mark<CR>
-nnoremap M `
+" nnoremap M `
 " fold 関係
 noremap mn zj
 noremap me zk
@@ -383,7 +383,7 @@ let g:coc_snippet_prev = '<c-h>'
 " nmap <silent> B <Plug>(ref-keyword)
 " nnoremap <silent> b :call <SID>show_documentation()<CR>
 nmap b <Plug>(ref-keyword)
-map <leader>b :<C-u>Denite file/old start-filter<CR>
+map <leader>b :<C-u>Denite file/old -start-filter<CR>
 
 "
 nmap B <Nop>
