@@ -472,9 +472,9 @@ let g:quickrun#config= {
 \ },
 \ 'perl6': {'hook/eval/template': '{%s}().perl.print'},
 \ 'python': {
-\     'command': 'python3',
-\     'exec': '%C %s'
-\  },
+\    'hook/eval/template': 'print(%s)',
+\    'command': 'python3'
+\ },
 \ 'php': {},
 \ 'r': {
 \   'command': 'R',

@@ -28,7 +28,7 @@
       "appropriate_use_of_interpunct": true,
       "appropriate_use_of_choonpu": true,
       "appropriate_use_of_minus_sign": true,
-      "max_arabic_numeral_digits": 2
+      "max_arabic_numeral_digits": false
     }
   }
 }
