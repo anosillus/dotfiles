@@ -162,7 +162,7 @@ let g:ale_linters = {
 \   'json':     ['eslint','prettier', 'jsonlint'],
 \   'latex':    ['write-good', 'textlint'],
 \   'markdown': ['markdownlint', 'prettier', 'textlint'],
-\   'python':   ['pylama', 'bandit', 'mypy', 'black'],
+\   'python':   ['pylama', 'bandit', 'black'],
 \   'r':        ['lintr'],
 \   'rust':     ['rustfmt'],
 \   'sql':      ['write-good'],
@@ -446,7 +446,10 @@ let g:quickrun#config= {
 \     'print Dumper eval{%s}'], ';')
 \ },
 \ 'perl6': {'hook/eval/template': '{%s}().perl.print'},
-\ 'python': {'hook/eval/template': 'print(%s)'},
+\ 'python': {
+\    'hook/eval/template': 'print(%s)',
+\    'command': 'python3'
+\ },
 \ 'php': {},
 \ 'r': {
 \   'command': 'R',
