@@ -1,5 +1,6 @@
 scriptencoding utf-8
 
+" {{{ plug list
 "https://www.reddit.com/r/vim/comments/5ja0mn/vim_what_the_best_practice_to_sync_up_all_plugins/"
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -19,13 +20,12 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 Plug 'Shougo/deol.nvim'
-Plug 'anosillus/notebook.vim'
+Plug 'anosillus/vim-ipynb'
 Plug 'rhysd/vim-grammarous'
 let g:grammarous#disabled_rules = {
 \ '*' : ['WHITESPACE_RULE', 'EN_QUOTES'],
 \ 'help' : ['WHITESPACE_RULE', 'EN_QUOTES', 'SENTENCE_WHITESPACE', 'UPPERCASE_SENTENCE_START'],
 	\ }
-Plug 'gosukiwi/vim-atom-dark'
 Plug 'mopp/layoutplugin.vim', { 'on': 'LayoutPlugin'}
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'chemzqm/denite-git'
@@ -44,6 +44,9 @@ Plug 'thinca/vim-ref'
 let g:ref_no_default_key_mappings = 1
 let g:ref_pydoc_cmd	 = 'python3 -m pydoc'
 " let g:ref_pydoc_cmd = executable('python3') ? 'pydoc3' : ''
+Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+let g:jedi#completions_enabled = 0
+let g:jedi#show_call_signatures = '1'
 Plug 'maximbaz/lightline-ale'
 Plug 'vim-jp/vimdoc-ja'
 Plug 'vim-jp/autofmt'
@@ -69,11 +72,20 @@ Plug 'bfrg/vim-cpp-modern', { 'for': 'cpp' }
 let g:cpp_named_requirements_highlight = 1
 Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
 Plug 'rcmdnk/vim-markdown', { 'for': 'markdown' }
+let g:markdown_enable_mappings = 0
+let g:markdown_enable_spell_checking = 0
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries',  'for': 'golang' }
 Plug 'junegunn/goyo.vim', {'for':'markdown'}
+Plug 'ap/vim-css-color'
+Plug 'yuttie/comfortable-motion.vim'
+let g:comfortable_motion_no_default_key_mappings = 1
+let g:comfortable_motion_friction = 80.0
+let g:comfortable_motion_air_drag = 2.0
+noremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(40)<CR>
+noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-40)<CR>
 Plug 'thinca/vim-template'
 Plug 'Shougo/context_filetype.vim'
-Plug 'osyo-manga/vim-precious', {'for' : 'toml'}
+Plug 'osyo-manga/vim-precious', {'for' : ['toml','markdown', 'text']}
 Plug 'lifepillar/pgsql.vim', { 'for': 'sql' }
 let g:gfm_syntax_enable_always = 0
 let g:gfm_syntax_enable_filetypes = ['markdown.gfm']
@@ -99,6 +111,8 @@ Plug 'honza/vim-snippets'
 
 call plug#end()
 
+" }}}
+
 " let g:vimpyter_jupyter_notebook_flags = '--browser=vivaldi --port=8855'
 " let g:vimpyter_view_directory = '$HOME/.vimpyter_views'
 
@@ -111,6 +125,17 @@ call submode#map('bufmove', 'n', '', 'h', '<C-w>>')
 call submode#map('bufmove', 'n', '', 'i', '<C-w><')
 call submode#map('bufmove', 'n', '', 'n', '<C-w>+')
 call submode#map('bufmove', 'n', '', 'e', '<C-w>-')
+
+
+call submode#enter_with('bufmove', 'n', '', '<C-g>y', ':call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 2)<CR>')
+call submode#enter_with('bufmove', 'n', '', '<C-g>u', ':call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -2)<CR>')
+call submode#enter_with('bufmove', 'n', '', '<C-g>Y', ':call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 4)<CR>')
+call submode#enter_with('bufmove', 'n', '', '<C-g>U', ':call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -4)<CR>')
+
+call submode#map('bufmove', 'n', '', 'y', ':call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 2)<CR>')
+call submode#map('bufmove', 'n', '', 'u', ':call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -2)<CR>')
+call submode#map('bufmove', 'n', '', 'U', ':call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 4)<CR>')
+call submode#map('bufmove', 'n', '', 'Y', ':call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -4)<CR>')
 " }}}
 
 " Gundo {{{
@@ -162,7 +187,7 @@ let g:ale_linters = {
 \   'json':     ['eslint','prettier', 'jsonlint'],
 \   'latex':    ['write-good', 'textlint'],
 \   'markdown': ['markdownlint', 'prettier', 'textlint'],
-\   'python':   ['pylama', 'bandit', 'mypy', 'black'],
+\   'python':   ['pylama', 'bandit', 'black'],
 \   'r':        ['lintr'],
 \   'rust':     ['rustfmt'],
 \   'sql':      ['write-good'],
@@ -446,7 +471,10 @@ let g:quickrun#config= {
 \     'print Dumper eval{%s}'], ';')
 \ },
 \ 'perl6': {'hook/eval/template': '{%s}().perl.print'},
-\ 'python': {'hook/eval/template': 'print(%s)'},
+\ 'python': {
+\     'command': 'python3',
+\     'exec': '%C %s'
+\  },
 \ 'php': {},
 \ 'r': {
 \   'command': 'R',
@@ -494,10 +522,6 @@ let g:quickrun#config= {
 let g:quickrun_no_default_key_mappings = 1
 "}}}
 "
-"NERD_tree{{{
-let NERDTreeShowHidden = 1
-"}}}
-
 " ESKK {{{
 set imdisable
 let g:eskk#server = {'host': 'localhost','port': 55100}
@@ -557,6 +581,7 @@ augroup END
   \   'zenei': '#ffd700',
 \}
  " }}}
+
 " COC {{{
 " You will have bad experience for diagnostic messages when it's default 4000.
 set updatetime=10000
@@ -646,7 +671,7 @@ function! LightlineFileencoding()
 endfunction
 
 function! LightlineFileformat()
-  return winwidth(0) > 70 ? &fileformat : ''
+	return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
 endfunction
 
 function! CocCurrentFunction()
@@ -654,7 +679,7 @@ function! CocCurrentFunction()
 endfunction
 
 function! LightlineFiletype()
-  return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
+	return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
 endfunction
 
 function! LightlineMode()

@@ -82,14 +82,14 @@ map k <Plug>(is-nohl)<Plug>(anzu-n-with-echo)
 map K <Plug>(is-nohl)<Plug>(anzu-N-with-echo)
 
 " j is Replace {{{
-noremap j r
-nnoremap <C-j> R
-xnoremap <C-j> R
+" noremap j r
+" nnoremap <C-j> R
+" xnoremap <C-j> R
 " }}}
 
 " This key is userd not working.
 " noremap! <C-,> <ESC>
-nnoremap <silent> <Leader>, :<C-u>Denite -buffer-name=search line start-filter<CR>
+nnoremap <silent> <Leader>, :<C-u>Denite -buffer-name=search line -start-filter<CR>
 " nnoremap <silent> <Leader>. :<C-u>NERDTree<CR>
 
 " inoremap <C-.> <C-i>
@@ -132,6 +132,8 @@ map <silent> I <Plug>CamelCaseMotion_e
 map <silent> H <Plug>CamelCaseMotion_ge
 map <C-i> <Plug>(smartword-w)
 map <C-h> <Plug>(smartword-b)
+
+let g:comfortable_motion_impulse_multiplier = 1  " Feel free to increase/decrease this value.
 
 inoremap <silent><expr> <TAB>
   \ pumvisible() ? "\<C-n>" :
@@ -221,7 +223,6 @@ noremap mO zX
 " nnoremap my
 inoremap <C-u> <C-e>
 " inoremap <C-y> is paste over line
-" }}}
 
 " t is Insert/Append {{{
 nnoremap s i
@@ -278,16 +279,10 @@ map p <Plug>(easymotion-tl)
 map P <Plug>(easymotion-Tl)
 " map  <Leader>f <Plug>(easymotion-bd-f)
 " nmap <Leader>f <Plug>(easymotion-overwin-f)
-map <leader>p <Plug>(easymotion-linebackward)
-map <leader>f <Plug>(easymotion-lineforward)
+map <leader>f <Plug>(easymotion-linebackward)
+map <leader>p <Plug>(easymotion-lineforward)
 nmap <C-p> <Plug>(ale_previous)
 nmap <C-f> <Plug>(ale_next)
-" }}}
-
-" Remap keys for gotos {{{
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gt <Plug>(coc-type-definition)
-nmap <silent> gm <Plug>(coc-implementation)
 " }}}
 
 " autocmd CursorHold * silent call CocActionAsync('highlight')
@@ -296,8 +291,10 @@ nmap <silent> gm <Plug>(coc-implementation)
  " q is quit {{{
 nnoremap <Leader>q :<C-u>wq<CR>
 nnoremap <Leader>Q :<C-u>q!<CR>
+nnoremap <silent> qq :<C-u>bd<CR>
 " I don't use EX mode.
 nnoremap Q :source ~/.vim/rc/start.vim<CR>
+" }}}
 
 " x/c/v is Delete/Cut/Paste {{{
 "nnoremap x x
@@ -334,13 +331,8 @@ noremap gV gP
 
 " R is Replace {{{
 inoremap <C-r> <ESC>R
-" inside
-noremap r i
-noremap R I
 nnoremap <Leader>r :<C-u>QuickRun<CR>
-"vnoremap <C-r> $
 nnoremap <C-r> *:%s///g<Left><Left>
-"noremap <Leader>r
 " }}}
 
 " z is Undo/redo {{{
@@ -377,17 +369,27 @@ let g:coc_snippet_prev = '<c-h>'
 "}}}
 
 " b is {{{
-" nnoremap <silent> b :<C-u>e help \(<c-r>=expand("<cword>")<cr>\) |only<CR>
-" set keywordprg=:help
-" noremap B K
-" nmap <silent> B <Plug>(ref-keyword)
-" nnoremap <silent> b :call <SID>show_documentation()<CR>
-nmap b <Plug>(ref-keyword)
+
+" Use K to show documentation in preview window
+if &filetype ==# 'python'
+  let g:jedi#documentation_command = 'b'
+  let g:jedi#usages_command = 'B'
+  let g:jedi#goto_definitions_command = 'gd'
+	let g:jedi#goto_command = '<leader>d'
+	let g:jedi#goto_assignments_command = '<leader>g'
+	let g:jedi#rename_command = '<leader>r'
+else
+  nmap b <Plug>(ref-keyword)
+	nmap <silent> gd <Plug>(coc-definition)
+	nmap <silent> gt <Plug>(coc-type-definition)
+	nmap <silent> gm <Plug>(coc-implementation)
+endif
+
 map <leader>b :<C-u>Denite file/old -start-filter<CR>
 
-"
 nmap B <Nop>
 xmap B <Nop>
+
 
 " Find text string under cursor
 noremap <silent> Bt :GscopeFind t <C-R><C-W><cr>
@@ -401,8 +403,10 @@ noremap <silent> Bi :GscopeFind i <C-R>=expand("<cfile>")<cr><cr>
 noremap <silent> Bd :GscopeFind d <C-R><C-W><cr>
 " Functions called by this function
 noremap <silent> Ba :GscopeFind a <C-R><C-W><cr>
-
 " map B :<C-u>'<,'>Gtrans<CR>
+" }}}
+"
+" {{{ g
 nnoremap gp :Denite gitlog -start-filter<CR>
 nnoremap gP :Denite gitlog:all -start-filter<CR>
 nnoremap gf :Denite gitchanged -start-filter<CR>
@@ -413,25 +417,21 @@ nnoremap <Leader>W :<C-u>w!<CR>
 " }}}
 
 " j is Folds {{{
+" nnoremap j
 imap <C-j> <Plug>(eskk:toggle)
 cmap <C-j> <Plug>(eskk:toggle)
 " }}}
 
-" Overridden keys must be prefixed with g {{{
-nnoremap gX X|xnoremap gX X|
-" nnoremap gK K|xnoremap gK K|
-" nnoremap gL L|xnoremap gL L|
-" }}}
-"
-"Submode
+"Submode {{{
 nnoremap gs :<C-u>%s///g<Left><Left><Left>
 vnoremap gs :s///g<Left><Left><Left>
-noremap gq :<C-u>bd<CR>
+nnoremap qq :<C-u>bd<CR>
 
 nnoremap <Leader>o :<C-u>for i in range(v:count1) \| call append(line('.'), '') \| endfor<CR>
 nnoremap <Leader>O :<C-u>for i in range(v:count1) \| call append(line('.')-1, '') \| endfor<CR>
+" }}}
 
-" noremap <Leader>g :call denite#custom#source('file_rec', 'matchers', ['mather_fuzzy'])<CR>
+ " noremap <Leader>g :call denite#custom#source('file_rec', 'matchers', ['mather_fuzzy'])<CR>
 
 "this key is for quickrun
 "nnoremap <Leader>w <C-w>w

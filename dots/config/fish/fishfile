@@ -5,3 +5,4 @@ oh-my-fish/plugin-gi
 fishpkg/fish-prompt-metro
 FabioAntunes/fish-nvm
 edc/bass
+oh-my-fish/plugin-pyenv

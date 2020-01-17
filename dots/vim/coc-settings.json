@@ -56,7 +56,7 @@
       "filetypes": ["vim", "eruby", "markdown"]
     },
     "python": {
-      "command": "python",
+      "command": "python3",
       "args": ["-mpyls", "-vv", "--log-file", "/tmp/lsp_python.log"],
       "trace.server": "verbose",
       "filetypes": ["python"],
