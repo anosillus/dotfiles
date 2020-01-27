@@ -29,13 +29,6 @@ let g:grammarous#disabled_rules = {
 Plug 'mopp/layoutplugin.vim', { 'on': 'LayoutPlugin'}
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'chemzqm/denite-git'
-Plug 'ludovicchabant/vim-gutentags'
-let g:gutentags_modules = ['ctags', 'gtags_cscope']
-let g:gutentags_project_root = ['.root']
-let g:gutentags_cache_dir = expand('~/.cache/tags')
-let g:gutentags_plus_switch = 1
-Plug 'skywind3000/gutentags_plus'
-let g:gutentags_plus_nomap = 1
 Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/vim-easy-align'
 Plug 'kana/vim-smartinput'
@@ -47,9 +40,13 @@ let g:ref_pydoc_cmd	 = 'python3 -m pydoc'
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 let g:jedi#completions_enabled = 0
 let g:jedi#show_call_signatures = '1'
+let g:jedi#auto_vim_configuration = 0
+let g:jedi#completions_command = ''
+let g:jedi#rename_command = ''
 Plug 'maximbaz/lightline-ale'
 Plug 'vim-jp/vimdoc-ja'
 Plug 'vim-jp/autofmt'
+Plug 'editorconfig/editorconfig-vim'
 Plug 'haya14busa/is.vim'
 Plug 'osyo-manga/vim-anzu'
 Plug 'haya14busa/vim-asterisk'
@@ -61,6 +58,14 @@ Plug 'kana/vim-smartword'
 Plug 'bkad/CamelCaseMotion'
 Plug 'thinca/vim-quickrun'
 Plug 'Yggdroot/indentLine'
+Plug 'pbrisbin/vim-mkdir'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'skywind3000/gutentags_plus'
+let g:gutentags_plus_nomap = 1
+let g:gutentags_modules = ['ctags', 'gtags_cscope']
+let g:gutentags_project_root = ['.root']
+let g:gutentags_cache_dir = expand('~/.cache/tags')
+let g:gutentags_plus_switch = 1
 Plug 'vim-scripts/autodate.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'kana/vim-submode'
@@ -94,6 +99,7 @@ Plug 'tyru/caw.vim'
 let g:caw_no_default_keymappings = 1
 let g:caw_operator_keymappings = 0
 Plug 'Shougo/neoyank.vim'
+let g:neoyank#file = $HOME.'/.cache/yank/yankring.txt'
 Plug 'vim-jp/syntax-vim-ex'
 let g:niceblock_no_default_key_mappings = 1
 Plug 'kana/vim-niceblock'
@@ -176,22 +182,24 @@ let g:ale_javascript_eslint_options='-c google'
 let g:ale_lint_on_insert_leave = 1
 let g:ale_python_auto_pipenv = 1
 let g:ale_python_black_options = '--line-length 79'
+let g:ale_python_flake8_executable = 'python3'
+let g:ale_python_flake8_options = '-m flake8 --select=C,E,F,W,B901'
 
 let g:ale_linters = {
 \   'c':        ['clang'],
 \   'cmake':    ['cmake'],
 \   'cpp':      ['clang', 'g++', 'ccls'],
 \   'css':      ['prettier', 'stylelint'],
-\   'fish':     ['fish -n flag'],
+\   'fish':     ['fish'],
 \   'html':     ['prettier', 'htmlint', 'write-good', 'stylelint'],
 \   'json':     ['eslint','prettier', 'jsonlint'],
-\   'latex':    ['write-good', 'textlint'],
-\   'markdown': ['markdownlint', 'prettier', 'textlint'],
-\   'python':   ['pylama', 'bandit', 'black'],
+\   'latex':    ['vale', 'textlint'],
+\   'markdown': ['markdownlint', 'prettier'],
+\   'python':   ['pylama', 'bandit', 'black', 'flake8'],
 \   'r':        ['lintr'],
 \   'rust':     ['rustfmt'],
-\   'sql':      ['write-good'],
-\   'text':     ['textlint', 'write-good'],
+\   'sql':      ['sqlfmt'],
+\   'text':     ['textlint', 'vale'],
 \   'vim':      ['vint'],
 \   'yaml':     ['yamlint']
 \ }
@@ -202,20 +210,20 @@ let g:ale_fixers = {
 \   'cpp':        ['remove_trailing_lines', 'trim_whitespace', 'trim_whitespace', 'clang-format'],
 \   'css':        ['remove_trailing_lines', 'trim_whitespace', 'prettier', 'stylelint'],
 \   'dockerfile': ['remove_trailing_lines', 'trim_whitespace', 'hadolint'],
-\   'fish':       ['remove_trailing_lines', 'trim_whitespace', 'fish -n flag'],
+\   'fish':       ['remove_trailing_lines', 'trim_whitespace'],
 \   'go':         ['remove_trailing_lines', 'trim_whitespace', 'gofmt'],
 \   'html':       ['remove_trailing_lines', 'trim_whitespace', 'prettier', 'stylelint'],
 \   'javascript': ['remove_trailing_lines', 'trim_whitespace', 'prettier', 'eslint', 'importjs','prettier-standard'],
 \   'json':       ['remove_trailing_lines', 'trim_whitespace', 'prettier', 'fixjson'],
-\   'markdown':   ['remove_trailing_lines', 'prettier', 'textlint'],
-\   'python':     ['remove_trailing_lines', 'trim_whitespace', 'add_blank_lines_for_python_control_statements', 'black', 'reorder-python-imports'],
+\   'markdown':   ['remove_trailing_lines', 'prettier', 'textlint', 'vale'],
+\   'python':     ['remove_trailing_lines', 'trim_whitespace', 'add_blank_lines_for_python_control_statements', 'black', 'isort'],
 \   'r':          ['remove_trailing_lines', 'trim_whitespace', 'styler', 'litr'],
 \   'rust':       ['remove_trailing_lines', 'trim_whitespace', 'rustfmt'],
 \   'sh':         ['remove_trailing_lines', 'trim_whitespace', 'shfmt'],
 \   'sql':        ['remove_trailing_lines', 'trim_whitespace', 'sqlfmt',],
 \   'text':       ['remove_trailing_lines', 'prettier', 'textlint'],
 \   'vim':        ['remove_trailing_lines', 'trim_whitespace'],
-\   'xml':        ['remove_trailing_lines', 'trim_whitespace', 'xmllint', 'trim_whitespace'],
+\   'xml':        ['remove_trailing_lines', 'trim_whitespace', 'xmllint'],
 \   'yaml':       ['remove_trailing_lines', 'trim_whitespace', 'prettier'],
 \ }
 highlight clear ALEErrorSign

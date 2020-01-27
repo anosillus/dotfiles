@@ -30,17 +30,17 @@ function! s:bufnew()
 endfunction
 
 function! s:terminal_settings()
-	tnoremap <Esc> <C-\><C-n>
-	tnoremap <C-g> <C-\><C-n>:q!<CR>,
-	" tnoremap <C-c> <C-\><C-n>
-	" tnoremap <C-,> <C-\><C-n><C-w>W
-	" 他のウィンドウを閉じて最大化する
-	nnoremap <Leader>q :<C-u>q!<CR>
+  tnoremap <Esc> <C-\><C-n>
+  tnoremap <C-g> <C-\><C-n>:q!<CR>,
+  " tnoremap <C-c> <C-\><C-n>
+  " tnoremap <C-,> <C-\><C-n><C-w>W
+  " 他のウィンドウを閉じて最大化する
+  nnoremap <Leader>q :<C-u>q!<CR>
 
-	" noremap  <A-o> <C-w>o
-	" inoremap <A-o> <Esc><C-w>o
-	" tnoremap <C-;> <C-\><C-n><C-w>o
-	" tnoremap <C-/> <C-\><C-n><C-w>:"
+  " noremap  <A-o> <C-w>o
+  " inoremap <A-o> <Esc><C-w>o
+  " tnoremap <C-;> <C-\><C-n><C-w>o
+  " tnoremap <C-/> <C-\><C-n><C-w>:"
 endfunction
 
 function! s:initialize_ref_viewer()
@@ -51,8 +51,8 @@ function! s:initialize_ref_viewer()
 endfunction
 
 function! s:auto_goyo()
-	setl filetype=markdown
-	:Goyo 80
+  setl filetype=markdown
+  :Goyo 80
 endfunction
 
 
@@ -60,35 +60,36 @@ augroup MyAutoCmd
   autocmd!
   autocmd WinEnter * if winnr('$') == 1 && &buftype == "quickfix"|q|endif
   autocmd BufNew * call timer_start(0, { -> s:bufnew() })
-  autocmd FileType vim set tabstop=2|set shiftwidth=2|set noexpandtab
+  autocmd FileType vim set tabstop=2 shiftwidth=2 expandtab
   autocmd FileType terminal call s:terminal_settings()
-	autocmd FileType ref call s:initialize_ref_viewer()
+  autocmd FileType ref call s:initialize_ref_viewer()
   " autocmd BufNewFile,BufRead *.ipynb nmap <leader>o :VimpyterInsertPythonBlock<CR>
   " autocmd BufNewFile,BufRead *.ipynb nmap <silent><Leader>o :VimpyterStartJupyter<CR>
   " autocmd BufNewFile,BufRead *.ipynb nmap <C-CR> :VimpyterStartJupyter<CR>
   " autocmd BufNewFile,BufRead *.ipynb highlight VimpyterUpdate term=bold ctermfg=14
-  autocmd BufNewFile,BufRead *.ipynb setl filetype=python
+  autocmd BufNewFile,BufRead *.ipynb setl filetype=python retab
   autocmd FileType c,cpp setl expandtab tabstop=4 shiftwidth=4 softtabstop=4 cindent shiftround
   "https://vim-jp.org/vimdoc-ja/indent.html
   " Reload .vimrc automatically.
-  autocmd BufWritePost .vimrc,vimrc,*.rc.vim,*.toml source $MYVIMRC | redraw
+  autocmd BufWritePost .vimrc,vimrc,*.rc.vim source $MYVIMRC | redraw
 " A | <Plug>(anzu-clear-search-status)euto reload VimScript.
   autocmd FileType,Syntax,BufNewFile,BufNew,BufRead
     \ call vimrc#on_filetype() " it need for ale
   autocmd BufNewFile,BufRead *.R,*.Rout,*.r,*.Rhistory,*.Rt,*.Rout.save,*.Rout.fail setl filetype=r
   autocmd BufNewFile,BufRead *.[rR]history setl filetype=r
-  autocmd BufNew,BufRead,BufNewFile *.{mkd,markdown,md,mdwn,mkdn}  call s:auto_goyo()
+  " autocmd BufNew,BufRead,BufNewFile *.{mkd,markdown,md,mdwn,mkdn}  call s:auto_goyo()
+  autocmd BufNew,BufRead,BufNewFile *.{mkd,markdown,md,mdwn,mkdn} setl filetype=markdown
   autocmd BufRead,BufNewFile README.md setlocal ft=markdown.gfm
   autocmd BufNewFile,BufRead *.vue setl filetype=javascript
   autocmd BufNew,BufNewFile,BufRead .textlintrc setl filetype=json
-  autocmd BufNewFile,BufRead markdown call s:auto_goyo()
-	if has('nvim')
+  " autocmd BufNewFile,BufRead markdown call s:auto_goyo()
+  if has('nvim')
   " Neovim
-		autocmd WinEnter * if &buftype ==# 'terminal' | startinsert | endif
-	else
-		" Vim
-		autocmd WinEnter * if &buftype ==# 'terminal' | normal i | endif
-	endif
+    autocmd WinEnter * if &buftype ==# 'terminal' | startinsert | endif
+  else
+    " Vim
+    autocmd WinEnter * if &buftype ==# 'terminal' | normal i | endif
+  endif
   autocmd FileType help,git-status,git-log nnoremap <buffer> q <C-w>c
   autocmd User plugin-template-loaded call s:template_keywords()
   autocmd User plugin-template-loaded silent %s/<%=\(.\{-}\)%>/\=eval(submatch(1))/ge
@@ -107,10 +108,10 @@ augroup MyAutoCmd
    \ denite#do_map('open_filter_buffer')
     nnoremap <silent><buffer><expr> <Space>
    \ denite#do_map('toggle_select').'j'
-		nnoremap <silent><buffer><expr> a
-	\ denite#do_map('do_action', 'add')
-		nnoremap <silent><buffer><expr> r
-	\ denite#do_map('do_action', 'reset')
+    nnoremap <silent><buffer><expr> a
+  \ denite#do_map('do_action', 'add')
+    nnoremap <silent><buffer><expr> r
+  \ denite#do_map('do_action', 'reset')
   endfunction
 
   autocmd FileType denite-filter call s:denite_filter_my_settings()

@@ -1,10 +1,13 @@
-bandit
-black
-cmake-format
-cmakelint
-mypy
-pylama
-pynvim
-reorder-python-imports
-rope
-vint
+　Bandit
+　Black
+　Cmake-format
+　Cmakelint
+　Mypy
+　Pylama
+　Pynvim
+　Flake8
+　Reorder-Python-imports
+　Rope
+　vint
+Pep8-naming
+　Flake8-bugbear

@@ -1,10 +1,6 @@
 set encoding=utf8
 scriptencoding utf8
 
-" Description {{{
-    " This file define my vim keymap on Colemak keyboard"
-"}}}
-
 " 1. SPACE {{{
 let g:mapleader = "\<Space>"
 nmap <Space>   [Space]
@@ -20,7 +16,7 @@ omap <Space><Space> <Plug>(easymotion-bd-w)
 
 nmap <C-s> <Plug>(caw:hatpos:toggle)
 xmap <C-s> <Plug>(caw:hatpos:toggle)
-xmap <C-s> <Plug>(caw:hatpos:toggle)
+omap <C-s> <Plug>(caw:hatpos:toggle)
 " }}}
 
 " l is comment out {{{
@@ -59,9 +55,10 @@ inoremap <C-CR> <ESC>+i
 nnoremap ;  :
 nnoremap :  ;
 nnoremap <leader>; :<C-u>Denite command_history<CR>
-nnoremap <C-o> :<C-u>e<Space>
-nnoremap <silent><leader><CR> :<C-u>Deol -split=floating<CR>
+nnoremap <leader>: :<C-u>Denite file/old -start-filter<CR>
 
+nnoremap go :<C-u>e<Space>
+nnoremap <silent><leader><CR> :<C-u>Deol -split=floating<CR>
 
 function! s:incsearch_config(...) abort
   return incsearch#util#deepextend(deepcopy({
@@ -81,16 +78,8 @@ noremap <silent><expr><C-,> incsearch#go(<SID>incsearch_config({'is_stay': 1}))
 map k <Plug>(is-nohl)<Plug>(anzu-n-with-echo)
 map K <Plug>(is-nohl)<Plug>(anzu-N-with-echo)
 
-" j is Replace {{{
-" noremap j r
-" nnoremap <C-j> R
-" xnoremap <C-j> R
-" }}}
-
 " This key is userd not working.
-" noremap! <C-,> <ESC>
 nnoremap <silent> <Leader>, :<C-u>Denite -buffer-name=search line -start-filter<CR>
-" nnoremap <silent> <Leader>. :<C-u>NERDTree<CR>
 
 " inoremap <C-.> <C-i>
 inoremap <C-.> <C-f>
@@ -104,6 +93,9 @@ nnoremap > >>
 xnoremap > >gv
 nnoremap < <<
 xnoremap < <gv
+
+" imap <C-.> <C-i>    " you can't use this keymap.
+" imap <C-,> <C-t>
 " }}}
 
 nnoremap <Leader>= <C-w>=
@@ -126,13 +118,8 @@ map N <Plug>(edgemotion-j)
 map E <Plug>(edgemotion-k)
 map <C-n> <Plug>(easymotion-j)
 map <C-e> <Plug>(easymotion-k)
-map <silent> i <Plug>CamelCaseMotion_w
-map <silent> h <Plug>CamelCaseMotion_b
-map <silent> I <Plug>CamelCaseMotion_e
-map <silent> H <Plug>CamelCaseMotion_ge
-map <C-i> <Plug>(smartword-w)
-map <C-h> <Plug>(smartword-b)
-
+" imap <S-C-i> <C-i>
+" imap <S-C-h> <C-t>
 let g:comfortable_motion_impulse_multiplier = 1  " Feel free to increase/decrease this value.
 
 inoremap <silent><expr> <TAB>
@@ -173,8 +160,14 @@ nnoremap gH <C-w>H
 nnoremap gI <C-w>L
 inoremap <C-h> <Left>
 inoremap <C-i> <Right>
-"}}}
+map <silent> i <Plug>CamelCaseMotion_w
+map <silent> h <Plug>CamelCaseMotion_b
+map <silent> I <Plug>CamelCaseMotion_e
+map <silent> H <Plug>CamelCaseMotion_ge
+map <C-i> <Plug>(smartword-w)
+map <C-h> <Plug>(smartword-b)
 
+"}}}
 " u/y is Left/Right{{{
 noremap u <Left>
 noremap y <Right>
@@ -191,6 +184,9 @@ nnoremap gu :vs
 nnoremap gy :sp
 cnoremap <C-u> <Left>
 cnoremap <C-y> <Right>
+inoremap <C-u> <C-G><C-j>
+inoremap <C-y> <C-G><C-k>
+
 " }}}
 
 " m/M is fold/Middle {{{
@@ -213,16 +209,11 @@ noremap mM zR
 noremap mo zMzv
 noremap mO zX
 " }}}
-
-" nmap <unique> ms <Plug>MarkSet
-" xmap <unique> ms <Plug>MarkSet
-" nmap <unique> mt <Plug>MarkRegex
-" xmap <unique> mt <Plug>MarkRegex
-" nmap <unique> md <Plug>MarkClear
-
-" nnoremap my
-inoremap <C-u> <C-e>
 " inoremap <C-y> is paste over line
+
+" inoremap <C-u> <C-e>
+" inoremap <C-y> is paste over line
+
 
 " t is Insert/Append {{{
 nnoremap s i
@@ -233,8 +224,9 @@ nnoremap T A
 " xmap <silent> <expr> t (mode() =~# "[V]" ? "\<C-V>0o$A" : "A")
 xmap S  <Plug>(niceblock-I)
 xmap T  <Plug>(niceblock-A)
-inoremap <C-s> <ESC>I
-  " inoremap sat<C-t> Inert Indent
+inoremap <C-s> <C-d>
+" decrease indent
+" inoremap <C-t> Inert Indent
 
 nnoremap <buffer> <leader>t :<C-u>DeniteCursorWord tag<CR>
 " }}}
@@ -269,7 +261,8 @@ xmap wW <Plug>(textobj-sandwich-query-i)
 " I want change the space config of sandwich later.
 
 nnoremap <C-w> :<C-u>DeniteCursorWord grep <CR>
-" inoremap <C-w> is delete pre word
+map  <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>w <Plug>(easymotion-overwin-w)" inoremap <C-w> is delete pre word
 " }}}
 
 " f, p and w is Move{{{
@@ -283,11 +276,17 @@ map <leader>f <Plug>(easymotion-linebackward)
 map <leader>p <Plug>(easymotion-lineforward)
 nmap <C-p> <Plug>(ale_previous)
 nmap <C-f> <Plug>(ale_next)
+inoremap <C-f> <C-y>
+inoremap <C-p> <C-e>
+" }}}
+
+
+" d is delete {{{
+inoremap <C-d> <C-u>
 " }}}
 
 " autocmd CursorHold * silent call CocActionAsync('highlight')
 " nmap <C-v> <Plug>(coc-rename)
-
  " q is quit {{{
 nnoremap <Leader>q :<C-u>wq<CR>
 nnoremap <Leader>Q :<C-u>q!<CR>
@@ -300,12 +299,14 @@ nnoremap Q :source ~/.vim/rc/start.vim<CR>
 "nnoremap x x
 noremap c y
 " noremap C y$".
-noremap v p
-noremap V P
+nnoremap v p
+nnoremap V P
 vnoremap v "_dp
 vnoremap V "_dP
-noremap C yy
-
+inoremap <C-x> <Delete>
+inoremap <C-v> <C-r><Right>
+inoremap <S-C-v> <ESC>"+pi
+inoremap <C-c>
 nnoremap <silent> <C-v>
  \ :<C-u>Denite -buffer-name=register
  \ register neoyank<CR>
@@ -325,11 +326,7 @@ noremap gV gP
 " noremap m{} {}
 " noremap! <C-{}> {}
 " }}}
-" noremap <C-x> minus 1
-
-"onoremap c
-
-" R is Replace {{{
+ " R is Replace {{{
 inoremap <C-r> <ESC>R
 nnoremap <Leader>r :<C-u>QuickRun<CR>
 nnoremap <C-r> *:%s///g<Left><Left>
@@ -340,9 +337,9 @@ nnoremap z u
 xnoremap z :<C-U>undo<CR>
 nnoremap Z <C-r>
 xnoremap Z :<C-U>redo<CR>
-inoremap <C-z> <C-u>
-" inoremap <C-z> <Esc>ui
-nnoremap <C-z> <C-a>
+inoremap <C-z> <ESC>:<C-U>undo<CR>i
+
+noremap <C-z> <C-a>
 nnoremap gz U
 nnoremap gz :<C-U>undo<CR>
 nnoremap <leader>z :<C-u>GundoToggle<CR>
@@ -352,7 +349,7 @@ nnoremap <leader>z :<C-u>GundoToggle<CR>
 imap <S-CR> <Plug>(coc-snippets-expand)
 vmap <C-o> <Plug>(coc-snippets-select)
 imap <C-o> <Plug>(coc-snippets-expand-jump)
-inoremap <silent><expr> <TAB>
+inoremap <silent><expr> <C-o>
       \ pumvisible() ? coc#_select_confirm() :
       \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -369,23 +366,23 @@ let g:coc_snippet_prev = '<c-h>'
 "}}}
 
 " b is {{{
-
+let g:ref_man_lang = 'ja'
 " Use K to show documentation in preview window
-if &filetype ==# 'python'
-  let g:jedi#documentation_command = 'b'
-  let g:jedi#usages_command = 'B'
-  let g:jedi#goto_definitions_command = 'gd'
-	let g:jedi#goto_command = '<leader>d'
-	let g:jedi#goto_assignments_command = '<leader>g'
-	let g:jedi#rename_command = '<leader>r'
-else
-  nmap b <Plug>(ref-keyword)
-	nmap <silent> gd <Plug>(coc-definition)
-	nmap <silent> gt <Plug>(coc-type-definition)
-	nmap <silent> gm <Plug>(coc-implementation)
-endif
+nmap b <Plug>(ref-keyword)
+let g:jedi#goto_command = '<leader>d'
+let g:jedi#goto_assignments_command = '<leader>g'
+let g:jedi#goto_stubs_command = '<leader>s'
+let g:jedi#goto_definitions_command = ''
+let g:jedi#documentation_command = 'b'
+let g:jedi#usages_command = '<leader>n'
 
-map <leader>b :<C-u>Denite file/old -start-filter<CR>
+
+nmap <silent> <C-o> <Plug>(coc-definition)
+nmap <silent> gt <Plug>(coc-type-definition)
+nmap <silent> gm <Plug>(coc-implementation)
+nmap <leader>R <Plug>(coc-rename)
+
+" map <leader>b :<C-u>Denite file/old -start-filter<CR>
 
 nmap B <Nop>
 xmap B <Nop>
@@ -417,7 +414,20 @@ nnoremap <Leader>W :<C-u>w!<CR>
 " }}}
 
 " j is Folds {{{
-" nnoremap j
+nmap j  <Nop>
+xmap j  <Nop>
+
+noremap <silent> js :GscopeFind s <C-R><C-W><cr>
+noremap <silent> jg :GscopeFind g <C-R><C-W><cr>
+noremap <silent> jc :GscopeFind c <C-R><C-W><cr>
+noremap <silent> jt :GscopeFind t <C-R><C-W><cr>
+noremap <silent> je :GscopeFind e <C-R><C-W><cr>
+noremap <silent> jf :GscopeFind f <C-R>=expand("<cfile>")<cr><cr>
+noremap <silent> ji :GscopeFind i <C-R>=expand("<cfile>")<cr><cr>
+noremap <silent> jd :GscopeFind d <C-R><C-W><cr>
+noremap <silent> ja :GscopeFind a <C-R><C-W><cr>
+
+
 imap <C-j> <Plug>(eskk:toggle)
 cmap <C-j> <Plug>(eskk:toggle)
 " }}}
@@ -430,12 +440,6 @@ nnoremap qq :<C-u>bd<CR>
 nnoremap <Leader>o :<C-u>for i in range(v:count1) \| call append(line('.'), '') \| endfor<CR>
 nnoremap <Leader>O :<C-u>for i in range(v:count1) \| call append(line('.')-1, '') \| endfor<CR>
 " }}}
-
- " noremap <Leader>g :call denite#custom#source('file_rec', 'matchers', ['mather_fuzzy'])<CR>
-
-"this key is for quickrun
-"nnoremap <Leader>w <C-w>w
-"}}}
 
 " terminal mode
 " set termkey=<C-l>
