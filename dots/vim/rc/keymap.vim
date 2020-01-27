@@ -43,6 +43,7 @@ xmap <CR> <Plug>(EasyAlign)
 " nmap g<CR> <Plug>(EasyAlign)
 " }}}
 
+" enter {{{
 noremap <silent> <Esc><Esc> :<C-u>nohlsearch<CR> <bar> <Plug>(anzu-clear-search-status)
 noremap <bs> _x
 noremap <Leader><bs> _X
@@ -50,10 +51,11 @@ nnoremap <CR> <C-f>
 nmap <S-CR>  <C-b>
 noremap <C-CR>  <C-d>
 inoremap <C-CR> <ESC>+i
+" }}}
 
 "  : / ;  is command{{{
-nnoremap ;  :
-nnoremap :  ;
+noremap ;  :
+noremap :  ;
 nnoremap <leader>; :<C-u>Denite command_history<CR>
 nnoremap <leader>: :<C-u>Denite file/old -start-filter<CR>
 

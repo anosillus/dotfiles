@@ -111,6 +111,8 @@ let g:sandwich_no_default_key_mappings = 1
 let g:operator_sandwich_no_default_key_mappings = 1
 let g:textobj_sandwich_no_default_key_mappings = 1
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc-sources'
+Plug 'neoclide/coc-lists'
 Plug 'Shougo/neco-vim'
 Plug 'neoclide/coc-neco'
 Plug 'honza/vim-snippets'
@@ -183,7 +185,9 @@ let g:ale_lint_on_insert_leave = 1
 let g:ale_python_auto_pipenv = 1
 let g:ale_python_black_options = '--line-length 79'
 let g:ale_python_flake8_executable = 'python3'
-let g:ale_python_flake8_options = '-m flake8 --select=C,E,F,W,B901'
+" let g:ale_python_flake8_options = '-m flake8 --select=C,E,F,W,B901'
+let g:ale_python_flake8_options = '-m flake8'
+
 
 let g:ale_linters = {
 \   'c':        ['clang'],
@@ -195,7 +199,7 @@ let g:ale_linters = {
 \   'json':     ['eslint','prettier', 'jsonlint'],
 \   'latex':    ['vale', 'textlint'],
 \   'markdown': ['markdownlint', 'prettier'],
-\   'python':   ['pylama', 'bandit', 'black', 'flake8'],
+\   'python':   ['pylama', 'black', 'flake8'],
 \   'r':        ['lintr'],
 \   'rust':     ['rustfmt'],
 \   'sql':      ['sqlfmt'],
@@ -216,7 +220,7 @@ let g:ale_fixers = {
 \   'javascript': ['remove_trailing_lines', 'trim_whitespace', 'prettier', 'eslint', 'importjs','prettier-standard'],
 \   'json':       ['remove_trailing_lines', 'trim_whitespace', 'prettier', 'fixjson'],
 \   'markdown':   ['remove_trailing_lines', 'prettier', 'textlint', 'vale'],
-\   'python':     ['remove_trailing_lines', 'trim_whitespace', 'add_blank_lines_for_python_control_statements', 'black', 'isort'],
+\   'python':     ['remove_trailing_lines', 'trim_whitespace', 'add_blank_lines_for_python_control_statements', 'black', 'reorder-python-imports'],
 \   'r':          ['remove_trailing_lines', 'trim_whitespace', 'styler', 'litr'],
 \   'rust':       ['remove_trailing_lines', 'trim_whitespace', 'rustfmt'],
 \   'sh':         ['remove_trailing_lines', 'trim_whitespace', 'shfmt'],

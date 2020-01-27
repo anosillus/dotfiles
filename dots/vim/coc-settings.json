@@ -4,6 +4,8 @@
   "diagnostic.displayByAle": true,
   "git.addGBlameToVirtualText": true,
   "signature.target": "echo",
+  "list.source.files.args": ["--hidden", "--files"],
+  "suggest.snippetIndicator": "►",
   "snippets.extends": {
     "javascriptreact": ["javascript"],
     "typescript": ["javascript"]

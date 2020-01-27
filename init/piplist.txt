@@ -1,17 +1,18 @@
 　Black
 　Cmake-format
 　Cmakelint
+　Flake8
+　Flake8-bandit
+　Flake8-black
+　Flake8-broken-line
+　Flake8-bugbear
+　Flake8-builtins
+　Flake8-import-order
+　Isort
 　Mypy
+　Pep8-naming
 　Pylama
 　Pynvim
-　Flake8
 　Reorder-Python-imports
 　Rope
 　vint
-　Pep8-naming
-　Flake8-bugbear
-　Flake8-broken-line
-　Flake8-builtins
-　Flake8-black
-　Flake8-bandit
-　Flake8-import-order
