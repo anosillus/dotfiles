@@ -1,4 +1,3 @@
-　Bandit
 　Black
 　Cmake-format
 　Cmakelint
@@ -9,5 +8,10 @@
 　Reorder-Python-imports
 　Rope
 　vint
-Pep8-naming
+　Pep8-naming
 　Flake8-bugbear
+　Flake8-broken-line
+　Flake8-builtins
+　Flake8-black
+　Flake8-bandit
+　Flake8-import-order
