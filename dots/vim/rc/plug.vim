@@ -59,13 +59,10 @@ Plug 'bkad/CamelCaseMotion'
 Plug 'thinca/vim-quickrun'
 Plug 'Yggdroot/indentLine'
 Plug 'pbrisbin/vim-mkdir'
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'skywind3000/gutentags_plus'
-let g:gutentags_plus_nomap = 1
-let g:gutentags_modules = ['ctags', 'gtags_cscope']
-let g:gutentags_project_root = ['.root']
-let g:gutentags_cache_dir = expand('~/.cache/tags')
-let g:gutentags_plus_switch = 1
+Plug 'liuchengxu/vista.vim'
+let g:vista_icon_indent = ['╰─▸ ', '├─▸ ']
+let g:vista_default_executive = 'coc'
+let g:vista_fzf_preview = ['right:50%']
 Plug 'vim-scripts/autodate.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'kana/vim-submode'
@@ -112,7 +109,7 @@ let g:operator_sandwich_no_default_key_mappings = 1
 let g:textobj_sandwich_no_default_key_mappings = 1
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc-sources'
-Plug 'neoclide/coc-lists'
+" Plug 'neoclide/coc-lists'
 Plug 'Shougo/neco-vim'
 Plug 'neoclide/coc-neco'
 Plug 'honza/vim-snippets'
@@ -628,7 +625,7 @@ let g:lightline = {
 \   'mode_map': {'c': 'NORMAL'},
 \   'active': {
 \     'left': [ ['mode', 'paste'],
-\               ['ale', 'anzu', 'cocstatus', 'currentfunction', 'fugitive', 'readonly', 'filename', 'qfstatusline', 'modified'] ],
+\               ['ale', 'anzu', 'cocstatus', 'currentfunction', 'fugitive', 'readonly', 'filename', 'qfstatusline', 'modified', 'method'] ],
 \     'right':[ ['lineinfo'],['percent'],['fileformat', 'fileencoding', 'filetype'],
 \               ['linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok'] ],
 \   },
@@ -636,7 +633,7 @@ let g:lightline = {
 \     'ale':             'ALEGetStatusLine',
 \     'anzu':            'anzu#search_status',
 \     'cocstatus':       'coc#status',
-\     'gutentag':        'get_gutentags_status',
+\     'method':          'NearestMethodOrFunction',
 \     'currentfunction': 'CocCurrentFunction',
 \     'fileencoding':    'LightlineFileencoding',
 \     'fileformat':      'LightlineFileformat',
@@ -706,14 +703,8 @@ function! LightlineReadonly()
   return &filetype !~? 'help\|vimfiler\|gundo' && &readonly ? 'x' : ''
 endfunction
 
-function! s:get_gutentags_status(mods) abort
-	let l:msg = ''
-	if index(a:mods, 'ctags') >= 0
-		let l:msg .= '♨'
-	endif
-	if index(a:mods, 'cscope') >= 0
-		let l:msg .= '♺'
-	endif
-	return l:msg
+function! NearestMethodOrFunction() abort
+  return get(b:, 'vista_nearest_method_or_function', '')
 endfunction
+
 " }}}

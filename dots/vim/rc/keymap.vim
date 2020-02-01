@@ -6,23 +6,19 @@ let g:mapleader = "\<Space>"
 nmap <Space>   [Space]
 nmap [Space]   <Nop>
 " nnoremap <Leader><Leader> :<C-u>source ~/.config/nvim/init.vim<CR> <bar> <Ctr-l>
-" vnoremap <leader><Leader> <ESC>
-" cnoremap <silent> <<leader>-Space> <ESC>
+vnoremap <leader><Leader> <ESC>
+cnoremap <silent> <Space><Space> <ESC>
 "this isn't work"
-" inoremap <S-Space> <ESC>
-nmap <Space><Space> <Plug>(easymotion-overwin-w)
-xmap <Space><Space> <Plug>(easymotion-bd-w)
-omap <Space><Space> <Plug>(easymotion-bd-w)
+inoremap <S-Space> <ESC>
+nmap <Space><Space> :<C-u>w<CR>
+" map <Space><Space> <Plug>(easymotion-bd-w)
+" omap <Space><Space> <Plug>(easymotion-bd-w)
 
-nmap <C-s> <Plug>(caw:hatpos:toggle)
-xmap <C-s> <Plug>(caw:hatpos:toggle)
-omap <C-s> <Plug>(caw:hatpos:toggle)
 " }}}
 
 " l is comment out {{{
 nmap l  <Nop>
 xmap l  <Nop>
-
 nmap l  <Plug>(caw:prefix)
 nmap lh <Plug>(caw:zeropos:toggle)
 nmap li <Plug>(caw:dollarpos:toggle)
@@ -192,11 +188,10 @@ inoremap <C-y> <C-G><C-k>
 " }}}
 
 " m/M is fold/Middle {{{
-" nnoremap mt :<C-u>Denite tab<CR>
-nnoremap <silent> m. :<C-u>Denite file/rec:~/.vim/rc<CR>
-nnoremap <leader>m M
-nnoremap m, :Denite mark<CR>
-" nnoremap M `
+nnoremap <silent> m. :<C-u>Denite file/rec:~/.vim/rc -start-filter<CR>
+nnoremap <silent> m, :<C-u>Denite file/rec -start-filter<CR>
+nnoremap <leader>m :Denite mark<CR>
+" M is screen middle.
 " fold 関係
 noremap mn zj
 noremap me zk
@@ -211,10 +206,10 @@ noremap mM zR
 noremap mo zMzv
 noremap mO zX
 " }}}
-" inoremap <C-y> is paste over line
+inoremap <C-y> is paste over line
 
-" inoremap <C-u> <C-e>
-" inoremap <C-y> is paste over line
+inoremap <C-u> <C-e>
+" ioremap <C-y> is paste over line
 
 
 " t is Insert/Append {{{
@@ -222,14 +217,14 @@ nnoremap s i
 nnoremap S I
 nnoremap t a
 nnoremap T A
-" xmap <silent> <expr> s (mode() =~# "[V]" ? "\<C-V>0o$I" : "I")
-" xmap <silent> <expr> t (mode() =~# "[V]" ? "\<C-V>0o$A" : "A")
+nmap <C-s> <Plug>(caw:hatpos:toggle)
+xmap <C-s> <Plug>(caw:hatpos:toggle)
+omap <C-s> <Plug>(caw:hatpos:toggle)
 xmap S  <Plug>(niceblock-I)
 xmap T  <Plug>(niceblock-A)
 inoremap <C-s> <C-d>
-" decrease indent
 " inoremap <C-t> Inert Indent
-
+"
 nnoremap <buffer> <leader>t :<C-u>DeniteCursorWord tag<CR>
 " }}}
 
@@ -237,34 +232,33 @@ nnoremap <buffer> <leader>t :<C-u>DeniteCursorWord tag<CR>
 nnoremap a v
 nnoremap A V
 nnoremap <C-a> <C-v>
-" xmap a  <- used by sandwich
-"noremap <Leader>a <C-V>
+" " xmap a  <- used by sandwich
+" "noremap <Leader>a <C-V>
 nnoremap ga gv
 vnoremap <C-a> 0
 inoremap <C-a> <Esc>0i
 " }}}
-
-" w is range operator {{{
-nmap w <Nop>
-xmap w <Nop>
-map wa  <Plug>(operator-sandwich-add)
-map wd  <Plug>(operator-sandwich-delete)<Plug>(textobj-sandwich-query-a)
-map wdw <Plug>(operator-sandwich-delete)<Plug>(textobj-sandwich-auto-a)
-map wr  <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-query-a)
-map wrw <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-auto-a)
+"
+" " w is range operator {{{
+map  w  <Plug>(operator-sandwich-add)
+map  wD <Plug>(operator-sandwich-delete)<Plug>(textobj-sandwich-query-a)
+map  wd <Plug>(operator-sandwich-delete)<Plug>(textobj-sandwich-auto-a)
+map  wR <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-query-a)
+map  wr <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-auto-a)
 omap aw <Plug>(textobj-sandwich-auto-a)
 omap aW <Plug>(textobj-sandwich-query-a)
-omap ww <Plug>(textobj-sandwich-auto-i)
-omap wW <Plug>(textobj-sandwich-query-i)
+omap w  <Plug>(textobj-sandwich-auto-i)
+omap W  <Plug>(textobj-sandwich-query-i)
 xmap aw <Plug>(textobj-sandwich-auto-a)
 xmap aW <Plug>(textobj-sandwich-query-a)
-xmap ww <Plug>(textobj-sandwich-auto-i)
-xmap wW <Plug>(textobj-sandwich-query-i)
-" I want change the space config of sandwich later.
-
+xmap w  <Plug>(textobj-sandwich-auto-i)
+xmap W  <Plug>(textobj-sandwich-query-i)
 nnoremap <C-w> :<C-u>DeniteCursorWord grep <CR>
-map  <Leader>w <Plug>(easymotion-bd-w)
-nmap <Leader>w <Plug>(easymotion-overwin-w)" inoremap <C-w> is delete pre word
+nmap  <Leader>w <Plug>(easymotion-overwin-w)
+xmap  <Leader>w <Plug>(easymotion-bd-w)
+omap  <Leader>w <Plug>(easymotion-bd-w)
+
+" inoremap <C-w> is delete pre word
 " }}}
 
 " f, p and w is Move{{{
@@ -282,25 +276,25 @@ inoremap <C-f> <C-y>
 inoremap <C-p> <C-e>
 " }}}
 
-
 " d is delete {{{
 inoremap <C-d> <C-u>
+ " noremap <Leaedr>d coc jump
 " }}}
 
 " autocmd CursorHold * silent call CocActionAsync('highlight')
 " nmap <C-v> <Plug>(coc-rename)
  " q is quit {{{
-nnoremap <Leader>q :<C-u>wq<CR>
+nnoremap <Leader>q :<C-u>q<CR>
 nnoremap <Leader>Q :<C-u>q!<CR>
 nnoremap <silent> qq :<C-u>bd<CR>
 " I don't use EX mode.
-nnoremap Q :source ~/.vim/rc/start.vim<CR>
-" }}}
+nnoremap Q @q
+vnoremap <silent>Q :norm @q<cr>"}}}
 
 " x/c/v is Delete/Cut/Paste {{{
 "nnoremap x x
 noremap c y
-" noremap C y$".
+noremap C y$".
 nnoremap v p
 nnoremap V P
 vnoremap v "_dp
@@ -308,21 +302,24 @@ vnoremap V "_dP
 inoremap <C-x> <Delete>
 inoremap <C-v> <C-r><Right>
 inoremap <S-C-v> <ESC>"+pi
-inoremap <C-c>
+" inoremap <C-c>
 nnoremap <silent> <C-v>
- \ :<C-u>Denite -buffer-name=register
- \ register neoyank<CR>
+\ :<C-u>Denite -buffer-name=register
+\ register neoyank<CR>
 xnoremap <silent> <C-v>
- \ :<C-u>Denite -default-action=replace -buffer-name=register
- \ register neoyank<CR>
+\ :<C-u>Denite -default-action=replace -buffer-name=register
+\ register neoyank<CR>
 
 noremap <silent> <Leader>v "+p
+noremap <silent> <Leader>V <Right>"+p
 noremap <silent> <Leader>c "+y
+noremap <silent> <Leader>C "+y$
 noremap <silent> <Leader>x "+d
+noremap <silent> <Leader>X "+d$
 " }}}
 
-noremap gv gp
-noremap gV gP
+nnoremap gv gp
+nnoremap gV gP
 " noremap g{} {}
 " noremap z{} {}
 " noremap m{} {}
@@ -390,18 +387,6 @@ nmap B <Nop>
 xmap B <Nop>
 
 
-" Find text string under cursor
-noremap <silent> Bt :GscopeFind t <C-R><C-W><cr>
-" Find egrep pattern under cursor
-noremap <silent> Be :GscopeFind e <C-R><C-W><cr>
-" Find file name under cursor
-noremap <silent> Bf :GscopeFind f <C-R>=expand("<cfile>")<cr><cr>
-" Find files #including the file name under cursor
-noremap <silent> Bi :GscopeFind i <C-R>=expand("<cfile>")<cr><cr>
-" Find places where current symbol is assigned
-noremap <silent> Bd :GscopeFind d <C-R><C-W><cr>
-" Functions called by this function
-noremap <silent> Ba :GscopeFind a <C-R><C-W><cr>
 " map B :<C-u>'<,'>Gtrans<CR>
 " }}}
 "
@@ -411,8 +396,8 @@ nnoremap gP :Denite gitlog:all -start-filter<CR>
 nnoremap gf :Denite gitchanged -start-filter<CR>
 nnoremap gF :Denite gitfiles -start-filter<CR>
 
-nnoremap <silent> <Leader>w :<C-u>w<CR>
-nnoremap <Leader>W :<C-u>w!<CR>
+" nnoremap <silent> <Leader>w :<C-u>w<CR>
+" nnoremap <Leader>W :<C-u>w!<CR>
 " }}}
 
 " j is Folds {{{
