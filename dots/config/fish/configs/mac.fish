@@ -19,8 +19,8 @@ status --is-interactive; and source (rbenv init -|psub)
 # add coreutils gnubin if installed
 set -l gnubin "/usr/local/opt/coreutils/libexec/gnubin"
 set -l gnuman "/usr/local/opt/coreutils/libexec/gnuman"
-set -U fish_user_paths $HOME/.cargo/bin $fish_user_paths 
-set -U fish_user_paths $HOME/Library/Python/3.7/bin $fish_user_paths 
+set -U fish_user_paths $HOME/.cargo/bin $fish_user_paths
+set -U fish_user_paths $HOME/Library/Python/3.7/bin $fish_user_paths
 set -gx RUST_SRC_PATH "$HOME/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src"
 set -U QT5PATH /usr/local/Cellar/qt/5.11.2_1
 
@@ -39,7 +39,8 @@ set -xg PATH $PATH /usr/bin
 set -xg PATH /usr/local/bin $PATH
 set -xg PATH /usr/local/sbin $PATH
 set -xg PATH $HOME/.local/bin $PATH
-
+set -xg PATH $HOME/go/bin $PATH
+set -x -U GOPATH $HOME/go
 
 alias reboot='systemctl reboot -i now'
 alias deb='sudo dpkg -i'
