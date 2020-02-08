@@ -153,8 +153,8 @@ let g:gundo_prefer_python3 = 1
 let g:ale_sign_column_always = 1
 let g:ale_completion_enabled = 1
 
-" let g:ale_linters_explicit = 1
-" let g:ale_dockerfile_hadolint_use_docker = 'always'
+let g:ale_linters_explicit = 1
+let g:ale_dockerfile_hadolint_use_docker = 'always'
 let g:ale_lint_on_enter = 1
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_save = 1
@@ -187,22 +187,23 @@ let g:ale_python_flake8_options = '-m flake8'
 
 
 let g:ale_linters = {
-\   'c':        ['clang'],
-\   'cmake':    ['cmake'],
-\   'cpp':      ['clang', 'g++', 'ccls'],
-\   'css':      ['prettier', 'stylelint'],
-\   'fish':     ['fish'],
-\   'html':     ['prettier', 'htmlint', 'write-good', 'stylelint'],
-\   'json':     ['eslint','prettier', 'jsonlint'],
-\   'latex':    ['vale', 'textlint'],
-\   'markdown': ['markdownlint', 'prettier'],
-\   'python':   ['pylama', 'black', 'flake8'],
-\   'r':        ['lintr'],
-\   'rust':     ['rustfmt'],
-\   'sql':      ['sqlfmt'],
-\   'text':     ['textlint', 'vale'],
-\   'vim':      ['vint'],
-\   'yaml':     ['yamlint']
+\   'c':          ['clang'],
+\   'cmake':      ['cmake'],
+\   'cpp':        ['clang', 'g++', 'ccls'],
+\   'dockerfile': ['hadolint'],
+\   'css':        ['prettier', 'stylelint'],
+\   'fish':       ['fish'],
+\   'html':       ['prettier', 'htmlint', 'write-good', 'stylelint'],
+\   'json':       ['eslint','prettier', 'jsonlint'],
+\   'latex':      ['vale', 'textlint'],
+\   'markdown':   ['markdownlint', 'prettier'],
+\   'python':     ['pylama', 'black', 'flake8'],
+\   'r':          ['lintr'],
+\   'rust':       ['rustfmt'],
+\   'sql':        ['sqlfmt'],
+\   'text':       ['textlint', 'vale'],
+\   'vim':        ['vint'],
+\   'yaml':       ['yamlint']
 \ }
 
 let g:ale_fixers = {
