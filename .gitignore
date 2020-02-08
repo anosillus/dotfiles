@@ -3,7 +3,8 @@ extensions/
 conf.d/
 functions/
 completions/
-fish_variables/
+fish_variables
 keys/
 .DS_Store
 .ccls-cache/
+sessions/
