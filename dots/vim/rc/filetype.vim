@@ -63,11 +63,12 @@ augroup MyAutoCmd
   autocmd FileType vim set tabstop=2 shiftwidth=2 expandtab
   autocmd FileType terminal call s:terminal_settings()
   autocmd FileType ref call s:initialize_ref_viewer()
+  " autocmd BufRead,BufNewFile *.csv,*.dat setfiletype csv
   " autocmd BufNewFile,BufRead *.ipynb nmap <leader>o :VimpyterInsertPythonBlock<CR>
   " autocmd BufNewFile,BufRead *.ipynb nmap <silent><Leader>o :VimpyterStartJupyter<CR>
   " autocmd BufNewFile,BufRead *.ipynb nmap <C-CR> :VimpyterStartJupyter<CR>
   " autocmd BufNewFile,BufRead *.ipynb highlight VimpyterUpdate term=bold ctermfg=14
-  autocmd BufNewFile,BufRead *.ipynb setl filetype=python retab
+  autocmd BufNewFile,BufRead *.ipynb setl filetype=python
   autocmd FileType c,cpp setl expandtab tabstop=4 shiftwidth=4 softtabstop=4 cindent shiftround
   "https://vim-jp.org/vimdoc-ja/indent.html
   " Reload .vimrc automatically.

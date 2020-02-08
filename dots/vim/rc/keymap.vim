@@ -7,9 +7,11 @@ nmap <Space>   [Space]
 nmap [Space]   <Nop>
 " nnoremap <Leader><Leader> :<C-u>source ~/.config/nvim/init.vim<CR> <bar> <Ctr-l>
 vnoremap <leader><Leader> <ESC>
-cnoremap <silent> <Space><Space> <ESC>
+" cnoremap <silent> <Space><Space> <ESC>
+cnoremap <silent> <C-c> <ESC>
+
 "this isn't work"
-inoremap <S-Space> <ESC>
+inoremap <C-c> <ESC>
 nmap <Space><Space> :<C-u>w<CR>
 " map <Space><Space> <Plug>(easymotion-bd-w)
 " omap <Space><Space> <Plug>(easymotion-bd-w)

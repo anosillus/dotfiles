@@ -53,3 +53,4 @@ alias vi='eval $VIM'
 alias v='gvim'
 alias vv=nvr
 alias n='eval $NVIM'
+# oh-my-fish/plugin-brew

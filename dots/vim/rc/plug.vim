@@ -68,6 +68,8 @@ Plug 'itchyny/lightline.vim'
 Plug 'kana/vim-submode'
 Plug 'lambdalisue/gina.vim'
 Plug 'sjl/gundo.vim'
+Plug 'chrisbra/csv.vim', { 'for' : 'csv' }
+let g:csv_nomap_cr = 1
 Plug 'sheerun/vim-polyglot'
 let g:polyglot_disabled = ['markdown', 'cpp']
 Plug 'bfrg/vim-cpp-modern', { 'for': 'cpp' }
@@ -153,8 +155,8 @@ let g:gundo_prefer_python3 = 1
 let g:ale_sign_column_always = 1
 let g:ale_completion_enabled = 1
 
-let g:ale_linters_explicit = 1
-let g:ale_dockerfile_hadolint_use_docker = 'always'
+" let g:ale_linters_explicit = 1
+let g:ale_dockerfile_hadolint_use_docker = 'yes'
 let g:ale_lint_on_enter = 1
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_save = 1
