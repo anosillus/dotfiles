@@ -112,6 +112,9 @@ noremap n gj
 noremap e gk
 nmap <silent>n <Plug>(accelerated_jk_gj)
 nmap <silent>e <Plug>(accelerated_jk_gk)
+" nmap <silent><leader>N <Plug>(coc-git-prevchunk)
+" nmap <silent><leader>N <Plug>(coc-git-prevchunk)
+" nmap ]g <Plug>(coc-git-nextchunk)
 nmap <leader>s <Plug>(easymotion-overwin-f2)
 xmap <leader>s <Plug>(easymotion-bd-f2)
 map N <Plug>(edgemotion-j)
@@ -176,10 +179,10 @@ map Y <Plug>(smartword-e)
 
 " noremap U <Left>
 " noremap Y <Right>
-map <C-u> <Plug>(easymotion-bd-wl)
-map <C-y> <Plug>(easymotion-bd-el)
-noremap <Leader>u :bprevious<CR>
-noremap <Leader>y :bnext<CR>
+map <C-u> :bprevious<CR>
+map <C-y> :bnext<CR>
+noremap <Leader>u <Plug>(easymotion-bd-el)
+noremap <Leader>y <Plug>(easymotion-bd-wl)
 nnoremap gu :vs
 nnoremap gy :sp
 cnoremap <C-u> <Left>
@@ -207,8 +210,9 @@ noremap mm zM
 noremap mM zR
 noremap mo zMzv
 noremap mO zX
+nnoremap M '
+nnoremap <C-m> M
 " }}}
-inoremap <C-y> is paste over line
 
 inoremap <C-u> <C-e>
 " ioremap <C-y> is paste over line
@@ -239,6 +243,7 @@ nnoremap <C-a> <C-v>
 nnoremap ga gv
 vnoremap <C-a> 0
 inoremap <C-a> <Esc>0i
+" vmap A
 " }}}
 "
 " " w is range operator {{{
@@ -268,10 +273,8 @@ map f <Plug>(easymotion-fl)
 map F <Plug>(easymotion-Fl)
 map p <Plug>(easymotion-tl)
 map P <Plug>(easymotion-Tl)
-" map  <Leader>f <Plug>(easymotion-bd-f)
-" nmap <Leader>f <Plug>(easymotion-overwin-f)
-map <leader>f <Plug>(easymotion-linebackward)
-map <leader>p <Plug>(easymotion-lineforward)
+map <leader>f <Plug>(coc-git-nextchunk)
+map <leader>p <Plug>(coc-git-prevchunk)
 nmap <C-p> <Plug>(ale_previous)
 nmap <C-f> <Plug>(ale_next)
 inoremap <C-f> <C-y>
@@ -347,7 +350,7 @@ nnoremap <leader>z :<C-u>GundoToggle<CR>
 " }}}
 
 " k/K is Search Up/Down (old n/N) {{{
-imap <S-CR> <Plug>(coc-snippets-expand)
+imap <C-o> <Plug>(coc-snippets-expand)
 vmap <C-o> <Plug>(coc-snippets-select)
 imap <C-o> <Plug>(coc-snippets-expand-jump)
 inoremap <silent><expr> <C-o>
@@ -370,7 +373,7 @@ let g:coc_snippet_prev = '<c-h>'
 let g:ref_man_lang = 'ja'
 " Use K to show documentation in preview window
 nmap b <Plug>(ref-keyword)
-let g:jedi#goto_command = '<leader>d'
+" let g:jedi#goto_command = '<leader>d'
 let g:jedi#goto_assignments_command = '<leader>g'
 let g:jedi#goto_stubs_command = '<leader>s'
 let g:jedi#goto_definitions_command = ''
@@ -415,7 +418,6 @@ noremap <silent> jf :GscopeFind f <C-R>=expand("<cfile>")<cr><cr>
 noremap <silent> ji :GscopeFind i <C-R>=expand("<cfile>")<cr><cr>
 noremap <silent> jd :GscopeFind d <C-R><C-W><cr>
 noremap <silent> ja :GscopeFind a <C-R><C-W><cr>
-
 
 imap <C-j> <Plug>(eskk:toggle)
 cmap <C-j> <Plug>(eskk:toggle)

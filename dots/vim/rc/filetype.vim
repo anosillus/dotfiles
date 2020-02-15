@@ -55,7 +55,6 @@ function! s:auto_goyo()
   :Goyo 80
 endfunction
 
-
 augroup MyAutoCmd
   autocmd!
   autocmd WinEnter * if winnr('$') == 1 && &buftype == "quickfix"|q|endif
@@ -84,6 +83,14 @@ augroup MyAutoCmd
   autocmd BufNewFile,BufRead *.vue setl filetype=javascript
   autocmd BufNew,BufNewFile,BufRead .textlintrc setl filetype=json
   " autocmd BufNewFile,BufRead markdown call s:auto_goyo()
+  " autocmd VimEnter * echo 'Sleep'
+  " autocmd VimLeave * echo 'Sleep'
+  " autocmd BufLeave * sleep | echom 1
+  " autocmd BufLeave * !echo 2
+  " autocmd BufWrite * !echo 'write'
+  " autocmd VimLeave * !echo "end"
+  " autocmd QuitPre * !echo "quite pre"
+
   if has('nvim')
   " Neovim
     autocmd WinEnter * if &buftype ==# 'terminal' | startinsert | endif

@@ -94,7 +94,7 @@ Plug 'lifepillar/pgsql.vim', { 'for': 'sql' }
 let g:gfm_syntax_enable_always = 0
 let g:gfm_syntax_enable_filetypes = ['markdown.gfm']
 Plug 'rhysd/vim-gfm-syntax',{ 'for': 'markdown.gfm' }
-Plug 'tyru/caw.vim'
+Plug 'anosillus/caw.vim'
 let g:caw_no_default_keymappings = 1
 let g:caw_operator_keymappings = 0
 Plug 'Shougo/neoyank.vim'
@@ -104,17 +104,39 @@ let g:niceblock_no_default_key_mappings = 1
 Plug 'kana/vim-niceblock'
 Plug 'kana/vim-operator-user'
 Plug 'tyru/eskk.vim'
+let g:eskk#no_default_mappings = 0
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+let g:deoplete#enable_at_startup = 0
 Plug 'rhysd/accelerated-jk'
 Plug 'machakann/vim-sandwich'
 let g:sandwich_no_default_key_mappings = 1
 let g:operator_sandwich_no_default_key_mappings = 1
 let g:textobj_sandwich_no_default_key_mappings = 1
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'neoclide/coc-sources'
-" Plug 'neoclide/coc-lists'
 Plug 'Shougo/neco-vim'
+Plug 'SirVer/ultisnips'
 Plug 'neoclide/coc-neco'
-Plug 'honza/vim-snippets'
+Plug 'neoclide/coc-sources'
+Plug 'Shougo/neco-vim'
+" Plug 'iamcco/coc-vimlsp'
+" Plug 'jamcco/coc-spell-checker'
+" Plug 'josa42/coc-docker'
+" Plug 'neoclide/coc-denite'
+" Plug 'neoclide/coc-git'
+" Plug 'neoclide/coc-lists'
+" Plug 'neoclide/coc-neco'
+" Plug 'neoclide/coc-python'
+" Plug 'neoclide/coc-r-lsp'
+" Plug 'neoclide/coc-rls'
+" css, html, yaml
+" Plug 'neoclide/coc-snippets'
+" Plug 'neoclide/coc-sources'
+" Plug 'neoclide/coc-tabnine'
+" Plug 'neoclide/coc-yaml'
+" Plug 'weirongxu/coc-explorer'
+" coc-ccls
+" coc-go
+" Plug 'honza/vim-snippets'
 
 call plug#end()
 
@@ -155,7 +177,7 @@ let g:gundo_prefer_python3 = 1
 let g:ale_sign_column_always = 1
 let g:ale_completion_enabled = 1
 
-" let g:ale_linters_explicit = 1
+let g:ale_linters_explicit = 1
 let g:ale_dockerfile_hadolint_use_docker = 'yes'
 let g:ale_lint_on_enter = 1
 let g:ale_lint_on_text_changed = 'never'
@@ -213,7 +235,7 @@ let g:ale_fixers = {
 \   'c':          ['remove_trailing_lines', 'trim_whitespace', 'trim_whitespace', 'clang-format'],
 \   'cpp':        ['remove_trailing_lines', 'trim_whitespace', 'trim_whitespace', 'clang-format'],
 \   'css':        ['remove_trailing_lines', 'trim_whitespace', 'prettier', 'stylelint'],
-\   'dockerfile': ['remove_trailing_lines', 'trim_whitespace', 'hadolint'],
+\   'dockerfile': ['remove_trailing_lines', 'trim_whitespace'],
 \   'fish':       ['remove_trailing_lines', 'trim_whitespace'],
 \   'go':         ['remove_trailing_lines', 'trim_whitespace', 'gofmt'],
 \   'html':       ['remove_trailing_lines', 'trim_whitespace', 'prettier', 'stylelint'],
@@ -221,7 +243,7 @@ let g:ale_fixers = {
 \   'json':       ['remove_trailing_lines', 'trim_whitespace', 'prettier', 'fixjson'],
 \   'markdown':   ['remove_trailing_lines', 'prettier', 'textlint', 'vale'],
 \   'python':     ['remove_trailing_lines', 'trim_whitespace', 'add_blank_lines_for_python_control_statements', 'black', 'reorder-python-imports'],
-\   'r':          ['remove_trailing_lines', 'trim_whitespace', 'styler', 'litr'],
+\   'r':          ['remove_trailing_lines', 'trim_whitespace', 'styler'],
 \   'rust':       ['remove_trailing_lines', 'trim_whitespace', 'rustfmt'],
 \   'sh':         ['remove_trailing_lines', 'trim_whitespace', 'shfmt'],
 \   'sql':        ['remove_trailing_lines', 'trim_whitespace', 'sqlfmt',],
@@ -533,7 +555,7 @@ let g:quickrun#config= {
 
 let g:quickrun_no_default_key_mappings = 1
 "}}}
-"
+
 " ESKK {{{
 set imdisable
 let g:eskk#server = {'host': 'localhost','port': 55100}
@@ -561,7 +583,6 @@ let g:eskk#marker_henkan_select = '>>'
 
 let g:jasentence_endpat = '[。．？！]\+'
 
-
 augroup skk
   autocmd!
   autocmd User eskk-enable-post call s:eskk_enable_post()
@@ -571,6 +592,7 @@ augroup skk
 
   autocmd User eskk-initialize-pre call s:eskk_initial_pre()
   function! s:eskk_initial_pre()
+    let g:skk_keep_state = 1
     let t = eskk#table#new('rom_to_hira*', 'rom_to_hira')
     call t.add_map('~', '～')
     call t.add_map('zc', '©')
@@ -583,7 +605,25 @@ augroup skk
     endfor
     call eskk#register_mode_table('hira', t)
   endfunction
+
+
+autocmd User eskk-enable-pre call s:eskk_enable_pre()
+function! s:eskk_enable_pre()
+    call deoplete#enable()
+    inoremap <expr><C-o> deoplete#auto_complete()
+    inoremap <expr><C-i> deoplete#smart_close_popup()."\<C-o>"
+    inoremap <expr><C-h> deoplete#undo_completion()
+    inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
+  endfunction
+
+autocmd User  eskk-disable-post call s:eskk_disable()
+function! s:eskk_disable()
+  echo 'Hello'
+  call deoplete#disable()
+endfunction
+
 augroup END
+
 
  let g:eskk#cursor_color = {
   \   'ascii': ['#8b8b83', '#bebebe'],
@@ -594,7 +634,7 @@ augroup END
 \}
  " }}}
 
-" COC {{{
+ " COC {{{
 " You will have bad experience for diagnostic messages when it's default 4000.
 set updatetime=10000
 set shortmess+=c
@@ -628,8 +668,9 @@ let g:lightline = {
 \   'mode_map': {'c': 'NORMAL'},
 \   'active': {
 \     'left': [ ['mode', 'paste'],
-\               ['ale', 'anzu', 'cocstatus', 'currentfunction', 'fugitive', 'readonly', 'filename', 'qfstatusline', 'modified', 'method'] ],
+\               ['ale', 'anzu', 'cocstatus', 'currentfunction',  'readonly', 'filename', 'qfstatusline', 'modified', 'method'] ],
 \     'right':[ ['lineinfo'],['percent'],['fileformat', 'fileencoding', 'filetype'],
+\               ['blame'],
 \               ['linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok'] ],
 \   },
 \   'component_function': {
@@ -642,10 +683,10 @@ let g:lightline = {
 \     'fileformat':      'LightlineFileformat',
 \     'filename':        'LightlineFilename',
 \     'filetype':        'LightlineFiletype',
-\     'fugitive':        'LightlineFugitive',
+\     'blame':           'LightlineGitBlame',
 \     'mode':            'LightlineMode',
 \     'modified':        'LightlineModified',
-\     'readonly':        'LightlineReadonly',
+\     'readonly':        'LightlineReadonly'
 \   },
 \   'component_expand': {
 \     'linter_checking': 'lightline#ale#checking',
@@ -676,6 +717,11 @@ function! LightlineFilename()
       \ &filetype ==? 'unite'     ? unite#get_status_string() :
       \ &filetype ==? 'denite'    ? substitute(denite#get_status('buffer_name'), '-\\| ', '', 'g'):
       \ ('' !=? &filetype ? &filetype : '[No Name]')
+endfunction
+
+function! LightlineGitBlame() abort
+  let blame = get(b:, 'coc_git_blame', '')
+  return winwidth(0) > 120 ? blame : ''
 endfunction
 
 function! LightlineFileencoding()
@@ -709,5 +755,4 @@ endfunction
 function! NearestMethodOrFunction() abort
   return get(b:, 'vista_nearest_method_or_function', '')
 endfunction
-
 " }}}
