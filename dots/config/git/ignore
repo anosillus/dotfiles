@@ -1,13 +1,14 @@
 #### data, vim,c++,text,rust,latex,linux,macos,python,windows,typings,chocolatey,jupyternotebook ####
 
 ### original
-/data/
-/stock/
+# /data/
+# /stock/
 /trial/
-/unique/
+# /unique/
 /configstore/
 /knownhosts
 /.ccls-cache/
+kaggle.json
 
 ### data
 *.mp4
