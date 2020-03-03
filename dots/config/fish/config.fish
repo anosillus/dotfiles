@@ -13,6 +13,10 @@ switch (uname)
    case '*'
     echo Who are you?
 end
+. ~/.config/fish/configs/alias.fish
+. ~/.config/fish/configs/func.fish
+
+
 
 if not functions -q fisher
     set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
@@ -51,4 +55,4 @@ set -g theme_color_scheme dark
 set -g fish_prompt_pwd_dir_length 0
 set -g theme_project_dir_length 1
 set -g theme_newline_cursor yes
-direnv hook fish | source
+# direnv hook fish | source

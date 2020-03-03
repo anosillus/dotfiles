@@ -16,6 +16,8 @@ alias pu2='pip2 install --upgrade'
 alias gi='gem install'
 alias ni='npm install'
 alias ng='npm install -g'
+alias html='google-chrome'
+
 #alias jn='jupyter-notebook'
 #alias pip='pip3'
 #alias pip2='pip2'
@@ -48,6 +50,7 @@ alias cx 'chmod +x'
 alias 'c-x' 'chmod -x'
 
 # Git {{{
+alias gd='vim +Gapply'
 alias gs='git status'
 alias gc='git clone '
 alias ga='git add '

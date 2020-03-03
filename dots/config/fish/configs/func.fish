@@ -21,7 +21,7 @@ end
 # }}}
 
 # cd のあとに ls -a
-function cd
-  builtin cd $argv
-  ls -a
-end
+# function cd
+#   builtin cd $argv
+#   ls -a
+# end
