@@ -182,7 +182,7 @@ let g:ale_sign_column_always = 1
 let g:ale_completion_enabled = 1
 
 let g:ale_linters_explicit = 1
-let g:ale_dockerfile_hadolint_use_docker = 'always'
+let g:ale_dockerfile_hadolint_use_docker = 'yes'
 let g:ale_lint_on_enter = 1
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_save = 1
