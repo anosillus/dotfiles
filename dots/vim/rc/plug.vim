@@ -29,6 +29,10 @@ let g:grammarous#disabled_rules = {
 Plug 'mopp/layoutplugin.vim', { 'on': 'LayoutPlugin'}
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'chemzqm/denite-git'
+Plug 'chrisbra/vim-diff-enhanced'
+if &diff
+    let &diffexpr='EnhancedDiff#Diff("git diff", "--diff-algorithm=patience")'
+endif
 Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/vim-easy-align'
 Plug 'kana/vim-smartinput'
@@ -178,7 +182,7 @@ let g:ale_sign_column_always = 1
 let g:ale_completion_enabled = 1
 
 let g:ale_linters_explicit = 1
-let g:ale_dockerfile_hadolint_use_docker = 'yes'
+let g:ale_dockerfile_hadolint_use_docker = 'always'
 let g:ale_lint_on_enter = 1
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_save = 1
@@ -214,7 +218,7 @@ let g:ale_linters = {
 \   'c':          ['clang'],
 \   'cmake':      ['cmake'],
 \   'cpp':        ['clang', 'g++', 'ccls'],
-\   'dockerfile': ['hadolint'],
+\   'Dockerfile': ['hadolint'],
 \   'css':        ['prettier', 'stylelint'],
 \   'fish':       ['fish'],
 \   'html':       ['prettier', 'htmlint', 'write-good', 'stylelint'],
@@ -235,7 +239,7 @@ let g:ale_fixers = {
 \   'c':          ['remove_trailing_lines', 'trim_whitespace', 'trim_whitespace', 'clang-format'],
 \   'cpp':        ['remove_trailing_lines', 'trim_whitespace', 'trim_whitespace', 'clang-format'],
 \   'css':        ['remove_trailing_lines', 'trim_whitespace', 'prettier', 'stylelint'],
-\   'dockerfile': ['remove_trailing_lines', 'trim_whitespace'],
+\   'Dockerfile': ['remove_trailing_lines', 'trim_whitespace'],
 \   'fish':       ['remove_trailing_lines', 'trim_whitespace'],
 \   'go':         ['remove_trailing_lines', 'trim_whitespace', 'gofmt'],
 \   'html':       ['remove_trailing_lines', 'trim_whitespace', 'prettier', 'stylelint'],
@@ -277,6 +281,9 @@ let g:quickrun#config= {
 \   'runner/vimproc/updatetime' : 20,
 \   'outpuutter/buffer/split' : ':votright 10sp',
 \   'outputter/buffer/close_on_empty' : 1,
+\   "outputter/error/error" : "quickfix",
+\   "outputter/error/success" : "buffer",
+\   "outputter" : "error",
 \   'hook/time/enable' : 1,
 \   'tempfile'  : '%{tempname()}',
 \   'args': '',
@@ -291,20 +298,6 @@ let g:quickrun#config= {
 \   'exec': '%c %o -f %s %a',
 \ },
 \ 'bash': {},
-\ 'clojure': {
-\   'type': executable('jark') ? 'clojure/jark':
-\           executable('clj') ? 'clojure/clj':
-\           '',
-\ },
-\ 'clojure/jark': {
-\   'command': 'jark',
-\   'exec': '%c ns load %s',
-\ },
-\ 'clojure/clj': {
-\   'command': 'clj',
-\   'exec': '%c %s',
-\ },
-\ 'coffee': {},
 \ 'cs': {
 \   'type': executable('csc')  ? 'cs/csc'  :
 \           executable('dmcs') ? 'cs/dmcs' :
@@ -352,96 +345,12 @@ let g:quickrun#config= {
 \   'command': 'clang++',
 \   'cmdopt' : '-std=c++17 -Wall --pedantic-error',
 \ },
-\ 'd': {
-\   'type':
-\     executable('rdmd')           ? 'd/rdmd' :
-\     executable('ldc')            ? 'd/ldc' :
-\     executable('gdc')            ? 'd/gdc' : '',
-\ },
-\ 'd/rdmd': {
-\   'command': 'rdmd',
-\   'tempfile': '%{tempname()}.d',
-\ },
-\ 'd/ldc': {
-\   'command': 'ldc',
-\   'exec': ['%c %o %s -o %s:p:r', '%s:p:r %a'],
-\   'tempfile': '%{tempname()}.d',
-\   'hook/sweep/files': ['%S:p:r'],
-\ },
-\ 'd/gdc': {
-\   'command': 'gdc',
-\   'exec': ['%c %o %s -o %s:p:r', '%s:p:r %a'],
-\   'tempfile': '%{tempname()}.d',
-\   'hook/sweep/files': ['%S:p:r'],
-\ },
-\ 'dosbatch': {
-\   'command': '',
-\   'exec': 'call %s %a',
-\   'tempfile': '%{tempname()}.bat',
-\ },
-\ 'dart': {
-\   'type':
-\     executable('dart') ? 'dart/dart/checked':
-\   '',
-\ },
-\ 'dart/dart/checked': {
-\   'command': 'dart',
-\   'cmdopt': '--enable-type-checks',
-\   'tempfile': '%{tempname()}.dart',
-\ },
-\ 'dart/dart/production': {
-\   'command': 'dart',
-\   'tempfile': '%{tempname()}.dart',
-\ },
-\ 'erlang': {
-\   'command': 'escript',
-\ },
-\ 'eruby': {
-\   'command': 'erb',
-\   'exec': '%c %o -T - %s %a',
-\ },
-\ 'fortran': {
-\   'type': 'fortran/gfortran',
-\ },
-\ 'fortran/gfortran': {
-\   'command': 'gfortran',
-\   'exec': ['%c %o -o %s:p:r %s', '%s:p:r %a'],
-\   'tempfile': '%{tempname()}.f95',
-\   'hook/sweep/files': ['%S:p:r'],
-\ },
 \ 'go': {
 \   'command': 'go',
 \   'exec': '%c run %s:p:t %a',
 \   'tempfile': '%{tempname()}.go',
 \   'hook/output_encode/encoding': 'utf-8',
 \   'hook/cd/directory': '%S:p:h',
-\ },
-\ 'groovy': {
-\   'cmdopt': '-c %{&fenc==#""?&enc:&fenc}'
-\ },
-\ 'haskell': {'type': 'haskell/runghc'},
-\ 'haskell/runghc': {
-\   'command': 'runghc',
-\   'tempfile': '%{tempname()}.hs',
-\   'hook/eval/template': 'main = print \$ %s',
-\ },
-\ 'haskell/ghc': {
-\   'command': 'ghc',
-\   'exec': ['%c %o %s -o %s:p:r', '%s:p:r %a'],
-\   'cmdopt': '-v0 --make',
-\   'tempfile': '%{tempname()}.hs',
-\   'hook/sweep/files': ['%S:p:r', '%S:p:r.o', '%S:p:r.hi'],
-\ },
-\ 'haskell/ghc/core': {
-\   'command': 'ghc',
-\   'exec': '%c %o -ddump-simpl -dsuppress-coercions %s',
-\   'cmdopt': '-v0 --make',
-\   'tempfile': '%{tempname()}.hs',
-\   'hook/sweep/files': ['%S:p:r', '%S:p:r.o', '%S:p:r.hi'],
-\ },
-\ 'html': {
-\   'command' : ':gnome-open',
-\   'outputter/browser' : 1,
 \ },
 \ 'java': {
 \   'exec': ['javac %o %s', '%c %s:t:r %a'],
@@ -519,21 +428,6 @@ let g:quickrun#config= {
 \   'cmdopt': '-Dfile.encoding=' . &termencoding,
 \   'hook/output_encode/encoding': '&termencoding',
 \ },
-\ 'scheme': {
-\   'type': executable('gosh')     ? 'scheme/gauche':
-\           executable('mzscheme') ? 'scheme/mzscheme': '',
-\ },
-\ 'scheme/gauche': {
-\   'command': 'gosh',
-\   'exec': '%c %o %s:p %a',
-\   'hook/eval/template': '(display (begin %s))',
-\ },
-\ 'scheme/mzscheme': {
-\   'command': 'mzscheme',
-\   'exec': '%c %o -f %s %a',
-\ },
-\ 'sed': {},
-\ 'sh': {},
 \ 'typescript': {
 \   'command': 'tsc',
 \   'cmdopt': '--exec',
@@ -545,12 +439,6 @@ let g:quickrun#config= {
 \   'hook/eval/template': 'echo %s',
 \   'runner': 'vimscript',
 \ },
-\ 'wsh': {
-\   'command': 'cscript',
-\   'cmdopt': '//Nologo',
-\   'hook/output_encode/encoding': '&termencoding',
-\ },
-\ 'zsh': {},
 \ }
 
 let g:quickrun_no_default_key_mappings = 1
@@ -618,8 +506,7 @@ function! s:eskk_enable_pre()
 
 autocmd User  eskk-disable-post call s:eskk_disable()
 function! s:eskk_disable()
-  echo 'Hello'
-  call deoplete#disable()
+  " call deoplete#disable()
 endfunction
 
 augroup END
