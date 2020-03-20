@@ -67,6 +67,7 @@ Plug 'liuchengxu/vista.vim'
 let g:vista_icon_indent = ['╰─▸ ', '├─▸ ']
 let g:vista_default_executive = 'coc'
 let g:vista_fzf_preview = ['right:50%']
+" let g:vista#renderer#enable_icon = 1
 Plug 'vim-scripts/autodate.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'kana/vim-submode'
@@ -209,9 +210,10 @@ let g:ale_javascript_eslint_options='-c google'
 let g:ale_lint_on_insert_leave = 1
 let g:ale_python_auto_pipenv = 1
 let g:ale_python_black_options = '--line-length 79'
+" let g:ale_python_pylama_options = '--linters pycodestyle pydocstyle Mccabe Pylint'
 let g:ale_python_flake8_executable = 'python3'
 " let g:ale_python_flake8_options = '-m flake8 --select=C,E,F,W,B901'
-let g:ale_python_flake8_options = '-m flake8'
+" let g:ale_python_flake8_options = '-m flake8'
 
 
 let g:ale_linters = {
@@ -230,6 +232,7 @@ let g:ale_linters = {
 \   'rust':       ['rustfmt'],
 \   'sql':        ['sqlfmt'],
 \   'text':       ['textlint', 'vale'],
+\   'java':       ['checkstyle'],
 \   'vim':        ['vint'],
 \   'yaml':       ['yamlint']
 \ }
@@ -244,6 +247,7 @@ let g:ale_fixers = {
 \   'go':         ['remove_trailing_lines', 'trim_whitespace', 'gofmt'],
 \   'html':       ['remove_trailing_lines', 'trim_whitespace', 'prettier', 'stylelint'],
 \   'javascript': ['remove_trailing_lines', 'trim_whitespace', 'prettier', 'eslint', 'importjs','prettier-standard'],
+\   'java':       ['remove_trailing_lines', 'trim_whitespace'],
 \   'json':       ['remove_trailing_lines', 'trim_whitespace', 'prettier', 'fixjson'],
 \   'markdown':   ['remove_trailing_lines', 'prettier', 'textlint', 'vale'],
 \   'python':     ['remove_trailing_lines', 'trim_whitespace', 'add_blank_lines_for_python_control_statements', 'black', 'reorder-python-imports'],
@@ -450,7 +454,7 @@ let g:eskk#server = {'host': 'localhost','port': 55100}
 let g:eskk#select_cand_keys = 'arshnei'
 let g:eskk#no_default_mappings = 1
 let g:eskk#enable_completion = 1
-let g:eskk#keep_state = 0
+let g:eskk#keep_state = 1
 let g:eskk#statusline_mode_strings = {
 	\	'hira': 'あ',
 	\	'kata': 'ア',
@@ -464,12 +468,13 @@ let g:eskk#show_annotation = 1
 let g:eskk#rom_input_style = 'msime'
 let g:eskk#egg_like_newline = 1
 let g:eskk#egg_like_newline_completion = 1
-let g:eskk#tab_select_completion = 1
+" let g:eskk#tab_select_completion = 1
 let g:eskk#start_completion_length = 2
 let g:eskk#marker_henkan = '<>'
 let g:eskk#marker_henkan_select = '>>'
-
 let g:jasentence_endpat = '[。．？！]\+'
+
+
 
 augroup skk
   autocmd!
@@ -487,13 +492,26 @@ augroup skk
     call t.add_map('zr', '®')
     call t.add_map('tm', '™')
     call t.add_map('z ', '　')
+    call t.add_map('z1', '①')
+    call t.add_map('z2', '②')
+    call t.add_map('z3', '③')
+    call t.add_map('z4', '④')
+    call t.add_map('z5', '⑤')
+    call t.add_map('z6', '⑥')
+    call t.add_map('z7', '⑦')
+    call t.add_map('z8', '⑧')
+    call t.add_map('z9', '⑨')
+    call t.add_map('zc', '©')
+    call t.add_map('zr', '®')
+    call t.add_map('tm', '™')
+    call t.add_map('z ', '　')
+
     " "1." のように数字の後のドットはそのまま入力
     for n in range(10)
       call t.add_map(n . '.', n . '.')
     endfor
     call eskk#register_mode_table('hira', t)
   endfunction
-
 
 autocmd User eskk-enable-pre call s:eskk_enable_pre()
 function! s:eskk_enable_pre()
@@ -504,13 +522,13 @@ function! s:eskk_enable_pre()
     inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
   endfunction
 
-autocmd User  eskk-disable-post call s:eskk_disable()
-function! s:eskk_disable()
+
+" autocmd User  eskk-disable-post call s:eskk_disable()
+" function! s:eskk_disable()
   " call deoplete#disable()
-endfunction
+" endfunction
 
 augroup END
-
 
  let g:eskk#cursor_color = {
   \   'ascii': ['#8b8b83', '#bebebe'],
@@ -555,7 +573,8 @@ let g:lightline = {
 \   'mode_map': {'c': 'NORMAL'},
 \   'active': {
 \     'left': [ ['mode', 'paste'],
-\               ['ale', 'anzu', 'cocstatus', 'currentfunction',  'readonly', 'filename', 'qfstatusline', 'modified', 'method'] ],
+\               ['ale', 'anzu', 'cocstatus', 'currentfunction',  'readonly', 'filename2', 'filename', 'qfstatusline', 'modified'],
+\               ['method'] ],
 \     'right':[ ['lineinfo'],['percent'],['fileformat', 'fileencoding', 'filetype'],
 \               ['blame'],
 \               ['linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok'] ],
@@ -568,7 +587,7 @@ let g:lightline = {
 \     'currentfunction': 'CocCurrentFunction',
 \     'fileencoding':    'LightlineFileencoding',
 \     'fileformat':      'LightlineFileformat',
-\     'filename':        'LightlineFilename',
+\     'filename2':        'LightlineFilename',
 \     'filetype':        'LightlineFiletype',
 \     'blame':           'LightlineGitBlame',
 \     'mode':            'LightlineMode',

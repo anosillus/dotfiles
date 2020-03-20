@@ -73,8 +73,8 @@ if has('vim_starting') && !empty(argv())
   if has('syntax')
     syntax on
   endif
-  " colorscheme jellybeans
-	colorscheme atom-dark-256
+  colorscheme jellybeans
+	" colorscheme atom-dark-256
 endif
 
 

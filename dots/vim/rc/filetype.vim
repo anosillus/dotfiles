@@ -7,7 +7,6 @@ function! s:template_keywords()
     execute 'normal! "_da>'
   endif
 endfunction
-
 " ---------- Tab/Indent ----------
 set splitright
 setl expandtab
@@ -55,8 +54,13 @@ function! s:auto_goyo()
   :Goyo 80
 endfunction
 
+function! s:jp_setting()
+  echo "test"
+endfunction
+
 augroup MyAutoCmd
   autocmd!
+  autocmd BufEnter */jp_memo/* call s:jp_setting()
   autocmd WinEnter * if winnr('$') == 1 && &buftype == "quickfix"|q|endif
   autocmd BufNew * call timer_start(0, { -> s:bufnew() })
   autocmd FileType vim set tabstop=2 shiftwidth=2 expandtab

@@ -106,7 +106,6 @@ map g* <Plug>(asterisk-gz*)<Plug>(is-nohl-1)
 map #  <Plug>(asterisk-z#)<Plug>(is-nohl-1)
 map g# <Plug>(asterisk-gz#)<Plug>(is-nohl-1)
 "}}}
-
 " n/e is UP/DOWN {{{
 noremap n gj
 noremap e gk
@@ -179,8 +178,8 @@ map Y <Plug>(smartword-e)
 
 " noremap U <Left>
 " noremap Y <Right>
-map <C-u> :bprevious<CR>
-map <C-y> :bnext<CR>
+noremap <C-u> :bprevious<CR>
+noremap <C-y> :bnext<CR>
 noremap <Leader>u <Plug>(easymotion-bd-el)
 noremap <Leader>y <Plug>(easymotion-bd-wl)
 nnoremap gu :vs
@@ -217,7 +216,6 @@ nnoremap <C-m> M
 inoremap <C-u> <C-e>
 " ioremap <C-y> is paste over line
 
-
 " t is Insert/Append {{{
 nnoremap s i
 nnoremap S I
@@ -231,7 +229,9 @@ xmap T  <Plug>(niceblock-A)
 inoremap <C-s> <C-d>
 " inoremap <C-t> Inert Indent
 "
-nnoremap <buffer> <leader>t :<C-u>DeniteCursorWord tag<CR>
+nnoremap <silent> <Leader>t :<C-u>Denite -split=vertical outline <CR>
+
+" nnoremap <buffer> <leader>t :<C-u>DeniteCursorWord tag<CR>
 " }}}
 
 " a is Visual mode {{{

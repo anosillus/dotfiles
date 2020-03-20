@@ -50,3 +50,5 @@ ssh,D-tool,C,,y,,openssh,,,ssh-server,,,
 anaconda,P-lang,G,,y,,anaconda3,,,,,,
 Keyboard,config,G,,,y,,,C:Karabiner-elements,,,,
 direnv,D-tool,C,,y,,,,direnv,direnv,,,
+checkstyle,D-tool,C,,,,,,tmux,tmux,,,
+
