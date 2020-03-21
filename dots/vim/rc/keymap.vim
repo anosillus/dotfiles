@@ -300,8 +300,10 @@ vnoremap <silent>Q :norm @q<cr>"}}}
 "nnoremap x x
 noremap c y
 noremap C y$".
-nnoremap v p
-nnoremap V P
+nnoremap v ]p
+nnoremap mv p
+noremap V ]P
+noremap mV P
 vnoremap v "_dp
 vnoremap V "_dP
 inoremap <C-x> <Delete>
@@ -322,6 +324,9 @@ noremap <silent> <Leader>C "+y$
 noremap <silent> <Leader>x "+d
 noremap <silent> <Leader>X "+d$
 " }}}
+
+
+" nnoremap <UP>
 
 nnoremap gv gp
 nnoremap gV gP
