@@ -66,6 +66,11 @@ augroup MyAutoCmd
   autocmd FileType vim set tabstop=2 shiftwidth=2 expandtab
   autocmd FileType terminal call s:terminal_settings()
   autocmd FileType ref call s:initialize_ref_viewer()
+  autocmd VimEnter * RainbowParenthesesToggle
+  autocmd Syntax * RainbowParenthesesLoadRound
+  autocmd Syntax * RainbowParenthesesLoadSquare
+  autocmd Syntax * RainbowParenthesesLoadBraces
+
   " autocmd BufRead,BufNewFile *.csv,*.dat setfiletype csv
   " autocmd BufNewFile,BufRead *.ipynb nmap <leader>o :VimpyterInsertPythonBlock<CR>
   " autocmd BufNewFile,BufRead *.ipynb nmap <silent><Leader>o :VimpyterStartJupyter<CR>

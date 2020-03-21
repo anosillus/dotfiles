@@ -20,7 +20,7 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 Plug 'Shougo/deol.nvim'
-Plug 'anosillus/vim-ipynb'
+" Plug 'anosillus/vim-ipynb'
 Plug 'rhysd/vim-grammarous'
 let g:grammarous#disabled_rules = {
 \ '*' : ['WHITESPACE_RULE', 'EN_QUOTES'],
@@ -29,10 +29,13 @@ let g:grammarous#disabled_rules = {
 Plug 'mopp/layoutplugin.vim', { 'on': 'LayoutPlugin'}
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'chemzqm/denite-git'
+Plug 'tpope/vim-git'
+Plug 'tpope/vim-rhubarb'
 Plug 'chrisbra/vim-diff-enhanced'
 if &diff
-    let &diffexpr='EnhancedDiff#Diff("git diff", "--diff-algorithm=patience")'
+  let &diffexpr='EnhancedDiff#Diff("git diff", "--diff-algorithm=patience")'
 endif
+Plug 'kien/rainbow_parentheses.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/vim-easy-align'
 Plug 'kana/vim-smartinput'
@@ -63,11 +66,51 @@ Plug 'bkad/CamelCaseMotion'
 Plug 'thinca/vim-quickrun'
 Plug 'Yggdroot/indentLine'
 Plug 'pbrisbin/vim-mkdir'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'liuchengxu/vista.vim'
 let g:vista_icon_indent = ['╰─▸ ', '├─▸ ']
 let g:vista_default_executive = 'coc'
 let g:vista_fzf_preview = ['right:50%']
-" let g:vista#renderer#enable_icon = 1
+let g:vista#renderer#enable_icon = 1
+let g:vista#renderer#icons = {
+\ 'func':           "\Uff794",
+\ 'function':       "\Uff794",
+\ 'functions':      "\Uff794",
+\ 'var':            "\Uff71b",
+\ 'variable':       "\Uff71b",
+\ 'variables':      "\Uff71b",
+\ 'const':          "\Uff8ff",
+\ 'constant':       "\Uff8ff",
+\ 'method':         "\Uff6a6",
+\ 'package':        "\Ufe612",
+\ 'packages':       "\Ufe612",
+\ 'enum':           "\Uff435",
+\ 'enumerator':     "\Uff435",
+\ 'module':         "\Uff668",
+\ 'modules':        "\Uff668",
+\ 'type':           "\Ufe22b",
+\ 'typedef':        "\Ufe22b",
+\ 'types':          "\Ufe22b",
+\ 'field':          "\Uff93d",
+\ 'fields':         "\Uff93d",
+\ 'macro':          "\Uff8a3",
+\ 'macros':         "\Uff8a3",
+\ 'map':            "\Uffb44",
+\ 'class':          "\Uff9a9",
+\ 'augroup':        "\Uffb44",
+\ 'struct':         "\Uffb44",
+\ 'union':          "\Uffacd",
+\ 'member':         "\Uff02b",
+\ 'target':         "\Uff893",
+\ 'property':       "\Uffab6",
+\ 'interface':      "\Uffa52",
+\ 'namespace':      "\Uff475",
+\ 'subroutine':     "\Uff915",
+\ 'implementation': "\Uff87a",
+\ 'typeParameter':  "\Uff278",
+\ 'default':        "\Uff29c"
+\ }
 Plug 'vim-scripts/autodate.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'kana/vim-submode'
@@ -83,6 +126,13 @@ Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
 Plug 'rcmdnk/vim-markdown', { 'for': 'markdown' }
 let g:markdown_enable_mappings = 0
 let g:markdown_enable_spell_checking = 0
+Plug 'previm/previm'
+Plug 'mattn/vim-maketable'
+Plug 'markonm/traces.vim'
+Plug 'skanehira/translate.vim'
+let g:translate_source = 'en'
+let g:translate_target = 'ja'
+let g:translate_winsize = 10
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries',  'for': 'golang' }
 Plug 'junegunn/goyo.vim', {'for':'markdown'}
 Plug 'ap/vim-css-color'
@@ -285,9 +335,9 @@ let g:quickrun#config= {
 \   'runner/vimproc/updatetime' : 20,
 \   'outpuutter/buffer/split' : ':votright 10sp',
 \   'outputter/buffer/close_on_empty' : 1,
-\   "outputter/error/error" : "quickfix",
-\   "outputter/error/success" : "buffer",
-\   "outputter" : "error",
+\   'outputter/error/error' : 'quickfix',
+\   'outputter/error/success' : 'buffer',
+\   'outputter' : 'error',
 \   'hook/time/enable' : 1,
 \   'tempfile'  : '%{tempname()}',
 \   'args': '',
@@ -573,11 +623,11 @@ let g:lightline = {
 \   'mode_map': {'c': 'NORMAL'},
 \   'active': {
 \     'left': [ ['mode', 'paste'],
-\               ['ale', 'anzu', 'cocstatus', 'currentfunction',  'readonly', 'filename2', 'filename', 'qfstatusline', 'modified'],
-\               ['method'] ],
+\               ['ale', 'anzu', 'cocstatus', 'currentfunction',  'readonly', 'filename', 'qfstatusline', 'modified'],
+\               ['method']],
 \     'right':[ ['lineinfo'],['percent'],['fileformat', 'fileencoding', 'filetype'],
 \               ['blame'],
-\               ['linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok'] ],
+\               ['linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok'] ]
 \   },
 \   'component_function': {
 \     'ale':             'ALEGetStatusLine',
@@ -587,7 +637,6 @@ let g:lightline = {
 \     'currentfunction': 'CocCurrentFunction',
 \     'fileencoding':    'LightlineFileencoding',
 \     'fileformat':      'LightlineFileformat',
-\     'filename2':        'LightlineFilename',
 \     'filetype':        'LightlineFiletype',
 \     'blame':           'LightlineGitBlame',
 \     'mode':            'LightlineMode',
@@ -618,12 +667,12 @@ let g:lightline#ale#indicator_ok = "\uf00c"
 
 call denite#custom#option('default', 'statusline', v:false)
 
-function! LightlineFilename()
-  return &filetype =~? 'NERD_tree' ? 'NERD' :
-      \ &filetype ==? 'unite'     ? unite#get_status_string() :
-      \ &filetype ==? 'denite'    ? substitute(denite#get_status('buffer_name'), '-\\| ', '', 'g'):
-      \ ('' !=? &filetype ? &filetype : '[No Name]')
-endfunction
+" function! LightlineFilename()
+"   return &filetype =~? 'NERD_tree' ? 'NERD' :
+"       \ &filetype ==? 'unite'     ? unite#get_status_string() :
+"       \ &filetype ==? 'denite'    ? substitute(denite#get_status('buffer_name'), '-\\| ', '', 'g'):
+"       \ ('' !=? &filetype ? &filetype : '[No Name]')
+" endfunction
 
 function! LightlineGitBlame() abort
   let blame = get(b:, 'coc_git_blame', '')

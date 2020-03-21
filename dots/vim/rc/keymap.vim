@@ -166,8 +166,8 @@ map <silent> i <Plug>CamelCaseMotion_w
 map <silent> h <Plug>CamelCaseMotion_b
 map <silent> I <Plug>CamelCaseMotion_e
 map <silent> H <Plug>CamelCaseMotion_ge
-map <C-i> <Plug>(smartword-w)
-map <C-h> <Plug>(smartword-b)
+map <C-i> <Plug>(smartword-basic-w)
+map <C-h> <Plug>(smartword-basic-b)
 
 "}}}
 " u/y is Left/Right{{{
@@ -212,7 +212,6 @@ noremap mO zX
 nnoremap M '
 nnoremap <C-m> M
 " }}}
-
 inoremap <C-u> <C-e>
 " ioremap <C-y> is paste over line
 
@@ -226,10 +225,11 @@ xmap <C-s> <Plug>(caw:hatpos:toggle)
 omap <C-s> <Plug>(caw:hatpos:toggle)
 xmap S  <Plug>(niceblock-I)
 xmap T  <Plug>(niceblock-A)
+nnoremap <C-t> :<C-u>Vista!!<CR>
 inoremap <C-s> <C-d>
 " inoremap <C-t> Inert Indent
 "
-nnoremap <silent> <Leader>t :<C-u>Denite -split=vertical outline <CR>
+nnoremap <silent> <Leader>t :<C-u>Denite -split=tab outline -start-filter <CR>
 
 " nnoremap <buffer> <leader>t :<C-u>DeniteCursorWord tag<CR>
 " }}}

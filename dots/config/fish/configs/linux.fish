@@ -5,6 +5,8 @@ echo Hi Free-OS!
 
 # add coreutils gnubin if installed
 set -U fish_user_paths $HOME/.cargo/bin $fish_user_paths
+set -U fish_user_paths $HOME/.local/bin $fish_user_paths
+
 set -x -U GOPATH $HOME/go
 
 set PATH /usr/local/bin /usr/sbin $GOPATH/bin $PATH
