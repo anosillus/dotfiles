@@ -325,8 +325,16 @@ noremap <silent> <Leader>x "+d
 noremap <silent> <Leader>X "+d$
 " }}}
 
+nnoremap <Right> :<C-u>Gina commit<CR>
+nnoremap <Left> :<C-u>Gina push<CR>
+nnoremap <UP> :<C-u>Gina status<CR>
 
-" nnoremap <UP>
+call gina#custom#mapping#nmap(
+\ 'status', '<Left>',
+\ ':call gina#action#call(''show:leftest'')<CR>',
+\ {'noremap': 1, 'silent': 1},
+\)
+
 
 nnoremap gv gp
 nnoremap gV gP
