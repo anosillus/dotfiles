@@ -45,7 +45,7 @@ xmap <CR> <Plug>(EasyAlign)
 noremap <silent> <Esc><Esc> :<C-u>nohlsearch<CR> <bar> <Plug>(anzu-clear-search-status)
 noremap <bs> _x
 noremap <Leader><bs> _X
-nnoremap <CR> <C-f>
+noremap <CR> <C-f>
 nmap <S-CR>  <C-b>
 noremap <C-CR>  <C-d>
 inoremap <C-CR> <ESC>+i
@@ -210,7 +210,7 @@ noremap mM zR
 noremap mo zMzv
 noremap mO zX
 nnoremap M '
-nnoremap <C-m> M
+nnoremap <leader>m M
 " }}}
 inoremap <C-u> <C-e>
 " ioremap <C-y> is paste over line
@@ -325,15 +325,11 @@ noremap <silent> <Leader>x "+d
 noremap <silent> <Leader>X "+d$
 " }}}
 
-nnoremap <Right> :<C-u>Gina commit<CR>
+nnoremap <Right> :<C-u>Gina commit --verbose<CR>
 nnoremap <Left> :<C-u>Gina push<CR>
 nnoremap <UP> :<C-u>Gina status<CR>
-
-call gina#custom#mapping#nmap(
-\ 'status', '<Left>',
-\ ':call gina#action#call(''show:leftest'')<CR>',
-\ {'noremap': 1, 'silent': 1},
-\)
+nnoremap <Down> :<C-u>Gina changes<CR>
+" nnoremap <Down> :<C-u>call gina#custom#execute('/\%(status\|branch\|ls\|grep\|changes\|tag\)','setlocal winfixheight',)
 
 
 nnoremap gv gp

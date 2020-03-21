@@ -21,16 +21,14 @@ else
 endif
 Plug 'Shougo/deol.nvim'
 " Plug 'anosillus/vim-ipynb'
-Plug 'rhysd/vim-grammarous'
-let g:grammarous#disabled_rules = {
-\ '*' : ['WHITESPACE_RULE', 'EN_QUOTES'],
-\ 'help' : ['WHITESPACE_RULE', 'EN_QUOTES', 'SENTENCE_WHITESPACE', 'UPPERCASE_SENTENCE_START'],
-	\ }
+" Plug 'rhysd/vim-grammarous'
+" let g:grammarous#disabled_rules = {
+" \ '*' : ['WHITESPACE_RULE', 'EN_QUOTES'],
+" \ 'help' : ['WHITESPACE_RULE', 'EN_QUOTES', 'SENTENCE_WHITESPACE', 'UPPERCASE_SENTENCE_START'],
+" 	\ }
 Plug 'mopp/layoutplugin.vim', { 'on': 'LayoutPlugin'}
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'chemzqm/denite-git'
-Plug 'tpope/vim-git'
-Plug 'tpope/vim-rhubarb'
 Plug 'chrisbra/vim-diff-enhanced'
 if &diff
   let &diffexpr='EnhancedDiff#Diff("git diff", "--diff-algorithm=patience")'
@@ -118,6 +116,8 @@ Plug 'lambdalisue/gina.vim'
 Plug 'sjl/gundo.vim'
 Plug 'chrisbra/csv.vim', { 'for' : 'csv' }
 let g:csv_nomap_cr = 1
+Plug 'dhruvasagar/vim-table-mode'
+let g:table_mode_map_prefix	= '<Non>'
 Plug 'sheerun/vim-polyglot'
 let g:polyglot_disabled = ['markdown', 'cpp']
 Plug 'bfrg/vim-cpp-modern', { 'for': 'cpp' }
@@ -205,11 +205,22 @@ call submode#enter_with('bufmove', 'n', '', '<C-g>h', '<C-w>>')
 call submode#enter_with('bufmove', 'n', '', '<C-g>i', '<C-w><')
 call submode#enter_with('bufmove', 'n', '', '<C-g>n', '<C-w>+')
 call submode#enter_with('bufmove', 'n', '', '<C-g>e', '<C-w>-')
+call submode#enter_with('bufmove', 'n', '', '<C-g>H', '<C-w>H')
+call submode#enter_with('bufmove', 'n', '', '<C-g>I', '<C-w>L')
+call submode#enter_with('bufmove', 'n', '', '<C-g>N', '<C-w>J')
+call submode#enter_with('bufmove', 'n', '', '<C-g>E', '<C-w>K')
+call submode#enter_with('bufmove', 'n', '', '<C-g>O', '<C-w>r')
+
+
 call submode#map('bufmove', 'n', '', 'h', '<C-w>>')
 call submode#map('bufmove', 'n', '', 'i', '<C-w><')
 call submode#map('bufmove', 'n', '', 'n', '<C-w>+')
 call submode#map('bufmove', 'n', '', 'e', '<C-w>-')
-
+call submode#map('bufmove', 'n', '', 'H', '<C-w>H')
+call submode#map('bufmove', 'n', '', 'I', '<C-w>L')
+call submode#map('bufmove', 'n', '', 'N', '<C-w>J')
+call submode#map('bufmove', 'n', '', 'E', '<C-w>K')
+call submode#map('bufmove', 'n', '', 'O', '<C-w>r')
 
 call submode#enter_with('bufmove', 'n', '', '<C-g>y', ':call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 2)<CR>')
 call submode#enter_with('bufmove', 'n', '', '<C-g>u', ':call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -2)<CR>')
@@ -627,6 +638,7 @@ let g:lightline = {
 \               ['method']],
 \     'right':[ ['lineinfo'],['percent'],['fileformat', 'fileencoding', 'filetype'],
 \               ['blame'],
+\               ['gitbranch', 'gitstage'],
 \               ['linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok'] ]
 \   },
 \   'component_function': {
@@ -641,8 +653,10 @@ let g:lightline = {
 \     'blame':           'LightlineGitBlame',
 \     'mode':            'LightlineMode',
 \     'modified':        'LightlineModified',
-\     'readonly':        'LightlineReadonly'
-\   },
+\     'readonly':        'LightlineReadonly',
+\     'gitbranch': 'gina#component#repo#branch',
+\     'gitstage':  'gina#component#status#staged'
+\},
 \   'component_expand': {
 \     'linter_checking': 'lightline#ale#checking',
 \     'linter_warnings': 'lightline#ale#warnings',
@@ -673,6 +687,11 @@ call denite#custom#option('default', 'statusline', v:false)
 "       \ &filetype ==? 'denite'    ? substitute(denite#get_status('buffer_name'), '-\\| ', '', 'g'):
 "       \ ('' !=? &filetype ? &filetype : '[No Name]')
 " endfunction
+
+
+" let staged = 	  let unstaged = gina#component#status#unstaged()
+	  " let conflicted = gina#component#status#conflicted()
+
 
 function! LightlineGitBlame() abort
   let blame = get(b:, 'coc_git_blame', '')
