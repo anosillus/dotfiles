@@ -284,10 +284,12 @@ let g:ale_linters = {
 \   'c':          ['clang'],
 \   'cmake':      ['cmake'],
 \   'cpp':        ['clang', 'g++', 'ccls'],
-\   'Dockerfile': ['hadolint'],
 \   'css':        ['prettier', 'stylelint'],
+\   'Dockerfile': ['hadolint'],
 \   'fish':       ['fish'],
+\   'gina-commit':['textlint', 'proselint', 'writegood'],
 \   'html':       ['prettier', 'htmlint', 'write-good', 'stylelint'],
+\   'java':       ['checkstyle'],
 \   'json':       ['eslint','prettier', 'jsonlint'],
 \   'latex':      ['vale', 'textlint'],
 \   'markdown':   ['markdownlint', 'prettier'],
@@ -296,7 +298,6 @@ let g:ale_linters = {
 \   'rust':       ['rustfmt'],
 \   'sql':        ['sqlfmt'],
 \   'text':       ['textlint', 'proselint', 'writegood'],
-\   'java':       ['checkstyle'],
 \   'vim':        ['vint'],
 \   'yaml':       ['yamlint']
 \ }
