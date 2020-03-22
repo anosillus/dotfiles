@@ -6,7 +6,7 @@ set ambiwidth=double
 if has('win32') || has('win64')
   " For Windows.
 
-  set guifont=Cica:h14:cSHIFTJIS:qDRAFT
+  set guifont=Cica:h16:cSHIFTJIS:qDRAFT
   " set guifontwide=VL\ Gothic:h11
   " set guifont=Courier\ New:h11
   " set guifont=VL\ Gothic:h11
