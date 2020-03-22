@@ -91,7 +91,7 @@ function! s:jp_setting()
   noremap <silent><expr> , incsearch#go(<SID>config_migemo())
   noremap <silent><expr> ? incsearch#go(<SID>config_migemo({'command': '?'}))
 
- noremap <silent> <C-i> f。
+  noremap <silent> <C-i> f。
   noremap <silent> <C-h> F。
   nmap <silent> I <Plug>JaSegmentMoveNE
   nmap <silent> i <Plug>JaSegmentMoveNW

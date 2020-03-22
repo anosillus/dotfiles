@@ -40,6 +40,7 @@ Plug 'kana/vim-smartinput'
 Plug 'w0rp/ale'
 Plug 'thinca/vim-ref'
 let g:ref_no_default_key_mappings = 1
+let g:ref_man_lang = 'ja'
 let g:ref_pydoc_cmd	 = 'python3 -m pydoc'
 " let g:ref_pydoc_cmd = executable('python3') ? 'pydoc3' : ''
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
@@ -141,6 +142,7 @@ let g:markdown_enable_mappings = 0
 let g:markdown_enable_spell_checking = 0
 Plug 'previm/previm'
 Plug 'mattn/vim-maketable'
+Plug 'azadkuh/vim-cmus'
 Plug 'markonm/traces.vim'
 Plug 'skanehira/translate.vim'
 let g:translate_source = 'en'
@@ -153,8 +155,7 @@ Plug 'yuttie/comfortable-motion.vim'
 let g:comfortable_motion_no_default_key_mappings = 1
 let g:comfortable_motion_friction = 80.0
 let g:comfortable_motion_air_drag = 2.0
-noremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(40)<CR>
-noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-40)<CR>
+let g:comfortable_motion_impulse_multiplier = 1  " Feel free to increase/decrease this value.
 Plug 'thinca/vim-template'
 Plug 'Shougo/context_filetype.vim'
 Plug 'osyo-manga/vim-precious', {'for' : ['toml','markdown', 'text']}
@@ -224,7 +225,6 @@ call submode#enter_with('bufmove', 'n', '', '<C-g>I', '<C-w>L')
 call submode#enter_with('bufmove', 'n', '', '<C-g>N', '<C-w>J')
 call submode#enter_with('bufmove', 'n', '', '<C-g>E', '<C-w>K')
 call submode#enter_with('bufmove', 'n', '', '<C-g>O', '<C-w>r')
-
 
 call submode#map('bufmove', 'n', '', 'h', '<C-w>>')
 call submode#map('bufmove', 'n', '', 'i', '<C-w><')
