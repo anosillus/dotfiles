@@ -329,9 +329,9 @@ noremap <silent> <Leader>X "+d$
 " }}}
 
 nnoremap <Right> :<C-u>Gina diff<CR>
-nnoremap <Left> :<C-u>Gina push<CR>
+nnoremap <Left> :<C-u>Gina commit<CR>
 nnoremap <UP> :<C-u>Gina status<CR>
-nnoremap <Down> :<C-u>Gina changes<CR>
+nnoremap <Down> :<C-u>Gina push<CR>
 " nnoremap <Down> :<C-u>call gina#custom#execute('/\%(status\|branch\|ls\|grep\|changes\|tag\)','setlocal winfixheight',)
 
 

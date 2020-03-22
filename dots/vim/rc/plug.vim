@@ -295,7 +295,7 @@ let g:ale_linters = {
 \   'r':          ['lintr'],
 \   'rust':       ['rustfmt'],
 \   'sql':        ['sqlfmt'],
-\   'text':       ['textlint', 'vale'],
+\   'text':       ['textlint', 'proselint', 'writegood'],
 \   'java':       ['checkstyle'],
 \   'vim':        ['vint'],
 \   'yaml':       ['yamlint']
@@ -313,7 +313,7 @@ let g:ale_fixers = {
 \   'javascript': ['remove_trailing_lines', 'trim_whitespace', 'prettier', 'eslint', 'importjs','prettier-standard'],
 \   'java':       ['remove_trailing_lines', 'trim_whitespace'],
 \   'json':       ['remove_trailing_lines', 'trim_whitespace', 'prettier', 'fixjson'],
-\   'markdown':   ['remove_trailing_lines', 'prettier', 'textlint', 'vale'],
+\   'markdown':   ['remove_trailing_lines', 'prettier', 'textlint'],
 \   'python':     ['remove_trailing_lines', 'trim_whitespace', 'add_blank_lines_for_python_control_statements', 'black', 'reorder-python-imports'],
 \   'r':          ['remove_trailing_lines', 'trim_whitespace', 'styler'],
 \   'rust':       ['remove_trailing_lines', 'trim_whitespace', 'rustfmt'],
