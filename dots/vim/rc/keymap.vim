@@ -1,4 +1,3 @@
-set encoding=utf8
 scriptencoding utf8
 
 " 1. SPACE {{{
@@ -36,7 +35,6 @@ xmap ls <Plug>(caw:box:comment)
 xmap ln <Plug>(caw:jump:comment-next)
 xmap le <Plug>(caw:jump:comment-prev)
 
-xmap <CR> <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 " nmap g<CR> <Plug>(EasyAlign)
 " }}}
@@ -46,6 +44,7 @@ noremap <silent> <Esc><Esc> :<C-u>nohlsearch<CR> <bar> <Plug>(anzu-clear-search-
 noremap <bs> _x
 noremap <Leader><bs> _X
 noremap <CR> <C-f>
+xmap <CR> <Plug>(EasyAlign)
 nmap <S-CR>  <C-b>
 noremap <C-CR>  <C-d>
 inoremap <C-CR> <ESC>+i
@@ -72,8 +71,10 @@ endfunction
 " }}}
 
 noremap <silent><expr>,  incsearch#go(<SID>incsearch_config())
-noremap <silent><expr><  incsearch#go(<SID>incsearch_config({'command': '?'}))
-noremap <silent><expr><C-,> incsearch#go(<SID>incsearch_config({'is_stay': 1}))
+" noremap <silent><expr><  incsearch#go(<SID>incsearch_config({'command': '?'}))
+" noremap <silent><expr><C-,> :<C-u>call eregex#toggle()<CR>
+" noremap <C-,> :echo "this keymap didn't work.
+" noremap <silent><expr><C-,> incsearch#go(<SID>incsearch_config({'is_stay': 1}))
 
 map k <Plug>(is-nohl)<Plug>(anzu-n-with-echo)
 map K <Plug>(is-nohl)<Plug>(anzu-N-with-echo)
@@ -90,8 +91,8 @@ nnoremap g: g,
 "
 " < / > {{{
 nnoremap > >>
-xnoremap > >gv
 nnoremap < <<
+xnoremap > >gv
 xnoremap < <gv
 
 " imap <C-.> <C-i>    " you can't use this keymap.
@@ -105,6 +106,7 @@ map *  <Plug>(asterisk-z*)<Plug>(is-nohl-1)
 map g* <Plug>(asterisk-gz*)<Plug>(is-nohl-1)
 map #  <Plug>(asterisk-z#)<Plug>(is-nohl-1)
 map g# <Plug>(asterisk-gz#)<Plug>(is-nohl-1)
+cnoremap <C-*> <C-R><C-W>
 "}}}
 " n/e is UP/DOWN {{{
 noremap n gj
@@ -120,8 +122,6 @@ map N <Plug>(edgemotion-j)
 map E <Plug>(edgemotion-k)
 map <C-n> <Plug>(easymotion-j)
 map <C-e> <Plug>(easymotion-k)
-" imap <S-C-i> <C-i>
-" imap <S-C-h> <C-t>
 let g:comfortable_motion_impulse_multiplier = 1  " Feel free to increase/decrease this value.
 
 inoremap <silent><expr> <TAB>
@@ -180,8 +180,10 @@ map Y <Plug>(smartword-e)
 " noremap Y <Right>
 noremap <C-u> :bprevious<CR>
 noremap <C-y> :bnext<CR>
-noremap <Leader>u <Plug>(easymotion-bd-el)
-noremap <Leader>y <Plug>(easymotion-bd-wl)
+map <leader>y <Plug>(easymotion-lineforward)
+map <leader>u <Plug>(easymotion-linebackward)
+" omap <Leader>u <Plug>(easymotion-bd-el)
+" omap <Leader>y <Plug>(easymotion-bd-wl)
 nnoremap gu :vs
 nnoremap gy :sp
 cnoremap <C-u> <Left>
@@ -210,7 +212,7 @@ noremap mM zR
 noremap mo zMzv
 noremap mO zX
 nnoremap M '
-nnoremap <leader>m M
+nnoremap gm M
 " }}}
 inoremap <C-u> <C-e>
 " ioremap <C-y> is paste over line
@@ -246,27 +248,7 @@ inoremap <C-a> <Esc>0i
 " vmap A
 " }}}
 "
-" " w is range operator {{{
-map  w  <Plug>(operator-sandwich-add)
-map  wD <Plug>(operator-sandwich-delete)<Plug>(textobj-sandwich-query-a)
-map  wd <Plug>(operator-sandwich-delete)<Plug>(textobj-sandwich-auto-a)
-map  wR <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-query-a)
-map  wr <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-auto-a)
-omap aw <Plug>(textobj-sandwich-auto-a)
-omap aW <Plug>(textobj-sandwich-query-a)
-omap w  <Plug>(textobj-sandwich-auto-i)
-omap W  <Plug>(textobj-sandwich-query-i)
-xmap aw <Plug>(textobj-sandwich-auto-a)
-xmap aW <Plug>(textobj-sandwich-query-a)
-xmap w  <Plug>(textobj-sandwich-auto-i)
-xmap W  <Plug>(textobj-sandwich-query-i)
-nnoremap <C-w> :<C-u>DeniteCursorWord grep <CR>
-nmap  <Leader>w <Plug>(easymotion-overwin-w)
-xmap  <Leader>w <Plug>(easymotion-bd-w)
-omap  <Leader>w <Plug>(easymotion-bd-w)
-
-" inoremap <C-w> is delete pre word
-" }}}
+" [bar(foo)baz]   --->   bar(foo)baz
 
 " f, p and w is Move{{{
 map f <Plug>(easymotion-fl)
@@ -316,6 +298,8 @@ nnoremap <silent> <C-v>
 xnoremap <silent> <C-v>
 \ :<C-u>Denite -default-action=replace -buffer-name=register
 \ register neoyank<CR>
+cnoremap <C-v> <C-r>"
+cnoremap <C-,> <C-r>/
 
 noremap <silent> <Leader>v "+p
 noremap <silent> <Leader>V <Right>"+p
@@ -325,7 +309,7 @@ noremap <silent> <Leader>x "+d
 noremap <silent> <Leader>X "+d$
 " }}}
 
-nnoremap <Right> :<C-u>Gina commit --verbose<CR>
+nnoremap <Right> :<C-u>Gina diff<CR>
 nnoremap <Left> :<C-u>Gina push<CR>
 nnoremap <UP> :<C-u>Gina status<CR>
 nnoremap <Down> :<C-u>Gina changes<CR>
@@ -390,10 +374,10 @@ let g:jedi#documentation_command = 'b'
 let g:jedi#usages_command = '<leader>n'
 
 
-nmap <silent> <C-o> <Plug>(coc-definition)
-nmap <silent> gt <Plug>(coc-type-definition)
-nmap <silent> gm <Plug>(coc-implementation)
-nmap <leader>R <Plug>(coc-rename)
+" nmap <silent> <C-o> <Plug>(coc-definition)
+" nmap <silent> gt <Plug>(coc-type-definition)
+" nmap <silent> g <Plug>(coc-implementation)
+" nmap <leader>R <Plug>(coc-rename)
 
 " map <leader>b :<C-u>Denite file/old -start-filter<CR>
 
@@ -418,28 +402,55 @@ nnoremap gF :Denite gitfiles -start-filter<CR>
 nmap j  <Nop>
 xmap j  <Nop>
 
-noremap <silent> js :GscopeFind s <C-R><C-W><cr>
-noremap <silent> jg :GscopeFind g <C-R><C-W><cr>
-noremap <silent> jc :GscopeFind c <C-R><C-W><cr>
-noremap <silent> jt :GscopeFind t <C-R><C-W><cr>
-noremap <silent> je :GscopeFind e <C-R><C-W><cr>
-noremap <silent> jf :GscopeFind f <C-R>=expand("<cfile>")<cr><cr>
-noremap <silent> ji :GscopeFind i <C-R>=expand("<cfile>")<cr><cr>
-noremap <silent> jd :GscopeFind d <C-R><C-W><cr>
-noremap <silent> ja :GscopeFind a <C-R><C-W><cr>
+vmap <leader>j  <Plug>(coc-format-selected)
+nmap <leader>j  <Plug>(coc-format-selected)
+
+" noremap <silent> js :GscopeFind s <C-R><C-W><cr>
+" noremap <silent> jg :GscopeFind g <C-R><C-W><cr>
+" noremap <silent> jc :GscopeFind c <C-R><C-W><cr>
+" noremap <silent> jt :GscopeFind t <C-R><C-W><cr>
+" noremap <silent> je :GscopeFind e <C-R><C-W><cr>
+" noremap <silent> jf :GscopeFind f <C-R>=expand("<cfile>")<cr><cr>
+" noremap <silent> ji :GscopeFind i <C-R>=expand("<cfile>")<cr><cr>
+" noremap <silent> jd :GscopeFind d <C-R><C-W><cr>
+" noremap <silent> ja :GscopeFind a <C-R><C-W><cr>
 
 imap <C-j> <Plug>(eskk:toggle)
 cmap <C-j> <Plug>(eskk:toggle)
 " }}}
 
 "Submode {{{
-nnoremap gs :<C-u>%s///g<Left><Left><Left>
-vnoremap gs :s///g<Left><Left><Left>
+nnoremap gs :<C-u>%s/\v//g<Left><Left><Left>
+vnoremap gs :s/\v//g<Left><Left><Left>
 nnoremap qq :<C-u>bd<CR>
 
 nnoremap <Leader>o :<C-u>for i in range(v:count1) \| call append(line('.'), '') \| endfor<CR>
 nnoremap <Leader>O :<C-u>for i in range(v:count1) \| call append(line('.')-1, '') \| endfor<CR>
 " }}}
+
+map! á @
+map! ò #
+map! ó $
+map! ô  %
+map! ä  ^
+map! è &
+map! î *
+map! å (
+map! é )
+map! ï _
+map! Â +
+
+map á @
+map ò #
+map ó $
+map ô  %
+map ä  ^
+map è &
+map î *
+map å (
+map é )
+map ï _
+map Â +
 
 " terminal mode
 " set termkey=<C-l>

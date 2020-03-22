@@ -48,6 +48,8 @@ let g:jedi#show_call_signatures = '1'
 let g:jedi#auto_vim_configuration = 0
 let g:jedi#completions_command = ''
 let g:jedi#rename_command = ''
+Plug 'heavenshell/vim-pydocstring'
+let g:pydocstring_doq_path = $HOME.'/.local/bin/doq'
 Plug 'maximbaz/lightline-ale'
 Plug 'vim-jp/vimdoc-ja'
 Plug 'vim-jp/autofmt'
@@ -117,7 +119,7 @@ Plug 'sjl/gundo.vim'
 Plug 'chrisbra/csv.vim', { 'for' : 'csv' }
 let g:csv_nomap_cr = 1
 Plug 'dhruvasagar/vim-table-mode'
-let g:table_mode_map_prefix	= '<Non>'
+let g:table_mode_map_prefix	= '<leader><del>'
 Plug 'sheerun/vim-polyglot'
 let g:polyglot_disabled = ['markdown', 'cpp']
 Plug 'bfrg/vim-cpp-modern', { 'for': 'cpp' }
@@ -167,6 +169,7 @@ Plug 'machakann/vim-sandwich'
 let g:sandwich_no_default_key_mappings = 1
 let g:operator_sandwich_no_default_key_mappings = 1
 let g:textobj_sandwich_no_default_key_mappings = 1
+" let g:sandwich#recipes = deepcopy(g:sandwich#default_recipes)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Shougo/neco-vim'
 Plug 'SirVer/ultisnips'
@@ -271,9 +274,9 @@ let g:ale_javascript_eslint_options='-c google'
 let g:ale_lint_on_insert_leave = 1
 let g:ale_python_auto_pipenv = 1
 let g:ale_python_black_options = '--line-length 79'
-" let g:ale_python_pylama_options = '--linters pycodestyle pydocstyle Mccabe Pylint'
+let g:ale_python_pylama_options = '--linters pycodestyle pydocstyle Mccabe Pylint'
 let g:ale_python_flake8_executable = 'python3'
-" let g:ale_python_flake8_options = '-m flake8 --select=C,E,F,W,B901'
+let g:ale_python_flake8_options = '-m flake8 --select=C,E,F,W,B901'
 " let g:ale_python_flake8_options = '-m flake8'
 
 
@@ -526,16 +529,14 @@ let g:eskk#statusline_mode_strings = {
 	\}
 "let g:eskk#debug = 0
 let g:eskk#show_annotation = 1
-let g:eskk#rom_input_style = 'msime'
+" let g:eskk#rom_input_style = 'msime'
 let g:eskk#egg_like_newline = 1
 let g:eskk#egg_like_newline_completion = 1
-" let g:eskk#tab_select_completion = 1
+let g:eskk#tab_select_completion = 1
 let g:eskk#start_completion_length = 2
 let g:eskk#marker_henkan = '<>'
 let g:eskk#marker_henkan_select = '>>'
 let g:jasentence_endpat = '[。．？！]\+'
-
-
 
 augroup skk
   autocmd!
