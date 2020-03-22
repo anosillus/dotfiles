@@ -76,7 +76,7 @@ augroup MyAutoCmd
   " autocmd BufNewFile,BufRead *.ipynb nmap <silent><Leader>o :VimpyterStartJupyter<CR>
   " autocmd BufNewFile,BufRead *.ipynb nmap <C-CR> :VimpyterStartJupyter<CR>
   " autocmd BufNewFile,BufRead *.ipynb highlight VimpyterUpdate term=bold ctermfg=14
-  autocmd BufNewFile,BufRead *.ipynb setl filetype=python
+  autocmd BufNewFile,BufRead *.ipynb setl filetype=jupyter
   autocmd FileType c,cpp setl expandtab tabstop=4 shiftwidth=4 softtabstop=4 cindent shiftround
   "https://vim-jp.org/vimdoc-ja/indent.html
   " Reload .vimrc automatically.
@@ -91,6 +91,10 @@ augroup MyAutoCmd
   autocmd BufRead,BufNewFile README.md setlocal ft=markdown.gfm
   autocmd BufNewFile,BufRead *.vue setl filetype=javascript
   autocmd BufNew,BufNewFile,BufRead .textlintrc setl filetype=json
+  autocmd FileType python nmap <silent> lo <Plug>(pydocstring)
+  " autocmd FileType python xmap <silent> lo :<C-u>'<,'>Pydocstring<CR>
+
+
   " autocmd BufNewFile,BufRead markdown call s:auto_goyo()
   " autocmd VimEnter * echo 'Sleep'
   " autocmd VimLeave * echo 'Sleep'
