@@ -16,13 +16,13 @@ if has('gui_running')
     let g:python3_host_prog = '/usr/local/bin/python3'
     set guifont=cica
     let g:eskk#large_dictionary = { 'path': '~/Library/Application\ Support/AquaSKK/SKK-JISYO.L', 'sorted': 1, 'encoding': 'euc-jp', }
+    set macmeta
   elseif g:os ==? 'Linux'
     let g:python3_host_prog='/usr/bin/python3'
     let g:python_host_prog='/usr/bin/python3'
     set guifont=cica
     let g:eskk#large_dictionary = { 'path': '/usr/share/skk/SKK-JISYO.L', 'sorted': 1, 'encoding': 'euc-jp', }
     let g:eskk#dictionary = { 'path': '$HOME/.config/skk/.skk-jisyo', 'sorted': 0, 'encoding': 'utf-8', }
-
     " set runtimepath=~/.vim,/var/lib/vim/addons,/usr/share/vim/vimfiles,/usr/share/vim/vim81,/usr/share/vim/vimfiles/after,/var/lib/vim/addons/after,~/.vim/after
   elseif g:os ==? 'Windows'
     let g:vimproc#download_windows_dll = 1
