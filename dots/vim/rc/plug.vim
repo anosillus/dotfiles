@@ -279,7 +279,7 @@ let g:ale_python_flake8_executable = 'python3'
 let g:ale_python_flake8_options = '-m flake8 --select=C,E,F,W,B901'
 " let g:ale_python_flake8_options = '-m flake8'
 
-let g:ale_linter_aliases = {'gina-commit': ['gitcommit', 'text']}
+let g:ale_linter_aliases = {'gitcommit': ['gitcommit', 'text']}
 
 let g:ale_linters = {
 \   'c':          ['clang'],
@@ -288,7 +288,7 @@ let g:ale_linters = {
 \   'css':        ['prettier', 'stylelint'],
 \   'Dockerfile': ['hadolint'],
 \   'fish':       ['fish'],
-\   'gina-commit':['gitlint', 'textlint', 'write-good'],
+\   'gitcommit':  ['gitlint', 'textlint', 'write-good'],
 \   'html':       ['prettier', 'htmlint', 'write-good', 'stylelint'],
 \   'java':       ['checkstyle'],
 \   'json':       ['eslint','prettier', 'jsonlint'],
