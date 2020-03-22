@@ -247,8 +247,27 @@ vnoremap <C-a> 0
 inoremap <C-a> <Esc>0i
 " vmap A
 " }}}
-"
-" [bar(foo)baz]   --->   bar(foo)baz
+
+" " w is range operator {{{
+map  w  <Plug>(operator-sandwich-add)
+map  wD <Plug>(operator-sandwich-delete)<Plug>(textobj-sandwich-query-a)
+map  wd <Plug>(operator-sandwich-delete)<Plug>(textobj-sandwich-auto-a)
+map  wR <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-query-a)
+map  wr <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-auto-a)
+map  wR <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-query-a)
+map  wr <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-auto-a)
+omap aw <Plug>(textobj-sandwich-auto-a)
+omap aW <Plug>(textobj-sandwich-query-a)
+omap w  <Plug>(textobj-sandwich-auto-i)
+omap W  <Plug>(textobj-sandwich-query-i)
+xmap aw <Plug>(textobj-sandwich-auto-a)
+xmap aW <Plug>(textobj-sandwich-query-a)
+xmap w  <Plug>(textobj-sandwich-auto-i)
+xmap W  <Plug>(textobj-sandwich-query-i)
+nnoremap <C-w> :<C-u>DeniteCursorWord grep <CR>
+nmap  <Leader>w <Plug>(easymotion-overwin-w)
+xmap  <Leader>w <Plug>(easymotion-bd-w)
+omap  <Leader>w <Plug>(easymotion-bd-w)
 
 " f, p and w is Move{{{
 map f <Plug>(easymotion-fl)
@@ -428,29 +447,85 @@ nnoremap <Leader>o :<C-u>for i in range(v:count1) \| call append(line('.'), '') 
 nnoremap <Leader>O :<C-u>for i in range(v:count1) \| call append(line('.')-1, '') \| endfor<CR>
 " }}}
 
+" meta key mappings {{{
+
+"q (replacement of <M-Ctrl>)
+" map  ú ! "This broke vim"
+" map! ú ! "This broke vim"
+map   <M-q>  !
+map!  <M-q>  !
+
+" a
+map  á @
 map! á @
+
+
+" r
+map  ò #
 map! ò #
+
+" s
+map  ó $
 map! ó $
-map! ô  %
-map! ä  ^
+
+" t
+map  ô %
+map! ô %
+
+" d
+map  ä ^
+map! ä ^
+
+" h
+map  è &
 map! è &
+
+" n
+map  î *
 map! î *
+
+" e
+map  å (
 map! å (
+
+" i
+map  é )
 map! é )
+
+" o
+map  ï _
 map! ï _
-map! Â +
 
-map á @
-map ò #
-map ó $
-map ô  %
-map ä  ^
-map è &
-map î *
-map å (
-map é )
-map ï _
-map Â +
+" <CR>
+map  <M-;> <kPlus>
+map! <M-;> <kPlus>
+" map  <M-CR> +
+" map! <M-CR> +
+" map  Â <kPlus>
+" map! Â <kPlus>
 
+" b
+map  â "
+map! â "
+
+" k
+map  ë ?
+map! ë ?
+
+" m
+map  í {
+map! í {
+
+" ,
+map  ¬ }
+map! ¬ }
+
+" .
+map  ® <bar>
+map! ® <bar>
+" }}}
+
+" terminal mode setting(not yet) {{{
 " terminal mode
 " set termkey=<C-l>
+" }}}
