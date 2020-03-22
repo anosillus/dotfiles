@@ -77,7 +77,7 @@ augroup MyAutoCmd
   " autocmd BufNewFile,BufRead *.ipynb nmap <C-CR> :VimpyterStartJupyter<CR>
   " autocmd BufNewFile,BufRead *.ipynb highlight VimpyterUpdate term=bold ctermfg=14
   autocmd BufNewFile,BufRead *.ipynb setl filetype=jupyter
-  autocmd FileType gina-commit setl spell
+  autocmd FileType gina-commit setl spell setl filetype=text
   autocmd FileType c,cpp setl expandtab tabstop=4 shiftwidth=4 softtabstop=4 cindent shiftround
   "https://vim-jp.org/vimdoc-ja/indent.html
   " Reload .vimrc automatically.
