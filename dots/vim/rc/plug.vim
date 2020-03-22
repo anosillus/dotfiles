@@ -53,6 +53,11 @@ let g:pydocstring_doq_path = $HOME.'/.local/bin/doq'
 Plug 'maximbaz/lightline-ale'
 Plug 'vim-jp/vimdoc-ja'
 Plug 'vim-jp/autofmt'
+Plug 'deton/jasegment.vim'
+let b:loaded_jasegment = 1
+let g:jasegment_no_default_key_mappings = 1
+let g:jasegment#model = 'mecab'
+let g:jasegment#mecab#args = '-Owakati -d /usr/lib/x86_64-linux-gnu/mecab/dic/mecab-ipadic-neologd/'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'haya14busa/is.vim'
 Plug 'osyo-manga/vim-anzu'
@@ -61,6 +66,8 @@ Plug 'haya14busa/vim-edgemotion'
 Plug 'easymotion/vim-easymotion'
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-easymotion.vim'
+Plug 'haya14busa/incsearch-migemo.vim'
+Plug 'haya14busa/incsearch-fuzzy.vim'
 Plug 'kana/vim-smartword'
 Plug 'bkad/CamelCaseMotion'
 Plug 'thinca/vim-quickrun'
@@ -122,6 +129,10 @@ Plug 'dhruvasagar/vim-table-mode'
 let g:table_mode_map_prefix	= '<leader><del>'
 Plug 'sheerun/vim-polyglot'
 let g:polyglot_disabled = ['markdown', 'cpp']
+Plug 'mattn/emmet-vim'
+let g:user_emmet_install_global = 1
+let g:user_emmet_mode='vn'
+let g:user_emmet_leader_key='<C-j>'
 Plug 'bfrg/vim-cpp-modern', { 'for': 'cpp' }
 let g:cpp_named_requirements_highlight = 1
 Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
@@ -340,7 +351,7 @@ let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_keys = 'neihdoarstdluyfwp;qj,.'
 let g:EasyMotion_use_migemo = 1
 let g:EasyMotion_smartcase = 1
-let g:EasyMotion_use_smartsign_us = 1
+" let g:EasyMotion_use_smartsign_us = 1
 let g:is#do_default_mappings=0
 " }}}
 

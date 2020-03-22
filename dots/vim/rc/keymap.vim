@@ -59,20 +59,48 @@ nnoremap <leader>: :<C-u>Denite file/old -start-filter<CR>
 nnoremap go :<C-u>e<Space>
 nnoremap <silent><leader><CR> :<C-u>Deol -split=floating<CR>
 
-function! s:incsearch_config(...) abort
-  return incsearch#util#deepextend(deepcopy({
- \   'modules': [incsearch#config#easymotion#module({'overwin': 1})],
- \   'keymap': {
- \     "\<CR>": '<Over>(easymotion)'
- \   },
- \   'is_expr': 0
- \ }), get(a:, 1, {}))
-endfunction
 " }}}
 
-noremap <silent><expr>,  incsearch#go(<SID>incsearch_config())
-" noremap <silent><expr><  incsearch#go(<SID>incsearch_config({'command': '?'}))
-" noremap <silent><expr><C-,> :<C-u>call eregex#toggle()<CR>
+" ,/. is search {{{
+function! s:incsearch_config(...) abort
+  return incsearch#util#deepextend(deepcopy({
+  \   'modules': [incsearch#config#easymotion#module({'overwin': 1})],
+  \   'keymap': {
+  \     "\<CR>": '<Over>(easymotion)'
+  \   },
+  \   'is_expr': 0
+  \ }), get(a:, 1, {}))
+endfunction
+
+noremap <silent><expr> ,  incsearch#go(<SID>incsearch_config())
+noremap <silent><expr> ?  incsearch#go(<SID>incsearch_config({'command': '?'}))
+
+
+function! s:config_migemo(...) abort
+  return extend(copy({
+  \   'converters': [
+  \     incsearch#config#migemo#converter(),
+  \   ],
+  \   'modules': [incsearch#config#easymotion#module({'overwin': 1})],
+  \   'keymap': {"\<C-l>": '<Over>(easymotion)'},
+  \   'is_expr': 0,
+  \ }), get(a:, 1, {}))
+endfunction
+
+noremap <silent><expr> m, incsearch#go(<SID>config_migemo())
+noremap <silent><expr> m? incsearch#go(<SID>config_migemo({'command': '?'}))
+
+function! s:config_easyfuzzymotion(...) abort
+  return extend(copy({
+  \   'converters': [incsearch#config#fuzzyword#converter()],
+  \   'modules': [incsearch#config#easymotion#module({'overwin': 1})],
+  \   'keymap': {"\<CR>": '<Over>(easymotion)'},
+  \   'is_expr': 0,
+  \   'is_stay': 1
+  \ }), get(a:, 1, {}))
+endfunction
+
+noremap <silent><expr> <Space>, incsearch#go(<SID>config_easyfuzzymotion())
 " noremap <C-,> :echo "this keymap didn't work.
 " noremap <silent><expr><C-,> incsearch#go(<SID>incsearch_config({'is_stay': 1}))
 
@@ -80,15 +108,16 @@ map k <Plug>(is-nohl)<Plug>(anzu-n-with-echo)
 map K <Plug>(is-nohl)<Plug>(anzu-N-with-echo)
 
 " This key is userd not working.
-nnoremap <silent> <Leader>, :<C-u>Denite -buffer-name=search line -start-filter<CR>
+nnoremap <silent> <leader>. :<C-u>Denite -buffer-name=search line -start-filter<CR>
 
 " inoremap <C-.> <C-i>
-inoremap <C-.> <C-f>
+" inoremap <C-.> <C-f>
 " Change list mover
 nnoremap g. g;
 nnoremap g: g,
 " nnoremap g, " change list next
-"
+" }}}
+
 " < / > {{{
 nnoremap > >>
 nnoremap < <<
@@ -162,6 +191,7 @@ nnoremap gH <C-w>H
 nnoremap gI <C-w>L
 inoremap <C-h> <Left>
 inoremap <C-i> <Right>
+" omap i is replaced in s
 map <silent> i <Plug>CamelCaseMotion_w
 map <silent> h <Plug>CamelCaseMotion_b
 map <silent> I <Plug>CamelCaseMotion_e
@@ -194,8 +224,8 @@ inoremap <C-y> <C-G><C-k>
 " }}}
 
 " m/M is fold/Middle {{{
-nnoremap <silent> m. :<C-u>Denite file/rec:~/.vim/rc -start-filter<CR>
-nnoremap <silent> m, :<C-u>Denite file/rec -start-filter<CR>
+nnoremap <silent> m; :<C-u>Denite file/rec:~/.vim/rc -start-filter<CR>
+nnoremap <silent> m: :<C-u>Denite file/rec -start-filter<CR>
 nnoremap <leader>m :Denite mark<CR>
 " M is screen middle.
 " fold 関係
@@ -225,6 +255,7 @@ nnoremap T A
 nmap <C-s> <Plug>(caw:hatpos:toggle)
 xmap <C-s> <Plug>(caw:hatpos:toggle)
 omap <C-s> <Plug>(caw:hatpos:toggle)
+onoremap s i
 xmap S  <Plug>(niceblock-I)
 xmap T  <Plug>(niceblock-A)
 nnoremap <C-t> :<C-u>Vista!!<CR>
@@ -421,8 +452,8 @@ nnoremap gF :Denite gitfiles -start-filter<CR>
 nmap j  <Nop>
 xmap j  <Nop>
 
-vmap <leader>j  <Plug>(coc-format-selected)
-nmap <leader>j  <Plug>(coc-format-selected)
+" vmap <leader>j  <Plug>(coc-format-selected)
+" nmap <leader>j  <Plug>(coc-format-selected)
 
 " noremap <silent> js :GscopeFind s <C-R><C-W><cr>
 " noremap <silent> jg :GscopeFind g <C-R><C-W><cr>
@@ -434,6 +465,7 @@ nmap <leader>j  <Plug>(coc-format-selected)
 " noremap <silent> jd :GscopeFind d <C-R><C-W><cr>
 " noremap <silent> ja :GscopeFind a <C-R><C-W><cr>
 
+" nmap <C-j> is emment.vim
 imap <C-j> <Plug>(eskk:toggle)
 cmap <C-j> <Plug>(eskk:toggle)
 " }}}
