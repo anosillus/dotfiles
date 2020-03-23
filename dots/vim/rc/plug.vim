@@ -165,6 +165,7 @@ Plug 'tyru/eskk.vim'
 let g:eskk#no_default_mappings = 0
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 let g:deoplete#enable_at_startup = 0
+"Plug 'ueokande/popupdict.vim'
 " }}}
 
 " Config {{{
@@ -866,4 +867,5 @@ function! NearestMethodOrFunction() abort
 endfunction
 " }}}
 
+" let winid = popup_create("hello gorilla", {})
 " vim: foldmethod=marker
