@@ -1,4 +1,4 @@
-scriptencoding=utf8
+scriptencoding utf8
 
 " Font {{{
 
@@ -39,31 +39,20 @@ else
 endif
 " }}}
 
-
-" OS type {{{
-" Todo
-if has('win32') || has('win64')
-  " Width of window.
-   set columns=230
-  " Height of window.
-   set lines=55
-else
-  if &columns < 170
-    " Width of window.
-     set columns=170
-  endif
-  if &lines < 40
-    " Height of window.
-     set lines=40
-  endif
+" Window Size {{{
+if &columns < 170
+  set columns=170
 endif
+if &lines < 40
+  set lines=40
+endif
+" }}}
 
-" Don't override colorscheme.
+" ColorScheme {{{
 if !exists('g:colors_name')
   colorscheme morning
 endif
 " }}}
-" <Todo>
 
 " GuiOptions {{{
 set mouse=

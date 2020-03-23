@@ -1,5 +1,6 @@
 scriptencoding utf-8
 
+" -----------------------------------------------------------------------
 " VimPlug {{{
 " Base Settings {{{
 "https://www.reddit.com/r/vim/comments/5ja0mn/vim_what_the_best_practice_to_sync_up_all_plugins/"
@@ -798,3 +799,5 @@ function! NearestMethodOrFunction() abort
   return get(b:, 'vista_nearest_method_or_function', '')
 endfunction
 " }}}
+
+" vim: foldmethod=marker
