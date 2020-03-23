@@ -64,11 +64,12 @@ set undolevels=100
 
 runtime! debian.vim
 
-call s:source_rc('gui.vim')
+" call s:source_rc('gui.vim')
 call s:source_rc('env.vim')
 call s:source_rc('filetype.vim')
 call s:source_rc('plug.vim')
 
+" ColorScheme {{{
 if has('vim_starting') && !empty(argv())
   if has('syntax')
     syntax on
@@ -77,6 +78,10 @@ if has('vim_starting') && !empty(argv())
 	" colorscheme atom-dark-256
 endif
 
+if !exists('g:colors_name')
+  colorscheme morning
+endif
+" }}}
 
 if (has('termguicolors'))
  set termguicolors

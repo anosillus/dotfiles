@@ -6,7 +6,7 @@ set ambiwidth=double
 if has('win32') || has('win64')
   " For Windows.
 
-  set guifont=Cica:h16:cSHIFTJIS:qDRAFT
+  " set guifont=Cica:h16:cSHIFTJIS:qDRAFT
   " set guifontwide=VL\ Gothic:h11
   " set guifont=Courier\ New:h11
   " set guifont=VL\ Gothic:h11
@@ -34,8 +34,8 @@ else
    " set guifont=Courier\ 10\ Pitch\ 14
    " set guifont=Font\ Family\ 12
    " set guifontwide=Font\ Family\ 12
-   set guifontwide=Cica\ 14
-   set guifont=Cica\ 14
+   set guifontwide=Cica\ 18
+   set guifont=Cica\ 18
 endif
 " }}}
 
@@ -48,14 +48,8 @@ if &lines < 40
 endif
 " }}}
 
-" ColorScheme {{{
-if !exists('g:colors_name')
-  colorscheme morning
-endif
-" }}}
-
 " GuiOptions {{{
-set vb t_vb=
+set t_vb=
 set mouse=
 set mousemodel=
 set nomousefocus
