@@ -29,7 +29,7 @@ nnoremap <silent><leader><CR> :<C-u>Deol -split=floating<CR>
 " }}}
 " Write Deol setting more !!
 
-" < :/; > is 'command'. {{{
+" < :/; > is 'Command'. {{{
 noremap ;  :
 noremap :  ;
 nnoremap <leader>; :<C-u>Denite command_history<CR>
@@ -38,7 +38,7 @@ nnoremap m;        :<C-u>Denite file/rec:~/.vim/rc -start-filter<CR>
 nnoremap m:        :<C-u>Denite file/rec -start-filter<CR>
 " }}}
 
-" < ,/. > is 'search'. {{{
+" < ,/. > is 'Search'. {{{
 " functions defined {{{
 function! s:incsearch_config(...) abort
   return incsearch#util#deepextend(deepcopy({
@@ -81,12 +81,9 @@ nnoremap <silent><expr> <leader>. :<C-u>Denite -buffer-name=search line -start-f
 " Change histry mover
 nnoremap g. g;
 nnoremap g: g,
-
-" This is the command relate with < and >.
-" But <C-,> didn't work on ubuntu.
-" inoremap <C-.> <C-i>
-" inoremap <C-.> <C-f>
+" <C-,/.> didn't work on ubuntu.
 " nnoremap g, " change list next
+" cnoremap <C-,> <C-r>/
 " }}}
 
 "  >,<  is 'Tab'. {{{
@@ -94,11 +91,12 @@ nnoremap > >>
 nnoremap < <<
 xnoremap > >gv
 xnoremap < <gv
-inoremap <C-.> <C-i>    " you can't use this keymap.
-inoremap <C-,> <C-t>
+" You can't use this mapping. I use <C-s> and <C-t>. I didn't test <lt> key.
+" inoremap <C-.> <C-i>    " you can't use this keymap.
+" inoremap <C-,> <C-t>
 " }}}
 
-" < */# > is 'Seasch cursorl word'. {{{
+" < */# > is 'Seasch Cursorl Word'. {{{
 map *  <Plug>(asterisk-z*)<Plug>(is-nohl-1)
 map g* <Plug>(asterisk-gz*)<Plug>(is-nohl-1)
 map #  <Plug>(asterisk-z#)<Plug>(is-nohl-1)
@@ -112,12 +110,22 @@ nnoremap <Leader>= <C-w>=
 noremap  <silent> <Esc><Esc> :<C-u>nohlsearch<CR><bar><Plug>(anzu-clear-search-status)
 noremap  <bs> _x
 noremap  <Leader><bs> _X
+
+" Gina {{{
+nnoremap <Right> :<C-u>Gina diff<CR>
+nnoremap <Left> :<C-u>Gina commit<CR>
+nnoremap <UP> :<C-u>Gina status<CR>
+nnoremap <Down> :<C-u>Gina push<CR>
+" nnoremap <Down> :<C-u>call gina#custom#execute('/\%(status\|branch\|ls\|grep\|changes\|tag\)','setlocal winfixheight',)
 " }}}
 
-" <Wheel> is 'motion'. {{{
+" }}}
+
+" <Wheel> is 'Motion'. {{{
 noremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(40)<CR>
 noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-40)<CR>
 " }}}
+" Todo later
 
 " < n/e > is 'UP/DOWN'. {{{
 noremap n gj
@@ -173,7 +181,6 @@ nnoremap gH <C-w>H
 nnoremap gI <C-w>L
 inoremap <C-h> <Left>
 inoremap <C-i> <Right>
-
 " Base 'omap i' is replaced by s
 
 " Japanese mode {{{
@@ -194,9 +201,30 @@ inoremap <C-i> <Right>
 " }}}
 "}}}
 
-" < o > is 'New Line'. {{{
+" <o> is 'New Line'. {{{
+" map o is o
 nnoremap go :<C-u>e<Space>
+
+imap <C-o> <Plug>(coc-snippets-expand)
+vmap <C-o> <Plug>(coc-snippets-select)
+imap <C-o> <Plug>(coc-snippets-expand-jump)
+nnoremap <Leader>o :<C-u>for i in range(v:count1) \| call append(line('.'), '') \| endfor<CR>
+nnoremap <Leader>O :<C-u>for i in range(v:count1) \| call append(line('.')-1, '') \| endfor<CR>
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+inoremap <silent><expr> <C-o>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+let g:coc_snippet_next = '<c-i>'
+let g:coc_snippet_prev = '<c-h>'
 " }}}
+" Todo later
 
 " < u/y > is 'Left/Right'{{{
 noremap u <Left>
@@ -209,9 +237,9 @@ nnoremap gu :vs
 nnoremap gy :sp
 cnoremap <C-u> <Left>
 cnoremap <C-y> <Right>
-" copy over(below)line.
-inoremap <C-u> <C-y>
-inoremap <C-y> <C-e>
+
+inoremap <C-u> <BS>
+inoremap <C-y> <Delete>
 
 " Sub-idea {{{
 " Complement of imap <C-n>, <C-i>
@@ -224,11 +252,10 @@ inoremap <C-y> <C-e>
 " }}}
 " }}}
 
-" < m > is 'Mark and Fold, Middle-screen'. {{{
+" <m> is 'Mark/Fold/MiddleScreen'. {{{
 " Mark
 nnoremap M '
 nnoremap <leader>m :Denite mark<CR>
-
 " Fold
 noremap mn zj
 noremap me zk
@@ -247,7 +274,7 @@ nnoremap gm M
 nnoremap <C-m> zz
 " }}}
 
-" l is 'comment'. {{{
+" <l> is 'Comment'. {{{
 nmap l  <Nop>
 xmap l  <Nop>
 nmap l  <Plug>(caw:prefix)
@@ -269,222 +296,9 @@ xmap le <Plug>(caw:jump:comment-prev)
 " <C-l> is prefix of <Tab>
 " But <leader>L and gl is not used.
 " }}}
-" L is not used enough.
+" L is 10%.
 
-" < k > is ???. {{{
-map k <Plug>(is-nohl)<Plug>(anzu-n-with-echo)
-map K <Plug>(is-nohl)<Plug>(anzu-N-with-echo)
-" }}}
-
-" < b > is 'help ' {{{
-let g:ref_man_lang = 'ja'
-" Use K to show documentation in preview window
-nmap b <Plug>(ref-keyword)
-" let g:jedi#goto_command = '<leader>d'
-let g:jedi#goto_assignments_command = '<leader>g'
-let g:jedi#goto_stubs_command = '<leader>s'
-let g:jedi#goto_definitions_command = ''
-let g:jedi#documentation_command = 'b'
-let g:jedi#usages_command = '<leader>n'
-
-nmap B <Nop>
-xmap B <Nop>
-
-xmap B :<C-u>'<,'>Gtrans<CR>
-" }}}
-
-" t is Insert/Append {{{
-nnoremap s i
-nnoremap S I
-nnoremap t a
-nnoremap T A
-nmap <C-s> <Plug>(caw:hatpos:toggle)
-xmap <C-s> <Plug>(caw:hatpos:toggle)
-omap <C-s> <Plug>(caw:hatpos:toggle)
-onoremap s i
-xmap S  <Plug>(niceblock-I)
-xmap T  <Plug>(niceblock-A)
-nnoremap <C-t> :<C-u>Vista!!<CR>
-inoremap <C-s> <C-d>
-nmap <leader>s <Plug>(easymotion-overwin-f2)
-xmap <leader>s <Plug>(easymotion-bd-f2)
-
-" inoremap <C-t> Inert Indent
-"
-nnoremap <silent> <Leader>t :<C-u>Denite -split=tab outline -start-filter <CR>
-
-" nnoremap <buffer> <leader>t :<C-u>DeniteCursorWord tag<CR>
-" }}}
-
-" a is Visual mode {{{
-nnoremap a v
-nnoremap A V
-nnoremap <C-a> <C-v>
-" " xmap a  <- used by sandwich
-" "noremap <Leader>a <C-V>
-nnoremap ga gv
-vnoremap <C-a> 0
-inoremap <C-a> <Esc>0i
-" vmap A
-" }}}
-
-" <w> is 'operator' {{{
-map  w  <Plug>(operator-sandwich-add)
-map  wD <Plug>(operator-sandwich-delete)<Plug>(textobj-sandwich-query-a)
-map  wd <Plug>(operator-sandwich-delete)<Plug>(textobj-sandwich-auto-a)
-map  wR <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-query-a)
-map  wr <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-auto-a)
-map  wR <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-query-a)
-map  wr <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-auto-a)
-omap aw <Plug>(textobj-sandwich-auto-a)
-omap aW <Plug>(textobj-sandwich-query-a)
-omap w  <Plug>(textobj-sandwich-auto-i)
-omap W  <Plug>(textobj-sandwich-query-i)
-xmap aw <Plug>(textobj-sandwich-auto-a)
-xmap aW <Plug>(textobj-sandwich-query-a)
-xmap w  <Plug>(textobj-sandwich-auto-i)
-xmap W  <Plug>(textobj-sandwich-query-i)
-nnoremap <C-w> :<C-u>DeniteCursorWord grep <CR>
-nmap  <Leader>w <Plug>(easymotion-overwin-w)
-xmap  <Leader>w <Plug>(easymotion-bd-w)
-omap  <Leader>w <Plug>(easymotion-bd-w)
-" }}}
-
-" f, p and w is Move{{{
-map f <Plug>(easymotion-fl)
-map F <Plug>(easymotion-Fl)
-map p <Plug>(easymotion-tl)
-map P <Plug>(easymotion-Tl)
-map <leader>f <Plug>(coc-git-nextchunk)
-map <leader>p <Plug>(coc-git-prevchunk)
-nmap <C-p> <Plug>(ale_previous)
-nmap <C-f> <Plug>(ale_next)
-inoremap <C-f> <C-y>
-inoremap <C-p> <C-e>
-" }}}
-
-" d is delete {{{
-inoremap <C-d> <C-u>
- " noremap <Leaedr>d coc jump
-" }}}
-
-" q is quit {{{
-nnoremap q :<C-u>bprevious<CR>
-nnoremap Q :<C-u>bdelete<CR>
-nnoremap <Leader>q :<C-u>q<CR>
-nnoremap <Leader>Q :<C-u>q!<CR>
-nnoremap <C-q> :<C-u>Denite change -start-filter<CR>
-"}}}
-
-" x/c/v is Delete/Cut/Paste {{{
-"nnoremap x x
-noremap c y
-noremap C y$".
-nnoremap v ]p
-nnoremap mv p
-noremap V ]P
-noremap mV P
-vnoremap v "_dp
-vnoremap V "_dP
-inoremap <C-x> <Delete>
-inoremap <C-v> <C-r><Right>
-inoremap <S-C-v> <ESC>"+pi
-" inoremap <C-c>
-nnoremap <silent> <C-v>
-\ :<C-u>Denite -buffer-name=register
-\ register neoyank<CR>
-xnoremap <silent> <C-v>
-\ :<C-u>Denite -default-action=replace -buffer-name=register
-\ register neoyank<CR>
-cnoremap <C-v> <C-r>"
-cnoremap <C-,> <C-r>/
-
-noremap <silent> <Leader>v "+p
-noremap <silent> <Leader>V <Right>"+p
-noremap <silent> <Leader>c "+y
-noremap <silent> <Leader>C "+y$
-noremap <silent> <Leader>x "+d
-noremap <silent> <Leader>X "+d$
-
-nmap ã [CMS]
-nmap [CMS]   <Nop>
-nnoremap [CMS]i :CmusCurrent<cr>
-nnoremap [CMS]z :CmusPrevious<cr>
-nnoremap [CMS]x :CmusPlay<cr>
-nnoremap [CMS]c :CmusPause<cr>
-nnoremap [CMS]v :CmusStop<cr>
-nnoremap [CMS]b :CmusNext<cr>
-
-" }}}
-
-" Gina {{{
-nnoremap <Right> :<C-u>Gina diff<CR>
-nnoremap <Left> :<C-u>Gina commit<CR>
-nnoremap <UP> :<C-u>Gina status<CR>
-nnoremap <Down> :<C-u>Gina push<CR>
-" nnoremap <Down> :<C-u>call gina#custom#execute('/\%(status\|branch\|ls\|grep\|changes\|tag\)','setlocal winfixheight',)
-" }}}
-
-" v is paste {{{
-nnoremap gv gp
-nnoremap gV gP
-" noremap g{} {}
-" noremap z{} {}
-" noremap m{} {}
-" noremap! <C-{}> {}
-" }}}
-
- " R is Replace {{{
-inoremap <C-r> <ESC>R
-nnoremap <Leader>r :<C-u>QuickRun<CR>
-nnoremap <C-r> *:%s///g<Left><Left>
-" }}}
-
-" z is Undo/redo {{{
-nnoremap z u
-xnoremap z :<C-U>undo<CR>
-nnoremap Z <C-r>
-xnoremap Z :<C-U>redo<CR>
-inoremap <C-z> <ESC>:<C-U>undo<CR>i
-
-noremap <C-z> <C-a>
-nnoremap gz U
-nnoremap gz :<C-U>undo<CR>
-nnoremap <leader>z :<C-u>GundoToggle<CR>
-" }}}
-
-" k/K is Search Up/Down (old n/N) {{{
-imap <C-o> <Plug>(coc-snippets-expand)
-vmap <C-o> <Plug>(coc-snippets-select)
-imap <C-o> <Plug>(coc-snippets-expand-jump)
-inoremap <silent><expr> <C-o>
-      \ pumvisible() ? coc#_select_confirm() :
-      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" let g:coc_snippet_next = '<tab>'
-let g:coc_snippet_next = '<c-i>'
-let g:coc_snippet_prev = '<c-h>'
-"}}}
-
-"
-" {{{ g
-nnoremap gp :Denite gitlog -start-filter<CR>
-nnoremap gP :Denite gitlog:all -start-filter<CR>
-nnoremap gf :Denite gitchanged -start-filter<CR>
-nnoremap gF :Denite gitfiles -start-filter<CR>
-
-" nnoremap <silent> <Leader>w :<C-u>w<CR>
-" nnoremap <Leader>W :<C-u>w!<CR>
-" }}}
-
-" j is Folds {{{
+" j is ??? {{{
 nmap j  <Nop>
 xmap j  <Nop>
 
@@ -505,13 +319,188 @@ xmap j  <Nop>
 imap <C-j> <Plug>(eskk:toggle)
 cmap <C-j> <Plug>(eskk:toggle)
 " }}}
+" 5 %
 
-"Submode {{{
+" <k/K> is Search 'Up/Down'. {{{
+map k <Plug>(is-nohl)<Plug>(anzu-n-with-echo)
+map K <Plug>(is-nohl)<Plug>(anzu-N-with-echo)
+" }}}
+" K is 30% used.
+
+" <b> is 'Help/Document' {{{
+nmap b <Plug>(ref-keyword)
+let g:jedi#documentation_command = 'b'
+nmap B <Nop>
+xmap B <Nop>
+xmap B :<C-u>'<,'>Gtrans<CR>
+" }}}
+" B is 20% used.
+
+" < s/t > is 'Insert/Append'. {{{
+nnoremap s i
+nnoremap S I
+nnoremap t a
+nnoremap T A
+" s omap is for inner.
+onoremap s i
+" Note: t omap is tag.
+xmap S  <Plug>(niceblock-I)
+xmap T  <Plug>(niceblock-A)
+" Indent
+inoremap <C-s> <C-d>
+" inoremap <C-t> <C-t>
+" <C-s> is fasetr than 'l', but not needed.
+nmap <C-s> <Plug>(caw:hatpos:toggle)
+xmap <C-s> <Plug>(caw:hatpos:toggle)
+omap <C-s> <Plug>(caw:hatpos:toggle)
+nnoremap <C-t> :<C-u>Vista!!<CR>
+nmap <leader>s <Plug>(easymotion-overwin-f2)
+xmap <leader>s <Plug>(easymotion-bd-f2)
+nnoremap <silent> <Leader>t :<C-u>Denite -split=vertical outline -start-filter -auto-resize<CR>
+" nnoremap <buffer> <leader>t :<C-u>DeniteCursorWord tag<CR>
+
 nnoremap gs :<C-u>%s/\v//g<Left><Left><Left>
 vnoremap gs :s/\v//g<Left><Left><Left>
+" }}}
 
-nnoremap <Leader>o :<C-u>for i in range(v:count1) \| call append(line('.'), '') \| endfor<CR>
-nnoremap <Leader>O :<C-u>for i in range(v:count1) \| call append(line('.')-1, '') \| endfor<CR>
+" <r> is 'Replace'. {{{
+" map r is r
+inoremap <C-r> <ESC>R
+nnoremap <Leader>r :<C-u>QuickRun<CR>
+nnoremap <C-r> *:%s///g<Left><Left>
+" }}}
+
+" <a> is 'Visual Mode'. {{{
+nnoremap a v
+nnoremap A V
+nnoremap <C-a> <C-v>
+" omap a is a
+ noremap <Leader>a <C-V>
+nnoremap ga gv
+vnoremap <C-a> 0
+inoremap <C-a> <Esc>0i
+" }}}
+" Leader A is empty.(@??)
+
+" <d> is 'Delete'. {{{
+inoremap <C-d> <C-u>
+" }}}
+" 10 %
+
+" < f/p > is 'Forward/Previous'. {{{
+map f <Plug>(easymotion-fl)
+map F <Plug>(easymotion-Fl)
+map p <Plug>(easymotion-tl)
+map P <Plug>(easymotion-Tl)
+map <leader>f <Plug>(coc-git-nextchunk)
+map <leader>p <Plug>(coc-git-prevchunk)
+nmap <C-f> <Plug>(ale_next)
+nmap <C-p> <Plug>(ale_previous)
+
+inoremap <C-f> <C-y>
+inoremap <C-p> <C-e>
+" }}}
+" 80 %
+
+" <w> is 'Operator/Word-grep'. {{{
+" Operator
+map  w  <Plug>(operator-sandwich-add)
+map  wD <Plug>(operator-sandwich-delete)<Plug>(textobj-sandwich-query-a)
+map  wd <Plug>(operator-sandwich-delete)<Plug>(textobj-sandwich-auto-a)
+map  wR <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-query-a)
+map  wr <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-auto-a)
+map  wR <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-query-a)
+map  wr <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-auto-a)
+omap aw <Plug>(textobj-sandwich-auto-a)
+omap aW <Plug>(textobj-sandwich-query-a)
+omap w  <Plug>(textobj-sandwich-auto-i)
+omap W  <Plug>(textobj-sandwich-query-i)
+xmap aw <Plug>(textobj-sandwich-auto-a)
+xmap aW <Plug>(textobj-sandwich-query-a)
+xmap w  <Plug>(textobj-sandwich-auto-i)
+xmap W  <Plug>(textobj-sandwich-query-i)
+" Word-gerp
+nnoremap <C-w> :<C-u>DeniteCursorWord grep <CR>
+nmap  <Leader>w <Plug>(easymotion-overwin-w)
+xmap  <Leader>w <Plug>(easymotion-bd-w)
+omap  <Leader>w <Plug>(easymotion-bd-w)
+" imap, cmap <C-w> is word-delete.
+" }}}
+
+" <q> is 'Quit'. {{{
+nnoremap q :<C-u>bprevious<CR>
+nnoremap Q :<C-u>bdelete<CR>
+nnoremap <Leader>q :<C-u>q<CR>
+nnoremap <Leader>Q :<C-u>q!<CR>
+nnoremap <C-q> :<C-u>Denite change -start-filter<CR>
+" qq is too slow.
+" <Todo> fix to '={}' from ==.
+imap <C-q> <C-f>
+" imap <C-q> <ESC>==i
+"}}}
+
+" <g> is 'Git/Definition'. {{{
+nnoremap gp :Denite gitlog -start-filter<CR>
+nnoremap gP :Denite gitlog:all -start-filter<CR>
+nnoremap gf :Denite gitchanged -start-filter<CR>
+nnoremap gF :Denite gitfiles -start-filter<CR>
+let g:jedi#goto_assignments_command = '<leader>g'
+nmap <silent> <leader>g <Plug>(coc-definition)
+" nmap <C-g> is submode
+" }}}
+
+" < x/c/v > is 'Delete/Cut/Paste'. {{{
+"nnoremap x x
+noremap  c  y
+noremap  C  y$".
+nnoremap v  ]p
+nnoremap v  p
+nnoremap gv gp
+noremap  V  ]P
+nnoremap gV gP
+noremap  mV P
+vnoremap v  "_dp
+vnoremap V  "_dP
+inoremap <C-x>   <Delete>
+inoremap <C-v>   <C-r><Right>
+inoremap <S-C-v> <ESC>"+pi
+" inoremap <C-c> <ESC>
+nnoremap <silent> <C-v>
+\ :<C-u>Denite -buffer-name=register
+\ register neoyank<CR>
+xnoremap <silent> <C-v>
+\ :<C-u>Denite -default-action=replace -buffer-name=register
+\ register neoyank<CR>
+cnoremap <C-v> <C-r>"
+noremap <silent> <Leader>v "+p
+noremap <silent> <Leader>V <Right>"+p
+noremap <silent> <Leader>c "+y
+noremap <silent> <Leader>C "+y$
+noremap <silent> <Leader>x "+d
+noremap <silent> <Leader>X "+d$
+
+" <M-c> is 'CMUS' {{{
+nmap ã [CMUS]
+nmap [CMUS]   <Nop>
+nnoremap [CMUS]i :CmusCurrent<cr>
+nnoremap [CMUS]z :CmusPrevious<cr>
+nnoremap [CMUS]x :CmusPlay<cr>
+nnoremap [CMUS]c :CmusPause<cr>
+nnoremap [CMUS]v :CmusStop<cr>
+nnoremap [CMUS]b :CmusNext<cr>
+" }}}
+" }}}
+
+" <z> is 'Undo/Redo'. {{{
+nnoremap z u
+nnoremap Z <C-r>
+inoremap <C-z> <ESC>:<C-U>undo<CR>i
+nnoremap gz U
+nnoremap gz :<C-U>undo<CR>
+nnoremap <leader>z :<C-u>GundoToggle<CR>
+" increment
+noremap <C-z> <C-a>
+" <C-z> is for Suspend.
 " }}}
 
 " Meta key mappings {{{
