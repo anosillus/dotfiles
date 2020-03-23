@@ -156,6 +156,7 @@ let g:textobj_sandwich_no_default_key_mappings = 1
 " Japanese {{{
 Plug 'vim-jp/vimdoc-ja'
 Plug 'vim-jp/autofmt'
+set formatexpr=autofmt#japanese#formatexpr()
 Plug 'deton/jasegment.vim'
 let b:loaded_jasegment = 1
 let g:jasegment_no_default_key_mappings = 1
@@ -172,6 +173,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'vim-scripts/autodate.vim'
 Plug 'kana/vim-smartinput'
 Plug 'thinca/vim-template'
+Plug 'thinca/vim-ft-help_fold'
 " }}}
 
 " Command {{{

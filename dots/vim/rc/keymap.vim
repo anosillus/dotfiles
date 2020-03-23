@@ -211,11 +211,6 @@ imap <C-o> <Plug>(coc-snippets-expand-jump)
 nnoremap <Leader>o :<C-u>for i in range(v:count1) \| call append(line('.'), '') \| endfor<CR>
 nnoremap <Leader>O :<C-u>for i in range(v:count1) \| call append(line('.')-1, '') \| endfor<CR>
 
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
 inoremap <silent><expr> <C-o>
       \ pumvisible() ? coc#_select_confirm() :
       \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
@@ -291,6 +286,8 @@ xmap ll <Plug>(caw:wrap:toggle)
 xmap ls <Plug>(caw:box:comment)
 xmap ln <Plug>(caw:jump:comment-next)
 xmap le <Plug>(caw:jump:comment-prev)
+" For python (at filetype.vim)
+" map lo pydocstring
 
 " <ToDo>
 " <C-l> is prefix of <Tab>
@@ -333,6 +330,8 @@ let g:jedi#documentation_command = 'b'
 nmap B <Nop>
 xmap B <Nop>
 xmap B :<C-u>'<,'>Gtrans<CR>
+
+nnoremap <leader>b :<C-u>Denite -split=vertical help -start-filter<CR>
 " }}}
 " B is 20% used.
 
@@ -566,4 +565,6 @@ map! ® <bar>
 " terminal mode setting(not yet) {{{
 " terminal mode
 " set termkey=<C-l>
+tnoremap <Esc> <C-\><C-n>
+tnoremap <C-g> <C-\><C-n>:q!<CR>,
 " }}}

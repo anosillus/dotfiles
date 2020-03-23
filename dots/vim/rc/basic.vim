@@ -1,27 +1,26 @@
 scriptencoding=utf8
 
 " ---------- Basic Option ----------
-" setl number
-setl wrap
-setl showmatch
-set matchpairs+=<:>
-setl matchtime=1
-setl list
-setl listchars=tab:>-,trail:-,nbsp:%,extends:>,precedes:<
+setlocal wrap
+setlocal showmatch
+setlocal matchpairs+=<:>,「:」,（:）
+setlocal matchtime=1
+setlocal list
+setlocal listchars=tab:>-,trail:-,nbsp:%,extends:>,precedes:<
 set formatoptions+=mM
 set foldmethod=marker
 " ---------- Command/Status Line ----------
-setl ruler
-setl laststatus=2
-setl cmdheight=2
-setl showcmd
+setlocal ruler
+setlocal laststatus=2
+set cmdheight=2
+setlocal showcmd
 " ---------- Search ----------
-setl hlsearch
-setl incsearch
-setl ignorecase
-setl smartcase
-setl nowrapscan
-setl showmatch
+setlocal hlsearch
+setlocal incsearch
+setlocal ignorecase
+setlocal smartcase
+setlocal nowrapscan
+setlocal showmatch
 
 set wildmode=longest,list
 set wildignore&
@@ -31,38 +30,45 @@ set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest,*.so,*.out,*.class
 set wildignore+=*.swp,*.swo,*.swn
 set wildignore+=*.DS_Store
 " ---------- Move ----------
-setl backspace=indent,eol,start
-setl whichwrap=b,s,h,l,<,>,[,]  " 行頭行末の左右移動で行をまたぐ
-setl scrolloff=3
-setl sidescrolloff=16
-setl sidescroll=1
+setlocal backspace=indent,eol,start
+setlocal whichwrap=b,s,h,l,<,>,[,]
+setlocal scrolloff=3
+setlocal sidescrolloff=16
+setlocal sidescroll=1
 set shiftround
-
 " ---------- File setlting ----------
-setl hidden
-setl t_Co=256
-setl imdisable
-setl autoread
-
+setlocal hidden
+setlocal t_Co=256
+setlocal imdisable
+setlocal autoread
+setlocal splitright
 " ---------- help ----------
-" setl helpheight=999
+" setlocal helpheight=999
 set keywordprg=:help
 set helplang& helplang=en,ja
-
 " ---------- OS/JP setting ----------
-setl mouse=a
-setl shellslash
+setlocal shellslash
 set virtualedit& virtualedit+=block
-
 " ---------- Enocode ----------
-setl fileformats=unix,dos,mac
-setl fileencodings=utf-8,iso-2022-jp,cp932,euc-jp
-" language mes en_US.utf8
-
+setlocal fileformats=unix,dos,mac
+setlocal fileencodings=utf-8,iso-2022-jp,cp932,euc-jp
+language message en_US.utf8
 " ---------- Bell Off ----------
-setl visualbell t_vb=
-setl noerrorbells
+setlocal visualbell
+setlocal noerrorbells
+" ---------- Tab/Indent ----------
+setl expandtab
+setl tabstop=2
+setl shiftwidth=2
+setl softtabstop=2
+setl autoindent
+setl smartindent
+setl smarttab
+setl laststatus=2
 
+if exists('&ambiwidth')
+  setl ambiwidth=double
+endif
 " ---------- Japanese Input ----------
 let g:hi_insert = 'highlight StatusLine guifg=darkblue guibg=darkyellow gui=none ctermfg=blue ctermbg=yellow cterm=none'
 
@@ -88,7 +94,6 @@ function! s:StatusLine(mode)
   endif
 endfunction
 
-set formatexpr=autofmt#japanese#formatexpr()
 if has('multi_byte_ime')
   highlight Cursor guifg=NONE guibg=Green
   highlight CursorIM guifg=NONE guibg=Purple
@@ -103,7 +108,6 @@ function! s:GetHighlight(hi)
   return l:hl
 endfunction
 
-" ZEN-KAKU
 " Display zenkaku-space
 augroup hilight-idegraphic-space
   autocmd!

@@ -55,6 +55,7 @@ endif
 " }}}
 
 " GuiOptions {{{
+set vb t_vb=
 set mouse=
 set mousemodel=
 set nomousefocus

@@ -7,20 +7,6 @@ function! s:template_keywords()
     execute 'normal! "_da>'
   endif
 endfunction
-" ---------- Tab/Indent ----------
-set splitright
-setl expandtab
-setl tabstop=2
-setl shiftwidth=2
-setl softtabstop=2
-setl autoindent
-setl smartindent
-setl smarttab
-setl laststatus=2
-
-if exists('&ambiwidth')
-  setl ambiwidth=double
-endif
 
 function! s:bufnew()
   if &buftype ==# 'terminal' && &filetype ==# ''
@@ -28,19 +14,19 @@ function! s:bufnew()
   endif
 endfunction
 
-function! s:terminal_settings()
-  tnoremap <Esc> <C-\><C-n>
-  tnoremap <C-g> <C-\><C-n>:q!<CR>,
+" Terminal Mode(Not Used) {{{
+" function! s:terminal_settings()
+  " tnoremap <Esc> <C-\><C-n>
+  " tnoremap <C-g> <C-\><C-n>:q!<CR>,
   " tnoremap <C-c> <C-\><C-n>
   " tnoremap <C-,> <C-\><C-n><C-w>W
-  " 他のウィンドウを閉じて最大化する
-  nnoremap <Leader>q :<C-u>q!<CR>
 
   " noremap  <A-o> <C-w>o
   " inoremap <A-o> <Esc><C-w>o
   " tnoremap <C-;> <C-\><C-n><C-w>o
   " tnoremap <C-/> <C-\><C-n><C-w>:"
-endfunction
+" endfunction
+" }}}
 
 function! s:initialize_ref_viewer()
   nmap <buffer> s <Plug>(ref-back)
@@ -50,7 +36,7 @@ function! s:initialize_ref_viewer()
 endfunction
 
 function! s:auto_goyo()
-  setl filetype=markdown
+  " setl filetype=markdown
   :Goyo 80
 endfunction
 
@@ -58,10 +44,12 @@ function! s:jp_setting()
   " let b:ale_textlint_options = --rule general-novel-style-ja
   let b:loaded_jasegment = 0
   let g:jasegment#highlight = 2
+  call s:auto_goyo()
 
-  " let g:loaded_jasegment = 1
-  set spelllang=cjk
+  setlocal spelllang=cjk
   setlocal spell
+  setlocal scrolloff=9999
+  setlocal eventignore=hilight-idegraphic-space
 
   function! s:incsearch_config(...) abort
     return incsearch#util#deepextend(deepcopy({
@@ -115,8 +103,8 @@ augroup MyAutoCmd
   autocmd WinEnter * if winnr('$') == 1 && &buftype == "quickfix"|q|endif
   autocmd BufNew * call timer_start(0, { -> s:bufnew() })
   autocmd FileType vim set tabstop=2 shiftwidth=2 expandtab
-  autocmd FileType terminal call s:terminal_settings()
-  autocmd FileType ref call s:initialize_ref_viewer()
+  " autocmd FileType terminal call s:terminal_settings()
+  autocmd FileType ref,help call s:initialize_ref_viewer()
   autocmd VimEnter * RainbowParenthesesToggle
   autocmd Syntax * RainbowParenthesesLoadRound
   autocmd Syntax * RainbowParenthesesLoadSquare
@@ -145,9 +133,8 @@ augroup MyAutoCmd
   autocmd BufRead,BufNewFile README.md setlocal ft=markdown.gfm
   autocmd BufNewFile,BufRead *.vue setl filetype=javascript
   autocmd BufNew,BufNewFile,BufRead .textlintrc setl filetype=json
-  autocmd FileType python nmap <silent> lo <Plug>(pydocstring)
+  autocmd FileType python map <silent> lo <Plug>(pydocstring)
   " autocmd FileType python xmap <silent> lo :<C-u>'<,'>Pydocstring<CR>
-
 
   " autocmd BufNewFile,BufRead markdown call s:auto_goyo()
   " autocmd VimEnter * echo 'Sleep'
