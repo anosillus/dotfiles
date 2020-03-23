@@ -1,8 +1,8 @@
 scriptencoding=utf8
 
-" Fonts:
-set ambiwidth=double
+" Font {{{
 
+set ambiwidth=double
 if has('win32') || has('win64')
   " For Windows.
 
@@ -37,10 +37,11 @@ else
    set guifontwide=Cica\ 14
    set guifont=Cica\ 14
 endif
+" }}}
 
-"---------------------------------------------------------------------------
-" Window:
-"
+
+" OS type {{{
+" Todo
 if has('win32') || has('win64')
   " Width of window.
    set columns=230
@@ -61,33 +62,17 @@ endif
 if !exists('g:colors_name')
   colorscheme morning
 endif
+" }}}
+" <Todo>
 
-
-"---------------------------------------------------------------------------
-" Options:
+" GuiOptions {{{
 set mouse=
 set mousemodel=
-
-" Don't focus the window when the mouse pointer is moved.
 set nomousefocus
-" Hide mouse pointer on insert mode.
 set mousehide
-
-" Hide toolbar and menus.
-set guioptions-=Tt
-set guioptions-=m
-" Scrollbar is always off.
-set guioptions-=rL
-" Not guitablabel.
-set guioptions-=e
-" Confirm without window.
-set guioptions+=c
-" if has('patch-8.0.1609')
-"   set guioptions+=!
-" endif
-
-" Don't flick cursor.
+set guioptions=c
 set guicursor&
 set guicursor+=a:blinkon0
+" }}}
 
-" " vim: foldmethod=marker
+" vim: foldmethod=marker

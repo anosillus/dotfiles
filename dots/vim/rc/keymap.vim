@@ -370,17 +370,20 @@ nnoremap <Leader>r :<C-u>QuickRun<CR>
 nnoremap <C-r> *:%s///g<Left><Left>
 " }}}
 
-" <a> is 'Visual Mode'. {{{
+" <a> is 'Visual Mode/Head/Macro'. {{{
+" Visual Mode
 nnoremap a v
 nnoremap A V
 nnoremap <C-a> <C-v>
 " omap a is a
- noremap <Leader>a <C-V>
+" Head
 nnoremap ga gv
 vnoremap <C-a> 0
 inoremap <C-a> <Esc>0i
+" Macro
+noremap <leader>a q
+" noremap <M-a> @ "This defined at Meta.
 " }}}
-" Leader A is empty.(@??)
 
 " <d> is 'Delete'. {{{
 inoremap <C-d> <C-u>

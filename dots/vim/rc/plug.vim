@@ -1,15 +1,21 @@
 scriptencoding utf-8
 
-" {{{ plug list
+" VimPlug {{{
+" Base Settings {{{
 "https://www.reddit.com/r/vim/comments/5ja0mn/vim_what_the_best_practice_to_sync_up_all_plugins/"
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   "autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
+
 set runtimepath^=$HOME/.vim
 set runtimepath^=$HOME/.vim/syntax
 call plug#begin('~/.vim/plugged')
+" }}}
+
+" ShougoWare {{{
+
 if has('nvim')
   Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'Shougo/defx.nvim'
@@ -18,31 +24,48 @@ else
   Plug 'Shougo/denite.nvim'
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
+
 endif
 Plug 'Shougo/deol.nvim'
-" Plug 'anosillus/vim-ipynb'
-" Plug 'rhysd/vim-grammarous'
-" let g:grammarous#disabled_rules = {
-" \ '*' : ['WHITESPACE_RULE', 'EN_QUOTES'],
-" \ 'help' : ['WHITESPACE_RULE', 'EN_QUOTES', 'SENTENCE_WHITESPACE', 'UPPERCASE_SENTENCE_START'],
-" 	\ }
-Plug 'mopp/layoutplugin.vim', { 'on': 'LayoutPlugin'}
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'chemzqm/denite-git'
-Plug 'chrisbra/vim-diff-enhanced'
-if &diff
-  let &diffexpr='EnhancedDiff#Diff("git diff", "--diff-algorithm=patience")'
-endif
-Plug 'kien/rainbow_parentheses.vim'
-Plug 'ryanoasis/vim-devicons'
-Plug 'junegunn/vim-easy-align'
-Plug 'kana/vim-smartinput'
+Plug 'Shougo/context_filetype.vim'
+Plug 'osyo-manga/vim-precious', {'for' : ['toml','markdown', 'text']}
+Plug 'Shougo/neoyank.vim'
+let g:neoyank#file = $HOME.'/.cache/yank/yankring.txt'
+
+" }}}
+
+" MyPlugin {{{
+" Plug 'anosillus/vim-ipynb' "fixing now.
+Plug 'anosillus/caw.vim'
+let g:caw_no_default_keymappings = 1
+let g:caw_operator_keymappings = 0
+
+" }}}
+
+" PlugMaker {{{
+" Plug 'mopp/layoutplugin.vim', { 'on': 'LayoutPlugin'}
+" }}}
+
+" Language {{{
+" Common {{{
 Plug 'w0rp/ale'
+Plug 'sheerun/vim-polyglot'
+let g:polyglot_disabled = ['markdown', 'cpp']
+Plug 'vim-jp/syntax-vim-ex'
 Plug 'thinca/vim-ref'
 let g:ref_no_default_key_mappings = 1
 let g:ref_man_lang = 'ja'
 let g:ref_pydoc_cmd	 = 'python3 -m pydoc'
 " let g:ref_pydoc_cmd = executable('python3') ? 'pydoc3' : ''
+" }}}
+Plug 'lifepillar/pgsql.vim', { 'for': 'sql' }
+let g:gfm_syntax_enable_always = 0
+let g:gfm_syntax_enable_filetypes = ['markdown.gfm']
+
+
+" Python {{{
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 let g:jedi#completions_enabled = 0
 let g:jedi#show_call_signatures = '1'
@@ -51,15 +74,54 @@ let g:jedi#completions_command = ''
 let g:jedi#rename_command = ''
 Plug 'heavenshell/vim-pydocstring'
 let g:pydocstring_doq_path = $HOME.'/.local/bin/doq'
+" }}}
+
+" CSV, Table {{{
+Plug 'chrisbra/csv.vim', { 'for' : 'csv' }
+let g:csv_nomap_cr = 1
+" Plug 'dhruvasagar/vim-table-mode'
+" let g:table_mode_map_prefix	= '<leader><del>'
+Plug 'mattn/vim-maketable'
+" }}}
+
+" CPP {{{
+Plug 'bfrg/vim-cpp-modern', { 'for': 'cpp' }
+let g:cpp_named_requirements_highlight = 1
+" }}}
+
+" Markdown {{{
+Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
+Plug 'rcmdnk/vim-markdown', { 'for': 'markdown' }
+let g:markdown_enable_mappings = 0
+let g:markdown_enable_spell_checking = 0
+Plug 'junegunn/goyo.vim', {'for':'markdown'}
+Plug 'rhysd/vim-gfm-syntax',{ 'for': 'markdown.gfm' }
+" }}}
+
+" Web {{{
+Plug 'ap/vim-css-color'
+" }}}
+
+" Golang {{{
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries',  'for': 'golang' }
+" }}}
+" }}}
+
+" View {{{
+Plug 'chrisbra/vim-diff-enhanced'
+if &diff
+  let &diffexpr='EnhancedDiff#Diff("git diff", "--diff-algorithm=patience")'
+endif
+Plug 'ryanoasis/vim-devicons'
+Plug 'itchyny/lightline.vim'
 Plug 'maximbaz/lightline-ale'
-Plug 'vim-jp/vimdoc-ja'
-Plug 'vim-jp/autofmt'
-Plug 'deton/jasegment.vim'
-let b:loaded_jasegment = 1
-let g:jasegment_no_default_key_mappings = 1
-let g:jasegment#model = 'mecab'
-let g:jasegment#mecab#args = '-Owakati -d /usr/lib/x86_64-linux-gnu/mecab/dic/mecab-ipadic-neologd/'
-Plug 'editorconfig/editorconfig-vim'
+Plug 'Yggdroot/indentLine'
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'markonm/traces.vim'
+" }}}
+
+" Motion {{{
+Plug 'junegunn/vim-easy-align'
 Plug 'haya14busa/is.vim'
 Plug 'osyo-manga/vim-anzu'
 Plug 'haya14busa/vim-asterisk'
@@ -71,123 +133,70 @@ Plug 'haya14busa/incsearch-migemo.vim'
 Plug 'haya14busa/incsearch-fuzzy.vim'
 Plug 'kana/vim-smartword'
 Plug 'bkad/CamelCaseMotion'
-Plug 'thinca/vim-quickrun'
-Plug 'Yggdroot/indentLine'
-Plug 'pbrisbin/vim-mkdir'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'liuchengxu/vista.vim'
-let g:vista_icon_indent = ['╰─▸ ', '├─▸ ']
-let g:vista_default_executive = 'coc'
-let g:vista_fzf_preview = ['right:50%']
-let g:vista#renderer#enable_icon = 1
-let g:vista#renderer#icons = {
-\ 'func':           "\Uff794",
-\ 'function':       "\Uff794",
-\ 'functions':      "\Uff794",
-\ 'var':            "\Uff71b",
-\ 'variable':       "\Uff71b",
-\ 'variables':      "\Uff71b",
-\ 'const':          "\Uff8ff",
-\ 'constant':       "\Uff8ff",
-\ 'method':         "\Uff6a6",
-\ 'package':        "\Ufe612",
-\ 'packages':       "\Ufe612",
-\ 'enum':           "\Uff435",
-\ 'enumerator':     "\Uff435",
-\ 'module':         "\Uff668",
-\ 'modules':        "\Uff668",
-\ 'type':           "\Ufe22b",
-\ 'typedef':        "\Ufe22b",
-\ 'types':          "\Ufe22b",
-\ 'field':          "\Uff93d",
-\ 'fields':         "\Uff93d",
-\ 'macro':          "\Uff8a3",
-\ 'macros':         "\Uff8a3",
-\ 'map':            "\Uffb44",
-\ 'class':          "\Uff9a9",
-\ 'augroup':        "\Uffb44",
-\ 'struct':         "\Uffb44",
-\ 'union':          "\Uffacd",
-\ 'member':         "\Uff02b",
-\ 'target':         "\Uff893",
-\ 'property':       "\Uffab6",
-\ 'interface':      "\Uffa52",
-\ 'namespace':      "\Uff475",
-\ 'subroutine':     "\Uff915",
-\ 'implementation': "\Uff87a",
-\ 'typeParameter':  "\Uff278",
-\ 'default':        "\Uff29c"
-\ }
-Plug 'vim-scripts/autodate.vim'
-Plug 'itchyny/lightline.vim'
-Plug 'kana/vim-submode'
-Plug 'lambdalisue/gina.vim'
-Plug 'sjl/gundo.vim'
-Plug 'chrisbra/csv.vim', { 'for' : 'csv' }
-let g:csv_nomap_cr = 1
-Plug 'dhruvasagar/vim-table-mode'
-let g:table_mode_map_prefix	= '<leader><del>'
-Plug 'sheerun/vim-polyglot'
-let g:polyglot_disabled = ['markdown', 'cpp']
-Plug 'mattn/emmet-vim'
-let g:user_emmet_install_global = 1
-let g:user_emmet_mode='vn'
-let g:user_emmet_leader_key='<C-j>'
-Plug 'bfrg/vim-cpp-modern', { 'for': 'cpp' }
-let g:cpp_named_requirements_highlight = 1
-Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
-Plug 'rcmdnk/vim-markdown', { 'for': 'markdown' }
-let g:markdown_enable_mappings = 0
-let g:markdown_enable_spell_checking = 0
-Plug 'previm/previm'
-Plug 'mattn/vim-maketable'
-Plug 'azadkuh/vim-cmus'
-Plug 'markonm/traces.vim'
-Plug 'skanehira/translate.vim'
-let g:translate_source = 'en'
-let g:translate_target = 'ja'
-let g:translate_winsize = 10
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries',  'for': 'golang' }
-Plug 'junegunn/goyo.vim', {'for':'markdown'}
-Plug 'ap/vim-css-color'
 Plug 'yuttie/comfortable-motion.vim'
 let g:comfortable_motion_no_default_key_mappings = 1
 let g:comfortable_motion_friction = 80.0
 let g:comfortable_motion_air_drag = 2.0
 let g:comfortable_motion_impulse_multiplier = 1  " Feel free to increase/decrease this value.
-Plug 'thinca/vim-template'
-Plug 'Shougo/context_filetype.vim'
-Plug 'osyo-manga/vim-precious', {'for' : ['toml','markdown', 'text']}
-Plug 'lifepillar/pgsql.vim', { 'for': 'sql' }
-let g:gfm_syntax_enable_always = 0
-let g:gfm_syntax_enable_filetypes = ['markdown.gfm']
-Plug 'rhysd/vim-gfm-syntax',{ 'for': 'markdown.gfm' }
-Plug 'anosillus/caw.vim'
-let g:caw_no_default_keymappings = 1
-let g:caw_operator_keymappings = 0
-Plug 'Shougo/neoyank.vim'
-let g:neoyank#file = $HOME.'/.cache/yank/yankring.txt'
-Plug 'vim-jp/syntax-vim-ex'
-let g:niceblock_no_default_key_mappings = 1
 Plug 'kana/vim-niceblock'
-Plug 'kana/vim-operator-user'
-Plug 'tyru/eskk.vim'
-let g:eskk#no_default_mappings = 0
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-let g:deoplete#enable_at_startup = 0
+let g:niceblock_no_default_key_mappings = 1
 Plug 'rhysd/accelerated-jk'
+" }}}
+
+" TextObj {{{
+Plug 'kana/vim-operator-user'
 Plug 'machakann/vim-sandwich'
 let g:sandwich_no_default_key_mappings = 1
 let g:operator_sandwich_no_default_key_mappings = 1
 let g:textobj_sandwich_no_default_key_mappings = 1
 " let g:sandwich#recipes = deepcopy(g:sandwich#default_recipes)
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'Shougo/neco-vim'
-Plug 'SirVer/ultisnips'
+" }}}
+
+" Japanese {{{
+Plug 'vim-jp/vimdoc-ja'
+Plug 'vim-jp/autofmt'
+Plug 'deton/jasegment.vim'
+let b:loaded_jasegment = 1
+let g:jasegment_no_default_key_mappings = 1
+let g:jasegment#model = 'mecab'
+let g:jasegment#mecab#args = '-Owakati -d /usr/lib/x86_64-linux-gnu/mecab/dic/mecab-ipadic-neologd/'
+Plug 'tyru/eskk.vim'
+let g:eskk#no_default_mappings = 0
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+let g:deoplete#enable_at_startup = 0
+" }}}
+
+" Config {{{
+Plug 'editorconfig/editorconfig-vim'
+Plug 'vim-scripts/autodate.vim'
+Plug 'kana/vim-smartinput'
+Plug 'thinca/vim-template'
+" }}}
+
+" Command {{{
+Plug 'thinca/vim-quickrun'
+Plug 'pbrisbin/vim-mkdir'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'liuchengxu/vista.vim'
+Plug 'lambdalisue/gina.vim'
+Plug 'sjl/gundo.vim'
+Plug 'kana/vim-submode'
+Plug 'mattn/emmet-vim'
+Plug 'previm/previm'
+Plug 'azadkuh/vim-cmus'
+Plug 'skanehira/translate.vim'
+let g:translate_source = 'en'
+let g:translate_target = 'ja'
+let g:translate_winsize = 10
+" }}}
+
+" Coc {{{
 Plug 'neoclide/coc-neco'
 Plug 'neoclide/coc-sources'
 Plug 'Shougo/neco-vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'Shougo/neco-vim'
+Plug 'SirVer/ultisnips'
 " Plug 'iamcco/coc-vimlsp'
 " Plug 'jamcco/coc-spell-checker'
 " Plug 'josa42/coc-docker'
@@ -207,13 +216,17 @@ Plug 'Shougo/neco-vim'
 " coc-ccls
 " coc-go
 " Plug 'honza/vim-snippets'
-
-call plug#end()
-
 " }}}
 
-" let g:vimpyter_jupyter_notebook_flags = '--browser=vivaldi --port=8855'
-" let g:vimpyter_view_directory = '$HOME/.vimpyter_views'
+call plug#end()
+" }}}
+" -----------------------------------------------------------------------
+
+" Emment {{{
+let g:user_emmet_install_global = 1
+let g:user_emmet_mode='vn'
+let g:user_emmet_leader_key='<C-j>'
+" }}}
 
 " SubMode {{{
 call submode#enter_with('bufmove', 'n', '', '<C-g>h', '<C-w>>')
@@ -313,6 +326,7 @@ let g:ale_linters = {
 \   'vim':        ['vint'],
 \   'yaml':       ['yamlint']
 \ }
+" Vale is too fast.
 
 let g:ale_fixers = {
 \   'bash':       ['remove_trailing_lines', 'trim_whitespace', 'language-server', 'shellcheck'],
@@ -343,11 +357,6 @@ highlight clear ALEWarningSign
 
 " EasyMotion {{{
 let g:EasyMotion_do_mapping = 0
-
- " depends on vim-anzu and is.vim
-" nnoremap <leader>k K
-" set statusline=%{anzu#search_status()}
-
 let g:EasyMotion_keys = 'neihdoarstdluyfwp;qj,.'
 let g:EasyMotion_use_migemo = 1
 let g:EasyMotion_smartcase = 1
@@ -524,6 +533,51 @@ let g:quickrun#config= {
 
 let g:quickrun_no_default_key_mappings = 1
 "}}}
+
+" Vista {{{
+let g:vista_icon_indent = ['╰─▸ ', '├─▸ ']
+let g:vista_default_executive = 'coc'
+let g:vista_fzf_preview = ['right:50%']
+let g:vista#renderer#enable_icon = 1
+let g:vista#renderer#icons = {
+\ 'func':           "\Uff794",
+\ 'function':       "\Uff794",
+\ 'functions':      "\Uff794",
+\ 'var':            "\Uff71b",
+\ 'variable':       "\Uff71b",
+\ 'variables':      "\Uff71b",
+\ 'const':          "\Uff8ff",
+\ 'constant':       "\Uff8ff",
+\ 'method':         "\Uff6a6",
+\ 'package':        "\Ufe612",
+\ 'packages':       "\Ufe612",
+\ 'enum':           "\Uff435",
+\ 'enumerator':     "\Uff435",
+\ 'module':         "\Uff668",
+\ 'modules':        "\Uff668",
+\ 'type':           "\Ufe22b",
+\ 'typedef':        "\Ufe22b",
+\ 'types':          "\Ufe22b",
+\ 'field':          "\Uff93d",
+\ 'fields':         "\Uff93d",
+\ 'macro':          "\Uff8a3",
+\ 'macros':         "\Uff8a3",
+\ 'map':            "\Uffb44",
+\ 'class':          "\Uff9a9",
+\ 'augroup':        "\Uffb44",
+\ 'struct':         "\Uffb44",
+\ 'union':          "\Uffacd",
+\ 'member':         "\Uff02b",
+\ 'target':         "\Uff893",
+\ 'property':       "\Uffab6",
+\ 'interface':      "\Uffa52",
+\ 'namespace':      "\Uff475",
+\ 'subroutine':     "\Uff915",
+\ 'implementation': "\Uff87a",
+\ 'typeParameter':  "\Uff278",
+\ 'default':        "\Uff29c"
+\ }
+" }}}
 
 " ESKK {{{
 set imdisable
