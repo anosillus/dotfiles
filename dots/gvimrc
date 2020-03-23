@@ -1,33 +1,62 @@
-" display & information
-set lines=88     " typical
-set columns=180      " margin for 'number' and 'foldcolumn'
-set cmdheight=1     " MacVim $VIM/gvimrc overwrites my .vimrc settings
-set guioptions=c    " show no GUI components
+scriptencoding utf8
 
-" no way to use a mouse
+" Font {{{
+
+set ambiwidth=double
+if has('win32') || has('win64')
+  " For Windows.
+
+  " set guifont=Cica:h16:cSHIFTJIS:qDRAFT
+  " set guifontwide=VL\ Gothic:h11
+  " set guifont=Courier\ New:h11
+  " set guifont=VL\ Gothic:h11
+  " set guifont=Consolas:h12
+  " set guifont=Inconsolata:h12
+
+  " Number of pixel lines inserted between characters.
+   set linespace=2
+
+  if has('patch-7.4.394')
+    " Use DirectWrite
+     set renderoptions=type:directx
+  endif
+
+  if has('kaoriya')
+    " For Kaoriya only.
+     set ambiwidth=auto
+  endif
+elseif has('mac')
+  " For Mac.
+   set guifont=Osaka－等幅:h14
+else
+  " For Linux.
+   " set guifontwide=VL\ Gothic\ 13
+   " set guifont=Courier\ 10\ Pitch\ 14
+   " set guifont=Font\ Family\ 12
+   " set guifontwide=Font\ Family\ 12
+   set guifontwide=Cica\ 18
+   set guifont=Cica\ 18
+endif
+" }}}
+
+" Window Size {{{
+if &columns < 170
+  set columns=170
+endif
+if &lines < 40
+  set lines=40
+endif
+" }}}
+
+" GuiOptions {{{
+set t_vb=
 set mouse=
+set mousemodel=
 set nomousefocus
 set mousehide
+set guioptions=c
+set guicursor&
+set guicursor+=a:blinkon0
+" }}}
 
-" font
-if has('win32')
-    set guifont=Cica:h12 ":cSHIFTJIS,MS_Gothic:h12:cSHIFTJIS
-    " When VL Gothic isn't found in the system, use MS Gothic.
-    " set guifont=VL_Gothic:h12:cSHIFTJIS,MS_Gothic:h12:cSHIFTJIS
-    set linespace=0
-elseif has('mac')
-    set guifont=Cica-Regular:h18
-    ":cSHIFTJIS,MS_Gothic:h12:cSHIFTJIS
-    " set guifont=VL_Gothic:h16
-    set linespace=0
-else
-    set guifont=Cica\ 16
-    " set guifont=Ubuntu\ Mono\ Regular\ 12
-endif
-
-" colorscheme spacecamp
-
-" turn off disabling IM at entering input mode
-if exists('&imdisableactivate')
-    set noimdisableactivate
-endif
+" vim: foldmethod=marker
