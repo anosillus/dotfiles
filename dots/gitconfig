@@ -3,7 +3,7 @@
     excludesfile = ~/.gitignore
     preloadindex = true
     autocrlf = input                 # CRLFを自動変換
-    editor = nyaovim
+    editor =  gvim
     quotepath = false
 
 

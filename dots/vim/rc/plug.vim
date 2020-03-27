@@ -37,7 +37,7 @@ let g:neoyank#file = $HOME.'/.cache/yank/yankring.txt'
 " }}}
 
 " MyPlugin {{{
-" Plug 'anosillus/vim-ipynb' "fixing now.
+Plug 'anosillus/vim-ipynb'
 Plug 'anosillus/caw.vim'
 let g:caw_no_default_keymappings = 1
 let g:caw_operator_keymappings = 0
