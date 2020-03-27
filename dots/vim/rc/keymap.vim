@@ -29,6 +29,8 @@ nnoremap <silent><leader><CR> :<C-u>Deol -split=floating<CR>
 " }}}
 " Write Deol setting more !!
 
+" Symbols {{{
+
 " < :/; > is 'Command'. {{{
 noremap ;  :
 noremap :  ;
@@ -120,6 +122,7 @@ nnoremap <Down> :<C-u>Gina push<CR>
 " }}}
 
 " }}}
+" }}}
 
 " <Wheel> is 'Motion'. {{{
 noremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(40)<CR>
@@ -127,6 +130,7 @@ noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-40)<CR>
 " }}}
 " Todo later
 
+" Right Hand {{{
 " < n/e > is 'UP/DOWN'. {{{
 noremap n gj
 noremap e gk
@@ -327,13 +331,17 @@ map K <Plug>(is-nohl)<Plug>(anzu-N-with-echo)
 " <b> is 'Help/Document' {{{
 nmap b <Plug>(ref-keyword)
 let g:jedi#documentation_command = 'b'
-nmap B <Nop>
-xmap B <Nop>
 xmap B :<C-u>'<,'>Gtrans<CR>
-
 nnoremap <leader>b :<C-u>Denite -split=vertical help -start-filter<CR>
+map <Leader>B <Plug>EblookInput
+map <C-b> <Plug>EblookSearch
+omap b (
+omap B {
 " }}}
-" B is 20% used.
+
+" }}}
+
+" Left hand {{{
 
 " < s/t > is 'Insert/Append'. {{{
 nnoremap s i
@@ -360,6 +368,8 @@ nnoremap <silent> <Leader>t :<C-u>Denite -split=vertical outline -start-filter -
 
 nnoremap gs :<C-u>%s/\v//g<Left><Left><Left>
 vnoremap gs :s/\v//g<Left><Left><Left>
+noremap gt <C-]>
+" I don't use '<C-]>'
 " }}}
 
 " <r> is 'Replace'. {{{
@@ -503,6 +513,8 @@ nnoremap <leader>z :<C-u>GundoToggle<CR>
 " increment
 noremap <C-z> <C-a>
 " <C-z> is for Suspend.
+" }}}
+
 " }}}
 
 " Meta key mappings {{{

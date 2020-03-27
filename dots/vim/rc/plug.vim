@@ -66,6 +66,7 @@ let g:gfm_syntax_enable_filetypes = ['markdown.gfm']
 
 
 " Python {{{
+" Plug 'numirias/semshi'
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 let g:jedi#completions_enabled = 0
 let g:jedi#show_call_signatures = '1'
@@ -153,6 +154,8 @@ let g:textobj_sandwich_no_default_key_mappings = 1
 " }}}
 
 " Japanese {{{
+Plug 'deton/eblook.vim'
+let eblook_no_default_key_mappings = 1
 Plug 'vim-jp/vimdoc-ja'
 Plug 'vim-jp/autofmt'
 set formatexpr=autofmt#japanese#formatexpr()
@@ -290,6 +293,7 @@ let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
 let g:ale_sign_column_always = 1
 let g:ale_fix_on_save = 1
+" let g:ale_vim_vint_executable = '$HOME/.local/bin/vint'
 let g:ale_go_gometalinter_options = '--fast --enable=staticcheck --enable=gosimple --enable=unused'
 " let g:ale_cpp_clang_options = '-std=c++17 -Wall -I../includes'
 " let g:ale_cpp_gcc_options = '-std=c++17 -Wall -I../includes'
@@ -865,6 +869,16 @@ endfunction
 function! NearestMethodOrFunction() abort
   return get(b:, 'vista_nearest_method_or_function', '')
 endfunction
+" }}}
+
+" Dicts {{{
+let eblook_dictlist1 = [
+  \{
+    \'book': '/home/anosillus/Documents/epwing/koujien',
+    \'name': 'kojien',
+    \'title': '広辞苑第五版',
+  \}
+\]
 " }}}
 
 " let winid = popup_create("hello gorilla", {})
