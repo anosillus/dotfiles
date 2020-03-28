@@ -171,18 +171,10 @@ map <silent> i <Plug>(smartword-w)
 map <silent> h <Plug>(smartword-b)
 map <silent> I <Plug>(smartword-e)
 map <silent> H <Plug>(smartword-ge)
-" map <C-i> <Plug>(smartword-basic-w)
-" map <C-h> <Plug>(smartword-basic-b)
 map <C-i> <Plug>CamelCaseMotion_w
 map <C-h> <Plug>CamelCaseMotion_ge
-" map <silent> i <Plug>CamelCaseMotion_w
-" map <silent> h <Plug>CamelCaseMotion_b
-" map <silent> I <Plug>CamelCaseMotion_e
-" map <silent> H <Plug>CamelCaseMotion_ge
-" map <C-i> <Plug>(smartword-basic-w)
-" map <C-h> <Plug>(smartword-basic-b)
-" map <C-S-i> <Plug>(smartword-e)
-" map <C-S-h> <Plug>(smartword-ge)
+map <C-S-i> <Plug>CamelCaseMotion_e
+map <C-S-h> <Plug>CamelCaseMotion_ge
 noremap <Leader>h ^
 noremap <Leader>i $
 noremap <Leader>H 0
