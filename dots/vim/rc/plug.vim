@@ -26,6 +26,7 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
+Plug 'Shougo/unite.vim'
 Plug 'Shougo/deol.nvim'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'chemzqm/denite-git'
@@ -39,6 +40,9 @@ let g:neoyank#file = $HOME.'/.cache/yank/yankring.txt'
 " MyPlugin {{{
 Plug 'anosillus/vim-ipynb'
 Plug 'anosillus/caw.vim'
+" Plug 'anosillus/toggl.vim'
+" Plug 'anosillus/vim-toggl'
+
 let g:caw_no_default_keymappings = 1
 let g:caw_operator_keymappings = 0
 
@@ -75,6 +79,9 @@ let g:jedi#completions_command = ''
 let g:jedi#rename_command = ''
 Plug 'heavenshell/vim-pydocstring'
 let g:pydocstring_doq_path = $HOME.'/.local/bin/doq'
+Plug 'szkny/Ipython'
+Plug 'szkny/SplitTerm'
+Plug 'tmhedberg/SimpylFold'
 " }}}
 
 " CSV, Table {{{
@@ -157,8 +164,8 @@ let g:textobj_sandwich_no_default_key_mappings = 1
 Plug 'deton/eblook.vim'
 let eblook_no_default_key_mappings = 1
 Plug 'vim-jp/vimdoc-ja'
-Plug 'vim-jp/autofmt'
-set formatexpr=autofmt#japanese#formatexpr()
+" Plug 'vim-jp/autofmt'
+" set formatexpr=autofmt#japanese#formatexpr()
 Plug 'deton/jasegment.vim'
 let b:loaded_jasegment = 1
 let g:jasegment_no_default_key_mappings = 1
@@ -172,11 +179,16 @@ let g:deoplete#enable_at_startup = 0
 " }}}
 
 " Config {{{
-Plug 'editorconfig/editorconfig-vim'
+" Plug 'editorconfig/editorconfig-vim'
 Plug 'vim-scripts/autodate.vim'
 Plug 'kana/vim-smartinput'
 Plug 'thinca/vim-template'
 Plug 'thinca/vim-ft-help_fold'
+Plug 'vim-jp/vital.vim'
+Plug 'Konfekt/FastFold'
+let g:fastfold_savehook = 1
+let g:fastfold_fdmhook = 0
+let g:fastfold_fold_movement_commands = [']m', '[m', 'm', 'mk']
 " }}}
 
 " Command {{{
@@ -322,6 +334,7 @@ let g:ale_linters = {
 \   'gitcommit':  ['gitlint', 'textlint', 'write-good'],
 \   'html':       ['prettier', 'htmlint', 'write-good', 'stylelint'],
 \   'java':       ['checkstyle'],
+\   'typescript': ['eslint'],
 \   'json':       ['eslint','prettier', 'jsonlint'],
 \   'latex':      ['vale', 'textlint'],
 \   'markdown':   ['markdownlint', 'prettier'],
@@ -345,6 +358,7 @@ let g:ale_fixers = {
 \   'go':         ['remove_trailing_lines', 'trim_whitespace', 'gofmt'],
 \   'html':       ['remove_trailing_lines', 'trim_whitespace', 'prettier', 'stylelint'],
 \   'javascript': ['remove_trailing_lines', 'trim_whitespace', 'prettier', 'eslint', 'importjs','prettier-standard'],
+\   'typescript': ['remove_trailing_lines', 'trim_whitespace', 'prettier', 'eslint'],
 \   'java':       ['remove_trailing_lines', 'trim_whitespace'],
 \   'json':       ['remove_trailing_lines', 'trim_whitespace', 'prettier', 'fixjson'],
 \   'markdown':   ['remove_trailing_lines', 'prettier', 'textlint'],
@@ -514,6 +528,11 @@ let g:quickrun#config= {
 \   'hook/output_encode/encoding': 'utf-8',
 \   'hook/cd/directory': '%S:p:h',
 \ },
+\ 'html': {
+\   'command': 'open',
+\   'exec': '%c %s',
+\   'outputter': 'browser'
+\ },
 \ 'java': {
 \   'exec': ['javac %o %s', '%c %s:t:r %a'],
 \   'hook/output_encode/encoding': '&termencoding',
@@ -592,7 +611,8 @@ let g:quickrun#config= {
 \ },
 \ 'typescript': {
 \   'command': 'tsc',
-\   'cmdopt': '--exec',
+\   'exec': ['%c --target esnext --module commonjs %o %s', 'node %s:r.js'],
+\   'hook/sweep/files': ['%S:p:r.js'],
 \   'tempfile': '%{tempname()}.ts',
 \ },
 \ 'vim': {
@@ -602,9 +622,24 @@ let g:quickrun#config= {
 \   'runner': 'vimscript',
 \ },
 \ }
-
 let g:quickrun_no_default_key_mappings = 1
 "}}}
+
+" Ipython {{{
+let g:ipython_startup_options = ['--no-confirm-exit']
+let g:ipython_startup_command = [
+\  'from pylab import *',
+\  'import pandas as pd',
+\  'import numpy as np',
+\  'import tqdm',
+\  'from collections import *',
+\  'pd.options.display.max_rows = 10',
+\  'pd.options.display.max_columns = 10',
+\  'pd.options.display.precision = 3'
+\]
+
+let g:ipython_window_width = 0"
+" }}}
 
 " Vista {{{
 let g:vista_icon_indent = ['╰─▸ ', '├─▸ ']
@@ -776,10 +811,12 @@ let g:lightline = {
 \     'left': [ ['mode', 'paste'],
 \               ['ale', 'anzu', 'cocstatus', 'currentfunction',  'readonly', 'filename', 'qfstatusline', 'modified'],
 \               ['method']],
-\     'right':[ ['lineinfo'],['percent'],['fileformat', 'fileencoding', 'filetype'],
+\     'right':[ ['lineinfo'],[ 'percent'],
+\               ['fileformat', 'fileencoding', 'filetype'],
 \               ['blame'],
 \               ['gitbranch', 'gitstage'],
-\               ['linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok'] ]
+\               ['linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok'],
+\               ['toggl_task', 'toggl_time']],
 \   },
 \   'component_function': {
 \     'ale':             'ALEGetStatusLine',
@@ -795,8 +832,11 @@ let g:lightline = {
 \     'modified':        'LightlineModified',
 \     'readonly':        'LightlineReadonly',
 \     'gitbranch': 'gina#component#repo#branch',
-\     'gitstage':  'gina#component#status#staged'
-\},
+\     'gitstage':  'gina#component#status#staged',
+\     'component_function': {
+\     'toggl_task': 'toggl#task',
+\     'toggl_time': 'toggl#time'
+\   },
 \   'component_expand': {
 \     'linter_checking': 'lightline#ale#checking',
 \     'linter_warnings': 'lightline#ale#warnings',
@@ -808,9 +848,10 @@ let g:lightline = {
 \     'linter_checking': 'left',
 \     'linter_warnings': 'warning',
 \     'linter_errors':   'error',
-\     'linter_ok':       'left'
+\     'linter_ok':       'left',
 \   }
 \ }
+\}
 
 let g:Qfstatusline#UpdateCmd = function('lightline#update')
 let g:lightline#ale#indicator_checking = '...'

@@ -21,7 +21,6 @@ setlocal ignorecase
 setlocal smartcase
 setlocal nowrapscan
 setlocal showmatch
-
 set wildmode=longest,list
 set wildignore&
 set wildignore=.git,.hg,.svn

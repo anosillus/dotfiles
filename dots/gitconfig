@@ -174,9 +174,9 @@
 	name = anosillus
 	email = anosillus@gmail.com
 
-[url "github:"]
-    InsteadOf = https://github.com/
-    InsteadOf = git@github.com:
+ # [url "github:"]
+  #   InsteadOf = https://github.com/
+  #  InsteadOf = git@github.com:
 
 [pager]
     log  = diff-highlight | less -RX
@@ -205,3 +205,7 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[http]
+	sslverify = false
+[net]
+git-fetch-with-cli = true

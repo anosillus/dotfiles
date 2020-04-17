@@ -8,3 +8,4 @@ keys/
 .DS_Store
 .ccls-cache/
 sessions/
+private.*

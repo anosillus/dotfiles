@@ -167,14 +167,14 @@ cnoremap <C-e> <C-p>
 " }}}
 
 " < h/i > is 'Word Motion'. {{{
-map <silent> i <Plug>(smartword-w)
-map <silent> h <Plug>(smartword-b)
-map <silent> I <Plug>(smartword-e)
-map <silent> H <Plug>(smartword-ge)
-map <C-i> <Plug>CamelCaseMotion_w
-map <C-h> <Plug>CamelCaseMotion_ge
-map <C-S-i> <Plug>CamelCaseMotion_e
-map <C-S-h> <Plug>CamelCaseMotion_ge
+map <silent> i <Plug>CamelCaseMotion_w
+map <silent> h <Plug>CamelCaseMotion_ge
+map <silent> I <Plug>CamelCaseMotion_e
+map <silent> H <Plug>CamelCaseMotion_ge
+map <C-i> <Plug>(smartword-w)
+map <C-h> <Plug>(smartword-b)
+map <C-S-i> <Plug>(smartword-e)
+map <C-S-h> <Plug>(smartword-ge)
 noremap <Leader>h ^
 noremap <Leader>i $
 noremap <Leader>H 0
@@ -302,7 +302,8 @@ xmap le <Plug>(caw:jump:comment-prev)
 " j is ??? {{{
 nmap j  <Nop>
 xmap j  <Nop>
-
+nnoremap  jp  :Ipython<CR>
+vnoremap  jp  :VIpython<CR>
 " vmap <leader>j  <Plug>(coc-format-selected)
 " nmap <leader>j  <Plug>(coc-format-selected)
 
@@ -523,55 +524,88 @@ noremap <C-z> <C-a>
 " map! ú ! "This broke vim"
 map   <M-q>  !
 map!  <M-q>  !
+tmap  <M-q>  !
+
 " a
 map  á @
 map! á @
+tmap á @
+
 " r
 map  ò #
 map! ò #
+tmap ò #
+
 " s
 map  ó $
 map! ó $
+tmap ó $
+
 " t
 map  ô %
 map! ô %
+tmap ô %
+
 " d
 map  ä ^
 map! ä ^
+tmap ä ^
+
 " h
 map  è &
 map! è &
+tmap è &
+
 " n
 map  î *
 map! î *
+tmap î *
+
 " e
 map  å (
 map! å (
+tmap å (
+
 " i
 map  é )
 map! é )
+tmap é )
+
 " o
 map  ï _
 map! ï _
+tmap ï _
+
 " <CR>
 " Note : <M-CR> isn't work, I use <M-;>)
 map  <M-;> <kPlus>
 map! <M-;> <kPlus>
+tmap <M-;> <kPlus>
+
 " b
 map  â "
 map! â "
+tmap â "
+
 " k
 map  ë ?
 map! ë ?
+tmap ë ?
+
 " m
 map  í {
 map! í {
+tmap í {
+
 " ,
 map  ¬ }
 map! ¬ }
+tmap ¬ }
+
 " .
 map  ® <bar>
 map! ® <bar>
+tmap ® <bar>
 " }}}
 
 " terminal mode setting(not yet) {{{
