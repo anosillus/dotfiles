@@ -338,8 +338,8 @@ map <Leader>B <Plug>EblookInput
 map <C-b> <Plug>EblookSearch
 omap b (
 omap B {
-" }}}
 
+" }}}
 " }}}
 
 " Left hand {{{

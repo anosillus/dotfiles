@@ -6,7 +6,7 @@ set ambiwidth=double
 if has('win32') || has('win64')
   " For Windows.
 
-  " set guifont=Cica:h16:cSHIFTJIS:qDRAFT
+  set guifont=Cica:h16:cSHIFTJIS:qDRAFT
   " set guifontwide=VL\ Gothic:h11
   " set guifont=Courier\ New:h11
   " set guifont=VL\ Gothic:h11
@@ -24,6 +24,7 @@ if has('win32') || has('win64')
   if has('kaoriya')
     " For Kaoriya only.
      set ambiwidth=auto
+  colorscheme jellybeans
   endif
 elseif has('mac')
   " For Mac.
@@ -34,17 +35,17 @@ else
    " set guifont=Courier\ 10\ Pitch\ 14
    " set guifont=Font\ Family\ 12
    " set guifontwide=Font\ Family\ 12
-   set guifontwide=Cica\ 18
-   set guifont=Cica\ 18
+   set guifontwide=Cica /16
+   set guifont=Cica /16
 endif
 " }}}
 
 " Window Size {{{
 if &columns < 170
-  set columns=170
+  set columns=100
 endif
-if &lines < 40
-  set lines=40
+if &lines < 35
+  set lines=35
 endif
 " }}}
 

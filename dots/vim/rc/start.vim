@@ -76,7 +76,6 @@ if has('vim_starting') && !empty(argv())
     syntax on
   endif
   colorscheme jellybeans
-	" colorscheme atom-dark-256
 endif
 
 if !exists('g:colors_name')

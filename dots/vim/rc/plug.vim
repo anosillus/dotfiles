@@ -37,7 +37,7 @@ let g:neoyank#file = $HOME.'/.cache/yank/yankring.txt'
 " }}}
 
 " MyPlugin {{{
-Plug 'anosillus/vim-ipynb'
+" Plug 'anosillus/vim-ipynb'
 Plug 'anosillus/caw.vim'
 " Plug 'anosillus/toggl.vim'
 " Plug 'anosillus/vim-toggl'
@@ -63,10 +63,12 @@ let g:ref_man_lang = 'ja'
 let g:ref_pydoc_cmd	 = 'python3 -m pydoc'
 " let g:ref_pydoc_cmd = executable('python3') ? 'pydoc3' : ''
 " }}}
+
+" SQL {{{
 Plug 'lifepillar/pgsql.vim', { 'for': 'sql' }
 let g:gfm_syntax_enable_always = 0
 let g:gfm_syntax_enable_filetypes = ['markdown.gfm']
-
+" }}}
 
 " Python {{{
 " Plug 'numirias/semshi'
@@ -78,9 +80,9 @@ let g:jedi#completions_command = ''
 let g:jedi#rename_command = ''
 Plug 'heavenshell/vim-pydocstring'
 let g:pydocstring_doq_path = $HOME.'/.local/bin/doq'
-Plug 'szkny/Ipython'
-Plug 'szkny/SplitTerm'
-Plug 'tmhedberg/SimpylFold'
+" Plug 'szkny/Ipython'
+" Plug 'szkny/SplitTerm'
+" Plug 'tmhedberg/SimpylFold'
 " }}}
 
 " CSV, Table {{{
@@ -94,6 +96,11 @@ Plug 'mattn/vim-maketable'
 " CPP {{{
 Plug 'bfrg/vim-cpp-modern', { 'for': 'cpp' }
 let g:cpp_named_requirements_highlight = 1
+" }}}
+
+" Rust{{{
+let g:rustfmt_autosave = 0
+Plug 'rhysd/rust-doc.vim'
 " }}}
 
 " Markdown {{{
@@ -1006,7 +1013,6 @@ let eblook_dictlist1 = [
   "   \'title': 'Bible',
   " \}
 " }}}
-
 
 " let winid = popup_create("hello gorilla", {})
 " vim: foldmethod=marker
