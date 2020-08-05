@@ -49,7 +49,7 @@
     },
     "efm": {
       "command": "efm-langserver",
-      "args": ["-c", "$HOME/.config/coc/config.yaml"],
+      // "args": ["-c", "$HOME/.config/coc/config.yaml"],
       "filetypes": ["vim", "eruby", "markdown"]
     },
     "python": {

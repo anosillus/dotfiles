@@ -1,6 +1,4 @@
 # Path
-$env:Path += ";${Env:SystemDrive}\tools\msys64\usr\bin"
-$env:Path += ";${Env:ProgramFiles}\Git\cmd"
 $env:Path += ";${Env:SystemDrive}\Ruby27-x64\bin"
 $env:Path += ";${Env:SystemDrive}\Go\bin"
 $env:Path += ";${Env:USERPROFILE}\go\bin"
@@ -11,6 +9,8 @@ $env:Path += ";${Env:SystemDrive}\Strawberry\c\bin"
 $env:Path += ";${Env:SystemDrive}\Strawberry\perl\site\bin"
 $env:Path += ";${Env:SystemDrive}\Strawberry\perl\bin"
 $env:Path += ";${Env:ProgramFiles(x86)}\Common Files\Oracle\Java\javapath"
+$env:Path += ";${Env:ProgramFiles}\Git\cmd"
+$env:Path += ";${Env:SystemDrive}\tools\msys64\usr\bin"
 # . C:\ProgramData\Anaconda3\shell\condabin\conda-hook.ps1
 # $env:Path += ";${Env:ProgramData}\Anaconda3\Scripts;" +
              # ";${Env:ProgramData}\Anaconda3\bin" +
@@ -33,6 +33,7 @@ $DEV = "$Env:homedrive\dev"
 $TOOL = "$env:HOMEDRIVE\tools"
 $DOC = $(resolve-path "$Env:userprofile\Documents")
 $DESKTOP = $(resolve-path "$Env:userprofile\Desktop")
+
 # $HOMEDRIVE = "C:\"
 # $HOMEPATH = "Users\" + $env:username
 
@@ -59,13 +60,15 @@ function Get-DirectorySize() {
       measure-object -sum -property Length
   }
 
-# wrap MKLINK command
-# PS> mklink /h alias path\to\file
-# PS> mklink /j alias path\to\folder
-function mklink { cmd /c mklink $args }
 # Sanity
 Set-Alias ll Get-ChildItem
 #Set-Alias pwd Get-Location
+
+function Edit-Vimrc {. $TOOL\vim82-kaoriya-win64\gvim.exe ${Env:USERPROFILE}\dotfiles\dots\vim}
+Set-Alias vv Edit-Vimrc
+
+function Edit-Powershell {. $TOOL\vim82-kaoriya-win64\gvim.exe ${Env:USERPROFILE}\dotfiles\dots\windows\Microsoft.PowerShell_profile.ps1 }
+Set-Alias vp Edit-Powershell
 
 # Git Aliases
 function _git_status { git status }
@@ -78,6 +81,11 @@ Set-Alias ep Edit-Profile
 # parse the PATH environment variable; make it readable
 # PS> path
 function path { ($env:Path).Replace(';',"`n") }
+
+# wrap MKLINK command
+# PS> mklink /h alias path\to\file
+# PS> mklink /j alias path\to\folder
+# function mklink { cmd /c mklink $args }
 
 Function New-SymLink ($link, $target)
 {

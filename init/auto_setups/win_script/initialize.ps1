@@ -53,13 +53,15 @@ Rm -force $env:USERPROFILE\.gitconfig
 
 New-SymLink ${Env:USERPROFILE}\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1 ${Env:USERPROFILE}\dotfiles\dots\windows\Microsoft.PowerShell_profile.ps1
 # New-SymLink ${Env:USERPROFILE}\.ssh \${Env:USERPROFILE}\dotfiles\dots\ssh
-New-SymLink ${Env:USERPROFILE}\.skk \${Env:USERPROFILE}\dotfiles\dots\skk
-New-SymLink ${Env:USERPROFILE}\.vimrc \${Env:USERPROFILE}\dotfiles\dots\vimrc
-New-SymLink ${Env:USERPROFILE}\.gvimrc  \${Env:USERPROFILE}\dotfiles\dots\gvimrc
-New-SymLink ${Env:USERPROFILE}\.vim  \${Env:USERPROFILE}\dotfiles\dots\vim
-New-SymLink ${Env:USERPROFILE}\.tmux.conf  \${Env:USERPROFILE}\dotfiles\dots\tmux.conf
-New-SymLink ${Env:USERPROFILE}\.gitconfig  \${Env:USERPROFILE}\dotfiles\dots\gitconfig
-New-SymLink ${Env:USERPROFILE}\.config \${Env:USERPROFILE}\dotfiles\dots\config
+New-SymLink ${Env:USERPROFILE}\.skk ${Env:USERPROFILE}\dotfiles\dots\skk
+New-SymLink ${Env:USERPROFILE}\.vimrc ${Env:USERPROFILE}\dotfiles\dots\vimrc
+New-SymLink ${Env:USERPROFILE}\.gvimrc  ${Env:USERPROFILE}\dotfiles\dots\gvimrc
+New-SymLink ${Env:USERPROFILE}\.vim  ${Env:USERPROFILE}\dotfiles\dots\vim
+New-SymLink ${Env:USERPROFILE}\.tmux.conf  ${Env:USERPROFILE}\dotfiles\dots\tmux.conf
+New-SymLink ${Env:USERPROFILE}\.gitconfig  ${Env:USERPROFILE}\dotfiles\dots\gitconfig
+New-SymLink ${Env:USERPROFILE}\.config ${Env:USERPROFILE}\dotfiles\dots\config
+New-SymLink ${Env:USERPROFILE}\vimfiles\coc-settings.json ${Env:USERPROFILE}\dotfiles\dots\vim\coc-settings.json
+New-SymLink ${Env:%APPDATA%}\efm-langserver\config.yaml ${Env:USERPROFILE}\dotfiles\dots\config\coc\config.yaml
 
 Write-Host "STEP 5: 重要なソフトをインストールしています……"
 choco install $env:USERPROFILE\dotfiles\init\windows\package.config -y
