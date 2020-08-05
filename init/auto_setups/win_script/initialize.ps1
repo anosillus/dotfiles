@@ -6,22 +6,8 @@
 Write-Host "STEP 1: Windowsの設定 をセットアップしています……"
 ## Time Zone の設定
 tzutil.exe /s "Tokyo Standard Time"
-    
-new-item -itemtype directory C:\tools
-new-item -itemtype directory $env:USERPROFILE\Home
-new-item -itemtype directory $env:USERPROFILE\Home\.config\fish
-new-item -itemtype directory $env:USERPROFILE\Home\.config\vim
-new-item -itemtype directory $env:USERPROFILE\Home\.config\nvim
-
-new-item -itemtype directory $env:USERPROFILE\Home\.cashe\vim
-new-item -itemtype directory $env:USERPROFILE\tools\kaoriya
-
-## Install Chocolatey 
-# https://chocolatey.org/install#install-with-powershellexe
-# Don't forget to ensure ExecutionPolicy above
 
 Write-Host "STEP 2: chocolatey をセットアップしています……"
-
 if (Test-Path "C:\ProgramData\chocolatey")
 {
     Write-Host "すでにインストールされています。"
@@ -29,7 +15,6 @@ if (Test-Path "C:\ProgramData\chocolatey")
 else
 {
     Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-
 ## Get-PackageProvider -Name "Chocolatey" -ForceBootstrap
     Write-Host "インストールが完了しました。"
 }
@@ -46,28 +31,38 @@ else
 }    
 
 ## Write-Host "STEP 4: ドットファイルを作成しています……"
+Function New-SymLink ($link, $target)
+{
+    if (test-path -pathtype container $target)
+    {
+        $command = "cmd /c mklink /d"
+    }
+    else
+    {
+        $command = "cmd /c mklink"
+    }
 
-Rm -force $env:USERPROFILE\Home\.vimrc
-Rm -force $env:USERPROFILE\Home\.vim
-Rm -force $env:USERPROFILE\Home\.config
-Rm -force $env:USERPROFILE\Home\.tmux.conf
-Rm -force $env:USERPROFILE\Home\.gitconfig
+    invoke-expression "$command $link $target"
+}
+Rm -force $env:USERPROFILE\.vimrc
+Rm -force $env:USERPROFILE\.vim
+Rm -force $env:USERPROFILE\.config
+Rm -force $env:USERPROFILE\.tmux.conf
+Rm -force $env:USERPROFILE\.gitconfig
+# Rm -force $env:USERPROFILE\.ssh
 
-# New-Item -Type SymbolicLink $env:USERPROFILE/Home/.ssh  -Value $env:USERPROFILE\.ssh
-#
-New-Item -Type SymbolicLink $env:USERPROFILE/Home/.skk  -Value $env:USERPROFILE\Home\dotfiles\dots\skk
-New-Item -Type SymbolicLink $env:USERPROFILE/Home/.vimrc  -Value $env:USERPROFILE\Home\dotfiles\dots\vimrc
-New-Item -Type SymbolicLink $env:USERPROFILE/Home/.gvimrc  -Value $env:USERPROFILE\Home\dotfiles\dots\gvimrc
-New-Item -Type SymbolicLink $env:USERPROFILE/Home/.tmux.conf -Value $env:USERPROFILE\Home\dotfiles\dots\tmux.conf
-New-Item -Type SymbolicLink $env:USERPROFILE/Home/.gitconfig -Value  $env:USERPROFILE\Home\dotfiles\dots\gitconfig
-New-Item -Type SymbolicLink $env:USERPROFILE/Home/.vim -Value $env:USERPROFILE\Home\dotfiles\dots\vim
-New-Item -Type SymbolicLink $env:USERPROFILE/Home/.config -Value $env:USERPROFILE\Home\dotfiles\dots\config
-
-[System.Environment]::SetEnvironmentVariable("PATH", "$ENV:PATH;C:\tools\kaoriya", "USER")
-[System.Environment]::SetEnvironmentVariable('HOME','USERPROFILE\Home','User')
+New-SymLink ${Env:USERPROFILE}\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1 ${Env:USERPROFILE}\dotfiles\dots\windows\Microsoft.PowerShell_profile.ps1
+# New-SymLink ${Env:USERPROFILE}\.ssh \${Env:USERPROFILE}\dotfiles\dots\ssh
+New-SymLink ${Env:USERPROFILE}\.skk \${Env:USERPROFILE}\dotfiles\dots\skk
+New-SymLink ${Env:USERPROFILE}\.vimrc \${Env:USERPROFILE}\dotfiles\dots\vimrc
+New-SymLink ${Env:USERPROFILE}\.gvimrc  \${Env:USERPROFILE}\dotfiles\dots\gvimrc
+New-SymLink ${Env:USERPROFILE}\.vim  \${Env:USERPROFILE}\dotfiles\dots\vim
+New-SymLink ${Env:USERPROFILE}\.tmux.conf  \${Env:USERPROFILE}\dotfiles\dots\tmux.conf
+New-SymLink ${Env:USERPROFILE}\.gitconfig  \${Env:USERPROFILE}\dotfiles\dots\gitconfig
+New-SymLink ${Env:USERPROFILE}\.config \${Env:USERPROFILE}\dotfiles\dots\config
 
 Write-Host "STEP 5: 重要なソフトをインストールしています……"
-choco install $env:USERPROFILE\Home\dotfiles\init\windows\package.config -y
+choco install $env:USERPROFILE\dotfiles\init\windows\package.config -y
 
 Write-Host "セットアップが終了しました。キーを押すと終了します。"
 $host.UI.ReadLine()
