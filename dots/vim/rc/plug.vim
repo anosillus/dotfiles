@@ -44,7 +44,6 @@ Plug 'anosillus/caw.vim'
 
 let g:caw_no_default_keymappings = 1
 let g:caw_operator_keymappings = 0
-
 " }}}
 
 " PlugMaker {{{
@@ -190,7 +189,7 @@ let g:deoplete#enable_at_startup = 0
 " }}}
 
 " Config {{{
-" Plug 'editorconfig/editorconfig-vim'
+Plug 'editorconfig/editorconfig-vim'
 Plug 'vim-scripts/autodate.vim'
 Plug 'kana/vim-smartinput'
 Plug 'thinca/vim-template'

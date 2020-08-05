@@ -61,7 +61,10 @@ New-SymLink ${Env:USERPROFILE}\.tmux.conf  ${Env:USERPROFILE}\dotfiles\dots\tmux
 New-SymLink ${Env:USERPROFILE}\.gitconfig  ${Env:USERPROFILE}\dotfiles\dots\gitconfig
 New-SymLink ${Env:USERPROFILE}\.config ${Env:USERPROFILE}\dotfiles\dots\config
 New-SymLink ${Env:USERPROFILE}\vimfiles\coc-settings.json ${Env:USERPROFILE}\dotfiles\dots\vim\coc-settings.json
-New-SymLink ${Env:%APPDATA%}\efm-langserver\config.yaml ${Env:USERPROFILE}\dotfiles\dots\config\coc\config.yaml
+New-SymLink ${Env:APPDATA}\efm-langserver\config.yaml ${Env:USERPROFILE}\dotfiles\dots\config\coc\config.yaml
+mkdir ${Env:USERPROFILE}\AppData\Local\nvim\
+New-SymLink ${Env:USERPROFILE}\AppData\Local\nvim\init.vim ${Env:USERPROFILE}\dotfiles\dots\vimrc
+
 
 Write-Host "STEP 5: 重要なソフトをインストールしています……"
 choco install $env:USERPROFILE\dotfiles\init\windows\package.config -y

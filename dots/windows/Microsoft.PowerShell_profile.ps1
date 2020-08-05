@@ -1,4 +1,6 @@
 # Path
+
+Import-VisualStudioVars -VisualStudioVersion 2019 -Architecture amd64
 $env:Path += ";${Env:SystemDrive}\Ruby27-x64\bin"
 $env:Path += ";${Env:SystemDrive}\Go\bin"
 $env:Path += ";${Env:USERPROFILE}\go\bin"
@@ -9,14 +11,15 @@ $env:Path += ";${Env:SystemDrive}\Strawberry\c\bin"
 $env:Path += ";${Env:SystemDrive}\Strawberry\perl\site\bin"
 $env:Path += ";${Env:SystemDrive}\Strawberry\perl\bin"
 $env:Path += ";${Env:ProgramFiles(x86)}\Common Files\Oracle\Java\javapath"
+$env:Path += ";${Env:SystemDrive}\tools\neovim\Neovim\bin"
 $env:Path += ";${Env:ProgramFiles}\Git\cmd"
 $env:Path += ";${Env:SystemDrive}\tools\msys64\usr\bin"
 # . C:\ProgramData\Anaconda3\shell\condabin\conda-hook.ps1
 # $env:Path += ";${Env:ProgramData}\Anaconda3\Scripts;" +
              # ";${Env:ProgramData}\Anaconda3\bin" +
              # ";${Env:ProgramData}\Anaconda3"
+# Install-Module Pscx -Scope CurrentUser  -Force -AllowClobber -AllowClobber
 
-# Function
 Function touch($file) {
   If (Test-Path $file) {
     (Get-Item $file).LastWriteTime = Get-Date
@@ -151,6 +154,8 @@ function Reload-Profile {
 
 Set-Alias reload Reload-Profile
 Set-PSReadlineOption -EditMode Emacs
+import-module vssetup
+# Install-Module vssetup -Scope CurrentUser  -Force -AllowClobber
 Import-Module posh-git
 Import-Module oh-my-posh
 Set-Theme Paradox
