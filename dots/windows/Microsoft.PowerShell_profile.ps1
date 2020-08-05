@@ -1,10 +1,20 @@
 # Path
+$env:Path += ";${Env:SystemDrive}\tools\msys64\usr\bin"
 $env:Path += ";${Env:ProgramFiles}\Git\cmd"
 $env:Path += ";${Env:SystemDrive}\Ruby27-x64\bin"
 $env:Path += ";${Env:SystemDrive}\Go\bin"
 $env:Path += ";${Env:USERPROFILE}\go\bin"
-# $env:Path += ";${Env:USERPROFILE}\Python38\Scripts"
-. C:\ProgramData\Anaconda3\shell\condabin\conda-hook.ps1
+$env:Path += ";${Env:ProgramFiles}\nodejs"
+$env:Path += ";${Env:SystemDrive}\Python38"
+$env:Path += ";${Env:SystemDrive}\Python38\Scripts"
+$env:Path += ";${Env:SystemDrive}\Strawberry\c\bin"
+$env:Path += ";${Env:SystemDrive}\Strawberry\perl\site\bin"
+$env:Path += ";${Env:SystemDrive}\Strawberry\perl\bin"
+$env:Path += ";${Env:ProgramFiles(x86)}\Common Files\Oracle\Java\javapath"
+# . C:\ProgramData\Anaconda3\shell\condabin\conda-hook.ps1
+# $env:Path += ";${Env:ProgramData}\Anaconda3\Scripts;" +
+             # ";${Env:ProgramData}\Anaconda3\bin" +
+             # ";${Env:ProgramData}\Anaconda3"
 
 # Function
 Function touch($file) {
@@ -32,7 +42,7 @@ Set-Alias open Explorer
 Set-Alias which Get-Command
 Set-Alias vlc ${Env:ProgramFiles(x86)}\VideoLAN\VLC\vlc.exe
 Set-Alias chrome ${Env:ProgramFiles(x86)}\Google\Chrome\Application\chrome.exe
-Set-Alias ssh C:\tools\msys64\usr\bin\ssh.exe
+Set-Alias ssh $TOOL\msys64\usr\bin\ssh.exe
 
 # create a directory then change to it
 # PS> mcd newFolder
