@@ -31,6 +31,10 @@ if has('gui_running')
     let g:python3_host_prog = expand('C:\Python38\python.exe')
     let g:eskk#large_dictionary = { 'path': '$HOME/Documents/skk/SKK-JISYO.L', 'sorted': 1, 'encoding': 'euc-jp', }
     let g:eskk#dictionary = { 'path': '$HOME/.config/skk/.skk-jisyo', 'sorted': 0, 'encoding': 'utf-8', }
+    set shell=powershell
+    set shellcmdflag=-command
+    set shellquote=\"
+    set shellxquote=
   endif
 endif
 
