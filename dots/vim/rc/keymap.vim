@@ -173,8 +173,8 @@ map <silent> I <Plug>CamelCaseMotion_e
 map <silent> H <Plug>CamelCaseMotion_ge
 map <C-i> <Plug>(smartword-w)
 map <C-h> <Plug>(smartword-b)
-map <C-S-i> <Plug>(smartword-e)
-map <C-S-h> <Plug>(smartword-ge)
+map <M-i> <Plug>(smartword-e)
+map <M-h> <Plug>(smartword-ge)
 noremap <Leader>h ^
 noremap <Leader>i $
 noremap <Leader>H 0

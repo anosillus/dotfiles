@@ -1,10 +1,14 @@
 # Path
 
-Import-VisualStudioVars -VisualStudioVersion 2019 -Architecture amd64
+# llvm (from source) is better than msvs.
+# Import-VisualStudioVars -VisualStudioVersion 2019 -Architecture amd64
+$env:Path += ";${Env:SystemDrive}\tools\llvm-project\Release\bin"
+$env:Path += ";${Env:SystemDrive}\tools\vcpkg"
 $env:Path += ";${Env:SystemDrive}\Ruby27-x64\bin"
 $env:Path += ";${Env:SystemDrive}\Go\bin"
 $env:Path += ";${Env:USERPROFILE}\go\bin"
 $env:Path += ";${Env:ProgramFiles}\nodejs"
+$env:Path += ";${Env:USERPROFILE}\.cargo\bin"
 $env:Path += ";${Env:SystemDrive}\Python38"
 $env:Path += ";${Env:SystemDrive}\Python38\Scripts"
 $env:Path += ";${Env:SystemDrive}\Strawberry\c\bin"
@@ -14,6 +18,7 @@ $env:Path += ";${Env:ProgramFiles(x86)}\Common Files\Oracle\Java\javapath"
 $env:Path += ";${Env:SystemDrive}\tools\neovim\Neovim\bin"
 $env:Path += ";${Env:ProgramFiles}\Git\cmd"
 $env:Path += ";${Env:SystemDrive}\tools\msys64\usr\bin"
+$env:Path += ";${Env:ProgramFiles}\7-Zip"
 # . C:\ProgramData\Anaconda3\shell\condabin\conda-hook.ps1
 # $env:Path += ";${Env:ProgramData}\Anaconda3\Scripts;" +
              # ";${Env:ProgramData}\Anaconda3\bin" +
@@ -157,5 +162,7 @@ Set-PSReadlineOption -EditMode Emacs
 import-module vssetup
 # Install-Module vssetup -Scope CurrentUser  -Force -AllowClobber
 Import-Module posh-git
+Import-Module 'C:\tools\vcpkg\scripts\posh-vcpkg'
+# vcpkg   install boost:x86-windows pthreads:x86-windows
 Import-Module oh-my-posh
 Set-Theme Paradox
