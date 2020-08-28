@@ -9,8 +9,8 @@ $env:Path += ";${Env:SystemDrive}\Go\bin"
 $env:Path += ";${Env:USERPROFILE}\go\bin"
 $env:Path += ";${Env:ProgramFiles}\nodejs"
 $env:Path += ";${Env:USERPROFILE}\.cargo\bin"
-$env:Path += ";${Env:SystemDrive}\Python38"
-$env:Path += ";${Env:SystemDrive}\Python38\Scripts"
+# $env:Path += ";${Env:SystemDrive}\Python38" Doesn't work by windows store's install recomender
+# $env:Path += ";${Env:SystemDrive}\Python38\Scripts"
 $env:Path += ";${Env:SystemDrive}\Strawberry\c\bin"
 $env:Path += ";${Env:SystemDrive}\Strawberry\perl\site\bin"
 $env:Path += ";${Env:SystemDrive}\Strawberry\perl\bin"
@@ -52,7 +52,7 @@ Set-Alias which Get-Command
 Set-Alias vlc ${Env:ProgramFiles(x86)}\VideoLAN\VLC\vlc.exe
 Set-Alias chrome ${Env:ProgramFiles(x86)}\Google\Chrome\Application\chrome.exe
 Set-Alias ssh $TOOL\msys64\usr\bin\ssh.exe
-
+Set-Alias python C:\Python38\python.exe
 # create a directory then change to it
 # PS> mcd newFolder
 function mcd { mkdir @args; cd @args }
