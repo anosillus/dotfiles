@@ -41,8 +41,8 @@ d = {
 
 for outside in d.values():
     a = ""
-    base_input = [key for key, value in d.items() if outside in value][0]
-    value = [value for key, value in d.items() if base_input in key][0]
+    base_input = [key for key, value in d.items() if outside == value][0]
+    value = [key for key, value in d.items() if base_input == value][0]
 
     if outside == value:
         a = "pass"

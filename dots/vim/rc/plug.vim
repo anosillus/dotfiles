@@ -77,8 +77,7 @@ let g:jedi#show_call_signatures = '1'
 let g:jedi#auto_vim_configuration = 0
 let g:jedi#completions_command = ''
 let g:jedi#rename_command = ''
-Plug 'heavenshell/vim-pydocstring'
-let g:pydocstring_doq_path = $HOME.'/.local/bin/doq'
+Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' }
 " Plug 'szkny/Ipython'
 " Plug 'szkny/SplitTerm'
 " Plug 'tmhedberg/SimpylFold'
@@ -169,23 +168,23 @@ let g:textobj_sandwich_no_default_key_mappings = 1
 Plug 'koron/codic-vim'
 Plug 'msbmsb/porter-stem.vim'
 Plug 'rhysd/unite-codic.vim'
-Plug 'deton/eblook.vim'
-let eblook_no_default_key_mappings = 1
-let eblook_stemming = 1
-let eblook_decorate_syntax = 1
+" Plug 'deton/eblook.vim'
+" let eblook_no_default_key_mappings = 1
+" let eblook_stemming = 1
+" let eblook_decorate_syntax = 1
 Plug 'vim-jp/vimdoc-ja'
 " Plug 'vim-jp/autofmt'
 " set formatexpr=autofmt#japanese#formatexpr()
-Plug 'deton/jasegment.vim'
-let b:loaded_jasegment = 1
-let g:jasegment_no_default_key_mappings = 1
-let g:jasegment#model = 'mecab'
-let g:jasegment#mecab#args = '-Owakati -d /usr/lib/x86_64-linux-gnu/mecab/dic/mecab-ipadic-neologd/'
+" Plug 'deton/jasegment.vim'
+" let b:loaded_jasegment = 1
+" let g:jasegment_no_default_key_mappings = 1
+" let g:jasegment#model = 'mecab'
+" let g:jasegment#mecab#args = '-Owakati -d /usr/lib/x86_64-linux-gnu/mecab/dic/mecab-ipadic-neologd/'
 Plug 'tyru/eskk.vim'
 let g:eskk#no_default_mappings = 0
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 let g:deoplete#enable_at_startup = 0
-"Plug 'ueokande/popupdict.vim'
+Plug 'ueokande/popupdict.vim'
 " }}}
 
 " Config {{{

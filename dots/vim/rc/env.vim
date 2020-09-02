@@ -14,27 +14,29 @@ if has('gui_running')
   if g:os ==? 'Darwin'
     let g:python_host_prog  = '/usr/local/bin/python2'
     let g:python3_host_prog = '/usr/local/bin/python3'
-    set guifont=cica
     let g:eskk#large_dictionary = { 'path': '~/Library/Application\ Support/AquaSKK/SKK-JISYO.L', 'sorted': 1, 'encoding': 'euc-jp', }
+    let g:pydocstring_doq_path = $HOME.'/.local/bin/doq'
     set macmeta
+    set antialias
   elseif g:os ==? 'Linux'
     let g:python3_host_prog='/usr/bin/python3'
     let g:python_host_prog='/usr/bin/python3'
-    set guifont=cica
+    let g:pydocstring_doq_path = $HOME.'/.local/bin/doq'
     let g:eskk#large_dictionary = { 'path': '/usr/share/skk/SKK-JISYO.L', 'sorted': 1, 'encoding': 'euc-jp', }
     let g:eskk#dictionary = { 'path': '$HOME/.config/skk/.skk-jisyo', 'sorted': 0, 'encoding': 'utf-8', }
     " set runtimepath=~/.vim,/var/lib/vim/addons,/usr/share/vim/vimfiles,/usr/share/vim/vim81,/usr/share/vim/vimfiles/after,/var/lib/vim/addons/after,~/.vim/after
   elseif g:os ==? 'Windows'
     let g:vimproc#download_windows_dll = 1
-    set runtimepath+='C:\Python38'
-    set pythonthreedll=C:\Python38\python38.dll
-    let g:python3_host_prog = expand('C:\Python38\python.exe')
+    set runtimepath+='$SystemDrive\Python38'
+    set pythonthreedll+='$SystemDrive\Python38\python38.dll'
+    let &pythonthreedll='%SystemDrive%\Python38\python38.dll'
+    let g:pydocstring_doq_path = '%SystemDrive%\Python38\Scripts\doq'
+    let g:python3_host_prog = expand('%SystemDrive%\Python38\python.exe')
     let g:eskk#large_dictionary = { 'path': '$HOME/Documents/skk/SKK-JISYO.L', 'sorted': 1, 'encoding': 'euc-jp', }
     let g:eskk#dictionary = { 'path': '$HOME/.config/skk/.skk-jisyo', 'sorted': 0, 'encoding': 'utf-8', }
-    set shell=powershell
-    set shellcmdflag=-command
-    set shellquote=\"
-    set shellxquote=
+    " set shell=powershell.exe shellquote=\" shellpipe=\| shellredir=>
+    " set shellslash
+    " set shellcmdflag=\ -NoLogo\ -NoProfile\ -ExecutionPolicy\ RemoteSigned\ -Command
   endif
 endif
 
@@ -60,8 +62,7 @@ if has('gui')
   set renderoptions=type:directx
   source $VIMRUNTIME/delmenu.vim
   set langmenu=ja_jp.utf-8
-  set antialias
-endif
+  endif
 "----------- System -----------
 let $CACHE = expand('~/.cache')
 if !isdirectory(expand($CACHE))

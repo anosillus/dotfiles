@@ -5,8 +5,8 @@ scriptencoding utf8
 set ambiwidth=double
 if has('win32') || has('win64')
   " For Windows.
-
-  " set guifont=Cica:h16:cSHIFTJIS:qDRAFT
+  " set guifont=Cica:h12:cSHIFTJIS:qDRAFT
+  " set guifont=Cica:h12
   " set guifontwide=VL\ Gothic:h11
   " set guifont=Courier\ New:h11
   " set guifont=VL\ Gothic:h11
@@ -34,8 +34,8 @@ else
    " set guifont=Courier\ 10\ Pitch\ 14
    " set guifont=Font\ Family\ 12
    " set guifontwide=Font\ Family\ 12
-   set guifontwide=Cica\ 18
-   set guifont=Cica\ 18
+   " set guifontwide=Cica\ 18
+   " set guifont=Cica\ 18
 endif
 " }}}
 

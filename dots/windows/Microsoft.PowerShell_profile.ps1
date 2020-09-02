@@ -1,6 +1,8 @@
-# Path
+#!set filetype=ps1
 
+# Path
 # llvm (from source) is better than msvs.
+# VScode 2020 doesn't work by this tool and I use 2020 ver.
 # Import-VisualStudioVars -VisualStudioVersion 2019 -Architecture amd64
 $env:Path += ";${Env:SystemDrive}\tools\llvm-project\Release\bin"
 $env:Path += ";${Env:SystemDrive}\tools\vcpkg"
@@ -9,20 +11,26 @@ $env:Path += ";${Env:SystemDrive}\Go\bin"
 $env:Path += ";${Env:USERPROFILE}\go\bin"
 $env:Path += ";${Env:ProgramFiles}\nodejs"
 $env:Path += ";${Env:USERPROFILE}\.cargo\bin"
-# $env:Path += ";${Env:SystemDrive}\Python38" Doesn't work by windows store's install recomender
-# $env:Path += ";${Env:SystemDrive}\Python38\Scripts"
+# Even though you set python as env path, Store python recomender has priority. I use alias.
+$env:Path += ";${Env:SystemDrive}\Python38"
+$env:Path += ";${Env:APPDATA}\Python\Python38\Scripts"
+$env:Path += ";${Env:SystemDrive}\Python38\Scripts"
 $env:Path += ";${Env:SystemDrive}\Strawberry\c\bin"
 $env:Path += ";${Env:SystemDrive}\Strawberry\perl\site\bin"
 $env:Path += ";${Env:SystemDrive}\Strawberry\perl\bin"
 $env:Path += ";${Env:ProgramFiles(x86)}\Common Files\Oracle\Java\javapath"
 $env:Path += ";${Env:SystemDrive}\tools\neovim\Neovim\bin"
+$env:Path += ";${Env:SystemDrive}\tools\vim82-kaoriya-win64"
 $env:Path += ";${Env:ProgramFiles}\Git\cmd"
 $env:Path += ";${Env:SystemDrive}\tools\msys64\usr\bin"
 $env:Path += ";${Env:ProgramFiles}\7-Zip"
+# $env:Path += ";${Env:LOCALAPPDATA}\SumatraPDF"
+
 # . C:\ProgramData\Anaconda3\shell\condabin\conda-hook.ps1
-# $env:Path += ";${Env:ProgramData}\Anaconda3\Scripts;" +
+#  $env:Path += ";${Env:ProgramData}\Anaconda3\Scripts;" +
              # ";${Env:ProgramData}\Anaconda3\bin" +
              # ";${Env:ProgramData}\Anaconda3"
+
 # Install-Module Pscx -Scope CurrentUser  -Force -AllowClobber -AllowClobber
 
 Function touch($file) {
@@ -37,10 +45,10 @@ Function uptime() {
   Select-Object Days, Hours, Seconds, Milliseconds| Format-Table -AutoSize
 }
 
-$DEV = "$Env:homedrive\dev"
-$TOOL = "$env:HOMEDRIVE\tools"
-$DOC = $(resolve-path "$Env:userprofile\Documents")
-$DESKTOP = $(resolve-path "$Env:userprofile\Desktop")
+$DEV = "$ENV:HOMEDRIVE\dev"
+$TOOL = "$ENV:HOMEDRIVE\tools"
+$DOC = $(resolve-path "$ENV:USERPROFILE\Documents")
+$DESKTOP = $(resolve-path "$ENV:USERPROFILE\Desktop")
 
 # $HOMEDRIVE = "C:\"
 # $HOMEPATH = "Users\" + $env:username
@@ -49,16 +57,25 @@ Set-Alias v $TOOL\vim82-kaoriya-win64\gvim.exe
 Set-Alias vim $TOOL\vim82-kaoriya-win64\vim.exe
 Set-Alias open Explorer
 Set-Alias which Get-Command
-Set-Alias vlc ${Env:ProgramFiles(x86)}\VideoLAN\VLC\vlc.exe
-Set-Alias chrome ${Env:ProgramFiles(x86)}\Google\Chrome\Application\chrome.exe
+Set-Alias vlc ${ENV:ProgramFiles(x86)}\VideoLAN\VLC\vlc.exe
+# Set-Alias code ${Env:LOCALAPPDATA}\Programs\Microsoft VS Code\bin\code.cmd" $*
+
+Set-Alias chrome ${ENV:ProgramFiles(x86)}\Google\Chrome\Application\chrome.exe
 Set-Alias ssh $TOOL\msys64\usr\bin\ssh.exe
-Set-Alias python C:\Python38\python.exe
+Set-Alias python ${ENV:SystemDrive}\Python38\python.exe
+Set-Alias pdf ${Env:LOCALAPPDATA}\SumatraPDF\sumatrapdf.exe
+
 # create a directory then change to it
 # PS> mcd newFolder
 function mcd { mkdir @args; cd @args }
 # remove a directory
 # PS> rdf this_folder_and_its_spawn
 function rmd { Remove-Item -recurse -force @args }
+
+function DEV {cd $DEV }
+function DOC {cd $DOC }
+function DRIVE {cd $HOMEDRIVE }
+function DESK {cd $DESKTOP }
 
 # calculate the size of the directory and its contents
 function Get-DirectorySize() {

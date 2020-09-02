@@ -451,7 +451,6 @@ nnoremap <C-q> :<C-u>Denite change -start-filter<CR>
 imap <C-q> <C-f>
 " imap <C-q> <ESC>==i
 "}}}
-
 " <g> is 'Git/Definition'. {{{
 nnoremap gp :Denite gitlog -start-filter<CR>
 nnoremap gP :Denite gitlog:all -start-filter<CR>
