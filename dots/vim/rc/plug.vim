@@ -372,7 +372,7 @@ let g:ale_fixers = {
 \   'java':       ['remove_trailing_lines', 'trim_whitespace'],
 \   'json':       ['remove_trailing_lines', 'trim_whitespace', 'prettier', 'fixjson'],
 \   'markdown':   ['remove_trailing_lines', 'prettier', 'textlint'],
-\   'python':     ['remove_trailing_lines', 'trim_whitespace', 'add_blank_lines_for_python_control_statements', 'black', 'reorder-python-imports', 'isort', 'autopep8'],
+\   'python':     ['remove_trailing_lines', 'trim_whitespace', 'add_blank_lines_for_python_control_statements', 'black', 'reorder-python-imports'],
 \   'r':          ['remove_trailing_lines', 'trim_whitespace', 'styler'],
 \   'rust':       ['remove_trailing_lines', 'trim_whitespace', 'rustfmt'],
 \   'sh':         ['remove_trailing_lines', 'trim_whitespace', 'shfmt'],
