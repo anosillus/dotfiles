@@ -136,7 +136,6 @@ augroup MyAutoCmd
   autocmd BufNew,BufNewFile,BufRead .textlintrc setlocal filetype=json
   autocmd FileType python map <silent> lo <Plug>(pydocstring)
   " autocmd FileType python xmap <silent> lo :<C-u>'<,'>Pydocstring<CR>
-
   " autocmd BufNewFile,BufRead markdown call s:auto_goyo()
   " autocmd VimEnter * echo 'Sleep'
   " autocmd VimLeave * echo 'Sleep'

@@ -180,11 +180,11 @@ Plug 'vim-jp/vimdoc-ja'
 " let g:jasegment_no_default_key_mappings = 1
 " let g:jasegment#model = 'mecab'
 " let g:jasegment#mecab#args = '-Owakati -d /usr/lib/x86_64-linux-gnu/mecab/dic/mecab-ipadic-neologd/'
-Plug 'tyru/eskk.vim'
-let g:eskk#no_default_mappings = 0
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-let g:deoplete#enable_at_startup = 0
-Plug 'ueokande/popupdict.vim'
+" Plug 'tyru/eskk.vim'
+" let g:eskk#no_default_mappings = 0
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" let g:deoplete#enable_at_startup = 0
+" Plug 'ueokande/popupdict.vim'
 " }}}
 
 " Config {{{
@@ -223,6 +223,7 @@ Plug 'neoclide/coc-sources'
 Plug 'Shougo/neco-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Shougo/neco-vim'
+Plug 'honza/vim-snippets'
 Plug 'SirVer/ultisnips'
 " Plug 'iamcco/coc-vimlsp'
 " Plug 'jamcco/coc-spell-checker'
@@ -697,92 +698,96 @@ let g:vista#renderer#icons = {
 " }}}
 
 " ESKK {{{
-set imdisable
-let g:eskk#server = {'host': 'localhost','port': 55100}
-let g:eskk#select_cand_keys = 'arshnei'
-let g:eskk#no_default_mappings = 1
-let g:eskk#enable_completion = 1
-let g:eskk#keep_state = 1
-let g:eskk#statusline_mode_strings = {
-	\	'hira': 'あ',
-	\	'kata': 'ア',
-	\	'ascii': 'aA',
-	\	'zenei': 'ａ',
-	\	'hankata': 'ｧｱ',
-	\	'abbrev': 'aあ'
-	\}
-"let g:eskk#debug = 0
-let g:eskk#show_annotation = 1
-" let g:eskk#rom_input_style = 'msime'
-let g:eskk#egg_like_newline = 1
-let g:eskk#egg_like_newline_completion = 1
-let g:eskk#tab_select_completion = 1
-let g:eskk#start_completion_length = 2
-let g:eskk#marker_henkan = '<>'
-let g:eskk#marker_henkan_select = '>>'
-let g:jasentence_endpat = '[。．？！]\+'
-
-augroup skk
-  autocmd!
-  autocmd User eskk-enable-post call s:eskk_enable_post()
-  function! s:eskk_enable_post()
-      EskkMap -force <S-Space> <ESC>
-  endfunction
-
-  autocmd User eskk-initialize-pre call s:eskk_initial_pre()
-  function! s:eskk_initial_pre()
-    let g:skk_keep_state = 1
-    let t = eskk#table#new('rom_to_hira*', 'rom_to_hira')
-    call t.add_map('~', '～')
-    call t.add_map('zc', '©')
-    call t.add_map('zr', '®')
-    call t.add_map('tm', '™')
-    call t.add_map('z ', '　')
-    call t.add_map('z1', '①')
-    call t.add_map('z2', '②')
-    call t.add_map('z3', '③')
-    call t.add_map('z4', '④')
-    call t.add_map('z5', '⑤')
-    call t.add_map('z6', '⑥')
-    call t.add_map('z7', '⑦')
-    call t.add_map('z8', '⑧')
-    call t.add_map('z9', '⑨')
-    call t.add_map('zc', '©')
-    call t.add_map('zr', '®')
-    call t.add_map('tm', '™')
-    call t.add_map('z ', '　')
-
-    " "1." のように数字の後のドットはそのまま入力
-    for n in range(10)
-      call t.add_map(n . '.', n . '.')
-    endfor
-    call eskk#register_mode_table('hira', t)
-  endfunction
-
-autocmd User eskk-enable-pre call s:eskk_enable_pre()
-function! s:eskk_enable_pre()
-    call deoplete#enable()
-    inoremap <expr><C-o> deoplete#auto_complete()
-    inoremap <expr><C-i> deoplete#smart_close_popup()."\<C-o>"
-    inoremap <expr><C-h> deoplete#undo_completion()
-    inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
-  endfunction
-
-
-" autocmd User  eskk-disable-post call s:eskk_disable()
-" function! s:eskk_disable()
-  " call deoplete#disable()
-" endfunction
-
-augroup END
-
- let g:eskk#cursor_color = {
-  \   'ascii': ['#8b8b83', '#bebebe'],
-  \   'hira': ['#8b3e2f', '#ffc0cb'],
-  \   'kata': ['#228b22', '#00ff00'],
-  \   'abbrev': '#4169e1',
-  \   'zenei': '#ffd700',
-\}
+" set imdisable
+" let g:eskk#server = {'host': 'localhost','port': 55100}
+" let g:eskk#select_cand_keys = 'arshnei'
+" let g:eskk#no_default_mappings = 1
+" let g:eskk#enable_completion = 1
+" let g:eskk#keep_state = 1
+" let g:eskk#statusline_mode_strings = {
+"	\	'hira': 'あ',
+"	\	'kata': 'ア',
+"	\	'ascii': 'aA',
+"	\	'zenei': 'ａ',
+"	\	'hankata': 'ｧｱ',
+"	\	'abbrev': 'aあ'
+"	\}
+" "let g:eskk#debug = 0
+" let g:eskk#show_annotation = 1
+" " let g:eskk#rom_input_style = 'msime'
+" let g:eskk#egg_like_newline = 1
+" let g:eskk#egg_like_newline_completion = 1
+" let g:eskk#tab_select_completion = 1
+" let g:eskk#start_completion_length = 2
+" let g:eskk#marker_henkan = '<>'
+" let g:eskk#marker_henkan_select = '>>'
+" let g:jasentence_endpat = '[。．？！]\+'
+"
+" augroup skk
+"   autocmd!
+"   autocmd User eskk-enable-post call s:eskk_enable_post()
+"     function! s:eskk_enable_post()
+"         EskkMap -force <S-Space> <ESC>
+"   endfunction
+"
+"   autocmd User eskk-initialize-pre call s:eskk_initial_pre()
+"   function! s:eskk_initial_pre()
+"     command! -nargs=0 CocDisable
+"     let g:skk_keep_state = 1
+"     let t = eskk#table#new('rom_to_hira*', 'rom_to_hira')
+"     call t.add_map('~', '～')
+"     call t.add_map('zc', '©')
+"     call t.add_map('zr', '®')
+"     call t.add_map('tm', '™')
+"     call t.add_map('z ', '　')
+"     call t.add_map('z1', '①')
+"     call t.add_map('z2', '②')
+"     call t.add_map('z3', '③')
+"     call t.add_map('z4', '④')
+"     call t.add_map('z5', '⑤')
+"     call t.add_map('z6', '⑥')
+"     call t.add_map('z7', '⑦')
+"     call t.add_map('z8', '⑧')
+"     call t.add_map('z9', '⑨')
+"     call t.add_map('zc', '©')
+"     call t.add_map('zr', '®')
+"     call t.add_map('tm', '™')
+"     call t.add_map('z ', '　')
+"
+"     " "1." のように数字の後のドットはそのまま入力
+"     for n in range(10)
+"       call t.add_map(n . '.', n . '.')
+"     endfor
+"     call eskk#register_mode_table('hira', t)
+"   endfunction
+"
+"   autocmd User eskk-enable-pre call s:eskk_enable_pre()
+"     function! s:eskk_enable_pre()
+"       " let b:coc_suggest_disable = 1
+"       " call  <CR>
+"       " call deoplete#enable()
+"       " inoremap <expr><C-o> deoplete#auto_complete()
+"       " inoremap <expr><C-i> deoplete#smart_close_popup()."\<C-o>"
+"       " inoremap <expr><C-h> deoplete#undo_completion()
+"       " inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
+"     endfunction
+"
+"   autocmd User eskk-disable-post call s:eskk_disable()
+"     function! s:eskk_disable()
+"       " call deoplete#disable()
+"       command! -nargs=0 CocEnable
+"       " :CocEnable <CR>
+"       " let b:coc_suggest_disable = 0
+"     endfunction
+" augroup END
+"
+"  let g:eskk#cursor_color = {
+"  \   'ascii': ['#8b8b83', '#bebebe'],
+"  \   'hira': ['#8b3e2f', '#ffc0cb'],
+"  \   'kata': ['#228b22', '#00ff00'],
+"  \   'abbrev': '#4169e1',
+"  \   'zenei': '#ffd700',
+"\}
  " }}}
 
  " COC {{{

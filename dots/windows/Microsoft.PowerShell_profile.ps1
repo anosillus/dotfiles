@@ -1,4 +1,4 @@
-#!set filetype=ps1
+#vim set filetype=ps1
 
 # Path
 # llvm (from source) is better than msvs.
@@ -24,7 +24,7 @@ $env:Path += ";${Env:SystemDrive}\tools\vim82-kaoriya-win64"
 $env:Path += ";${Env:ProgramFiles}\Git\cmd"
 $env:Path += ";${Env:SystemDrive}\tools\msys64\usr\bin"
 $env:Path += ";${Env:ProgramFiles}\7-Zip"
-# $env:Path += ";${Env:LOCALAPPDATA}\SumatraPDF"
+$env:Path += ";${Env:LOCALAPPDATA}\SumatraPDF"
 
 # . C:\ProgramData\Anaconda3\shell\condabin\conda-hook.ps1
 #  $env:Path += ";${Env:ProgramData}\Anaconda3\Scripts;" +
@@ -45,7 +45,7 @@ Function uptime() {
   Select-Object Days, Hours, Seconds, Milliseconds| Format-Table -AutoSize
 }
 
-$DEV = "$ENV:HOMEDRIVE\dev"
+$DEV = "$ENV:USERPROFILE\dev"
 $TOOL = "$ENV:HOMEDRIVE\tools"
 $DOC = $(resolve-path "$ENV:USERPROFILE\Documents")
 $DESKTOP = $(resolve-path "$ENV:USERPROFILE\Desktop")
@@ -72,10 +72,10 @@ function mcd { mkdir @args; cd @args }
 # PS> rdf this_folder_and_its_spawn
 function rmd { Remove-Item -recurse -force @args }
 
-function DEV {cd $DEV }
-function DOC {cd $DOC }
-function DRIVE {cd $HOMEDRIVE }
-function DESK {cd $DESKTOP }
+function DEV() {cd $DEV }
+function DOC() {cd $DOC }
+function DRIVE() {cd $HOMEDRIVE }
+function DESK() {cd $DESKTOP }
 
 # calculate the size of the directory and its contents
 function Get-DirectorySize() {

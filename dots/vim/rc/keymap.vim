@@ -144,6 +144,13 @@ map  <leader>n }
 map  <leader>e {
 nmap <silent><leader>N <Plug>(coc-git-nextchunk)
 nmap <silent><leader>E <Plug>(coc-git-prevchunk)
+snoremap <silent> <BS> <c-g>c
+snoremap <silent> <DEL> <c-g>c
+snoremap <silent> <c-i> <c-g>c
+snoremap <silent> <c-h> <c-g>c
+snoremap <c-r> <c-g>"_c<c-r>
+
+snoremap <c-r> <c-g>"_c<c-r>
 
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -318,8 +325,8 @@ vnoremap  jp  :VIpython<CR>
 " noremap <silent> ja :GscopeFind a <C-R><C-W><cr>
 
 " nmap <C-j> is emment.vim
-imap <C-j> <Plug>(eskk:toggle)
-cmap <C-j> <Plug>(eskk:toggle)
+" imap <C-j> <Plug>(eskk:toggle)
+" cmap <C-j> <Plug>(eskk:toggle)
 " }}}
 " 5 %
 

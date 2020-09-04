@@ -27,11 +27,11 @@ if has('gui_running')
     " set runtimepath=~/.vim,/var/lib/vim/addons,/usr/share/vim/vimfiles,/usr/share/vim/vim81,/usr/share/vim/vimfiles/after,/var/lib/vim/addons/after,~/.vim/after
   elseif g:os ==? 'Windows'
     let g:vimproc#download_windows_dll = 1
-    set runtimepath+='$SystemDrive\Python38'
-    set pythonthreedll+='$SystemDrive\Python38\python38.dll'
-    let &pythonthreedll='%SystemDrive%\Python38\python38.dll'
-    let g:pydocstring_doq_path = '%SystemDrive%\Python38\Scripts\doq'
-    let g:python3_host_prog = expand('%SystemDrive%\Python38\python.exe')
+    set runtimepath+='C:\Python38'
+    set pythonthreedll+='C:\Python38\python38.dll'
+    let &pythonthreedll='C:\Python38\python38.dll'
+    let g:pydocstring_doq_path = 'C:\Python38\Scripts\doq'
+    let g:python3_host_prog = expand('C:\Python38\python.exe')
     let g:eskk#large_dictionary = { 'path': '$HOME/Documents/skk/SKK-JISYO.L', 'sorted': 1, 'encoding': 'euc-jp', }
     let g:eskk#dictionary = { 'path': '$HOME/.config/skk/.skk-jisyo', 'sorted': 0, 'encoding': 'utf-8', }
     " set shell=powershell.exe shellquote=\" shellpipe=\| shellredir=>
@@ -62,7 +62,7 @@ if has('gui')
   set renderoptions=type:directx
   source $VIMRUNTIME/delmenu.vim
   set langmenu=ja_jp.utf-8
-  endif
+endif
 "----------- System -----------
 let $CACHE = expand('~/.cache')
 if !isdirectory(expand($CACHE))
