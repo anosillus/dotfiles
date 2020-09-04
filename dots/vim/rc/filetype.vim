@@ -132,6 +132,9 @@ augroup MyAutoCmd
   " autocmd BufNew,BufRead,BufNewFile *.{mkd,markdown,md,mdwn,mkdn}  call s:auto_goyo()
   autocmd BufNew,BufRead,BufNewFile *.{mkd,markdown,md,mdwn,mkdn} setlocal filetype=markdown
   autocmd BufRead,BufNewFile README.md setlocal ft=markdown.gfm
+  autocmd BufNewFile,BufRead *.ps1 setlocal filetype=ps1
+  autocmd BufNewFile,BufRead init.macros setlocal filetype=dosbatch
+  autocmd BufNewFile,BufRead workflows setlocal filetype=yaml
   autocmd BufNewFile,BufRead *.vue setlocal filetype=javascript
   autocmd BufNew,BufNewFile,BufRead .textlintrc setlocal filetype=json
   autocmd FileType python map <silent> lo <Plug>(pydocstring)
