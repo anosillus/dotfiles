@@ -137,11 +137,6 @@
   gn = grep -n
   sm = submodule
   smupdate = submodule foreach "git checkout master; git pull origin master"
-  # stash関連(stashもう使わないのでコメントあうと)
-  # sl = stash list
-  # sp = stash pop
-  # ss = stash save
-
   chpk = cherry-pick # チンピク
   iss = issue # my extended command
 
@@ -197,9 +192,6 @@
 [github]
 	user = anosillus
 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f

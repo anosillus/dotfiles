@@ -5,9 +5,10 @@ if !exists('g:os')
   if has('win64') || has('win32') || has('win16')
     let g:os = 'Windows'
   elseif has("unix")
-    let lines = readfile("/proc/version")
-    if lines[0] =~ "Microsoft"
+    let s:lines = readfile("/proc/version")
+    if s:lines[0] =~ "Microsoft"
       let g:os = 'WSL'
+    endif
   else
     let g:os = substitute(system('uname'), '\n', '', '')
   endif
@@ -50,6 +51,11 @@ if has('gui_running')
     let g:eskk#large_dictionary = { 'path': '/mnt/c/Users/anosillus/.skk/SKK-JISYO.L', 'sorted': 1, 'encoding': 'euc-jp', }
     let g:eskk#dictionary = { 'path': '/mnt/c/Users/anosillus/.config/skk/.skk-jisyo', 'sorted': 0, 'encoding': 'utf-8', }
     let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
+    augroup myYank
+      autocmd!
+      autocmd TextYankPost * :call system('clip.exe', @")
+    augroup END
+  endif
 endif
 
 let g:sql_type_default = 'pgsql'
@@ -73,7 +79,7 @@ if has('gui')
   set renderoptions=type:directx
   source $VIMRUNTIME/delmenu.vim
   set langmenu=ja_jp.utf-8
-  endif
+endif
 "----------- System -----------
 let $CACHE = expand('~/.cache')
 if !isdirectory(expand($CACHE))

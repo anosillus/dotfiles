@@ -13,7 +13,7 @@ kaggle.json
 ### data
 *.mp4
 *.mp3
-*.csv
+# *.csv
 *.tsv
 *.pickle
 *.db
