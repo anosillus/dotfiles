@@ -1,9 +1,8 @@
-#! /usr/bin/env python3
 # -*- coding: utf-8 -*-
 # vim:fenc=utf-8
 # File name: <+FILE NAME+>
 # First Edit: <+DATE+>
-# Last Change: 08-Feb-2020.
+# Last Change: 21-Sep-2020.
 """
 This scrip is for test
 <+CURSOR+>
