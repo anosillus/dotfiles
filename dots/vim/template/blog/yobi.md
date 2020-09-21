@@ -1,8 +1,5 @@
 {
   "rules": {
-    "max-ten": {
-      "max": 3
-    },
     "en-max-word-count": {
       "max": 50
     },
@@ -14,12 +11,13 @@
     "spellcheck-tech-word": true,
     "no-nfd": true,
     "common-misspellings": true,
-    "preset-jtf-style": true,
+    "preset-jtf-style": {
+		"1.2.2.ピリオド(.)とカンマ(,)": false
+    },
     "preset-ja-technical-writing": true,
-    "joyo-kanji": true,
     "date-weekday-mismatch": true,
     "general-novel-style-ja": {
-      "chars_leading_paragraph": "　「『【〈《（(“\"‘'［[〔｛{＜<#",
+      "chars_leading_paragraph": false,
       "no_punctuation_at_closing_quote": true,
       "space_after_marks": true,
       "even_number_ellipsises": true,

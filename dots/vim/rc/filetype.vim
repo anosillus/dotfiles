@@ -3,6 +3,9 @@ scriptencoding utf-8
 function! s:template_keywords()
   %s/<+FILE NAME+>/\=expand('%:t')/g
   %s/<+DATE+>/\=strftime('%Y-%m-%d')/g
+  %s/<+MAIL+>/\anosillus@gmail.com/g
+  %s/<+AUTHOR+>/\@anosillus/g
+  %s/<+LICENCE+>/\MIT/g
   if search('<+CURSOR+>')
     execute 'normal! "_da>'
   endif

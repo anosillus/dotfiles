@@ -2,9 +2,10 @@
 # vim:fenc=utf-8
 # File name: <+FILE NAME+>
 # First Edit: <+DATE+>
-# Last Change: 21-Sep-2020.
+# Last Change: 22-Sep-2020.
+
 """
-This scrip is for test
+Description
 <+CURSOR+>
 """
 
