@@ -1,8 +1,8 @@
-> -_- coding: utf-8 -_-  
-> vim:fenc=utf-8  
-> File name: template_minutes.md  
-> First Edit: 2019-05-15  
-> Last Change: 15-May-2019.
+> -_- coding: utf-8 -_-
+> File name: <+FILE NAME+>
+> First Edit: <+DATE+>
+> Last Change: 22-Sep-2020.
+> Author: 
 
 > When：いつまでに
 > Who：誰が

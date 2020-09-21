@@ -2,7 +2,8 @@
 > vim:fenc=utf-8
 > File name: template_meeting.md
 > First Edit: 2020-01-26
-> Last Change: 26-Jan-2020.
+> Last Change: 22-Sep-2020.
+> Author: 
 
 ---
 #<会議体名>
