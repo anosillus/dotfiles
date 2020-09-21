@@ -67,8 +67,8 @@ runtime! debian.vim
 " call s:source_rc('gui.vim')
 call s:source_rc('private.vim')
 call s:source_rc('env.vim')
-call s:source_rc('filetype.vim')
 call s:source_rc('plug.vim')
+call s:source_rc('filetype.vim')
 
 " ColorScheme {{{
 if has('vim_starting') && !empty(argv())

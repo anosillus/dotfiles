@@ -325,8 +325,8 @@ vnoremap  jp  :VIpython<CR>
 " noremap <silent> ja :GscopeFind a <C-R><C-W><cr>
 
 " nmap <C-j> is emment.vim
-" imap <C-j> <Plug>(eskk:toggle)
-" cmap <C-j> <Plug>(eskk:toggle)
+imap <C-j> <Plug>(eskk:toggle)
+cmap <C-j> <Plug>(eskk:toggle)
 " }}}
 " 5 %
 

@@ -41,15 +41,26 @@ function! s:auto_goyo()
 endfunction
 
 function! s:jp_setting()
+  call plug#load(
+    \ 'eblook.vim',
+    \ 'autofmt',
+    \ 'eskk.vim',
+    \ 'deoplete.nvim'
+    \)
+
+    "\ 'jasegment.vim'
+  let b:coc_suggest_disable = 1
+
   " let b:ale_textlint_options = --rule general-novel-style-ja
+  " setlocal filetype=jp
   let b:loaded_jasegment = 0
   let g:jasegment#highlight = 2
-  call s:auto_goyo()
+  " call s:auto_goyo()
 
   setlocal spelllang=cjk
   setlocal spell
   setlocal scrolloff=9999
-  setlocal eventignore=hilight-idegraphic-space
+  " setlocal eventignore=hilight-idegraphic-space
 
   function! s:incsearch_config(...) abort
     return incsearch#util#deepextend(deepcopy({
@@ -98,6 +109,7 @@ endfunction
 
 augroup MyAutoCmd
   autocmd!
+
   autocmd BufEnter */jp_memo/* call s:jp_setting()
   autocmd BufEnter jp_* call s:jp_setting()
   autocmd WinEnter * if winnr('$') == 1 && &buftype == "quickfix"|q|endif
