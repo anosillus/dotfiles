@@ -170,7 +170,7 @@ let g:textobj_sandwich_no_default_key_mappings = 1
 Plug 'koron/codic-vim'
 Plug 'msbmsb/porter-stem.vim'
 Plug 'rhysd/unite-codic.vim'
-Plug 'deton/eblook.vim',{ 'on': [] }
+" Plug 'deton/eblook.vim',{ 'on': [] }
 let eblook_no_default_key_mappings = 1
 let eblook_stemming = 1
 let eblook_decorate_syntax = 1
@@ -181,7 +181,6 @@ Plug 'deton/jasegment.vim',{ 'on': [] }
 let b:loaded_jasegment = 1
 let g:jasegment_no_default_key_mappings = 1
 let g:jasegment#model = 'mecab'
-let g:jasegment#mecab#args = '-Owakati -d /usr/lib/x86_64-linux-gnu/mecab/dic/mecab-ipadic-neologd/'
 Plug 'tyru/eskk.vim',{ 'on': [] }
 let g:eskk#no_default_mappings = 0
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins','on': [] }

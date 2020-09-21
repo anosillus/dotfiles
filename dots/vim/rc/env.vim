@@ -4,6 +4,10 @@ scriptencoding utf-8
 if !exists('g:os')
   if has('win64') || has('win32') || has('win16')
     let g:os = 'Windows'
+  elseif has("unix")
+    let lines = readfile("/proc/version")
+    if lines[0] =~ "Microsoft"
+      let g:os = 'WSL'
   else
     let g:os = substitute(system('uname'), '\n', '', '')
   endif
@@ -21,7 +25,9 @@ if has('gui_running')
   elseif g:os ==? 'Linux'
     let g:python3_host_prog='/usr/bin/python3'
     let g:python_host_prog='/usr/bin/python3'
+    let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
     let g:pydocstring_doq_path = $HOME.'/.local/bin/doq'
+    let g:jasegment#mecab#args = '-Owakati -d /usr/lib/x86_64-linux-gnu/mecab/dic/mecab-ipadic-neologd/'
     let g:eskk#large_dictionary = { 'path': '/usr/share/skk/SKK-JISYO.L', 'sorted': 1, 'encoding': 'euc-jp', }
     let g:eskk#dictionary = { 'path': '$HOME/.config/skk/.skk-jisyo', 'sorted': 0, 'encoding': 'utf-8', }
     " set runtimepath=~/.vim,/var/lib/vim/addons,/usr/share/vim/vimfiles,/usr/share/vim/vim81,/usr/share/vim/vimfiles/after,/var/lib/vim/addons/after,~/.vim/after
@@ -32,17 +38,20 @@ if has('gui_running')
     let &pythonthreedll='C:\Python38\python38.dll'
     let g:pydocstring_doq_path = 'C:\Python38\Scripts\doq'
     let g:python3_host_prog = expand('C:\Python38\python.exe')
-    " let g:eskk#large_dictionary = { 'path': '$HOME/Documents/skk/SKK-JISYO.L', 'sorted': 1, 'encoding': 'euc-jp', }
-  let g:eskk#large_dictionary = { 'path': '$HOME/.skk/SKK-JISYO.L', 'sorted': 1, 'encoding': 'euc-jp', }
-
+    let g:eskk#large_dictionary = { 'path': '$HOME/.skk/SKK-JISYO.L', 'sorted': 1, 'encoding': 'euc-jp', }
     let g:eskk#dictionary = { 'path': '$HOME/.config/skk/.skk-jisyo', 'sorted': 0, 'encoding': 'utf-8', }
     " set shell=powershell.exe shellquote=\" shellpipe=\| shellredir=>
     " set shellslash
     " set shellcmdflag=\ -NoLogo\ -NoProfile\ -ExecutionPolicy\ RemoteSigned\ -Command
-  endif
+  elseif g:os ==? "WSL"
+    let g:python3_host_prog='/usr/bin/python3'
+    let g:python_host_prog='/usr/bin/python3'
+    let g:pydocstring_doq_path = $HOME.'/.local/bin/doq'
+    let g:eskk#large_dictionary = { 'path': '/mnt/c/Users/anosillus/.skk/SKK-JISYO.L', 'sorted': 1, 'encoding': 'euc-jp', }
+    let g:eskk#dictionary = { 'path': '/mnt/c/Users/anosillus/.config/skk/.skk-jisyo', 'sorted': 0, 'encoding': 'utf-8', }
+    let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
 endif
 
-let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
 let g:sql_type_default = 'pgsql'
 let g:go_bin_path = $GOPATH.'/bin'
 
