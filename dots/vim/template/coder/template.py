@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
-# vim:fenc=utf-8
-# File name: template.py
-# First Edit: 2020-07-20
-# Last Change: 22-Sep-2020.
+# File name: <+FILE NAME+>
+# First Edit: <+DATE+>
+# Last Change: <%= strftime('%Y-%m-%d') %>
 
 import bisect,collections,copy,heapq,itertools,math,numpy,string
 import sys

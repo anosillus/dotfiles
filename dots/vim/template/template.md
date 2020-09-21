@@ -1,7 +1,7 @@
 > -_- coding: utf-8 -_-
 > File name: <+FILE NAME+>
 > First Edit: <+DATE+>
-> Last Change: 22-Sep-2020.
+> Last Change: <%= strftime('%Y-%m-%d') %>
 > Author: <+AUTHOR+>
 > Email: <+MAIL+>
 ---

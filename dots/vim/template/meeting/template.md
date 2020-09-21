@@ -1,8 +1,7 @@
 > -_- coding: utf-8 -_-
-> vim:fenc=utf-8
-> File name: template_meeting.md
-> First Edit: 2020-01-26
-> Last Change: 22-Sep-2020.
+> File name: <+FILE NAME+>
+> First Edit: <+DATE+>
+> Last Change: <%= strftime('%Y-%m-%d') %>
 > Author: 
 
 ---

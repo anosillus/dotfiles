@@ -2,7 +2,7 @@
 // vim:fenc=utf-8
 // File name: <+FILE NAME+>
 // First Edit: <+DATE+>
-// Last Change: 09-Feb-2020.
+// Last Change: <%= strftime('%Y-%m-%d') %>
 
 #include <cstdlib>
 #include <iostream>

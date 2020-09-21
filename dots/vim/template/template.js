@@ -3,8 +3,6 @@
 // First Edit: <+DATE+>
 // Last Change: <%= strftime('%Y-%m-%d') %>
 
-#include <cstdlib>
-#include <iostream>
+'use strict';
 
-<+CURSOR +> 
-int main() {}
+<+CURSOR+>
