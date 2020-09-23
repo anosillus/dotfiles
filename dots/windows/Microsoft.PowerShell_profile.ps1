@@ -25,6 +25,7 @@ $env:Path += ";${Env:ProgramFiles}\Git\cmd"
 $env:Path += ";${Env:SystemDrive}\tools\msys64\usr\bin"
 $env:Path += ";${Env:ProgramFiles}\7-Zip"
 $env:Path += ";${Env:LOCALAPPDATA}\SumatraPDF"
+$env:Path += ";${Env:ProgramFiles}\Google\Cloud SDK\google-cloud-sdk/bin"
 
 # . C:\ProgramData\Anaconda3\shell\condabin\conda-hook.ps1
 #  $env:Path += ";${Env:ProgramData}\Anaconda3\Scripts;" +
