@@ -1,11 +1,12 @@
 scriptencoding utf-8
 
 function! s:template_keywords()
-  %s/<+FILE NAME+>/\=expand('%:t')/g
-  %s/<+DATE+>/\=strftime('%Y-%m-%d')/g
-  %s/<+MAIL+>/\anosillus@gmail.com/g
-  %s/<+AUTHOR+>/\@anosillus/g
-  %s/<+LICENCE+>/\MIT/g
+  silent %s/<%=\(.\{-}\)%>/\=eval(submatch(1))/ge
+  silent %s/<+FILE NAME+>/\=expand('%:t')/g
+  silent %s/<+DATE+>/\=strftime('%Y-%m-%d')/g
+  silent %s/<+MAIL+>/\anosillus@gmail.com/g
+  silent %s/<+AUTHOR+>/\@anosillus/g
+  silent %s/<+LICENCE+>/\MIT/g
   if search('<+CURSOR+>')
     execute 'normal! "_da>'
   endif
@@ -44,6 +45,7 @@ function! s:auto_goyo()
 endfunction
 
 function! s:jp_setting()
+  let b:japanese_mode = 1
   call plug#load(
     \ 'eblook.vim',
     \ 'autofmt',
@@ -115,6 +117,7 @@ augroup MyAutoCmd
 
   autocmd BufEnter */jp_memo/* call s:jp_setting()
   autocmd BufEnter jp_* call s:jp_setting()
+  " autocmd WinEnter * if b:japanese_mode ==# 1|call plug#load('coc.vim')|endif
   autocmd WinEnter * if winnr('$') == 1 && &buftype == "quickfix"|q|endif
   autocmd BufNew * call timer_start(0, { -> s:bufnew() })
   autocmd FileType vim setlocal tabstop=2 shiftwidth=2 expandtab
@@ -172,8 +175,6 @@ augroup MyAutoCmd
   endif
   autocmd FileType help,git-status,git-log nnoremap <buffer> q <C-w>c
   autocmd User plugin-template-loaded call s:template_keywords()
-  autocmd User plugin-template-loaded silent %s/<%=\(.\{-}\)%>/\=eval(submatch(1))/ge
-
   autocmd FileType denite call s:denite_my_settings()
   function! s:denite_my_settings() abort
    nnoremap <silent><buffer><expr> <CR>

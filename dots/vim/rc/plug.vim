@@ -59,9 +59,15 @@ Plug 'sheerun/vim-polyglot'
 let g:polyglot_disabled = ['markdown', 'cpp']
 Plug 'vim-jp/syntax-vim-ex'
 Plug 'thinca/vim-ref'
+Plug 'mojako/ref-sources.vim'
 let g:ref_no_default_key_mappings = 1
 let g:ref_man_lang = 'ja'
 let g:ref_pydoc_cmd	 = 'python3 -m pydoc'
+let g:ref_cache_dir = $HOME . '/.vim/vim-ref/cache'
+let g:ref_use_cache           = 1
+let g:ref_use_vimproc         = 1
+Plug 'romainl/vim-devdocs'
+
 " let g:ref_pydoc_cmd = executable('python3') ? 'pydoc3' : ''
 " }}}
 
@@ -132,6 +138,7 @@ Plug 'maximbaz/lightline-ale'
 Plug 'Yggdroot/indentLine'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'markonm/traces.vim'
+Plug 'cormacrelf/vim-colors-github'
 " }}}
 
 " Motion {{{
@@ -222,7 +229,8 @@ let g:translate_winsize = 10
 Plug 'neoclide/coc-neco'
 Plug 'neoclide/coc-sources'
 Plug 'Shougo/neco-vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release', 'on': [] }
+" Plug 'neoclide/coc.nvim', {'branch': 'release', 'on': [] }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Shougo/neco-vim'
 Plug 'honza/vim-snippets'
 Plug 'SirVer/ultisnips'
@@ -373,7 +381,7 @@ let g:ale_fixers = {
 \   'java':       ['remove_trailing_lines', 'trim_whitespace'],
 \   'json':       ['remove_trailing_lines', 'trim_whitespace', 'prettier', 'fixjson'],
 \   'markdown':   ['remove_trailing_lines', 'prettier', 'textlint'],
-\   'python':     ['remove_trailing_lines', 'trim_whitespace', 'add_blank_lines_for_python_control_statements', 'black'],
+\   'python':     ['remove_trailing_lines', 'trim_whitespace', 'add_blank_lines_for_python_control_statements', 'black', 'reorder-python-imports'],
 \   'r':          ['remove_trailing_lines', 'trim_whitespace', 'styler'],
 \   'rust':       ['remove_trailing_lines', 'trim_whitespace', 'rustfmt'],
 \   'sh':         ['remove_trailing_lines', 'trim_whitespace', 'shfmt'],
@@ -386,6 +394,8 @@ let g:ale_fixers = {
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
 "}}}
+
+"\   'python':     ['remove_trailing_lines', 'trim_whitespace', 'add_blank_lines_for_python_control_statements', 'black', 'reorder-python-imports'],
 
 " EasyMotion {{{
 let g:EasyMotion_do_mapping = 0
