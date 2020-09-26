@@ -75,3 +75,6 @@ $$
 :::details タイトル
 表示したい内容
 :::
+
+
+This article is written by anosillus@gmail.com <i class="cc cc-by-sa"></i>

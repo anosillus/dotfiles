@@ -30,7 +30,7 @@ if has('gui_running')
     let g:pydocstring_doq_path = $HOME.'/.local/bin/doq'
     let g:jasegment#mecab#args = '-Owakati -d /usr/lib/x86_64-linux-gnu/mecab/dic/mecab-ipadic-neologd/'
     let g:eskk#large_dictionary = { 'path': '/usr/share/skk/SKK-JISYO.L', 'sorted': 1, 'encoding': 'euc-jp', }
-    let g:eskk#dictionary = { 'path': '$HOME/.config/skk/.skk-jisyo', 'sorted': 0, 'encoding': 'utf-8', }
+    let g:eskk#dictionary = { 'path': '$HOME/.config/skk/skk-jisyo', 'sorted': 0, 'encoding': 'utf-8', }
     " set runtimepath=~/.vim,/var/lib/vim/addons,/usr/share/vim/vimfiles,/usr/share/vim/vim81,/usr/share/vim/vimfiles/after,/var/lib/vim/addons/after,~/.vim/after
   elseif g:os ==? 'Windows'
     let g:vimproc#download_windows_dll = 1
@@ -40,7 +40,7 @@ if has('gui_running')
     let g:pydocstring_doq_path = 'C:\Python38\Scripts\doq'
     let g:python3_host_prog = expand('C:\Python38\python.exe')
     let g:eskk#large_dictionary = { 'path': '$HOME/.skk/SKK-JISYO.L', 'sorted': 1, 'encoding': 'euc-jp', }
-    let g:eskk#dictionary = { 'path': '$HOME/.config/skk/.skk-jisyo', 'sorted': 0, 'encoding': 'utf-8', }
+    let g:eskk#dictionary = { 'path': '$HOME/.config/skk/skk-jisyo', 'sorted': 0, 'encoding': 'utf-8', }
     " set shell=powershell.exe shellquote=\" shellpipe=\| shellredir=>
     " set shellslash
     " set shellcmdflag=\ -NoLogo\ -NoProfile\ -ExecutionPolicy\ RemoteSigned\ -Command
@@ -48,8 +48,9 @@ if has('gui_running')
     let g:python3_host_prog='/usr/bin/python3'
     let g:python_host_prog='/usr/bin/python3'
     let g:pydocstring_doq_path = $HOME.'/.local/bin/doq'
+    let g:eskk#server = {'host': 'localhost','port': 1178
     let g:eskk#large_dictionary = { 'path': '/mnt/c/Users/anosillus/.skk/SKK-JISYO.L', 'sorted': 1, 'encoding': 'euc-jp', }
-    let g:eskk#dictionary = { 'path': '/mnt/c/Users/anosillus/.config/skk/.skk-jisyo', 'sorted': 0, 'encoding': 'utf-8', }
+    let g:eskk#dictionary = { 'path': '/mnt/c/Users/anosillus/.config/skk/skk-jisyo', 'sorted': 0, 'encoding': 'utf-8', }
     let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
     augroup myYank
       autocmd!

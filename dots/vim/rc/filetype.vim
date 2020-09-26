@@ -6,7 +6,7 @@ function! s:template_keywords()
   silent %s/<+DATE+>/\=strftime('%Y-%m-%d')/g
   silent %s/<+MAIL+>/\anosillus@gmail.com/g
   silent %s/<+AUTHOR+>/\@anosillus/g
-  silent %s/<+LICENCE+>/\MIT/g
+  silent %s/<+MIT_LICENCE+>/\MIT/g
   if search('<+CURSOR+>')
     execute 'normal! "_da>'
   endif

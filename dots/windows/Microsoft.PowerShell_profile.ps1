@@ -2,35 +2,31 @@
 
 # Path
 # llvm (from source) is better than msvs.
-# VScode 2020 doesn't work by this tool and I use 2020 ver.
-# Import-VisualStudioVars -VisualStudioVersion 2019 -Architecture amd64
-$env:Path += ";${Env:SystemDrive}\tools\llvm-project\Release\bin"
-$env:Path += ";${Env:SystemDrive}\tools\vcpkg"
-$env:Path += ";${Env:SystemDrive}\Ruby27-x64\bin"
-$env:Path += ";${Env:SystemDrive}\Go\bin"
-$env:Path += ";${Env:USERPROFILE}\go\bin"
-$env:Path += ";${Env:ProgramFiles}\nodejs"
-$env:Path += ";${Env:USERPROFILE}\.cargo\bin"
-# Even though you set python as env path, Store python recomender has priority. I use alias.
-$env:Path += ";${Env:SystemDrive}\Python38"
+# VScode 2020 doesn't work by  Import-VisualStudioVars.
+# Import-VisualStudioVars -VisualStudioVersion 2020 -Architecture amd64
 $env:Path += ";${Env:APPDATA}\Python\Python38\Scripts"
-$env:Path += ";${Env:SystemDrive}\Python38\Scripts"
-$env:Path += ";${Env:SystemDrive}\Strawberry\c\bin"
-$env:Path += ";${Env:SystemDrive}\Strawberry\perl\site\bin"
-$env:Path += ";${Env:SystemDrive}\Strawberry\perl\bin"
-$env:Path += ";${Env:ProgramFiles(x86)}\Common Files\Oracle\Java\javapath"
-$env:Path += ";${Env:SystemDrive}\tools\neovim\Neovim\bin"
-$env:Path += ";${Env:SystemDrive}\tools\vim82-kaoriya-win64"
-$env:Path += ";${Env:ProgramFiles}\Git\cmd"
-$env:Path += ";${Env:SystemDrive}\tools\msys64\usr\bin"
-$env:Path += ";${Env:ProgramFiles}\7-Zip"
+$env:Path += ";${Env:APPDATA}\Roaming\npm"
 $env:Path += ";${Env:LOCALAPPDATA}\SumatraPDF"
-$env:Path += ";${Env:ProgramFiles}\Google\Cloud SDK\google-cloud-sdk/bin"
-
-# . C:\ProgramData\Anaconda3\shell\condabin\conda-hook.ps1
-#  $env:Path += ";${Env:ProgramData}\Anaconda3\Scripts;" +
-             # ";${Env:ProgramData}\Anaconda3\bin" +
-             # ";${Env:ProgramData}\Anaconda3"
+$env:Path += ";${Env:ProgramFiles(x86)}\Common Files\Oracle\Java\javapath"
+$env:Path += ";${Env:ProgramFiles(x86)}\Google\Cloud SDK\google-cloud-sdk/bin"
+$env:Path += ";${Env:ProgramFiles}\7-Zip"
+$env:Path += ";${Env:ProgramFiles}\Git\cmd"
+$env:Path += ";${Env:ProgramFiles}\nodejs"
+$env:Path += ";${Env:SystemDrive}\Go\bin"
+$env:Path += ";${Env:SystemDrive}\Python38"
+$env:Path += ";${Env:SystemDrive}\Python38\Scripts"
+$env:Path += ";${Env:SystemDrive}\Ruby27-x64\bin"
+$env:Path += ";${Env:SystemDrive}\Strawberry\c\bin"
+$env:Path += ";${Env:SystemDrive}\Strawberry\perl\bin"
+$env:Path += ";${Env:SystemDrive}\Strawberry\perl\site\bin"
+$env:Path += ";${Env:SystemDrive}\tools\llvm-project\Release\bin"
+$env:Path += ";${Env:SystemDrive}\tools\msys64\usr\bin"
+$env:Path += ";${Env:SystemDrive}\tools\neovim\Neovim\bin"
+$env:Path += ";${Env:SystemDrive}\tools\ngrok-stable-windows-amd64"
+$env:Path += ";${Env:SystemDrive}\tools\vcpkg"
+$env:Path += ";${Env:SystemDrive}\tools\vim82-kaoriya-win64"
+$env:Path += ";${Env:USERPROFILE}\.cargo\bin"
+$env:Path += ";${Env:USERPROFILE}\go\bin"
 
 # Install-Module Pscx -Scope CurrentUser  -Force -AllowClobber -AllowClobber
 
@@ -47,24 +43,25 @@ Function uptime() {
 }
 
 $DEV = "$ENV:USERPROFILE\dev"
+$WORK = "$ENV:USERPROFILE\work"
 $TOOL = "$ENV:HOMEDRIVE\tools"
 $DOC = $(resolve-path "$ENV:USERPROFILE\Documents")
 $DESKTOP = $(resolve-path "$ENV:USERPROFILE\Desktop")
 
-# $HOMEDRIVE = "C:\"
-# $HOMEPATH = "Users\" + $env:username
-
-Set-Alias v $TOOL\vim82-kaoriya-win64\gvim.exe
-Set-Alias vim $TOOL\vim82-kaoriya-win64\vim.exe
-Set-Alias open Explorer
-Set-Alias which Get-Command
-Set-Alias vlc ${ENV:ProgramFiles(x86)}\VideoLAN\VLC\vlc.exe
-# Set-Alias code ${Env:LOCALAPPDATA}\Programs\Microsoft VS Code\bin\code.cmd" $*
+# My enemy is windows-store-python recommender. This alias over-ride anaconda-python.
+# Set-Alias python ${ENV:SystemDrive}\Python38\python.exe
 
 Set-Alias chrome ${ENV:ProgramFiles(x86)}\Google\Chrome\Application\chrome.exe
-Set-Alias ssh $TOOL\msys64\usr\bin\ssh.exe
-Set-Alias python ${ENV:SystemDrive}\Python38\python.exe
+Set-Alias open Explorer
 Set-Alias pdf ${Env:LOCALAPPDATA}\SumatraPDF\sumatrapdf.exe
+Set-Alias ssh $TOOL\msys64\usr\bin\ssh.exe
+Set-Alias v $TOOL\vim82-kaoriya-win64\gvim.exe
+Set-Alias gvim $TOOL\vim82-kaoriya-win64\gvim.exe
+Set-Alias vim $TOOL\vim82-kaoriya-win64\vim.exe
+Set-Alias vlc ${ENV:ProgramFiles(x86)}\VideoLAN\VLC\vlc.exe
+Set-Alias which Get-Command
+
+# Set-Alias code ${Env:LOCALAPPDATA}\Programs\Microsoft VS Code\bin\code.cmd" $*
 
 # create a directory then change to it
 # PS> mcd newFolder

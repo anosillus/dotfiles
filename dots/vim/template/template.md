@@ -7,3 +7,5 @@
 ---
 
 <+CURSOR+>
+
+<i class="cc cc-by-sa"></i>
