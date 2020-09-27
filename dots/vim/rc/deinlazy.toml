@@ -1,3 +1,4 @@
+# command {{{
 [[plugins]]
 repo = 'Shougo/neoyank.vim'
 on_event = 'TextYankPost'
@@ -13,7 +14,20 @@ hook_source = '''
   let g:echodoc#type = 'virtual'
   call echodoc#enable()
 '''
+[[plugins]]
+repo = 'kannokanno/previm'
+on_cmd = 'PrevimOpen'
+depends = 'open-browser.vim'
 
+[[plugins]]
+repo = 'Shougo/junkfile.vim'
+on_source = 'denite.nvim'
+hook_add = '''
+  nnoremap <silent> [Window]e :<C-u>Denite junkfile:new junkfile<CR>
+'''
+# }}}
+
+# defx {{{
 [[plugins]]
 repo = 'Shougo/defx.nvim'
 hook_add = '''
@@ -108,49 +122,8 @@ defx = '''
   \ ':<C-u>wincmd w<CR>' :
   \ ':<C-u>Defx -buffer-name=temp -split=vertical<CR>'
 '''
-
-[[plugins]]
-repo = 'Shougo/neosnippet.vim'
-depends = ['neosnippet-snippets', 'context_filetype.vim']
-on_event = 'InsertCharPre'
-on_ft = 'snippet'
-if = '!has("nvim")'
-hook_source = '''
-  imap <silent>L     <Plug>(neosnippet_jump_or_expand)
-  smap <silent>L     <Plug>(neosnippet_jump_or_expand)
-  xmap <silent>L     <Plug>(neosnippet_expand_target)
-  let g:neosnippet#enable_snipmate_compatibility = 1
-  let g:neosnippet#enable_completed_snippet = 1
-  " let g:neosnippet#enable_complete_done = 1
-  let g:neosnippet#expand_word_boundary = 1
-  let g:neosnippet#snippets_directory = '~/.vim/snippets'
-'''
-
-[[plugins]]
-repo = 'Shougo/deoppet.nvim'
-depends = ['neosnippet-snippets', 'context_filetype.vim']
-on_event = 'InsertEnter'
-if = 'has("nvim")'
-hook_source = '''
-  " Test
-  imap I  <Plug>(deoppet_expand)
-  imap <expr> I  deoppet#expandable() ?
-  \ "\<Plug>(deoppet_expand)" : ''
-  imap <C-f>  <Plug>(deoppet_jump_forward)
-  imap <C-b>  <Plug>(deoppet_jump_backward)
-  smap <C-f>  <Plug>(deoppet_jump_forward)
-  smap <C-b>  <Plug>(deoppet_jump_backward)
-  xmap <C-i>  <Plug>(deoppet_select_text)
-  xmap <C-x>  <Plug>(deoppet_cut_text)
-  call deoppet#initialize()
-  call deoppet#custom#option('snippets_dirs',
-          \ [expand('~/.vim/my-snippets')] +
-          \ globpath(&runtimepath, 'neosnippets', 1, 1))
-'''
-
-[[plugins]]
-repo = 'Shougo/neosnippet-snippets'
-
+# defx }}}
+# Denite {{{
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 on_cmd = 'Denite'
@@ -230,10 +203,12 @@ denite = '''
   nnoremap <silent><buffer><expr> <C-l>
   \ denite#do_map('redraw')
 '''
+# denite }}}
 
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'
 
+# deol {{{
 [[plugins]]
 repo = 'Shougo/deol.nvim'
 depends = 'denite.nvim'
@@ -269,28 +244,8 @@ fish = '''
   inoreabbrev <buffer><expr> p deol#abbrev('git p', 'p', 'push')
   inoreabbrev <buffer><expr> s deol#abbrev('git s', 's', 'status')
 '''
+# deol }}}
 
-[[plugins]]
-repo = 'Shougo/junkfile.vim'
-on_source = 'denite.nvim'
-hook_add = '''
-  nnoremap <silent> [Window]e :<C-u>Denite junkfile:new junkfile<CR>
-'''
-[[plugins]]
-repo = 'kana/vim-niceblock'
-on_map = {x = '<Plug>'}
-hook_add = '''
-  xmap I  <Plug>(niceblock-I)
-  xmap A  <Plug>(niceblock-A)
-'''
-[[plugins]]
-repo = 'thinca/vim-qfreplace'
-on_ft = ['qf']
-[plugins.ftplugin]
-qf = '''
-  nnoremap <buffer> r :<C-u>Qfreplace<CR>
-'''
-#
 # {{{ SKK
 [[plugins]]
 repo = 'tyru/eskk.vim'
@@ -310,7 +265,7 @@ hook_source = '''
   \	'zenei': 'ａ',
   \	'hankata': 'ｧｱ',
   \      'abbrev': 'aあ'
-  \}
+\}
   let g:eskk#show_annotation = 1
   let g:eskk#rom_input_style = 'msime'
   let g:eskk#egg_like_newline = 1
@@ -353,7 +308,6 @@ hook_source = '''
       inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
   endfunction
 
-
   let &g:statusline = "%{winnr('$')>1?'['.winnr().'/'.winnr('$')"
         \ . ".(winnr('#')==#winnr()?'#':'').']':''}\ "
         \ . "%{(&previewwindow?'[preview] ':'')."
@@ -370,11 +324,23 @@ hook_source = '''
   \   'abbrev': '#4169e1',
   \   'zenei': '#ffd700',
   \}
-  '''
-# }}}
-[[plugins]]
-repo = 'tyru/open-browser.vim'
+'''
 
+# }}}
+
+# small command {{{
+[[plugins]]
+repo = 'junegunn/vim-easy-align'
+on_map = {n = '<Plug>', x = '<Plug>'}
+
+[[plugins]]
+repo = 'kana/vim-niceblock'
+on_map = {x = '<Plug>'}
+hook_add = '''
+  let g:niceblock_no_default_key_mappings = 1
+  xmap S  <Plug>(niceblock-I)
+  xmap T  <Plug>(niceblock-A)
+'''
 [[plugins]]
 repo = 'rhysd/accelerated-jk'
 on_map = {n = '<Plug>'}
@@ -382,57 +348,36 @@ hook_add = '''
   nmap <silent>n <Plug>(accelerated_jk_gj)
   nmap <silent>e <Plug>(accelerated_jk_gk)
 '''
-
-[[plugins]]
-repo = 'kannokanno/previm'
-on_cmd = 'PrevimOpen'
-depends = 'open-browser.vim'
-
 [[plugins]]
 repo = 'osyo-manga/vim-jplus'
-
 on_map = {n = '<Plug>'}
 hook_add = '''
   nmap J <Plug>(jplus)
   vmap J <Plug>(jplus)
 '''
-
-# {{{ text object
-[[plugins]]
-repo = 'bps/vim-textobj-python'
-depends = 'vim-textobj-user'
-on_ft = 'python'
-hook_source = '''
-let g:textobj_python_no_default_key_mappings = 1
-xmap tf <Plug>(textobj-python-function-a)
-omap tf <Plug>(textobj-python-function-a)
-xmap sf <Plug>(textobj-python-function-i)
-omap sf <Plug>(textobj-python-function-i)
-'''
-[[plugins]]
-repo = 'kana/vim-textobj-function'
-epends = 'vim-textobj-user'
-on_ft = ['vim', 'c', 'java']
-hook_source = '''
-xmap tf <Plug>(textobj-function-i) 
-omap tf <Plug>(textobj-function-i) 
-xmap sf <Plug>(textobj-function-a)
-omap sf <Plug>(textobj-function-a) 
-xmap tF <Plug>(textobj-function-I) 
-omap tF <Plug>(textobj-function-I) 
-xmap sF <Plug>(textobj-function-A)
-omap sF <Plug>(textobj-function-A) 
-'''
-# }}}
-
 [[plugins]]
 repo = 'lambdalisue/suda.vim'
 on_event = 'BufRead'
 hook_add = '''
   let g:suda_smart_edit = 1
 '''
-
+[[plugins]]
+repo = 'kana/vim-niceblock'
+on_map = {x = '<Plug>'}
+hook_add = '''
+  xmap I  <Plug>(niceblock-I)
+  xmap A  <Plug>(niceblock-A)
+'''
+[[plugins]]
+repo = 'thinca/vim-qfreplace'
+on_ft = ['qf']
+[plugins.ftplugin]
+qf = '''
+  nnoremap <buffer> r :<C-u>Qfreplace<CR>
+'''
+# small command }}}
 # Filetype {{{
+
 # markdown {{{
 [[plugins]]
 repo = 'rhysd/vim-gfm-syntax'
@@ -528,19 +473,162 @@ repo = 'vim-jp/autofmt'
 hook_source = '''
 set formatexpr=autofmt#japanese#formatexpr()
 '''
-# [[plugins]]
-# repo = 'deton/jasegment.vim'
-# on_ft = 'jp_md'
-# hook_source = '''
-# let b:loaded_jasegment = 1
-# let g:jasegment_no_default_key_mappings = 1
-# let g:jasegment#model = 'mecab'
-#'''
+# jasegment {{{
+[[plugins]]
+repo = 'deton/jasegment.vim'
+on_ft = 'jp_md'
+hook_source = '''
+let b:loaded_jasegment = 1
+let g:jasegment_no_default_key_mappings = 1
+let g:jasegment#model = 'mecab'
+'''
 # }}}
 # end filetype }}}
-# Operator {{{
-# {{{ sandwitch
+# filetype }}}
+
+# {{{ text object
+[[plugins]]
+repo = 'bps/vim-textobj-python'
+depends = 'vim-textobj-user'
+on_ft = 'python'
+hook_source = '''
+let g:textobj_python_no_default_key_mappings = 1
+xmap tf <Plug>(textobj-python-function-a)
+omap tf <Plug>(textobj-python-function-a)
+xmap sf <Plug>(textobj-python-function-i)
+omap sf <Plug>(textobj-python-function-i)
+'''
+on_map = {o = '<Plug>', x = '<Plug>'}
+[[plugins]]
+repo = 'kana/vim-textobj-function'
+epends = 'vim-textobj-user'
+on_ft = ['vim', 'c', 'java']
+hook_add = '''
+let g:textobj_function_no_default_key_mappings = 1
+xmap tf <Plug>(textobj-function-i) 
+omap tf <Plug>(textobj-function-i) 
+xmap sf <Plug>(textobj-function-a)
+omap sf <Plug>(textobj-function-a) 
+xmap tF <Plug>(textobj-function-I) 
+omap tF <Plug>(textobj-function-I) 
+xmap sF <Plug>(textobj-function-A)
+omap sF <Plug>(textobj-function-A) 
+'''
+on_map = {o = '<Plug>', x = '<Plug>'}
+# parametor {{{
+[[plugins]]
+repo = 'sgur/vim-textobj-parameter'
+depends = 'vim-textobj-user'
+hook_add = '''
+let g:vim_textobj_parameter_mapping = ','
+call textobj#user#plugin('parameter', {
+      \   '-': {
+      \     'select-a': "t" . g:vim_textobj_parameter_mapping,  '*select-a-function*': 'textobj#parameter#select_a'
+      \   , 'select-i': "s" . g:vim_textobj_parameter_mapping,  '*select-i-function*': 'textobj#parameter#select_i'
+      \   }
+      \ , 'greedy': {
+      \     'select-i': "s2,",  '*select-i-function*': 'textobj#parameter#select_greedy_i'
+      \   }
+      \ })
+let g:loaded_textobj_parameter = 1
+'''
 # }}}
+[[plugins]]
+repo = 'kana/vim-textobj-entire'
+depends = 'vim-operator-user'
+hook_add = '''
+let g:textobj_entire_no_default_key_mappings = 1
+omap tg <Plug>(textobj-entire-a)
+xmap tg <Plug>(textobj-entire-a)
+omap sg <Plug>(textobj-entire-i)
+xmap sg <Plug>(textobj-entire-i)
+'''
+on_map = {o = '<Plug>', x = '<Plug>'}
+[[plugins]]
+repo =  'kana/vim-textobj-fold'
+depends = 'vim-operator-user'
+hook_add = '''
+let g:textobj_fold_no_default_key_mappings = 1
+omap tz <Plug>(textobj-fold-a)
+xmap tz <Plug>(textobj-fold-a)
+omap sz <Plug>(textobj-fold-i)
+omap sz <Plug>(textobj-fold-i)
+'''
+on_map = {o = '<Plug>', x = '<Plug>'}
+
+[[plugins]]
+repo = 'machakann/vim-sandwich'
+depends = ['vim-operator-user','vim-textobj-user']
+hook_source = '''
+let g:sandwich#recipes = deepcopy(g:sandwich#default_recipes)
+let g:sandwich#recipes += [
+    \    {'buns': ['（', '）']},
+    \    {'buns': ['［', '］']},
+    \    {'buns': ['｛', '｝']},
+    \    {'buns': ['＜', '＞']},
+    \    {'buns': ['≪', '≫']},
+    \    {'buns': ['「', '」']},
+    \    {'buns': ['『', '』']},
+    \    {'buns': ['〈', '〉']},
+    \    {'buns': ['《', '》']},
+    \    {'buns': ['〔', '〕']},
+    \    {'buns': ['【', '】']}
+    \  ]
+'''
+hook_add = '''
+let g:operator_sandwich_no_default_key_mappings = 1
+let g:textobj_sandwich_no_default_key_mappings = 1
+let g:sandwich_no_default_key_mappings = 1
+
+map  w  <Plug>(operator-sandwich-add)
+map  wD <Plug>(operator-sandwich-delete)<Plug>(textobj-sandwich-query-a)
+map  wd <Plug>(operator-sandwich-delete)<Plug>(textobj-sandwich-auto-a)
+map  wR <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-query-a)
+map  wr <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-auto-a)
+map  wR <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-query-a)
+map  wr <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-auto-a)
+omap aw <Plug>(textobj-sandwich-auto-a)
+imap aW <Plug>(textobj-sandwich-query-a)
+omap w  <Plug>(textobj-sandwich-auto-i)
+omap W  <Plug>(textobj-sandwich-query-i)
+xmap aw <Plug>(textobj-sandwich-auto-a)
+xmap aW <Plug>(textobj-sandwich-query-a)
+xmap w  <Plug>(textobj-sandwich-auto-i)
+xmap W  <Plug>(textobj-sandwich-query-i)
+omap sw <Plug>(textobj-sandwich-auto-i)
+xmap sw <Plug>(textobj-sandwich-auto-i)
+omap tw <Plug>(textobj-sandwich-auto-a)
+xmap tW <Plug>(textobj-sandwich-query-a)
+omap sW <Plug>(textobj-sandwich-query-i)
+xmap sW <Plug>(textobj-sandwich-query-i)
+omap tW <Plug>(textobj-sandwich-query-a)
+xmap tW <Plug>(textobj-sandwich-query-a)
+'''
+on_map = {n = '<Plug>',o = '<Plug>', x = '<Plug>'}
+
+# }}}
+
+# Operator {{{
+# operator-openbrowser {{{
+[[plugins]]
+repo = "sgur/vim-operator-openbrowser"
+depends = ['vim-operator-user', 'open-browser.vim']
+hook_source = '''
+nmap <Leader>B <Plug>(operator-openbrowser)
+vmap <Leader>B <Plug>(operator-openbrowser)
+'''
+on_map = {v = '<Plug>', n = '<Plug>'}
+# }}}
+
+[[plugins]]
+repo = 'kana/vim-operator-replace'
+depends = 'vim-operator-user'
+hook_add = '''
+omap _ <Plug>(operator-replace)
+xmap _ <Plug>(operator-replace)
+'''
+on_map = {o = '<Plug>', x = '<Plug>'}
+
 # smart word {{{
 [[plugins]]
 repo = 'kana/vim-smartword'

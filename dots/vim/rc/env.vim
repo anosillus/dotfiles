@@ -56,7 +56,7 @@ if has('gui_running')
         \   'encoding': 'utf-8',
         \}
     let g:eskk#large_dictionary = {
-        \   'path': '/$HOME/.skk/SKK-JISYO.L',
+        \   'path': '$HOME/.skk/SKK-JISYO.L',
         \   'sorted': 1,
         \   'encoding': 'euc-jp',
         \}
@@ -67,6 +67,8 @@ if has('gui_running')
     set runtimepath+='C:\Python38'
     set pythonthreedll+='C:\Python38\python38.dll'
     let &pythonthreedll='C:\Python38\python38.dll'
+    let g:lsp_settings_servers_dir = 'C:\Users\anosillus\.config\vim-lsp-settings'
+
     let g:pydocstring_doq_path = 'C:\Python38\Scripts\doq'
     let g:python3_host_prog = expand('C:\Python38\python.exe')
     let g:eskk#dictionary = {

@@ -32,6 +32,27 @@ endfunction
 " endfunction
 " }}}
 
+function! s:on_lsp_buffer_enabled() abort
+  setlocal omnifunc=lsp#complete
+  setlocal signcolumn=yes
+  if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+  nmap <buffer> gd <plug>(lsp-definition)
+  nmap <buffer> gr <plug>(lsp-references)
+  nmap <buffer> gi <plug>(lsp-implementation)
+  nmap <buffer> gt <plug>(lsp-type-definition)
+  nmap <buffer> <C-r> <plug>(lsp-rename)
+  nmap <buffer> B <plug>(lsp-hover)
+  setl foldmethod=expr
+    \ foldexpr=lsp#ui#vim#folding#foldexpr()
+    \ foldtext=lsp#ui#vim#folding#foldtext()
+
+endfunction
+
+augroup lsp_install
+  au!
+  autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
+
 function! s:initialize_ref_viewer()
   nmap <buffer> s <Plug>(ref-back)
   nmap <buffer> t <Plug>(ref-forward)
@@ -46,20 +67,15 @@ endfunction
 
 augroup MyAutoCmd
   autocmd!
-
   autocmd BufEnter */jp_memo/*.md setlocal filetype=jp_md
   autocmd BufEnter jp_*.md call setlocal filetype=jp_md
-  autocmd BufEnter *_jp.md call setlocal filetype=jp_md
+  autocmd BufEnter *jp.md call setlocal filetype=jp_md
   " autocmd WinEnter * if b:japanese_mode ==# 1|call plug#load('coc.vim')|endif
   autocmd WinEnter * if winnr('$') == 1 && &buftype == "quickfix"|q|endif
   autocmd BufNew * call timer_start(0, { -> s:bufnew() })
   autocmd FileType vim setlocal tabstop=2 shiftwidth=2 expandtab
   " autocmd FileType terminal call s:terminal_settings()
   autocmd FileType ref,help call s:initialize_ref_viewer()
-  autocmd VimEnter * RainbowParenthesesToggle
-  autocmd Syntax * RainbowParenthesesLoadRound
-  autocmd Syntax * RainbowParenthesesLoadSquare
-  autocmd Syntax * RainbowParenthesesLoadBraces
   " autocmd BufRead,BufNewFile,BufReadPre *.ts setlocal filetype=typescript
 
   " autocmd BufRead,BufNewFile *.csv,*.dat setfiletype csv
@@ -100,7 +116,7 @@ augroup MyAutoCmd
   endif
   autocmd FileType help,git-status,git-log nnoremap <buffer> q <C-w>c
   autocmd User plugin-template-loaded call s:template_keywords()
- 
+
   if has('nvim')
   " Neovim 用
     autocmd WinEnter * if &buftype ==# 'terminal' | startinsert | endif

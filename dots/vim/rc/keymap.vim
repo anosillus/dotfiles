@@ -16,7 +16,8 @@ nmap <Space><Space> :<C-u>w<CR>
 " <Enter> is 'Page Scroll'. {{{
 nnoremap  <CR> <C-f>
 " xmap     <CR> <Plug>(EasyAlign)
-xmap <CR> <Plug>(EasyAlign)
+vmap <CR> <Plug>(EasyAlign)
+xmap <Enter>  <Plug>(EasyAlign)
 nmap     <S-CR>  <C-b>
 noremap  <C-CR>  <C-d>
 inoremap <C-CR> <ESC>+i
@@ -68,7 +69,7 @@ xnoremap < <gv
 
 " other symbols. {{{
 nnoremap <Leader>= <C-w>=
-map  <silent> <Esc><Esc> :<C-u>nohlsearch<CR>
+" map  <silent> <Esc><Esc> :<C-u>nohlsearch<CR>
 noremap  <bs> _x
 noremap  <Leader><bs> _X
 
@@ -81,13 +82,7 @@ nnoremap <Down> :<C-u>Gina push<CR>
 " }}}
 
 " }}}
-" }}}
 
-" <Wheel> is 'Motion'. {{{
-noremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(40)<CR>
-noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-40)<CR>
-" }}}
-" Todo later
 " Right Hand {{{
 " h/n is 100 %.
 " < n/e > is 'UP/DOWN'. {{{
@@ -217,7 +212,7 @@ noremap mO zX
 nnoremap gm M
 nnoremap <C-m> zz
 nmap md <Plug>(EasyAlign)
-
+" leader m is denite
 " }}}
 
 
@@ -268,9 +263,6 @@ omap B {
 
 " Left hand {{{
 " < s/t > is 'Insert/Append'. {{{
-let g:operator_sandwich_no_default_key_mappings = 1
-let g:textobj_sandwich_no_default_key_mappings = 1
-let g:sandwich_no_default_key_mappings = 1
 
 nnoremap s i
 nnoremap S I
@@ -282,9 +274,8 @@ onoremap t a
 xnoremap s i
 xnoremap t a
 " sentence is k
-" Note: t omap is tag.
-xmap S  <Plug>(niceblock-I)
-xmap T  <Plug>(niceblock-A)
+" tag is a
+" xmap <S/T> is <Plug>(niceblock)
 " Indent
 inoremap <C-s> <C-d>
 " inoremap <C-t> <C-t>
@@ -294,6 +285,30 @@ nnoremap <C-t> :<C-u>Vista!!<CR>
 " nx<leader>s is easymotion
 nnoremap <silent> <Leader>t :<C-u>Denite -split=vertical outline -start-filter -auto-resize<CR>
 " nnoremap <buffer> <leader>t :<C-u>DeniteCursorWord tag<CR>
+
+imap <expr> <C-n>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-n>'
+smap <expr> <C-n>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-n>'
+" Expand or jump
+imap <expr> <C-o>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-o>'
+smap <expr> <C-o>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-o>'
+
+" Jump forward or backward
+imap <expr> <C-i>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<C-i>'
+smap <expr> <C-i>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<C-i>'
+imap <expr> <C-h> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<C-h>'
+smap <expr> <C-h> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<C-h>'
+
+" Select or cut text to use as $TM_SELECTED_TEXT in the next snippet.
+" See https://github.com/hrsh7th/vim-vsnip/pull/50
+" nmap        \   <Plug>(vsnip-select-text)
+" xmap        \   <Plug>(vsnip-select-text)
+" nmap        |   <Plug>(vsnip-cut-text)
+" xmap        |   <Plug>(vsnip-cut-text)
+
+" If you want to use snippet for multiple filetypes, you can `g:vsip_filetypes` for it.
+let g:vsnip_filetypes = {}
+let g:vsnip_filetypes.javascriptreact = ['javascript']
+let g:vsnip_filetypes.typescriptreact = ['typescript']
 
 nnoremap gs :<C-u>%s/\v//g<Left><Left><Left>
 vnoremap gs :s/\v//g<Left><Left><Left>
@@ -307,7 +322,6 @@ inoremap <C-r> <ESC>R
 nnoremap <Leader>r :<C-u>QuickRun<CR>
 nnoremap <C-r> *:%s///g<Left><Left>
 " }}}
-
 " <a> is 'Visual Mode/Head/Macro'. {{{
 " Visual Mode
 nnoremap a v
@@ -344,29 +358,6 @@ inoremap <C-p> <C-e>
 map w <Nop>
 map W <Nop>
 
-map  w  <Plug>(operator-sandwich-add)
-map  wD <Plug>(operator-sandwich-delete)<Plug>(textobj-sandwich-query-a)
-map  wd <Plug>(operator-sandwich-delete)<Plug>(textobj-sandwich-auto-a)
-map  wR <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-query-a)
-map  wr <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-auto-a)
-map  wR <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-query-a)
-map  wr <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-auto-a)
-omap aw <Plug>(textobj-sandwich-auto-a)
-imap aW <Plug>(textobj-sandwich-query-a)
-omap w  <Plug>(textobj-sandwich-auto-i)
-omap W  <Plug>(textobj-sandwich-query-i)
-xmap aw <Plug>(textobj-sandwich-auto-a)
-xmap aW <Plug>(textobj-sandwich-query-a)
-xmap w  <Plug>(textobj-sandwich-auto-i)
-xmap W  <Plug>(textobj-sandwich-query-i)
-omap sw <Plug>(textobj-sandwich-auto-i)
-xmap sw <Plug>(textobj-sandwich-auto-i)
-omap tw <Plug>(textobj-sandwich-auto-a)
-xmap tW <Plug>(textobj-sandwich-query-a)
-omap sW <Plug>(textobj-sandwich-query-i)
-xmap sW <Plug>(textobj-sandwich-query-i)
-omap tW <Plug>(textobj-sandwich-query-a)
-xmap tW <Plug>(textobj-sandwich-query-a)
 
 " Word-gerp
 " nmap<C-w> is denite
