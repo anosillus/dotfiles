@@ -261,9 +261,25 @@ build = 'sh -c "PY3=ON ./install.sh"'
 [[plugins]]
 repo = 'kana/vim-operator-user'
 [[plugins]]
+repo = 'sgur/vim-opprator-openbrowser'
+depends = ['vim-operator-user', 'open-browser.vim']
+hook_source = '''
+nmap <Leader>B <Plug>(operator-openbrowser)
+vmap <Leader>B <Plug>(operator-openbrowser)
+'''
+
+[[plugins]]
+repo = 'kana/vim-operator-replace'
+depends = 'vim-operator-user'
+hook_source = '''
+map _ <Plug>(operator-replace)
+'''
+
+
+[[plugins]]
 repo = 'kana/vim-textobj-user'
 [[plugins]]
-repo = kana/vim-textobj-entire
+repo = 'kana/vim-textobj-entire'
 depends = 'vim-operator-user'
 hook_source = '''
 omap tg <Plug>(textobj-entire-a)
@@ -271,6 +287,16 @@ xmap tg <Plug>(textobj-entire-a)
 omap sg <Plug>(textobj-entire-i)
 xmap sg <Plug>(textobj-entire-i)
 '''
+[[plugins]]
+repo =  'kana/vim-textobj-fold'
+depends = 'vim-operator-user'
+hook_source = '''
+omap tz <Plug>(textobj-fold-a)
+xmap tz <Plug>(textobj-fold-a)
+omap iz <Plug>(textobj-fold-i)
+omap iz <Plug>(textobj-fold-i)
+'''
+
 [[plugins]]
 repo = 'machakann/vim-sandwich'
 depends = 'vim-operator-user'
@@ -280,7 +306,7 @@ let g:sandwich_no_default_key_mappings = 1
 let g:operator_sandwich_no_default_key_mappings = 1
 let g:textobj_sandwich_no_default_key_mappings = 1
 let g:sandwich#recipes += [
-	  \    {'buns': ['（', '）']},
+    \    {'buns': ['（', '）']},
     \    {'buns': ['［', '］']},
     \    {'buns': ['｛', '｝']},
     \    {'buns': ['＜', '＞']},
@@ -291,7 +317,7 @@ let g:sandwich#recipes += [
     \    {'buns': ['《', '》']},
     \    {'buns': ['〔', '〕']},
     \    {'buns': ['【', '】']}   
-	  \  ]
+    \  ]
 '''
 [[plugins]]
 repo = 'sgur/vim-textobj-parameter'
@@ -635,3 +661,13 @@ on_if = '!has("nvim")'
 
 [[plugins]]
 repo = 'roxma/nvim-yarp'
+
+# align {{{
+[[plugins]]
+repo = 'junegunn/vim-easy-align'
+# hook_ = '''
+# xmap <CR> <Plug>(EasyAlign)
+# '''
+# on_map = {x = '<Plug>'}
+# }}}
+

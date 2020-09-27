@@ -16,6 +16,7 @@ nmap <Space><Space> :<C-u>w<CR>
 " <Enter> is 'Page Scroll'. {{{
 nnoremap  <CR> <C-f>
 " xmap     <CR> <Plug>(EasyAlign)
+xmap <CR> <Plug>(EasyAlign)
 nmap     <S-CR>  <C-b>
 noremap  <C-CR>  <C-d>
 inoremap <C-CR> <ESC>+i
@@ -87,7 +88,6 @@ noremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(40)<CR>
 noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-40)<CR>
 " }}}
 " Todo later
-
 " Right Hand {{{
 " h/n is 100 %.
 " < n/e > is 'UP/DOWN'. {{{
@@ -216,6 +216,8 @@ noremap mO zX
 " Middle Scsreen.
 nnoremap gm M
 nnoremap <C-m> zz
+nmap md <Plug>(EasyAlign)
+
 " }}}
 
 
@@ -244,39 +246,38 @@ xmap j  <Nop>
 
 " }}}
 
+
+" K is 30% used.
 " <k/K> is Search 'Up/Down'. {{{
 " map k is.vim
 " map K is.vim
-" }}}
-" K is 30% used.
+onoremap k s
 
+" }}}
+
+" b is 50%
 " <b> is 'Help/Document' {{{
 nmap b <Plug>(ref-keyword)
 let g:jedi#documentation_command = 'b'
-xmap B :<C-u>'<,'>Gtrans<CR>
+" xmap B :<C-u>'<,'>Gtrans<CR>
 nnoremap <leader>b :<C-u>Denite -split=vertical help -start-filter<CR>
 omap b (
 omap B {
 " }}}
 " }}}
 
-
-
 " Left hand {{{
-
 " < s/t > is 'Insert/Append'. {{{
 nnoremap s i
 nnoremap S I
 nnoremap t a
 nnoremap T A
 " s,t omap is for inner/outer.
-" used by sandwitch
 onoremap s i
 onoremap t a
 xnoremap s i
 xnoremap t a
-
-" sentence is
+" sentence is k
 " Note: t omap is tag.
 xmap S  <Plug>(niceblock-I)
 xmap T  <Plug>(niceblock-A)
@@ -316,7 +317,7 @@ vnoremap <C-a> 0
 inoremap <C-a> <Esc>0i
 " Macro
 noremap <leader>a q
-" noremap <M-a> @ "This defined at Meta.
+noremap <M-a> @ "This defined at Meta.
 " }}}
 
 " <d> is 'Delete'. {{{
@@ -347,7 +348,7 @@ map  wr <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-auto-a)
 map  wR <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-query-a)
 map  wr <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-auto-a)
 omap aw <Plug>(textobj-sandwich-auto-a)
-omap aW <Plug>(textobj-sandwich-query-a)
+imap aW <Plug>(textobj-sandwich-query-a)
 omap w  <Plug>(textobj-sandwich-auto-i)
 omap W  <Plug>(textobj-sandwich-query-i)
 xmap aw <Plug>(textobj-sandwich-auto-a)
@@ -445,7 +446,6 @@ noremap <C-z> <C-a>
 " }}}
 
 " }}}
-
 
 " Meta key mappings {{{
 "q (replacement of <M-Ctrl>)

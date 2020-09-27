@@ -300,35 +300,24 @@ hook_add = '''
   cmap <C-j>     <Plug>(eskk:toggle)
 '''
 hook_source = '''
-  let g:eskk#directory = expand('$CACHE/eskk')
   let g:eskk#no_default_mappings = 1
   let g:eskk#keep_state = 1
   let g:eskk#debug = 0
   let g:eskk#statusline_mode_strings = {
-\	'hira': 'あ',
-\	'kata': 'ア',
-\	'ascii': 'aA',
-\	'zenei': 'ａ',
-\	'hankata': 'ｧｱ',
-\'abbrev': 'aあ'
-\}
+  \	'hira': 'あ',
+  \	'kata': 'ア',
+  \	'ascii': 'aA',
+  \	'zenei': 'ａ',
+  \	'hankata': 'ｧｱ',
+  \      'abbrev': 'aあ'
+  \}
   let g:eskk#show_annotation = 1
   let g:eskk#rom_input_style = 'msime'
   let g:eskk#egg_like_newline = 1
   let g:eskk#egg_like_newline_completion = 1
   let g:eskk#tab_select_completion = 1
   let g:eskk#start_completion_length = 2
-  let g:eskk#dictionary = {
-        \   'path': expand('$CACHE/skk-jisyo'),
-        \   'sorted': 0,
-        \   'encoding': 'utf-8',
-        \}
-  let g:eskk#large_dictionary = {
-        \   'path': '/usr/share/skk/SKK-JISYO.L',
-        \   'sorted': 1,
-        \   'encoding': 'euc-jp',
-        \}
-  autocmd MyAutoCmd User eskk-initialize-pre call s:eskk_initial_pre()
+    autocmd MyAutoCmd User eskk-initialize-pre call s:eskk_initial_pre()
   function! s:eskk_initial_pre()
     let g:skk_keep_state = 1
     let t = eskk#table#new('rom_to_hira*', 'rom_to_hira')
@@ -562,14 +551,6 @@ map <C-h> <Plug>(smartword-b)
 map <M-i> <Plug>(smartword-e)
 map <M-h> <Plug>(smartword-ge)
 '''
-# }}}
-# align {{{
-[[plugins]]
-repo = 'junegunn/vim-easy-align'
-hook_add = '''
-xmap <CR> <Plug>(EasyAlign)
-'''
-on_map = {x = '<Plug>'}
 # }}}
 # caw {{{
 [[plugins]]
