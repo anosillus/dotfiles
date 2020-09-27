@@ -1,0 +1,595 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+# complete {{{
+[[plugins]]
+repo = 'prabirshrestha/vim-lsp'
+[[plugins]]
+repo = 'mattn/vim-lsp-settings'
+# }}}
+
+
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+build = 'make'
+
+# filetype {{{
+[[plugins]]
+repo = 'sheerun/vim-polyglot'
+hook_add = '''
+let g:polyglot_disabled = ['markdown', 'tsx', 'typescript', 'csv', 'cpp']
+let g:loaded_sleuth = 1
+'''
+[[plugins]]
+repo = 'romainl/vim-devdocs'
+[[plugins]]
+repo = 'thinca/vim-ref'
+hook_source = '''
+let g:ref_no_default_key_mappings = 1
+let g:ref_man_lang = 'ja'
+let g:ref_pydoc_cmd	 = 'python3 -m pydoc'
+let g:ref_cache_dir = $HOME . '/.vim/vim-ref/cache'
+let g:ref_use_cache           = 1
+let g:ref_use_vimproc         = 1
+'''
+# }}}
+
+# View {{{
+[[plugins]]
+repo = 'ap/vim-css-color'
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
+# Lightline {{{
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+depends = ['vista', 'vim-devicons']
+hook_source = '''
+let g:lightline = {
+\   'colorscheme': 'jellybeans',
+\   'mode_map': {'c': 'NORMAL'},
+\   'active': {
+\     'left': [ ['mode', 'paste'],
+\               ['ale', 'anzu', 'cocstatus', 'currentfunction',  'readonly', 'filename', 'qfstatusline', 'modified'],
+\               ['method']],
+\     'right':[ ['lineinfo'],[ 'percent'],
+\               ['fileformat', 'fileencoding', 'filetype'],
+\               ['blame'],
+\               ['gitbranch', 'gitstage'],
+\               ['linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok'],
+\               ['toggl_task', 'toggl_time']],
+\   },
+\   'component_function': {
+\     'ale':             'ALEGetStatusLine',
+\     'anzu':            'anzu#search_status',
+\     'cocstatus':       'coc#status',
+\     'method':          'NearestMethodOrFunction',
+\     'currentfunction': 'CocCurrentFunction',
+\     'fileencoding':    'LightlineFileencoding',
+\     'fileformat':      'LightlineFileformat',
+\     'filetype':        'LightlineFiletype',
+\     'blame':           'LightlineGitBlame',
+\     'mode':            'LightlineMode',
+\     'modified':        'LightlineModified',
+\     'readonly':        'LightlineReadonly',
+\     'gitbranch': 'gina#component#repo#branch',
+\     'gitstage':  'gina#component#status#staged',
+\     'component_function': {
+\     'toggl_task': 'toggl#task',
+\     'toggl_time': 'toggl#time'
+\   },
+\   'component_expand': {
+\     'linter_checking': 'lightline#ale#checking',
+\     'linter_warnings': 'lightline#ale#warnings',
+\     'linter_errors':   'lightline#ale#errors',
+\     'linter_ok':       'lightline#ale#ok'
+\   },
+\   'component_type':    {
+\     'qfstatusline':    'error',
+\     'linter_checking': 'left',
+\     'linter_warnings': 'warning',
+\     'linter_errors':   'error',
+\     'linter_ok':       'left',
+\   }
+\ }
+\}
+
+let g:Qfstatusline#UpdateCmd = function('lightline#update')
+let g:lightline#ale#indicator_checking = '...'
+let g:lightline#ale#indicator_warnings = 'W'
+let g:lightline#ale#indicator_errors = 'E'
+let g:lightline#ale#indicator_ok = 'OK'
+let g:lightline#ale#indicator_ok = "\uf00c"
+
+" let staged = 	  let unstaged = gina#component#status#unstaged()
+" let conflicted = gina#component#status#conflicted()
+
+
+function! LightlineGitBlame() abort
+  let blame = get(b:, 'coc_git_blame', '')
+  return winwidth(0) > 120 ? blame : ''
+endfunction
+
+function! LightlineFileencoding()
+  return winwidth(0) > 70 ? (&fileencoding !=# '' ? &fileencoding : &encoding) : ''
+endfunction
+
+function! LightlineFileformat()
+	return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
+endfunction
+
+function! CocCurrentFunction()
+    return get(b:, 'coc_current_function', '')
+endfunction
+
+function! LightlineFiletype()
+	return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
+endfunction
+
+function! LightlineMode()
+  return winwidth(0) > 60 ? lightline#mode() : ''
+endfunction
+
+function! LightlineModified()
+  return &filetype =~# 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+endfunction
+
+function! LightlineReadonly()
+  return &filetype !~? 'help\|vimfiler\|gundo' && &readonly ? 'x' : ''
+endfunction
+
+function! NearestMethodOrFunction() abort
+  return get(b:, 'vista_nearest_method_or_function', '')
+endfunction
+'''
+# }}}
+
+[[plugins]]
+repo = 'maximbaz/lightline-ale'
+[[plugins]]
+repo = 'Yggdroot/indentLine'
+[[plugins]]
+repo = 'kien/rainbow_parentheses.vim'
+[[plugins]]
+repo = 'markonm/traces.vim'
+
+# }}}
+
+[[plugins]]
+repo = 'JesseKPhillips/d.vim'
+
+# ALE {{{
+[[plugins]]
+repo = 'w0rp/ale'
+hook_source = '''
+let g:ale_sign_column_always = 1
+let g:ale_completion_enabled = 1
+
+let g:ale_linters_explicit = 1
+let g:ale_dockerfile_hadolint_use_docker = 'yes'
+let g:ale_lint_on_enter = 1
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_save = 1
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+"I use cica font."
+let g:ale_sign_error = ''
+let g:ale_sign_warning = ''
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_lint_on_text_changed = 0
+let g:ale_open_list = 1
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
+let g:ale_sign_column_always = 1
+let g:ale_fix_on_save = 1
+" let g:ale_vim_vint_executable = '$HOME/.local/bin/vint'
+let g:ale_go_gometalinter_options = '--fast --enable=staticcheck --enable=gosimple --enable=unused'
+" let g:ale_cpp_clang_options = '-std=c++17 -Wall -I../includes'
+" let g:ale_cpp_gcc_options = '-std=c++17 -Wall -I../includes'
+let g:ale_cpp_clang_options = '-std=c++17 -Wall'
+let g:ale_cpp_gcc_options = '-std=c++17 -Wall'
+let g:ale_c_clangformat_options = '-style=google'
+let g:ale_javascript_eslint_suppress_missing_config = 1
+let g:ale_javascript_eslint_options='-c google'
+let g:ale_lint_on_insert_leave = 1
+let g:ale_python_auto_pipenv = 1
+let g:ale_python_black_options = '--line-length 79'
+let g:ale_python_pylama_options = '--linters pycodestyle pydocstyle Mccabe Pylint'
+let g:ale_python_flake8_executable = 'python3'
+let g:ale_python_flake8_options = '-m flake8 --select=C,E,F,W,B901'
+" let g:ale_python_flake8_options = '-m flake8'
+
+let g:ale_linter_aliases = {'gitcommit': ['gitcommit', 'text']}
+
+let g:ale_linters = {
+\   'c':          ['clang'],
+\   'cmake':      ['cmake'],
+\   'cpp':        ['clang', 'g++', 'ccls'],
+\   'css':        ['prettier', 'stylelint'],
+\   'Dockerfile': ['hadolint'],
+\   'fish':       ['fish'],
+\   'gitcommit':  ['gitlint', 'textlint', 'write-good'],
+\   'html':       ['prettier', 'htmlint', 'write-good', 'stylelint'],
+\   'java':       ['checkstyle'],
+\   'typescript': ['eslint'],
+\   'json':       ['eslint','prettier', 'jsonlint'],
+\   'latex':      ['vale', 'textlint'],
+\   'markdown':   ['markdownlint', 'prettier'],
+\   'python':     ['pylama', 'black', 'flake8','mypy'],
+\   'r':          ['lintr'],
+\   'rust':       ['rustfmt'],
+\   'sql':        ['sqlfmt'],
+\   'text':       ['textlint', 'proselint', 'writegood'],
+\   'vim':        ['vint'],
+\   'yaml':       ['yamlint']
+\ }
+" Vale is too fast.
+
+let g:ale_fixers = {
+\   'bash':       ['remove_trailing_lines', 'trim_whitespace', 'language-server', 'shellcheck'],
+\   'c':          ['remove_trailing_lines', 'trim_whitespace', 'trim_whitespace', 'clang-format'],
+\   'cpp':        ['remove_trailing_lines', 'trim_whitespace', 'trim_whitespace', 'clang-format'],
+\   'css':        ['remove_trailing_lines', 'trim_whitespace', 'prettier', 'stylelint'],
+\   'Dockerfile': ['remove_trailing_lines', 'trim_whitespace'],
+\   'fish':       ['remove_trailing_lines', 'trim_whitespace'],
+\   'go':         ['remove_trailing_lines', 'trim_whitespace', 'gofmt'],
+\   'html':       ['remove_trailing_lines', 'trim_whitespace', 'prettier', 'stylelint'],
+\   'javascript': ['remove_trailing_lines', 'trim_whitespace', 'prettier', 'eslint', 'importjs','prettier-standard'],
+\   'typescript': ['remove_trailing_lines', 'trim_whitespace', 'prettier', 'eslint'],
+\   'java':       ['remove_trailing_lines', 'trim_whitespace'],
+\   'json':       ['remove_trailing_lines', 'trim_whitespace', 'prettier', 'fixjson'],
+\   'markdown':   ['remove_trailing_lines', 'prettier', 'textlint'],
+\   'python':     ['remove_trailing_lines', 'trim_whitespace', 'add_blank_lines_for_python_control_statements', 'black', 'reorder-python-imports'],
+\   'r':          ['remove_trailing_lines', 'trim_whitespace', 'styler'],
+\   'rust':       ['remove_trailing_lines', 'trim_whitespace', 'rustfmt'],
+\   'sh':         ['remove_trailing_lines', 'trim_whitespace', 'shfmt'],
+\   'sql':        ['remove_trailing_lines', 'trim_whitespace', 'sqlfmt',],
+\   'text':       ['remove_trailing_lines', 'prettier', 'textlint'],
+\   'vim':        ['remove_trailing_lines', 'trim_whitespace'],
+\   'xml':        ['remove_trailing_lines', 'trim_whitespace', 'xmllint'],
+\   'yaml':       ['remove_trailing_lines', 'trim_whitespace', 'prettier'],
+\ }
+highlight clear ALEErrorSign
+highlight clear ALEWarningSign
+'''
+# }}}
+
+[[plugins]]
+repo = 'nixprime/cpsm'
+build = 'sh -c "PY3=ON ./install.sh"'
+
+[[plugins]]
+repo = 'kana/vim-niceblock'
+hook_source = 'let g:niceblock_no_default_key_mappings = 1'
+
+# Configs {{{
+[[plugins]]
+repo ='editorconfig/editorconfig-vim'
+[[plugins]]
+repo = 'vim-scripts/autodate.vim'
+[[plugins]]
+repo = 'thinca/vim-template'
+[[plugins]]
+repo = 'thinca/vim-ft-help_fold'
+[[plugins]]
+repo = 'thinca/vim-ft-diff_fold'
+[[plugins]]
+repo = 'Konfekt/FastFold'
+hook_source = '''
+let g:fastfold_savehook = 1
+let g:fastfold_fdmhook = 0
+let g:fastfold_fold_movement_commands = [']m', '[m', 'm', 'mk']
+'''
+[[plugins]]
+repo = 'kana/vim-smartinput'
+# }}}
+ #
+
+# Command {{{
+# Quickrun {{{
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+hook_source = '''
+let g:quickrun#config= {
+\ '_': {
+\   'runner': 'vimproc',
+\   'runner/vimproc/updatetime' : 20,
+\   'outpuutter/buffer/split' : ':votright 10sp',
+\   'outputter/buffer/close_on_empty' : 1,
+\   'outputter/error/error' : 'quickfix',
+\   'outputter/error/success' : 'buffer',
+\   'outputter' : 'error',
+\   'hook/time/enable' : 1,
+\   'tempfile'  : '%{tempname()}',
+\   'args': '',
+\   'exec': '%c %o %s %a',
+\   'hook/extend_config/enable' : 1,
+\   'hook/shebang/enable': g:os ==? 'Windows',
+\   'hook/close_buffer/enable_empty_data' : 1,
+\   'hook/close_buffer/enable_failure' : 1,
+\   'hook/close_quickfix/enable_hook_loaded' : 1,
+\   'hook/close_quickfix/enable_success' : 1,
+\ },
+\ 'awk': {
+\   'exec': '%c %o -f %s %a',
+\ },
+\ 'bash': {},
+\ 'cs': {
+\   'type': executable('csc')  ? 'cs/csc'  :
+\           executable('dmcs') ? 'cs/dmcs' :
+\           executable('smcs') ? 'cs/smcs' :
+\           executable('gmcs') ? 'cs/gmcs' :
+\           executable('mcs') ? 'cs/mcs' : ''
+\ },
+\ 'cs/csc': {
+\   'command': 'csc',
+\   'exec': ['%c /nologo /out:%s:p:r:gs?/?\\?.exe %s:gs?/?\\?', '%s:p:r.exe %a'],
+\   'tempfile': '%{tempname()}.cs',
+\   'hook/output_encode/encoding': '&termencoding',
+\   'hook/sweep/files': ['%S:p:r.exe'],
+\ },
+\ 'cs/mcs': {
+\   'command': 'mcs',
+\   'exec': ['%c %o -out:%s:p:r.exe %s', 'mono %s:p:r.exe %a'],
+\   'tempfile': '%{tempname()}.cs',
+\   'hook/sweep/files': ['%S:p:r.exe'],
+\ },
+\ 'cs/gmcs': {
+\   'command': 'gmcs',
+\   'exec': ['%c %o -out:%s:p:r.exe %s', 'mono %s:p:r.exe %a'],
+\   'tempfile': '%{tempname()}.cs',
+\   'hook/sweep/files': ['%S:p:r.exe'],
+\ },
+\ 'cs/smcs': {
+\   'command': 'smcs',
+\   'exec': ['%c %o -out:%s:p:r.exe %s', 'mono %s:p:r.exe %a'],
+\   'tempfile': '%{tempname()}.cs',
+\   'hook/sweep/files': ['%S:p:r.exe'],
+\ },
+\ 'cs/dmcs': {
+\   'command': 'dmcs',
+\   'exec': ['%c %o -out:%s:p:r.exe %s', 'mono %s:p:r.exe %a'],
+\   'tempfile': '%{tempname()}.cs',
+\   'hook/sweep/files': ['%S:p:r.exe'],
+\ },
+\ 'cpp': {'type': 'cpp/gcc++17'},
+\ 'cpp/gcc++17' : {
+\   'command': 'g++',
+\   'cmdopt' : '-std=c++17 -Wall --pedantic-error',
+\ },
+\ 'cpp/clang++17' : {
+\   'command': 'clang++',
+\   'cmdopt' : '-std=c++17 -Wall --pedantic-error',
+\ },
+\ 'go': {
+\   'command': 'go',
+\   'exec': '%c run %s:p:t %a',
+\   'tempfile': '%{tempname()}.go',
+\   'hook/output_encode/encoding': 'utf-8',
+\   'hook/cd/directory': '%S:p:h',
+\ },
+\ 'html': {
+\   'command': 'open',
+\   'exec': '%c %s',
+\   'outputter': 'browser'
+\ },
+\ 'java': {
+\   'exec': ['javac %o %s', '%c %s:t:r %a'],
+\   'hook/output_encode/encoding': '&termencoding',
+\   'hook/sweep/files': '%S:p:r.class',
+\ },
+\ 'javascript': {
+\   'type': executable('js') ? 'javascript/spidermonkey':
+\           executable('d8') ? 'javascript/v8':
+\           executable('node') ? 'javascript/nodejs':
+\           executable('phantomjs') ? 'javascript/phantomjs':
+\           executable('jrunscript') ? 'javascript/rhino':
+\           executable('cscript') ? 'javascript/cscript': '',
+\ },
+\ 'javascript/cscript': {
+\   'command': 'cscript',
+\   'exec': '%c //e:jscript %o %s %a',
+\   'cmdopt': '//Nologo',
+\   'tempfile': '%{tempname()}.js',
+\ },
+\ 'javascript/rhino': {
+\   'command': 'jrunscript',
+\   'tempfile': '%{tempname()}.js',
+\ },
+\ 'javascript/spidermonkey': {
+\   'command': 'js',
+\   'tempfile': '%{tempname()}.js',
+\ },
+\ 'javascript/v8': {
+\   'command': 'd8',
+\   'tempfile': '%{tempname()}.js',
+\ },
+\ 'javascript/nodejs': {
+\   'command': 'node',
+\   'tempfile': '%{tempname()}.js',
+\ },
+\ 'javascript/phantomjs': {
+\   'command': 'phantomjs',
+\   'tempfile': '%{tempname()}.js',
+\ },
+\ 'jsx': {
+\   'exec': '%c --run %o %s %a',
+\   'hook/eval/template':
+\     'class _Main { static function main(args : string[]) :void { %s }}',
+\ },
+\ 'lisp': {
+\   'command': 'clisp',
+\ },
+\ 'lua': {},
+\ 'markdown': {
+\   'runner': 'shell',
+\   'outputter': 'null',
+\   'command': ':PrevimOpen',
+\   'exec': '%c',
+\ },
+\ 'perl': {
+\   'hook/eval/template': join([
+\     'use Data::Dumper',
+\     '\$Data::Dumper::Terse = 1',
+\     '\$Data::Dumper::Indent = 0',
+\     'print Dumper eval{%s}'], ';')
+\ },
+\ 'perl6': {'hook/eval/template': '{%s}().perl.print'},
+\ 'python': {
+\    'hook/eval/template': 'print(%s)',
+\    'command': 'python3'
+\ },
+\ 'php': {},
+\ 'r': {
+\   'command': 'R',
+\   'exec': '%c %o --no-save --slave %a < %s',
+\ },
+\ 'ruby': {'hook/eval/template': " p proc {\n%s\n}.call"},
+\ 'scala': {
+\   'cmdopt': '-Dfile.encoding=' . &termencoding,
+\   'hook/output_encode/encoding': '&termencoding',
+\ },
+\ 'typescript': {
+\   'command': 'tsc',
+\   'exec': ['%c --target esnext --module commonjs %o %s', 'node %s:r.js'],
+\   'hook/sweep/files': ['%S:p:r.js'],
+\   'tempfile': '%{tempname()}.ts',
+\ },
+\ 'vim': {
+\   'command': ':source',
+\   'exec': '%C %s',
+\   'hook/eval/template': 'echo %s',
+\   'runner': 'vimscript',
+\ },
+\ }
+let g:quickrun_no_default_key_mappings = 1
+'''
+# }}}
+
+[[plugins]]
+repo = 'pbrisbin/vim-mkdir'
+[[plugins]]
+repo = 'junegunn/fzf'
+# vista {{{
+[[plugins]]
+repo = 'liuchengxu/vista.vim'
+hook_add = '''
+let g:vista_icon_indent = ['╰─▸ ', '├─▸ ']
+" let g:vista_default_executive = 'coc'
+let g:vista_fzf_preview = ['right:50%']
+let g:vista#renderer#enable_icon = 1
+let g:vista#renderer#icons = {
+\ 'func':           "\Uff794",
+\ 'function':       "\Uff794",
+\ 'functions':      "\Uff794",
+\ 'var':            "\Uff71b",
+\ 'variable':       "\Uff71b",
+\ 'variables':      "\Uff71b",
+\ 'const':          "\Uff8ff",
+\ 'constant':       "\Uff8ff",
+\ 'method':         "\Uff6a6",
+\ 'package':        "\Ufe612",
+\ 'packages':       "\Ufe612",
+\ 'enum':           "\Uff435",
+\ 'enumerator':     "\Uff435",
+\ 'module':         "\Uff668",
+\ 'modules':        "\Uff668",
+\ 'type':           "\Ufe22b",
+\ 'typedef':        "\Ufe22b",
+\ 'types':          "\Ufe22b",
+\ 'field':          "\Uff93d",
+\ 'fields':         "\Uff93d",
+\ 'macro':          "\Uff8a3",
+\ 'macros':         "\Uff8a3",
+\ 'map':            "\Uffb44",
+\ 'class':          "\Uff9a9",
+\ 'augroup':        "\Uffb44",
+\ 'struct':         "\Uffb44",
+\ 'union':          "\Uffacd",
+\ 'member':         "\Uff02b",
+\ 'target':         "\Uff893",
+\ 'property':       "\Uffab6",
+\ 'interface':      "\Uffa52",
+\ 'namespace':      "\Uff475",
+\ 'subroutine':     "\Uff915",
+\ 'implementation': "\Uff87a",
+\ 'typeParameter':  "\Uff278",
+\ 'default':        "\Uff29c"
+\ }
+'''
+# }}}
+[[plugins]]
+repo = 'lambdalisue/gina.vim'
+
+# {{{ Gundo
+[[plugins]]
+repo = 'sjl/gundo.vim'
+hook_source = '''
+let g:gundo_map_move_older = 'n'
+let g:gundo_map_move_newer = 'e'
+let g:gundo_prefer_python3 = 1
+'''
+# }}}
+
+# {{{ sumode
+[[plugins]]
+repo = 'kana/vim-submode'
+hook_add = '''
+call submode#enter_with('bufmove', 'n', '', '<C-g>h', '<C-w>>')
+call submode#enter_with('bufmove', 'n', '', '<C-g>i', '<C-w><')
+call submode#enter_with('bufmove', 'n', '', '<C-g>n', '<C-w>+')
+call submode#enter_with('bufmove', 'n', '', '<C-g>e', '<C-w>-')
+call submode#enter_with('bufmove', 'n', '', '<C-g>H', '<C-w>H')
+call submode#enter_with('bufmove', 'n', '', '<C-g>I', '<C-w>L')
+call submode#enter_with('bufmove', 'n', '', '<C-g>N', '<C-w>J')
+call submode#enter_with('bufmove', 'n', '', '<C-g>E', '<C-w>K')
+call submode#enter_with('bufmove', 'n', '', '<C-g>O', '<C-w>r')
+
+call submode#map('bufmove', 'n', '', 'h', '<C-w>>')
+call submode#map('bufmove', 'n', '', 'i', '<C-w><')
+call submode#map('bufmove', 'n', '', 'n', '<C-w>+')
+call submode#map('bufmove', 'n', '', 'e', '<C-w>-')
+call submode#map('bufmove', 'n', '', 'H', '<C-w>H')
+call submode#map('bufmove', 'n', '', 'I', '<C-w>L')
+call submode#map('bufmove', 'n', '', 'N', '<C-w>J')
+call submode#map('bufmove', 'n', '', 'E', '<C-w>K')
+call submode#map('bufmove', 'n', '', 'O', '<C-w>r')
+
+call submode#enter_with('bufmove', 'n', '', '<C-g>y', ':call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 2)<CR>')
+call submode#enter_with('bufmove', 'n', '', '<C-g>u', ':call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -2)<CR>')
+call submode#enter_with('bufmove', 'n', '', '<C-g>Y', ':call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 4)<CR>')
+call submode#enter_with('bufmove', 'n', '', '<C-g>U', ':call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -4)<CR>')
+
+call submode#map('bufmove', 'n', '', 'y', ':call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 2)<CR>')
+call submode#map('bufmove', 'n', '', 'u', ':call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -2)<CR>')
+call submode#map('bufmove', 'n', '', 'U', ':call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 4)<CR>')
+call submode#map('bufmove', 'n', '', 'Y', ':call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -4)<CR>')
+'''
+# }}}
+# emment {{{
+[[plugins]]
+repo = 'mattn/emmet-vim'
+hook_source = '''
+let g:user_emmet_install_global = 1
+let g:user_emmet_mode='vn'
+let g:user_emmet_leader_key='<C-/>'
+'''
+# }}}
+[[plugins]]
+repo = 'previm/previm'
+[[plugins]]
+repo = 'azadkuh/vim-cmus'
+[[plugins]]
+repo = 'skanehira/translate.vim'
+hook_source = '''
+let g:translate_source = 'en'
+let g:translate_target = 'ja'
+let g:translate_winsize = 10
+'''
+# }}}
+
+[[plugins]]
+repo = 'roxma/vim-hug-neovim-rpc'
+on_if = '!has("nvim")'
+
+[[plugins]]
+repo = 'roxma/nvim-yarp'

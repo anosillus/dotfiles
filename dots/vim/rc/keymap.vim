@@ -4,7 +4,6 @@ scriptencoding utf8
 let g:mapleader = "\<Space>"
 nmap <Space>   [Space]
 nmap [Space]   <Nop>
-" nnoremap <Leader><Leader> :<C-u>source ~/.config/nvim/init.vim<CR> <bar> <Ctr-l>
 vnoremap <leader><Leader> <ESC>
 " cnoremap <silent> <Space><Space> <ESC>
 cnoremap <silent> <C-c> <ESC>
@@ -12,13 +11,11 @@ cnoremap <silent> <C-c> <ESC>
 "this isn't work"
 inoremap <C-c> <ESC>
 nmap <Space><Space> :<C-u>w<CR>
-" map <Space><Space> <Plug>(easymotion-bd-w)
-" omap <Space><Space> <Plug>(easymotion-bd-w)
 " }}}
 
 " <Enter> is 'Page Scroll'. {{{
-noremap  <CR> <C-f>
-xmap     <CR> <Plug>(EasyAlign)
+nnoremap  <CR> <C-f>
+" xmap     <CR> <Plug>(EasyAlign)
 nmap     <S-CR>  <C-b>
 noremap  <C-CR>  <C-d>
 inoremap <C-CR> <ESC>+i
@@ -40,47 +37,9 @@ nnoremap m;        :<C-u>Denite file/rec:~/.vim/rc -start-filter<CR>
 nnoremap m:        :<C-u>Denite file/rec -start-filter<CR>
 " }}}
 
-" < ,/. > is 'Search'. {{{
-" functions defined {{{
-function! s:incsearch_config(...) abort
-  return incsearch#util#deepextend(deepcopy({
-  \   'modules': [incsearch#config#easymotion#module({'overwin': 1})],
-  \   'keymap': {
-  \     "\<CR>": '<Over>(easymotion)'
-  \   },
-  \   'is_expr': 0
-  \ }), get(a:, 1, {}))
-endfunction
 
-function! s:config_migemo(...) abort
-return extend(copy({
-\   'converters': [
-\     incsearch#config#migemo#converter(),
-\   ],
-\   'modules': [incsearch#config#easymotion#module({'overwin': 1})],
-\   'keymap': {"\<C-l>": '<Over>(easymotion)'},
-\   'is_expr': 0,
-\ }), get(a:, 1, {}))
-endfunction
-
-function! s:config_easyfuzzymotion(...) abort
-return extend(copy({
-\   'converters': [incsearch#config#fuzzyword#converter()],
-\   'modules': [incsearch#config#easymotion#module({'overwin': 1})],
-\   'keymap': {"\<CR>": '<Over>(easymotion)'},
-\   'is_expr': 0,
-\   'is_stay': 1
-\ }), get(a:, 1, {}))
-endfunction
-" }}}
-
-noremap  <silent><expr> ,  incsearch#go(<SID>incsearch_config())
-noremap  <silent><expr> ?  incsearch#go(<SID>incsearch_config({'command': '?'}))
-noremap  <silent><expr> m, incsearch#go(<SID>config_migemo())
-noremap  <silent><expr> m? incsearch#go(<SID>config_migemo({'command': '?'}))
-noremap  <silent><expr> <Leader>, incsearch#go(<SID>config_easyfuzzymotion())
-nnoremap <silent><expr> <leader>. :<C-u>Denite -buffer-name=search line -start-filter<CR>
 " Change histry mover
+map , /
 nnoremap g. g;
 nnoremap g: g,
 " <C-,/.> didn't work on ubuntu.
@@ -99,17 +58,16 @@ xnoremap < <gv
 " }}}
 
 " < */# > is 'Seasch Cursorl Word'. {{{
-map *  <Plug>(asterisk-z*)<Plug>(is-nohl-1)
-map g* <Plug>(asterisk-gz*)<Plug>(is-nohl-1)
-map #  <Plug>(asterisk-z#)<Plug>(is-nohl-1)
-map g# <Plug>(asterisk-gz#)<Plug>(is-nohl-1)
+" map *  is is.vim
+" map g* is is.vim
+" map # is is.vim
 " This is not realistic.
 " cnoremap <C-*> <C-R><C-W>
 "}}}
 
 " other symbols. {{{
 nnoremap <Leader>= <C-w>=
-noremap  <silent> <Esc><Esc> :<C-u>nohlsearch<CR><bar><Plug>(anzu-clear-search-status)
+map  <silent> <Esc><Esc> :<C-u>nohlsearch<CR>
 noremap  <bs> _x
 noremap  <Leader><bs> _X
 
@@ -134,16 +92,10 @@ noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-40)<CR>
 " < n/e > is 'UP/DOWN'. {{{
 noremap n gj
 noremap e gk
-nmap <silent>n <Plug>(accelerated_jk_gj)
-nmap <silent>e <Plug>(accelerated_jk_gk)
-map  N <Plug>(edgemotion-j)
-map  E <Plug>(edgemotion-k)
-map  <C-n> <Plug>(easymotion-j)
-map  <C-e> <Plug>(easymotion-k)
 map  <leader>n }
 map  <leader>e {
-nmap <silent><leader>N <Plug>(coc-git-nextchunk)
-nmap <silent><leader>E <Plug>(coc-git-prevchunk)
+" nmap <silent><leader>N <Plug>(coc-git-nextchunk)
+" nmap <silent><leader>E <Plug>(coc-git-prevchunk)
 snoremap <silent> <BS> <c-g>c
 snoremap <silent> <DEL> <c-g>c
 snoremap <silent> <c-i> <c-g>c
@@ -174,14 +126,7 @@ cnoremap <C-e> <C-p>
 " }}}
 
 " < h/i > is 'Word Motion'. {{{
-map <silent> i <Plug>CamelCaseMotion_w
-map <silent> h <Plug>CamelCaseMotion_ge
-map <silent> I <Plug>CamelCaseMotion_e
-map <silent> H <Plug>CamelCaseMotion_ge
-map <C-i> <Plug>(smartword-w)
-map <C-h> <Plug>(smartword-b)
-map <M-i> <Plug>(smartword-e)
-map <M-h> <Plug>(smartword-ge)
+
 noremap <Leader>h ^
 noremap <Leader>i $
 noremap <Leader>H 0
@@ -216,9 +161,9 @@ inoremap <C-i> <Right>
 " map o is o
 nnoremap go :<C-u>e<Space>
 
-imap <C-o> <Plug>(coc-snippets-expand)
-vmap <C-o> <Plug>(coc-snippets-select)
-imap <C-o> <Plug>(coc-snippets-expand-jump)
+" imap <C-o> <Plug>(coc-snippets-expand)
+" vmap <C-o> <Plug>(coc-snippets-select)
+" imap <C-o> <Plug>(coc-snippets-expand-jump)
 nnoremap <Leader>o :<C-u>for i in range(v:count1) \| call append(line('.'), '') \| endfor<CR>
 nnoremap <Leader>O :<C-u>for i in range(v:count1) \| call append(line('.')-1, '') \| endfor<CR>
 
@@ -235,8 +180,7 @@ let g:coc_snippet_prev = '<c-h>'
 " < u/y > is 'Left/Right'{{{
 noremap u <Left>
 noremap y <Right>
-map U <Plug>(easymotion-linebackward)
-map Y <Plug>(easymotion-lineforward)
+"map U,Y is easymotion
 noremap <C-u> :bprevious<CR>
 noremap <C-y> :bnext<CR>
 nnoremap gu :vs
@@ -261,7 +205,7 @@ inoremap <C-y> <Delete>
 " <m> is 'Mark/Fold/MiddleScreen'. {{{
 " Mark
 nnoremap M '
-nnoremap <leader>m :Denite mark<CR>
+" nmap <leader>m is Denite
 " Fold
 noremap mn zj
 noremap me zk
@@ -280,23 +224,11 @@ nnoremap gm M
 nnoremap <C-m> zz
 " }}}
 
+
+" l is 10%. <leader> and L is empty.
 " <l> is 'Comment'. {{{
-nmap l  <Nop>
-xmap l  <Nop>
-nmap l  <Plug>(caw:prefix)
-nmap lh <Plug>(caw:zeropos:toggle)
-nmap li <Plug>(caw:dollarpos:toggle)
-nmap ll <Plug>(caw:wrap:toggle)
-nmap ls <Plug>(caw:box:comment)
-nmap ln <Plug>(caw:jump:comment-next)
-nmap le <Plug>(caw:jump:comment-prev)
-xmap l  <Plug>(caw:prefix)
-xmap lh <Plug>(caw:zeropos:toggle)
-xmap li <Plug>(caw:dollarpos:toggle)
-xmap ll <Plug>(caw:wrap:toggle)
-xmap ls <Plug>(caw:box:comment)
-xmap ln <Plug>(caw:jump:comment-next)
-xmap le <Plug>(caw:jump:comment-prev)
+" nxmap l is caw
+
 " For python (at filetype.vim)
 " map lo pydocstring
 
@@ -304,35 +236,23 @@ xmap le <Plug>(caw:jump:comment-prev)
 " <C-l> is prefix of <Tab>
 " But <leader>L and gl is not used.
 " }}}
-" L is 10%.
 
-" j is ??? {{{
+
+" j is 5 %
+" j is denite/unite {{{
 nmap j  <Nop>
 xmap j  <Nop>
-nnoremap  jp  :Ipython<CR>
-vnoremap  jp  :VIpython<CR>
-" vmap <leader>j  <Plug>(coc-format-selected)
-" nmap <leader>j  <Plug>(coc-format-selected)
-
-" noremap <silent> js :GscopeFind s <C-R><C-W><cr>
-" noremap <silent> jg :GscopeFind g <C-R><C-W><cr>
-" noremap <silent> jc :GscopeFind c <C-R><C-W><cr>
-" noremap <silent> jt :GscopeFind t <C-R><C-W><cr>
-" noremap <silent> je :GscopeFind e <C-R><C-W><cr>
-" noremap <silent> jf :GscopeFind f <C-R>=expand("<cfile>")<cr><cr>
-" noremap <silent> ji :GscopeFind i <C-R>=expand("<cfile>")<cr><cr>
-" noremap <silent> jd :GscopeFind d <C-R><C-W><cr>
-" noremap <silent> ja :GscopeFind a <C-R><C-W><cr>
+" nnoremap  jp  :Ipython<CR>
+" vnoremap  jp  :VIpython<CR>
 
 " nmap <C-j> is emment.vim
-imap <C-j> <Plug>(eskk:toggle)
-cmap <C-j> <Plug>(eskk:toggle)
+" imap <C-j> is eskk.vim
+
 " }}}
-" 5 %
 
 " <k/K> is Search 'Up/Down'. {{{
-map k <Plug>(is-nohl)<Plug>(anzu-n-with-echo)
-map K <Plug>(is-nohl)<Plug>(anzu-N-with-echo)
+" map k is.vim
+" map K is.vim
 " }}}
 " K is 30% used.
 
@@ -348,6 +268,12 @@ omap B {
 
 " }}}
 " }}}
+
+noremap i w
+noremap h b
+noremap I e
+noremap H ge
+
 
 " Left hand {{{
 
@@ -365,12 +291,9 @@ xmap T  <Plug>(niceblock-A)
 inoremap <C-s> <C-d>
 " inoremap <C-t> <C-t>
 " <C-s> is fasetr than 'l', but not needed.
-nmap <C-s> <Plug>(caw:hatpos:toggle)
-xmap <C-s> <Plug>(caw:hatpos:toggle)
-omap <C-s> <Plug>(caw:hatpos:toggle)
+" nxo<C-s> is caw
 nnoremap <C-t> :<C-u>Vista!!<CR>
-nmap <leader>s <Plug>(easymotion-overwin-f2)
-xmap <leader>s <Plug>(easymotion-bd-f2)
+" nx<leader>s is easymotion
 nnoremap <silent> <Leader>t :<C-u>Denite -split=vertical outline -start-filter -auto-resize<CR>
 " nnoremap <buffer> <leader>t :<C-u>DeniteCursorWord tag<CR>
 
@@ -408,12 +331,8 @@ inoremap <C-d> <C-u>
 " 10 %
 
 " < f/p > is 'Forward/Previous'. {{{
-map f <Plug>(easymotion-fl)
-map F <Plug>(easymotion-Fl)
-map p <Plug>(easymotion-tl)
-map P <Plug>(easymotion-Tl)
-map <leader>f <Plug>(coc-git-nextchunk)
-map <leader>p <Plug>(coc-git-prevchunk)
+" map <leader>f <Plug>(coc-git-nextchunk)
+" map <leader>p <Plug>(coc-git-prevchunk)
 nmap <C-f> <Plug>(ale_next)
 nmap <C-p> <Plug>(ale_previous)
 
@@ -421,8 +340,16 @@ inoremap <C-f> <C-y>
 inoremap <C-p> <C-e>
 " }}}
 " 80 %
-
+" 100%
 " <w> is 'Operator/Word-grep'. {{{
+" moxmap<w,W> is sandwitch
+noremap w <Nop>
+noremap W <Nop>
+let g:sandwich#recipes = deepcopy(g:sandwich#default_recipes)
+let g:sandwich_no_default_key_mappings = 1
+let g:operator_sandwich_no_default_key_mappings = 1
+let g:textobj_sandwich_no_default_key_mappings = 1
+
 " Operator
 map  w  <Plug>(operator-sandwich-add)
 map  wD <Plug>(operator-sandwich-delete)<Plug>(textobj-sandwich-query-a)
@@ -439,12 +366,25 @@ xmap aw <Plug>(textobj-sandwich-auto-a)
 xmap aW <Plug>(textobj-sandwich-query-a)
 xmap w  <Plug>(textobj-sandwich-auto-i)
 xmap W  <Plug>(textobj-sandwich-query-i)
+
+" map i <Nop>
+" map h <Nop>
+
+" map <silent> i <Plug>CamelCaseMotion_w
+" map h <Plug>CamelCaseMotion_b
+" map I <Plug>CamelCaseMotion_e
+" map H <Plug>CamelCaseMotion_ge
+" sunmap i
+" sunmap h
+" sunmap I
+" sunmap H
+
+
+
 " Word-gerp
-nnoremap <C-w> :<C-u>DeniteCursorWord grep <CR>
-nmap  <Leader>w <Plug>(easymotion-overwin-w)
-xmap  <Leader>w <Plug>(easymotion-bd-w)
-omap  <Leader>w <Plug>(easymotion-bd-w)
-" imap, cmap <C-w> is word-delete.
+" nmap<C-w> is denite
+" ic<C-w> is word-delete.
+" nxo<leader>w is earymotion
 " }}}
 
 " <q> is 'Quit'. {{{
@@ -523,6 +463,7 @@ noremap <C-z> <C-a>
 " }}}
 
 " }}}
+
 
 " Meta key mappings {{{
 "q (replacement of <M-Ctrl>)

@@ -41,6 +41,9 @@ setlocal t_Co=256
 setlocal imdisable
 setlocal autoread
 setlocal splitright
+if &diff
+    let &diffexpr='EnhancedDiff#Diff("git diff", "--diff-algorithm=patience")'
+endif
 " ---------- help ----------
 " setlocal helpheight=999
 set keywordprg=:help

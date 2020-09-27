@@ -14,6 +14,10 @@ if !exists('g:os')
   endif
 endif
 
+if has('multi_byte_ime')
+  set iminsert=0 imsearch=0
+endif
+
 if has('gui_running')
 " https://github.com/zchee/deoplete-jedi/wiki/Setting-up-Python-for-Neovim#tips-for-using-pyenv
   if g:os ==? 'Darwin'

@@ -1,0 +1,736 @@
+[[plugins]]
+repo = 'Shougo/neoyank.vim'
+on_event = 'TextYankPost'
+on_source = ['denite.nvim']
+hook_add = '''
+let g:neoyank#file = $HOME.'/.cache/yank/yankring.txt'
+'''
+
+[[plugins]]
+repo = 'Shougo/echodoc.vim'
+on_event = 'CompleteDone'
+hook_source = '''
+  let g:echodoc#type = 'virtual'
+  call echodoc#enable()
+'''
+
+[[plugins]]
+repo = 'Shougo/defx.nvim'
+hook_add = '''
+  nnoremap <silent>   [Leader]f
+  \ :<C-u>Defx -listed -resume -buffer-name=win-`win_getid()`<CR>
+'''
+hook_source = '''
+  call defx#custom#column('mark', {
+          \ 'readonly_icon': '✗',
+          \ 'selected_icon': '✓',
+          \ })
+  call defx#custom#column('icon', {
+          \ 'directory_icon': '▸',
+          \ 'opened_icon': '▾',
+          \ 'root_icon': ' ',
+          \ })
+'''
+[plugins.ftplugin]
+defx = '''
+  " Define mappings
+  nnoremap <silent><buffer><expr> <CR>
+  \ defx#async_action('open')
+  nnoremap <silent><buffer><expr> c
+  \ defx#do_action('copy')
+  nnoremap <silent><buffer><expr> !
+  \ defx#do_action('execute_command')
+  nnoremap <silent><buffer><expr> m
+  \ defx#do_action('move')
+  nnoremap <silent><buffer><expr> p
+  \ defx#do_action('paste')
+  nnoremap <silent><buffer><expr> l
+  \ defx#do_action('open')
+  nnoremap <silent><buffer><expr> E
+  \ defx#do_action('open', 'vsplit')
+  nnoremap <silent><buffer><expr> P
+  \ defx#do_action('preview')
+  nnoremap <silent><buffer><expr> o
+  \ defx#do_action('open_tree', ['nested', 'toggle'])
+  nnoremap <silent><buffer><expr> O
+  \ defx#do_action('open_tree', 'recursive')
+  nnoremap <silent><buffer><expr> K
+  \ defx#do_action('new_directory')
+  nnoremap <silent><buffer><expr> N
+  \ defx#do_action('new_file')
+  nnoremap <silent><buffer><expr> M
+  \ defx#do_action('new_multiple_files')
+  nnoremap <silent><buffer><expr> C
+  \ defx#do_action('toggle_columns', 'mark:filename:type:size:time')
+  nnoremap <silent><buffer><expr> S
+  \ defx#do_action('toggle_sort', 'Time')
+  nnoremap <silent><buffer><expr> se
+  \ defx#do_action('add_session')
+  nnoremap <silent><buffer><expr> sl
+  \ defx#do_action('load_session')
+  nnoremap <silent><buffer><expr> d
+  \ defx#do_action('remove_trash')
+  nnoremap <silent><buffer><expr> r
+  \ defx#do_action('rename')
+  nnoremap <silent><buffer><expr> x
+  \ defx#do_action('execute_system')
+  nnoremap <silent><buffer><expr> >
+  \ defx#do_action('toggle_ignored_files')
+  nnoremap <silent><buffer><expr> <
+  \ defx#do_action('change_ignored_files')
+  nnoremap <silent><buffer><expr> .
+  \ defx#do_action('repeat')
+  nnoremap <silent><buffer><expr> yy
+  \ defx#do_action('yank_path')
+  nnoremap <silent><buffer><expr> h
+  \ defx#do_action('cd', ['..'])
+  nnoremap <silent><buffer><expr> ~
+  \ defx#do_action('cd')
+  nnoremap <silent><buffer><expr> \
+  \ defx#do_action('cd', getcwd())
+  nnoremap <silent><buffer><expr> q
+  \ defx#do_action('quit')
+  nnoremap <silent><buffer><expr> <[Leader]>
+  \ defx#do_action('toggle_select') . 'j'
+  nnoremap <silent><buffer><expr> *
+  \ defx#do_action('toggle_select_all')
+  nnoremap <silent><buffer><expr> n
+  \ line('.') == line('$') ? 'gg' : 'n'
+  nnoremap <silent><buffer><expr> e
+  \ line('.') == 1 ? 'G' : 'e'
+  nnoremap <silent><buffer><expr> <C-l>
+  \ defx#do_action('redraw')
+  xnoremap <silent><buffer><expr> <CR>
+  \ defx#do_action('toggle_select_visual')
+  nnoremap <silent><buffer><expr> <C-g>
+  \ defx#do_action('print')
+  nnoremap <silent><buffer><expr> <Tab> winnr('$') != 1 ?
+  \ ':<C-u>wincmd w<CR>' :
+  \ ':<C-u>Defx -buffer-name=temp -split=vertical<CR>'
+'''
+
+[[plugins]]
+repo = 'Shougo/neosnippet.vim'
+depends = ['neosnippet-snippets', 'context_filetype.vim']
+on_event = 'InsertCharPre'
+on_ft = 'snippet'
+if = '!has("nvim")'
+hook_source = '''
+  imap <silent>L     <Plug>(neosnippet_jump_or_expand)
+  smap <silent>L     <Plug>(neosnippet_jump_or_expand)
+  xmap <silent>L     <Plug>(neosnippet_expand_target)
+  let g:neosnippet#enable_snipmate_compatibility = 1
+  let g:neosnippet#enable_completed_snippet = 1
+  " let g:neosnippet#enable_complete_done = 1
+  let g:neosnippet#expand_word_boundary = 1
+  let g:neosnippet#snippets_directory = '~/.vim/snippets'
+'''
+
+[[plugins]]
+repo = 'Shougo/deoppet.nvim'
+depends = ['neosnippet-snippets', 'context_filetype.vim']
+on_event = 'InsertEnter'
+if = 'has("nvim")'
+hook_source = '''
+  " Test
+  imap I  <Plug>(deoppet_expand)
+  imap <expr> I  deoppet#expandable() ?
+  \ "\<Plug>(deoppet_expand)" : ''
+  imap <C-f>  <Plug>(deoppet_jump_forward)
+  imap <C-b>  <Plug>(deoppet_jump_backward)
+  smap <C-f>  <Plug>(deoppet_jump_forward)
+  smap <C-b>  <Plug>(deoppet_jump_backward)
+  xmap <C-i>  <Plug>(deoppet_select_text)
+  xmap <C-x>  <Plug>(deoppet_cut_text)
+  call deoppet#initialize()
+  call deoppet#custom#option('snippets_dirs',
+          \ [expand('~/.vim/my-snippets')] +
+          \ globpath(&runtimepath, 'neosnippets', 1, 1))
+'''
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+on_cmd = 'Denite'
+hook_source = 'source ~/.vim/rc/plugins/denite.rc.vim'
+hook_add = '''
+  nnoremap <silent><leader>m :Denite mark <CR>
+  nnoremap <C-w> :<C-u>DeniteCursorWord grep <CR>
+  nnoremap <silent> <C-v>
+        \ :<C-u>Denite -buffer-name=register
+        \ register neoyank<CR>
+  xnoremap <silent> jr
+        \ :<C-u>Denite -default-action=replace -buffer-name=register
+        \ register neoyank<CR>
+  nnoremap <silent> <Leader><Leader>
+  \ :<C-u>Denite file/rec:~/.vim/rc<CR>
+  nnoremap <silent><expr> g, wordcount().chars > 30000 ?
+  \ ":\<C-u>Denite -buffer-name=search -start-filter
+  \  -search line/external\<CR>" :
+  \ ":\<C-u>Denite -buffer-name=search -start-filter -search line\<CR>"
+  nnoremap <silent><expr> * wordcount().chars > 30000 ?
+  \ ":\<C-u>DeniteCursorWord -buffer-name=search -search line/external\<CR>" :
+  \ ":\<C-u>DeniteCursorWord -buffer-name=search -search line\<CR>"
+  xnoremap <silent> *
+  \ "qy:Denite -input=`@q` -buffer-name=search -search line<CR>
+  nnoremap <silent><expr> <space>J finddir('.git', ';') != '' ?
+  \ ":\<C-u>Denite -sorters=sorter/rank -unique
+  \  file/point file/old file/dirty file/git file file:new\<CR>" :
+  \ ":\<C-u>Denite -sorters=sorter/rank -unique
+  \  file/point file/old file file:new\<CR>"
+  nnoremap <silent> j,
+  \ :<C-u>Denite -buffer-name=search -resume<CR>
+  nnoremap <silent><expr> jt  &filetype == 'help' ?  "g\<C-]>" :
+  \ ":\<C-u>DeniteCursorWord -buffer-name=tag -immediately tag:include\<CR>"
+  nnoremap <silent><expr> jp  &filetype == 'help' ?
+  \ ":\<C-u>pop\<CR>" : ":\<C-u>Denite jump\<CR>"
+  nnoremap <silent> <Leader>j :<C-u>Denite dein<CR>
+  nnoremap <silent> <Leader>J :<C-u>Denite ghq -default-action=cd<CR>
+  nnoremap <silent> jg :<C-u>Denite -buffer-name=search
+  \ -no-empty grep<CR>
+  nnoremap <silent> ja :<C-u>Denite -buffer-name=deol -split=floating
+  \ -cursor-pos=`tabpagenr()-1` deol:zsh<CR>
+  nnoremap <silent> jz :<C-u>Denite change jump<CR>
+  nnoremap <silent> <C-q> :<C-u>Denite change -start-filter<CR>
+
+  nnoremap <silent> jb :<C-u>DeniteCursorWord help<CR>
+  nnoremap <silent> j;
+  \ :<C-u>Denite command command_history<CR>
+'''
+
+[plugins.ftplugin]
+denite = '''
+  " Define mappings
+  nnoremap <silent><buffer><expr> <CR>
+  \ denite#do_map('do_action')
+  nnoremap <silent><buffer><expr> a
+  \ denite#do_map('choose_action')
+  nnoremap <silent><buffer><expr> d
+  \ denite#do_map('do_action', 'delete')
+  nnoremap <silent><buffer><expr> i
+  \ denite#do_map('do_action', 'edit')
+  nnoremap <silent><buffer><expr> p
+  \ denite#do_map('do_action', 'preview')
+  nnoremap <silent><buffer><expr> N
+  \ denite#do_map('do_action', 'new')
+  nnoremap <silent><buffer><expr> q
+  \ denite#do_map('quit')
+  nnoremap <silent><buffer><expr> '
+  \ denite#do_map('quick_move')
+  nnoremap <silent><buffer><expr> s
+  \ denite#do_map('open_filter_buffer')
+  nnoremap <silent><buffer><expr> <Leader>
+  \ denite#do_map('toggle_select').'j'
+  nnoremap <silent><buffer><expr> r
+  \ denite#do_map('do_action', 'quickfix')
+  nnoremap <silent><buffer><expr> <C-r>
+  \ denite#do_map('restore_sources')
+  nnoremap <silent><buffer><expr> <C-l>
+  \ denite#do_map('redraw')
+'''
+
+[[plugins]]
+repo = 'Shougo/context_filetype.vim'
+
+[[plugins]]
+repo = 'Shougo/deol.nvim'
+depends = 'denite.nvim'
+on_source = ['defx.nvim', 'denite.nvim']
+hook_add = '''
+  nnoremap <silent> <Leader>f :<C-u>Deol fish -no-start-insert<CR>
+  nnoremap <silent> <Leader>D  :<C-u>call deol#kill_editor()<CR>
+'''
+hook_source = '''
+  let g:deol#prompt_pattern = '\w*% '
+  let g:deol#shell_history_path = '~/.local/share/fish/fish_history'
+  let g:deol#extra_options = {
+      \ 'term_kill': 'kill',
+      \ }
+'''
+[plugins.ftplugin]
+deol = '''
+  nnoremap <buffer><silent> <Leader>gc
+  \ :<C-u>call deol#send('git commit')<CR>
+  nnoremap <buffer><silent> <Leader>gs
+  \ :<C-u>call deol#send('git status')<CR>
+  nnoremap <buffer><silent> <Leader>gA
+  \ :<C-u>call deol#send('git commit --amend')<CR>
+  nmap <buffer> i <Plug>(deol_edit)
+  nmap <buffer> e <Plug>(deol_edit)
+'''
+fish = '''
+  inoreabbrev <buffer><expr> g deol#abbrev('g', 'g', 'git')
+  inoreabbrev <buffer><expr> a deol#abbrev('git a', 'a', 'add')
+  inoreabbrev <buffer><expr> b deol#abbrev('git b', 'b', 'branch')
+  inoreabbrev <buffer><expr> c deol#abbrev('git c', 'c', 'commit')
+  inoreabbrev <buffer><expr> d deol#abbrev('git d', 'd', 'diff')
+  inoreabbrev <buffer><expr> p deol#abbrev('git p', 'p', 'push')
+  inoreabbrev <buffer><expr> s deol#abbrev('git s', 's', 'status')
+'''
+
+[[plugins]]
+repo = 'Shougo/junkfile.vim'
+on_source = 'denite.nvim'
+hook_add = '''
+  nnoremap <silent> [Window]e :<C-u>Denite junkfile:new junkfile<CR>
+'''
+[[plugins]]
+repo = 'kana/vim-niceblock'
+on_map = {x = '<Plug>'}
+hook_add = '''
+  xmap I  <Plug>(niceblock-I)
+  xmap A  <Plug>(niceblock-A)
+'''
+[[plugins]]
+repo = 'thinca/vim-qfreplace'
+on_ft = ['qf']
+[plugins.ftplugin]
+qf = '''
+  nnoremap <buffer> r :<C-u>Qfreplace<CR>
+'''
+#
+# {{{ SKK
+[[plugins]]
+repo = 'tyru/eskk.vim'
+on_map = {ic = '<Plug>'}
+hook_add = '''
+  imap <C-j>     <Plug>(eskk:toggle)
+  cmap <C-j>     <Plug>(eskk:toggle)
+'''
+hook_source = '''
+  let g:eskk#directory = expand('$CACHE/eskk')
+  let g:eskk#no_default_mappings = 1
+  let g:eskk#keep_state = 1
+  let g:eskk#debug = 0
+  let g:eskk#statusline_mode_strings = {
+\	'hira': 'あ',
+\	'kata': 'ア',
+\	'ascii': 'aA',
+\	'zenei': 'ａ',
+\	'hankata': 'ｧｱ',
+\'abbrev': 'aあ'
+\}
+  let g:eskk#show_annotation = 1
+  let g:eskk#rom_input_style = 'msime'
+  let g:eskk#egg_like_newline = 1
+  let g:eskk#egg_like_newline_completion = 1
+  let g:eskk#tab_select_completion = 1
+  let g:eskk#start_completion_length = 2
+  let g:eskk#dictionary = {
+        \   'path': expand('$CACHE/skk-jisyo'),
+        \   'sorted': 0,
+        \   'encoding': 'utf-8',
+        \}
+  let g:eskk#large_dictionary = {
+        \   'path': '/usr/share/skk/SKK-JISYO.L',
+        \   'sorted': 1,
+        \   'encoding': 'euc-jp',
+        \}
+  autocmd MyAutoCmd User eskk-initialize-pre call s:eskk_initial_pre()
+  function! s:eskk_initial_pre()
+    let g:skk_keep_state = 1
+    let t = eskk#table#new('rom_to_hira*', 'rom_to_hira')
+    call t.add_map('~', '～')
+    call t.add_map('zc', '©')
+    call t.add_map('zr', '®')
+    call t.add_map('tm', '™')
+    call t.add_map('z ', '　')
+    call t.add_map('z1', '①')
+    call t.add_map('z2', '②')
+    call t.add_map('z3', '③')
+    call t.add_map('z4', '④')
+    call t.add_map('z5', '⑤')
+    call t.add_map('z6', '⑥')
+    call t.add_map('z7', '⑦')
+    call t.add_map('z8', '⑧')
+    call t.add_map('z9', '⑨')
+    " "1." のように数字の後のドットはそのまま入力
+    for n in range(10)
+      call t.add_map(n . '.', n . '.')
+    endfor
+    call eskk#register_mode_table('hira', t)
+  endfunction
+
+  autocmd User eskk-enable-pre call s:eskk_enable_pre()
+  function! s:eskk_enable_pre()
+      " let b:coc_suggest_disable = 1
+      " call  <CR>
+      " call deoplete#enable()
+      inoremap <expr><C-o> deoplete#auto_complete()
+      inoremap <expr><C-i> deoplete#smart_close_popup()."\<C-o>"
+      inoremap <expr><C-h> deoplete#undo_completion()
+      inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
+  endfunction
+
+
+  let &g:statusline = "%{winnr('$')>1?'['.winnr().'/'.winnr('$')"
+        \ . ".(winnr('#')==#winnr()?'#':'').']':''}\ "
+        \ . "%{(&previewwindow?'[preview] ':'')."
+        \ . ".expand('%:t')==#''?expand('%'):expand('%:t')}"
+        \ . "\ %=%{(winnr('$')==1 || winnr('#')!=winnr()) ?
+        \ '['.(&filetype!=#''?&filetype.',':'')"
+        \ . ".(&fenc!=''?&fenc:&enc).','.&ff.']' : ''}"
+        \ . "%{eskk#statusline('[%s]')}"
+        \ . "%m%{printf('%'.(len(line('$'))+2).'d/%d',line('.'),line('$'))}"
+  let g:eskk#cursor_color = {
+  \   'ascii': ['#8b8b83', '#bebebe'],
+  \   'hira': ['#8b3e2f', '#ffc0cb'],
+  \   'kata': ['#228b22', '#00ff00'],
+  \   'abbrev': '#4169e1',
+  \   'zenei': '#ffd700',
+  \}
+  '''
+# }}}
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+
+[[plugins]]
+repo = 'rhysd/accelerated-jk'
+on_map = {n = '<Plug>'}
+hook_add = '''
+  nmap <silent>n <Plug>(accelerated_jk_gj)
+  nmap <silent>e <Plug>(accelerated_jk_gk)
+'''
+
+[[plugins]]
+repo = 'kannokanno/previm'
+on_cmd = 'PrevimOpen'
+depends = 'open-browser.vim'
+
+[[plugins]]
+repo = 'osyo-manga/vim-jplus'
+
+on_map = {n = '<Plug>'}
+hook_add = '''
+  nmap J <Plug>(jplus)
+  vmap J <Plug>(jplus)
+'''
+
+[[plugins]]
+repo = 'lambdalisue/suda.vim'
+on_event = 'BufRead'
+hook_add = '''
+  let g:suda_smart_edit = 1
+'''
+
+
+# Filetype {{{
+# markdown {{{
+[[plugins]]
+repo = 'rhysd/vim-gfm-syntax'
+on_ft = 'markdown'
+
+[[plugins]]
+repo = 'osyo-manga/vim-precious'
+depends = 'context_filetype.vim'
+of_ft = ['markdown', 'text']
+# of_ft = ['toml','markdown', 'text']
+
+[[plugins]]
+repo = 'mzlogin/vim-markdown-toc'
+on_ft = 'markdown'
+
+[[plugins]]
+repo = 'rcmdnk/vim-markdown'
+on_ft = 'markdown'
+hook_source = '''
+let g:markdown_enable_mappings = 0
+let g:markdown_enable_spell_checking = 0
+'''
+
+[[plugins]]
+repo = 'junegunn/goyo.vim'
+on_ft = 'markdown'
+
+[[plugins]]
+repo = 'mattn/vim-maketable'
+on_ft = 'markdown'
+# }}}
+# SQL {{{
+[[plugins]]
+repo = 'lifepillar/pgsql.vim'
+on_ft = 'sql'
+# }}}
+# Python {{{
+[[plugins]]
+repo = 'heavenshell/vim-pydocstring'
+build = 'make install'
+on_ft = 'python'
+#  }}}
+# Rust {{{
+[[plugins]]
+repo = 'rhysd/rust-doc.vim'
+hook_source = 'let g:rustfmt_autosave = 0'
+on_ft = 'rust'
+# }}}
+# CSV {{{
+[[plugins]]
+repo = 'chrisbra/csv.vim'
+hook_source = 'let g:csv_nomap_cr = 1'
+on_ft = 'csv'
+# }}}
+# C++ {{{
+[[plugins]]
+repo = 'bfrg/vim-cpp-modern'
+hook_source = 'let g:cpp_named_requirements_highlight = 1'
+on_ft = 'cpp'
+# }}}
+# Golang {{{
+[[plugins]]
+repo = 'mattn/vim-goimports'
+on_ft = 'go'
+[[plugins]]
+repo = 'fatih/vim-go'
+hook_source = 'let g:rustfmt_autosave = 0'
+on_ft = 'golang'
+build = ':GoInstallBinaries'
+# }}}
+# Japanese {{{
+[[plugins]]
+repo = 'koron/codic-vim'
+[[plugins]]
+repo = 'msbmsb/porter-stem.vim'
+[[plugins]]
+repo = 'rhysd/unite-codic.vim'
+[[plugins]]
+repo = 'vim-jp/vimdoc-ja'
+#[[plugins]]
+# repo = 'deton/eblook.vim'
+# hook_source = '''
+# let eblook_no_default_key_mappings = 1
+# let eblook_stemming = 1
+# let eblook_decorate_syntax = 1
+# '''
+[[plugins]]
+repo = 'vim-jp/autofmt'
+hook_source = '''
+set formatexpr=autofmt#japanese#formatexpr()
+'''
+# [[plugins]]
+# repo = 'deton/jasegment.vim'
+# on_ft = 'jp_md'
+# hook_source = '''
+# let b:loaded_jasegment = 1
+# let g:jasegment_no_default_key_mappings = 1
+# let g:jasegment#model = 'mecab'
+#'''
+# }}}
+# end filetype }}}
+# Operator {{{
+# [[plugins]]
+# repo = 'bkad/CamelCaseMotion'
+# on_map = {n = '<Plug>', x = '<Plug>', o = '<Plug>'}
+# hook_add = '''
+# map i <Plug>CamelCaseMotion_w
+# map h <Plug>CamelCaseMotion_b
+# map I <Plug>CamelCaseMotion_w
+# map H <Plug>CamelCaseMotion_b
+# '''
+
+# smart word {{{
+# [[plugins]]
+# repo = 'kana/vim-smartword'
+# on_map = {n = '<Plug>', x = '<Plug>', o = '<Plug>'}
+# hook_add = '''
+# map <C-i> <Plug>(smartword-w)
+# map <C-h> <Plug>(smartword-b)
+# map <M-i> <Plug>(smartword-e)
+# map <M-h> <Plug>(smartword-ge)
+# '''
+# }}}
+
+# align {{{
+[[plugins]]
+repo = 'junegunn/vim-easy-align'
+hook_add = '''
+xmap <CR> <Plug>(EasyAlign)
+'''
+on_map = {x = '<Plug>'}
+# }}}
+# caw {{{
+[[plugins]]
+repo = 'anosillus/caw.vim'
+hook_add = '''
+nmap l  <Nop>
+xmap l  <Nop>
+nmap <C-s> <Plug>(caw:hatpos:toggle)
+xmap <C-s> <Plug>(caw:hatpos:toggle)
+omap <C-s> <Plug>(caw:hatpos:toggle)
+nmap l  <Plug>(caw:prefix)
+nmap lh <Plug>(caw:zeropos:toggle)
+nmap li <Plug>(caw:dollarpos:toggle)
+nmap ll <Plug>(caw:wrap:toggle)
+nmap ls <Plug>(caw:box:comment)
+nmap ln <Plug>(caw:jump:comment-next)
+nmap le <Plug>(caw:jump:comment-prev)
+xmap l  <Plug>(caw:prefix)
+xmap lh <Plug>(caw:zeropos:toggle)
+xmap li <Plug>(caw:dollarpos:toggle)
+xmap ll <Plug>(caw:wrap:toggle)
+xmap ls <Plug>(caw:box:comment)
+xmap ln <Plug>(caw:jump:comment-next)
+xmap le <Plug>(caw:jump:comment-prev)
+'''
+on_map = {n = '<Plug>', x = '<Plug>', o = '<Plug>'}
+hook_source = '''
+let g:caw_no_default_keymappings = 1
+let g:caw_operator_keymappings = 0
+'''
+# }}}
+# end Operator }}}
+# Motion  {{{
+# is.vim {{{
+[[plugins]]
+repo = 'osyo-manga/vim-anzu'
+on_map = {n = '<Plug>'}
+
+[[plugins]]
+repo = 'haya14busa/vim-asterisk'
+on_map = {n = '<Plug>'}
+
+[[plugins]]
+repo = 'haya14busa/is.vim'
+depends = ['vim-anzu', 'vim-asterisk']
+hook_source = 'let g:is#do_default_mappings = 0'
+hook_add = '''
+map *  <Plug>(asterisk-z*)<Plug>(is-nohl-1)
+map g* <Plug>(asterisk-gz*)<Plug>(is-nohl-1)
+map #  <Plug>(asterisk-z#)<Plug>(is-nohl-1)
+map g# <Plug>(asterisk-gz#)<Plug>(is-nohl-1)
+map k <Plug>(is-nohl)<Plug>(anzu-n-with-echo)
+map K <Plug>(is-nohl)<Plug>(anzu-N-with-echo)
+noremap  <silent> <Esc><Esc> :<C-u>nohlsearch<CR><bar><Plug>(anzu-clear-search-status)
+'''
+on_map = {n = '<Plug>', x = '<Plug>'}
+# }}}
+# easymotion {{{
+[[plugins]]
+repo = 'easymotion/vim-easymotion'
+on_map = '<Plug>'
+on_func = ['EasyMotion#go']
+hook_source = '''
+let g:EasyMotion_keys = 'neihdoarstdluyfwp;qj,.'
+" let g:EasyMotion_use_smartsign_us = 1
+let g:EasyMotion_do_mapping = 0
+" Do not shade
+let g:EasyMotion_do_shade = 0
+" Use upper case
+let g:EasyMotion_use_upper = 1
+" Smartcase
+let g:EasyMotion_smartcase = 1
+" Smartsign
+let g:EasyMotion_use_smartsign_us = 1
+" keep cursor column
+let g:EasyMotion_startofline = 0
+" Don't skip folded line
+let g:EasyMotion_skipfoldedline = 0
+" pseudo-migemo
+let g:EasyMotion_use_migemo = 1
+" Jump to first with enter & space
+let g:EasyMotion_space_jump_first = 1
+" Prompt
+let g:EasyMotion_prompt = '{n}> '
+'''
+hook_add = '''
+nmap <leader>s <Plug>(easymotion-overwin-f2)
+xmap <leader>s <Plug>(easymotion-bd-f2)
+" smart f & F
+omap f <Plug>(easymotion-bd-fl)
+xmap f <Plug>(easymotion-bd-fl)
+omap F <Plug>(easymotion-Fl)
+xmap F <Plug>(easymotion-Fl)
+omap p <Plug>(easymotion-tl)
+xmap p <Plug>(easymotion-tl)
+omap P <Plug>(easymotion-Tl)
+xmap P <Plug>(easymotion-Tl)
+map <C-n> <Plug>(easymotion-j)
+map <C-e> <Plug>(easymotion-k)
+map U <Plug>(easymotion-linebackward)
+map Y <Plug>(easymotion-lineforward)
+nmap <Leader>w <Plug>(easymotion-overwin-w)
+xmap <Leader>w <Plug>(easymotion-bd-w)
+omap <Leader>w <Plug>(easymotion-bd-w)
+'''
+on_map = {n = '<Plug>', x = '<Plug>'}
+# }}}
+# incsearch {{{
+[[plugins]]
+repo = 'haya14busa/incsearch-easymotion.vim'
+[[plugins]]
+repo = 'haya14busa/incsearch-migemo.vim'
+[[plugins]]
+repo = 'haya14busa/incsearch-fuzzy.vim'
+
+[[plugins]]
+repo = 'haya14busa/incsearch.vim'
+on_map = '<Plug>',
+on_func = 'incsearch#go'
+depends = ['incsearch-easymotion.vim','incsearch-migemo.vim', 'incsearch-fuzzy.vim']
+hook_source = '''
+  let g:incsearch#auto_nohlsearch = 1
+  let g:incsearch#consistent_n_direction = 1
+  let g:incsearch#do_not_save_error_message_history = 1
+'''
+hook_add = '''
+  function! s:incsearch_config(...) abort
+    return incsearch#util#deepextend(deepcopy({
+    \   'modules': [incsearch#config#easymotion#module({'overwin': 1})],
+    \   'keymap': {
+    \     "\<CR>": '<Over>(easymotion)'
+    \   },
+    \   'is_expr': 0
+    \ }), get(a:, 1, {}))
+  endfunction
+
+  function! s:config_migemo(...) abort
+  return extend(copy({
+  \   'converters': [
+  \     incsearch#config#migemo#converter(),
+  \   ],
+  \   'modules': [incsearch#config#easymotion#module({'overwin': 1})],
+  \   'keymap': {"\<C-l>": '<Over>(easymotion)'},
+  \   'is_expr': 0,
+  \ }), get(a:, 1, {}))
+  endfunction
+
+  function! s:config_easyfuzzymotion(...) abort
+  return extend(copy({
+  \   'converters': [incsearch#config#fuzzyword#converter()],
+  \   'modules': [incsearch#config#easymotion#module({'overwin': 1})],
+  \   'keymap': {"\<CR>": '<Over>(easymotion)'},
+  \   'is_expr': 0,
+  \   'is_stay': 1
+  \ }), get(a:, 1, {}))
+  endfunction
+  noremap  <silent><expr> ,  incsearch#go(<SID>incsearch_config())
+  noremap  <silent><expr> ?  incsearch#go(<SID>incsearch_config({'command': '?'}))
+  noremap <silent><expr> g, incsearch#go(<SID>incsearch_config({'is_stay': 1}))
+  noremap  <silent><expr> m, incsearch#go(<SID>config_migemo())
+  noremap  <silent><expr> m? incsearch#go(<SID>config_migemo({'command': '?'}))
+  noremap  <silent><expr> <Leader>, incsearch#go(<SID>config_easyfuzzymotion())
+  if !has('patch-8.0.1238')
+    noremap <silent><expr> /  incsearch#go(<SID>incsearch_config())
+    noremap <silent><expr> ?  incsearch#go(<SID>incsearch_config({'command': '?'}))
+    omap /  <Plug>(incsearch-forward)
+    omap ?  <Plug>(incsearch-backward)
+    noremap ;/ /
+    noremap ;? ?
+  endif
+  omap g/ <Plug>(incsearch-stay)
+'''
+on_map = '<Plug>'
+
+# }}}
+# edgemotion {{{
+[[plugins]]
+repo = 'haya14busa/vim-edgemotion'
+merged = 0
+hook_add = '''
+map  N <Plug>(edgemotion-j)
+map  E <Plug>(edgemotion-k)
+'''
+on_map = {n = '<Plug>', x = '<Plug>'}
+# }}}
+# end Motion }}}

@@ -65,10 +65,13 @@ set undolevels=100
 runtime! debian.vim
 
 " call s:source_rc('gui.vim')
-call s:source_rc('private.vim')
+" call s:source_rc('private.vim')
 call s:source_rc('env.vim')
 call s:source_rc('plug.vim')
+call s:source_rc('keymap.vim')
 call s:source_rc('filetype.vim')
+
+set runtimepath^=$HOME/.vim
 
 " ColorScheme {{{
 if has('vim_starting') && !empty(argv())
@@ -88,7 +91,6 @@ if (has('termguicolors'))
 endif
 
 call s:source_rc('basic.vim')
-call s:source_rc('keymap.vim')
 
 set signcolumn=yes
 
