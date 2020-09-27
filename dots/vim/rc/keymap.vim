@@ -355,10 +355,6 @@ inoremap <C-p> <C-e>
 " 100%
 " <w> is 'Operator/Word-grep'. {{{
 " moxmap<w,W> is sandwitch
-map w <Nop>
-map W <Nop>
-
-
 " Word-gerp
 " nmap<C-w> is denite
 " ic<C-w> is word-delete.

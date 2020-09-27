@@ -579,7 +579,8 @@ hook_add = '''
 let g:operator_sandwich_no_default_key_mappings = 1
 let g:textobj_sandwich_no_default_key_mappings = 1
 let g:sandwich_no_default_key_mappings = 1
-
+map w <Nop>
+map W <Nop>
 map  w  <Plug>(operator-sandwich-add)
 map  wD <Plug>(operator-sandwich-delete)<Plug>(textobj-sandwich-query-a)
 map  wd <Plug>(operator-sandwich-delete)<Plug>(textobj-sandwich-auto-a)
@@ -624,10 +625,9 @@ on_map = {v = '<Plug>', n = '<Plug>'}
 repo = 'kana/vim-operator-replace'
 depends = 'vim-operator-user'
 hook_add = '''
-omap _ <Plug>(operator-replace)
-xmap _ <Plug>(operator-replace)
+map R <Plug>(operator-replace)
 '''
-on_map = {o = '<Plug>', x = '<Plug>'}
+on_map = {n = '<Plug>', x = '<Plug>', o = '<Plug>'}
 
 # smart word {{{
 [[plugins]]

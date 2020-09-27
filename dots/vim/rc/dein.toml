@@ -155,7 +155,8 @@ repo = 'maximbaz/lightline-ale'
 repo = 'Yggdroot/indentLine'
 [[plugins]]
 repo = 'markonm/traces.vim'
-
+[[plugins]]
+repo = 'wakatime/vim-wakatime'
 # }}}
 
 # ALE {{{
