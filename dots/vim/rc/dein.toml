@@ -6,6 +6,13 @@ repo = 'Shougo/dein.vim'
 repo = 'prabirshrestha/vim-lsp'
 [[plugins]]
 repo = 'mattn/vim-lsp-settings'
+[[plugins]]
+repo = 'mattn/vim-lsp-icons'
+
+[[plugins]]
+repo = 'hrsh7th/vim-vsnip'
+[[plugins]]
+repo = 'hrsh7th/vim-vsnip-integ'
 # }}}
 
 
@@ -293,18 +300,15 @@ depends = 'vim-operator-user'
 hook_source = '''
 omap tz <Plug>(textobj-fold-a)
 xmap tz <Plug>(textobj-fold-a)
-omap iz <Plug>(textobj-fold-i)
-omap iz <Plug>(textobj-fold-i)
+omap sz <Plug>(textobj-fold-i)
+omap sz <Plug>(textobj-fold-i)
 '''
 
 [[plugins]]
 repo = 'machakann/vim-sandwich'
-depends = 'vim-operator-user'
+depends = ['vim-operator-user','vim-textobj-user']
 hook_source = '''
 let g:sandwich#recipes = deepcopy(g:sandwich#default_recipes)
-let g:sandwich_no_default_key_mappings = 1
-let g:operator_sandwich_no_default_key_mappings = 1
-let g:textobj_sandwich_no_default_key_mappings = 1
 let g:sandwich#recipes += [
     \    {'buns': ['（', '）']},
     \    {'buns': ['［', '］']},
@@ -316,7 +320,7 @@ let g:sandwich#recipes += [
     \    {'buns': ['〈', '〉']},
     \    {'buns': ['《', '》']},
     \    {'buns': ['〔', '〕']},
-    \    {'buns': ['【', '】']}   
+    \    {'buns': ['【', '】']}
     \  ]
 '''
 [[plugins]]

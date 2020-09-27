@@ -47,7 +47,7 @@ if has('gui_running')
     " Use yaskkserv
     let g:eskk#server = {
 				\	'host': 'localhost',
-         \	'port': 1178,
+        \	'port': 1178,
     \}
 
     let g:eskk#dictionary = {
@@ -79,9 +79,15 @@ if has('gui_running')
         \   'sorted': 1,
         \   'encoding': 'euc-jp',
         \}
-    " set shell=powershell.exe shellquote=\" shellpipe=\| shellredir=>
-    " set shellslash
-    " set shellcmdflag=\ -NoLogo\ -NoProfile\ -ExecutionPolicy\ RemoteSigned\ -Command
+    " Use google-ime-skk
+    let g:eskk#server = {
+    \	'host': 'localhost',
+    \	'port': 55100,
+    \	'type': 'notfound',
+    \}
+
+
+
   elseif g:os ==? "WSL"
     let g:python3_host_prog='/usr/bin/python3'
     let g:python_host_prog='/usr/bin/python3'

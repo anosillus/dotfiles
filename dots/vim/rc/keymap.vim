@@ -268,6 +268,10 @@ omap B {
 
 " Left hand {{{
 " < s/t > is 'Insert/Append'. {{{
+let g:operator_sandwich_no_default_key_mappings = 1
+let g:textobj_sandwich_no_default_key_mappings = 1
+let g:sandwich_no_default_key_mappings = 1
+
 nnoremap s i
 nnoremap S I
 nnoremap t a
