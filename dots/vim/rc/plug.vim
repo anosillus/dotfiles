@@ -38,11 +38,10 @@ let s:dein_ft_toml = '~/.vim/rc/deinft.toml'
 call dein#begin(s:path, [
       \ expand('<sfile>'), s:dein_toml, s:dein_lazy_toml, s:dein_ft_toml
       \ ])
-
+call dein#add('kana/vim-operator-user')
 call dein#load_toml(s:dein_toml, {'lazy': 0})
 call dein#load_toml(s:dein_lazy_toml, {'lazy' : 1})
 call dein#load_toml(s:dein_ft_toml)
-call dein#add('kana/vim-operator-user')
 call dein#end()
 call dein#save_state()
 

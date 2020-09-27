@@ -408,13 +408,40 @@ hook_add = '''
   vmap J <Plug>(jplus)
 '''
 
+# {{{ text object
+[[plugins]]
+repo = 'bps/vim-textobj-python'
+depends = 'vim-textobj-user'
+on_ft = 'python'
+hook_source = '''
+let g:textobj_python_no_default_key_mappings = 1
+xmap tf <Plug>(textobj-python-function-a)
+omap tf <Plug>(textobj-python-function-a)
+xmap sf <Plug>(textobj-python-function-i)
+omap sf <Plug>(textobj-python-function-i)
+'''
+[[plugins]]
+repo = 'kana/vim-textobj-function'
+epends = 'vim-textobj-user'
+on_ft = ['vim', 'c', 'java']
+hook_source = '''
+xmap tf <Plug>(textobj-function-i) 
+omap tf <Plug>(textobj-function-i) 
+xmap sf <Plug>(textobj-function-a)
+omap sf <Plug>(textobj-function-a) 
+xmap tF <Plug>(textobj-function-I) 
+omap tF <Plug>(textobj-function-I) 
+xmap sF <Plug>(textobj-function-A)
+omap sF <Plug>(textobj-function-A) 
+'''
+# }}}
+
 [[plugins]]
 repo = 'lambdalisue/suda.vim'
 on_event = 'BufRead'
 hook_add = '''
   let g:suda_smart_edit = 1
 '''
-
 
 # Filetype {{{
 # markdown {{{
@@ -524,35 +551,7 @@ set formatexpr=autofmt#japanese#formatexpr()
 # end filetype }}}
 # Operator {{{
 # {{{ sandwitch
-[[plugins]]
-repo = 'machakann/vim-sandwich'
-on_map = {n = '<Plug>', x = '<Plug>', o = '<Plug>'}
-hook_source = '''
-let g:sandwich#recipes = deepcopy(g:sandwich#default_recipes)
-let g:sandwich_no_default_key_mappings = 1
-let g:operator_sandwich_no_default_key_mappings = 1
-let g:textobj_sandwich_no_default_key_mappings = 1
-'''
-hook_add = '''
-map  w  <Plug>(operator-sandwich-add)
-map  wD <Plug>(operator-sandwich-delete)<Plug>(textobj-sandwich-query-a)
-map  wd <Plug>(operator-sandwich-delete)<Plug>(textobj-sandwich-auto-a)
-map  wR <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-query-a)
-map  wr <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-auto-a)
-map  wR <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-query-a)
-map  wr <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-auto-a)
-omap aw <Plug>(textobj-sandwich-auto-a)
-omap aW <Plug>(textobj-sandwich-query-a)
-omap w  <Plug>(textobj-sandwich-auto-i)
-omap W  <Plug>(textobj-sandwich-query-i)
-xmap aw <Plug>(textobj-sandwich-auto-a)
-xmap aW <Plug>(textobj-sandwich-query-a)
-xmap w  <Plug>(textobj-sandwich-auto-i)
-xmap W  <Plug>(textobj-sandwich-query-i)
-'''
 # }}}
-
-
 # smart word {{{
 [[plugins]]
 repo = 'kana/vim-smartword'

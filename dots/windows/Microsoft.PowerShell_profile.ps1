@@ -20,6 +20,7 @@ $env:Path += ";${Env:SystemDrive}\Strawberry\c\bin"
 $env:Path += ";${Env:SystemDrive}\Strawberry\perl\bin"
 $env:Path += ";${Env:SystemDrive}\Strawberry\perl\site\bin"
 $env:Path += ";${Env:SystemDrive}\tools\llvm-project\Release\bin"
+$env:Path += ";${Env:SystemDrive}\tools\neovim\bin"
 $env:Path += ";${Env:SystemDrive}\tools\msys64\usr\bin"
 $env:Path += ";${Env:SystemDrive}\tools\neovim\Neovim\bin"
 $env:Path += ";${Env:SystemDrive}\tools\ngrok-stable-windows-amd64"
@@ -27,6 +28,8 @@ $env:Path += ";${Env:SystemDrive}\tools\vcpkg"
 $env:Path += ";${Env:SystemDrive}\tools\vim82-kaoriya-win64"
 $env:Path += ";${Env:USERPROFILE}\.cargo\bin"
 $env:Path += ";${Env:USERPROFILE}\go\bin"
+# last, mingw is too strong.
+$env:Path += ";${Env:SystemDrive}\tools\msys64\mingw64\bin"
 
 # Install-Module Pscx -Scope CurrentUser  -Force -AllowClobber -AllowClobber
 
@@ -55,11 +58,14 @@ Set-Alias chrome ${ENV:ProgramFiles(x86)}\Google\Chrome\Application\chrome.exe
 Set-Alias open Explorer
 Set-Alias pdf ${Env:LOCALAPPDATA}\SumatraPDF\sumatrapdf.exe
 Set-Alias ssh $TOOL\msys64\usr\bin\ssh.exe
+Set-Alias n ${Env:SystemDrive}\tools\neovim\bin\nvim.exe
+Set-Alias nvim ${Env:SystemDrive}\tools\neovim\bin\nvim.exe
 Set-Alias v $TOOL\vim82-kaoriya-win64\gvim.exe
-Set-Alias gvim $TOOL\vim82-kaoriya-win64\gvim.exe
 Set-Alias vim $TOOL\vim82-kaoriya-win64\vim.exe
+Set-Alias gvim $TOOL\vim82-kaoriya-win64\gvim.exe
 Set-Alias vlc ${ENV:ProgramFiles(x86)}\VideoLAN\VLC\vlc.exe
 Set-Alias which Get-Command
+
 
 # Set-Alias code ${Env:LOCALAPPDATA}\Programs\Microsoft VS Code\bin\code.cmd" $*
 

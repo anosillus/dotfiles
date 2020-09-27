@@ -11,7 +11,7 @@ REM set GRAPHVIZ_DOT=c:/dev/graphviz/bin/dot.exe
 set LANG=ja_JP.UTF-8
 REM set GOROOT_BOOTSTRAP=C:\Go
 REM set CMAKE_GENERATOR=MSYS Makefiles
-REM set GIT_SSH=c:\windows\system32\openssh\ssh.exe
+set GIT_SSH=c:\windows\system32\openssh\ssh.exe
 
 cls
 set PATH=%SystemDrive%\Python38;%SystemDrive%\\Python38\Scripts;%LOCALAPPDATA%\Python\Python38\scripts;%ProgramFiles%\Git\cmd;%PATH%

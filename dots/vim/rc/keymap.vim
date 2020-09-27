@@ -89,9 +89,11 @@ noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-40)<CR>
 " Todo later
 
 " Right Hand {{{
+" h/n is 100 %.
 " < n/e > is 'UP/DOWN'. {{{
 noremap n gj
 noremap e gk
+" nmap N/E is edge motion.
 map  <leader>n }
 map  <leader>e {
 " nmap <silent><leader>N <Plug>(coc-git-nextchunk)
@@ -109,10 +111,6 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-inoremap <silent><expr> <TAB>
-  \ pumvisible() ? "\<C-n>" :
-  \ <SID>check_back_space() ? "\<TAB>" :
-  \ coc#refresh()
 nnoremap gn <C-w>j
 nnoremap ge <C-w>k
 nnoremap gN <C-w>J
@@ -125,6 +123,7 @@ cnoremap <C-e> <C-p>
 " inoremap <expr><S-TAB> pumvisible() ? "\<C-e>" : "\<C-h>"
 " }}}
 
+" h/i is 100 %.
 " < h/i > is 'Word Motion'. {{{
 noremap i w
 noremap h b
@@ -160,10 +159,10 @@ inoremap <C-i> <Right>
 " }}}
 "}}}
 
+" o is 50 % userd(i, v, g is empty.)
 " <o> is 'New Line'. {{{
 " map o is o
 nnoremap go :<C-u>e<Space>
-
 " imap <C-o> <Plug>(coc-snippets-expand)
 " vmap <C-o> <Plug>(coc-snippets-select)
 " imap <C-o> <Plug>(coc-snippets-expand-jump)
@@ -270,8 +269,14 @@ nnoremap s i
 nnoremap S I
 nnoremap t a
 nnoremap T A
-" s omap is for inner.
+" s,t omap is for inner/outer.
+" used by sandwitch
 onoremap s i
+onoremap t a
+xnoremap s i
+xnoremap t a
+
+" sentence is
 " Note: t omap is tag.
 xmap S  <Plug>(niceblock-I)
 xmap T  <Plug>(niceblock-A)
@@ -303,7 +308,8 @@ nnoremap <C-r> *:%s///g<Left><Left>
 nnoremap a v
 nnoremap A V
 nnoremap <C-a> <C-v>
-" omap a is a
+onoremap a t
+" omap a is tag
 " Head
 nnoremap ga gv
 vnoremap <C-a> 0
@@ -330,6 +336,32 @@ inoremap <C-p> <C-e>
 " 100%
 " <w> is 'Operator/Word-grep'. {{{
 " moxmap<w,W> is sandwitch
+map w <Nop>
+map W <Nop>
+
+map  w  <Plug>(operator-sandwich-add)
+map  wD <Plug>(operator-sandwich-delete)<Plug>(textobj-sandwich-query-a)
+map  wd <Plug>(operator-sandwich-delete)<Plug>(textobj-sandwich-auto-a)
+map  wR <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-query-a)
+map  wr <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-auto-a)
+map  wR <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-query-a)
+map  wr <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-auto-a)
+omap aw <Plug>(textobj-sandwich-auto-a)
+omap aW <Plug>(textobj-sandwich-query-a)
+omap w  <Plug>(textobj-sandwich-auto-i)
+omap W  <Plug>(textobj-sandwich-query-i)
+xmap aw <Plug>(textobj-sandwich-auto-a)
+xmap aW <Plug>(textobj-sandwich-query-a)
+xmap w  <Plug>(textobj-sandwich-auto-i)
+xmap W  <Plug>(textobj-sandwich-query-i)
+omap sw <Plug>(textobj-sandwich-auto-i)
+xmap sw <Plug>(textobj-sandwich-auto-i)
+omap tw <Plug>(textobj-sandwich-auto-a)
+xmap tW <Plug>(textobj-sandwich-query-a)
+omap sW <Plug>(textobj-sandwich-query-i)
+xmap sW <Plug>(textobj-sandwich-query-i)
+omap tW <Plug>(textobj-sandwich-query-a)
+xmap tW <Plug>(textobj-sandwich-query-a)
 
 " Word-gerp
 " nmap<C-w> is denite
