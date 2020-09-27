@@ -250,6 +250,9 @@ let g:ale_fixers = {
 \ }
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
+
+nmap <C-f> <Plug>(ale_next)
+nmap <C-p> <Plug>(ale_previous)
 '''
 # }}}
 

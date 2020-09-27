@@ -503,6 +503,10 @@ repo = 'vim-jp/vimdoc-ja'
 # let eblook_stemming = 1
 # let eblook_decorate_syntax = 1
 # '''
+# hook_add = '''
+# map <Leader>B <Plug>EblookInput
+# map <C-b> <Plug>EblookSearch
+# '''
 [[plugins]]
 repo = 'vim-jp/autofmt'
 hook_source = '''
@@ -519,28 +523,47 @@ set formatexpr=autofmt#japanese#formatexpr()
 # }}}
 # end filetype }}}
 # Operator {{{
-# [[plugins]]
-# repo = 'bkad/CamelCaseMotion'
-# on_map = {n = '<Plug>', x = '<Plug>', o = '<Plug>'}
-# hook_add = '''
-# map i <Plug>CamelCaseMotion_w
-# map h <Plug>CamelCaseMotion_b
-# map I <Plug>CamelCaseMotion_w
-# map H <Plug>CamelCaseMotion_b
-# '''
-
-# smart word {{{
-# [[plugins]]
-# repo = 'kana/vim-smartword'
-# on_map = {n = '<Plug>', x = '<Plug>', o = '<Plug>'}
-# hook_add = '''
-# map <C-i> <Plug>(smartword-w)
-# map <C-h> <Plug>(smartword-b)
-# map <M-i> <Plug>(smartword-e)
-# map <M-h> <Plug>(smartword-ge)
-# '''
+# {{{ sandwitch
+[[plugins]]
+repo = 'machakann/vim-sandwich'
+on_map = {n = '<Plug>', x = '<Plug>', o = '<Plug>'}
+hook_source = '''
+let g:sandwich#recipes = deepcopy(g:sandwich#default_recipes)
+let g:sandwich_no_default_key_mappings = 1
+let g:operator_sandwich_no_default_key_mappings = 1
+let g:textobj_sandwich_no_default_key_mappings = 1
+'''
+hook_add = '''
+map  w  <Plug>(operator-sandwich-add)
+map  wD <Plug>(operator-sandwich-delete)<Plug>(textobj-sandwich-query-a)
+map  wd <Plug>(operator-sandwich-delete)<Plug>(textobj-sandwich-auto-a)
+map  wR <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-query-a)
+map  wr <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-auto-a)
+map  wR <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-query-a)
+map  wr <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-auto-a)
+omap aw <Plug>(textobj-sandwich-auto-a)
+omap aW <Plug>(textobj-sandwich-query-a)
+omap w  <Plug>(textobj-sandwich-auto-i)
+omap W  <Plug>(textobj-sandwich-query-i)
+xmap aw <Plug>(textobj-sandwich-auto-a)
+xmap aW <Plug>(textobj-sandwich-query-a)
+xmap w  <Plug>(textobj-sandwich-auto-i)
+xmap W  <Plug>(textobj-sandwich-query-i)
+'''
 # }}}
 
+
+# smart word {{{
+[[plugins]]
+repo = 'kana/vim-smartword'
+on_map = {n = '<Plug>', x = '<Plug>', o = '<Plug>'}
+hook_add = '''
+map <C-i> <Plug>(smartword-w)
+map <C-h> <Plug>(smartword-b)
+map <M-i> <Plug>(smartword-e)
+map <M-h> <Plug>(smartword-ge)
+'''
+# }}}
 # align {{{
 [[plugins]]
 repo = 'junegunn/vim-easy-align'

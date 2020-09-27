@@ -126,7 +126,10 @@ cnoremap <C-e> <C-p>
 " }}}
 
 " < h/i > is 'Word Motion'. {{{
-
+noremap i w
+noremap h b
+noremap I e
+noremap H ge
 noremap <Leader>h ^
 noremap <Leader>i $
 noremap <Leader>H 0
@@ -166,14 +169,6 @@ nnoremap go :<C-u>e<Space>
 " imap <C-o> <Plug>(coc-snippets-expand-jump)
 nnoremap <Leader>o :<C-u>for i in range(v:count1) \| call append(line('.'), '') \| endfor<CR>
 nnoremap <Leader>O :<C-u>for i in range(v:count1) \| call append(line('.')-1, '') \| endfor<CR>
-
-inoremap <silent><expr> <C-o>
-      \ pumvisible() ? coc#_select_confirm() :
-      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-let g:coc_snippet_next = '<c-i>'
-let g:coc_snippet_prev = '<c-h>'
 " }}}
 " Todo later
 
@@ -261,18 +256,11 @@ nmap b <Plug>(ref-keyword)
 let g:jedi#documentation_command = 'b'
 xmap B :<C-u>'<,'>Gtrans<CR>
 nnoremap <leader>b :<C-u>Denite -split=vertical help -start-filter<CR>
-map <Leader>B <Plug>EblookInput
-map <C-b> <Plug>EblookSearch
 omap b (
 omap B {
-
 " }}}
 " }}}
 
-noremap i w
-noremap h b
-noremap I e
-noremap H ge
 
 
 " Left hand {{{
@@ -333,8 +321,7 @@ inoremap <C-d> <C-u>
 " < f/p > is 'Forward/Previous'. {{{
 " map <leader>f <Plug>(coc-git-nextchunk)
 " map <leader>p <Plug>(coc-git-prevchunk)
-nmap <C-f> <Plug>(ale_next)
-nmap <C-p> <Plug>(ale_previous)
+" n <C-f><C-p> is ale
 
 inoremap <C-f> <C-y>
 inoremap <C-p> <C-e>
@@ -343,43 +330,6 @@ inoremap <C-p> <C-e>
 " 100%
 " <w> is 'Operator/Word-grep'. {{{
 " moxmap<w,W> is sandwitch
-noremap w <Nop>
-noremap W <Nop>
-let g:sandwich#recipes = deepcopy(g:sandwich#default_recipes)
-let g:sandwich_no_default_key_mappings = 1
-let g:operator_sandwich_no_default_key_mappings = 1
-let g:textobj_sandwich_no_default_key_mappings = 1
-
-" Operator
-map  w  <Plug>(operator-sandwich-add)
-map  wD <Plug>(operator-sandwich-delete)<Plug>(textobj-sandwich-query-a)
-map  wd <Plug>(operator-sandwich-delete)<Plug>(textobj-sandwich-auto-a)
-map  wR <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-query-a)
-map  wr <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-auto-a)
-map  wR <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-query-a)
-map  wr <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-auto-a)
-omap aw <Plug>(textobj-sandwich-auto-a)
-omap aW <Plug>(textobj-sandwich-query-a)
-omap w  <Plug>(textobj-sandwich-auto-i)
-omap W  <Plug>(textobj-sandwich-query-i)
-xmap aw <Plug>(textobj-sandwich-auto-a)
-xmap aW <Plug>(textobj-sandwich-query-a)
-xmap w  <Plug>(textobj-sandwich-auto-i)
-xmap W  <Plug>(textobj-sandwich-query-i)
-
-" map i <Nop>
-" map h <Nop>
-
-" map <silent> i <Plug>CamelCaseMotion_w
-" map h <Plug>CamelCaseMotion_b
-" map I <Plug>CamelCaseMotion_e
-" map H <Plug>CamelCaseMotion_ge
-" sunmap i
-" sunmap h
-" sunmap I
-" sunmap H
-
-
 
 " Word-gerp
 " nmap<C-w> is denite

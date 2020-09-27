@@ -1,4 +1,4 @@
-let $CACHE = expand('~/.cache')
+let $CACHE = expand('$HOME/.cache')
 
 if !isdirectory(expand($CACHE))
   call mkdir(expand($CACHE), 'p')
@@ -39,13 +39,10 @@ call dein#begin(s:path, [
       \ expand('<sfile>'), s:dein_toml, s:dein_lazy_toml, s:dein_ft_toml
       \ ])
 
-
-
 call dein#load_toml(s:dein_toml, {'lazy': 0})
 call dein#load_toml(s:dein_lazy_toml, {'lazy' : 1})
 call dein#load_toml(s:dein_ft_toml)
 call dein#add('kana/vim-operator-user')
-call dein#add('machakann/vim-sandwich')
 call dein#end()
 call dein#save_state()
 
