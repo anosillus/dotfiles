@@ -3,3 +3,4 @@ npm install -g write-good
 npm install -g markdownlint
 npm install -g alex
 npm install -g prettier --save-dev --save-exact
+npm install -g zenn-cli
