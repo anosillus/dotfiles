@@ -10,7 +10,7 @@ cnoremap <silent> <C-c> <ESC>
 
 "this isn't work"
 inoremap <C-c> <ESC>
-nmap <Space><Space> :<C-u>w<CR>
+nmap <Leader><Leader> :<C-u>w<CR>
 " }}}
 
 " <Enter> is 'Page Scroll'. {{{
@@ -319,7 +319,7 @@ noremap gt <C-]>
 " <r> is 'Replace'. {{{
 " map r is r
 inoremap <C-r> <ESC>R
-nnoremap <Leader>r :<C-u>QuickRun<CR>
+" nnoremap <Leader>r :<C-u>QuickRun<CR>
 nnoremap <C-r> *:%s///g<Left><Left>
 " }}}
 " <a> is 'Visual Mode/Head/Macro'. {{{
@@ -354,8 +354,13 @@ inoremap <C-p> <C-e>
 " 80 %
 " 100%
 " <w> is 'Operator/Word-grep'. {{{
-" moxmap<w,W> is sandwitch
-" Word-gerp
+" moxmap<w,W> is sandwitch and Word-gerp
+nmap w <Nop>
+xmap w <Nop>
+omap w <Nop>
+nmap W <Nop>
+xmap W <Nop>
+omap W <Nop>
 " nmap<C-w> is denite
 " ic<C-w> is word-delete.
 " nxo<leader>w is earymotion
@@ -366,11 +371,11 @@ nnoremap q :<C-u>bprevious<CR>
 nnoremap Q :<C-u>bdelete<CR>
 nnoremap <Leader>q :<C-u>q<CR>
 nnoremap <Leader>Q :<C-u>q!<CR>
-nnoremap <C-q> :<C-u>Denite change -start-filter<CR>
+" <C-q> is history
 " qq is too slow.
 " <Todo> fix to '={}' from ==.
-imap <C-q> <C-f>
-" imap <C-q> <ESC>==i
+" imap <C-q> <C-f>
+imap <C-q> <ESC>==i
 "}}}
 " <g> is 'Git/Definition'. {{{
 nnoremap gp :Denite gitlog -start-filter<CR>
@@ -398,12 +403,7 @@ inoremap <C-x>   <Delete>
 inoremap <C-v>   <C-r><Right>
 inoremap <S-C-v> <ESC>"+pi
 " inoremap <C-c> <ESC>
-nnoremap <silent> <C-v>
-\ :<C-u>Denite -buffer-name=register
-\ register neoyank<CR>
-xnoremap <silent> <C-v>
-\ :<C-u>Denite -default-action=replace -buffer-name=register
-\ register neoyank<CR>
+"nx <C-v> is neoyank
 cnoremap <C-v> <C-r>"
 noremap <silent> <Leader>v "+p
 noremap <silent> <Leader>V <Right>"+p
@@ -427,10 +427,10 @@ nnoremap [CMUS]b :CmusNext<cr>
 " <z> is 'Undo/Redo'. {{{
 nnoremap z u
 nnoremap Z <C-r>
-inoremap <C-z> <ESC>:<C-U>undo<CR>i
-nnoremap gz U
-nnoremap gz :<C-U>undo<CR>
-nnoremap <leader>z :<C-u>GundoToggle<CR>
+" inoremap <C-z> <ESC>:<C-U>undo<CR>i
+" nnoremap gz U
+" nnoremap gz :<C-U>undo<CR>
+" nnoremap <leader>z :<C-u>GundoToggle<CR>
 " increment
 noremap <C-z> <C-a>
 " <C-z> is for Suspend.

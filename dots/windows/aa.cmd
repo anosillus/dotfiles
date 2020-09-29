@@ -1,0 +1,10 @@
+ls="ls --color=auto --show-control-chars -N" $*
+code="C:\Users\anosillus\AppData\Local\Programs\Microsoft VS Code\bin\code.cmd" $*
+ag=ag --nocolor $*
+find="c:\tools\msys64\usr\bin\find.exe" $*
+ssh="c:\tools\msys64\usr\bin\ssh.exe" $*
+grep="c:\tools\msys64\mingw64\bin\gerp.exe" $*
+python3="c:\Python38\python"
+python=c:\Python38\python
+curl=c:\tools\msys64\mingw64\bin\curl.exe
+cmigemo=c:\tools\cmigemo-default-win64\cmigemo.exe

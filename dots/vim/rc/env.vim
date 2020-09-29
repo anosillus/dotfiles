@@ -36,9 +36,8 @@ if has('gui_running')
         \   'sorted': 1,
         \   'encoding': 'euc-jp',
         \}
-
-
   elseif g:os ==? 'Linux'
+    runtime! debian.vim
     let g:python3_host_prog='/usr/bin/python3'
     let g:python_host_prog='/usr/bin/python3'
     let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
@@ -87,14 +86,12 @@ if has('gui_running')
     \	'port': 55100,
     \	'type': 'notfound',
     \}
-
-
-
+    set shellslash
   elseif g:os ==? "WSL"
     let g:python3_host_prog='/usr/bin/python3'
     let g:python_host_prog='/usr/bin/python3'
     let g:pydocstring_doq_path = $HOME.'/.local/bin/doq'
-    let g:eskk#server = {'host': 'localhost','port': 1178
+    let g:eskk#server = {'host': 'localhost','port': 1178}
     let g:eskk#dictionary = {
         \   'path': expand('/mnt/c/Users/anosillus/.config/skk/skk-jisyo'),
         \   'sorted': 0,

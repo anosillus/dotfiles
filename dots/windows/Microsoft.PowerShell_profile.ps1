@@ -1,39 +1,97 @@
-#vim set filetype=ps1
-
-# Path
-# llvm (from source) is better than msvs.
-# VScode 2020 doesn't work by  Import-VisualStudioVars.
-# Import-VisualStudioVars -VisualStudioVersion 2020 -Architecture amd64
+# Path {{{
 $env:Path += ";${Env:APPDATA}\Python\Python38\Scripts"
-$env:Path += ";${Env:APPDATA}\Roaming\npm"
-$env:Path += ";${Env:LOCALAPPDATA}\SumatraPDF"
-$env:Path += ";${Env:ProgramFiles(x86)}\Common Files\Oracle\Java\javapath"
-$env:Path += ";${Env:ProgramFiles(x86)}\Google\Cloud SDK\google-cloud-sdk/bin"
-$env:Path += ";${Env:ProgramFiles}\7-Zip"
+$env:Path += ";${Env:APPDATA}\npm"
 $env:Path += ";${Env:ProgramFiles}\Git\cmd"
 $env:Path += ";${Env:ProgramFiles}\nodejs"
 $env:Path += ";${Env:SystemDrive}\Go\bin"
-$env:Path += ";${Env:SystemDrive}\Python38"
 $env:Path += ";${Env:SystemDrive}\Python38\Scripts"
+$env:Path += ";${Env:LOCALAPPDATA}\Python\Python38\scripts"
 $env:Path += ";${Env:SystemDrive}\Ruby27-x64\bin"
-$env:Path += ";${Env:SystemDrive}\Strawberry\c\bin"
-$env:Path += ";${Env:SystemDrive}\Strawberry\perl\bin"
-$env:Path += ";${Env:SystemDrive}\Strawberry\perl\site\bin"
 $env:Path += ";${Env:SystemDrive}\tools\llvm-project\Release\bin"
-$env:Path += ";${Env:SystemDrive}\tools\neovim\bin"
-$env:Path += ";${Env:SystemDrive}\tools\msys64\usr\bin"
-$env:Path += ";${Env:SystemDrive}\tools\neovim\Neovim\bin"
-$env:Path += ";${Env:SystemDrive}\tools\ngrok-stable-windows-amd64"
-$env:Path += ";${Env:SystemDrive}\tools\vcpkg"
-$env:Path += ";${Env:SystemDrive}\tools\vim82-kaoriya-win64"
 $env:Path += ";${Env:USERPROFILE}\.cargo\bin"
 $env:Path += ";${Env:USERPROFILE}\go\bin"
+$env:Path += ";${Env:ProgramData}\chocolatey\bin"
 # last, mingw is too strong.
 $env:Path += ";${Env:SystemDrive}\tools\msys64\mingw64\bin"
+# $env:Path += ";${Env:SystemDrive}\tools\msys64\usr\bin"
+# }}}}
 
+# Issue with VisualStudio {{{
+# VScode 2020 doesn't work by  Import-VisualStudioVars.
+# Import-VisualStudioVars -VisualStudioVersion 2020 -Architecture amd64
 # Install-Module Pscx -Scope CurrentUser  -Force -AllowClobber -AllowClobber
+# }}}
 
-Function touch($file) {
+# MyEnv {{{
+$DEV = "$ENV:USERPROFILE\dev"
+$WORK = "$ENV:USERPROFILE\work"
+$TOOL = "$ENV:HOMEDRIVE\tools"
+$DOC = $(resolve-path "$ENV:USERPROFILE\Documents")
+$DESKTOP = $(resolve-path "$ENV:USERPROFILE\Desktop")
+# }}}
+
+# Program Alias {{{
+Set-Alias 7z ${Env:ProgramFiles}\7-Zip\7z.exe
+Set-Alias aws ${Env:ProgramFiles}\Amazon\AWSCLIV2\aws.exe
+Set-Alias capture ${Env:ProgramFiles}\ShareX.exe
+Set-Alias chrome ${ENV:ProgramFiles(x86)}\Google\Chrome\Application\chrome.exe
+Set-Alias cmigemo= ${Env:SystemDrive}\tools\cmigemo-default-win64\cmigemo.exe
+Set-Alias docker ${Env:ProgramData}\DockerDesktop\version-bin\docker.exe
+Set-Alias docker-compose ${Env:ProgramFiles}\Docker\Docker\resources\bin\docker-compose.exe
+Set-Alias gcloud ${Env:ProgramFiles(x86)}\Google\'Cloud SDK'\google-cloud-sdk\bin\gcloud-ps.ps1
+Set-Alias gvim ${Env:SystemDrive}\tools\vim82-kaoriya-win64\gvim.exe
+Set-Alias java ${Env:ProgramFiles(x86)}\'Common Files'\Oracle\Java\javapath\java.exe
+Set-Alias n ${Env:SystemDrive}\tools\neovim\bin\nvim.exe
+Set-Alias neovim ${Env:SystemDrive}\tools\neovim\bin\nvim.exe
+Set-Alias ngrok ${Env:SystemDrive}\tools\ngrok-stable-windows-amd64\ngrok.exe
+Set-Alias nvim ${Env:SystemDrive}\tools\neovim\bin\nvim.exe
+Set-Alias open Explorer
+Set-Alias pdf ${Env:LOCALAPPDATA}\SumatraPDF\sumatrapdf.exe
+Set-Alias perl ${Env:SystemDrive}\Strawberry\perl\bin\perl.exe
+Set-Alias pic ${ENV:ProgramFiles(x86)}\QuickPictureViewer\quick-picture-viewer.exe
+Set-Alias picture ${ENV:ProgramFiles(x86)}\QuickPictureViewer\quick-picture-viewer.exe
+Set-Alias python ${Env:SystemDrive}\Python38\python
+Set-Alias python3 ${Env:SystemDrive}\Python38\python
+Set-Alias quick-picture-viwer ${ENV:ProgramFiles(x86)}\QuickPictureViewer\quick-picture-viewer.exe
+Set-Alias rapidee ${Env:ProgramFiles}\'Rapid Environment Editor'\RapidEE.exe
+Set-Alias rg ${Env:SystemDrive}\tools\ripgrep\rg.exe
+Set-Alias sceen-shot ${Env:ProgramFiles}\ShareX.exe
+Set-Alias sharex ${Env:ProgramFiles}\ShareX.exe
+Set-Alias ssh $TOOL\msys64\usr\bin\ssh.exe
+Set-Alias sumatrapdf ${Env:LOCALAPPDATA}\SumatraPDF\sumatrapdf.exe
+Set-Alias v ${Env:SystemDrive}\tools\vim82-kaoriya-win64\gvim.exe
+Set-Alias vagrant ${Env:SystemDrive}\HashiCorp\Vagrant\bin\vagrant.exe
+Set-Alias vbox ${Env:ProgramFiles}\Oracle\VirtualBox\virtualbox.exe
+Set-Alias vcpkg ${Env:SystemDrive}\tools\vcpkg\vcpkg.exe
+Set-Alias vim ${Env:SystemDrive}\tools\vim82-kaoriya-win64\vim.exe
+Set-Alias virtualbox ${Env:ProgramFiles}\Oracle\VirtualBox\virtualbox.exe
+Set-Alias vlc ${ENV:ProgramFiles(x86)}\VideoLAN\VLC\vlc.exe
+
+# Set-Alias curl ${Env:SystemDrive}\tools\msys64\mingw64\bin\curl.exe
+# Set-Alias captura ${ENV:ProgramFiles(x86)}\Captura\captura.exe
+# Set-Alias code ${Env:LOCALAPPDATA}\Programs\'Microsoft VS Code'\bin\code.cmd
+# }}}
+
+# short-cut alias {{{
+Set-Alias which Get-Command
+Set-Alias ll Get-ChildItem
+Set-Alias la Get-ChildItem
+
+# }}}
+
+# User Command {{{
+function mcd { mkdir @args; cd @args }
+function rmd { Remove-Item -recurse -force @args }
+function path { ($env:Path).Replace(';',"`n") }
+
+function DEV() {cd $DEV }
+function DOC() {cd $DOC }
+function DRIVE() {cd $HOMEDRIVE }
+function DESK() {cd $DESKTOP }
+function PATH() {$env:path.split(";")}
+
+
+function touch($file) {
   If (Test-Path $file) {
     (Get-Item $file).LastWriteTime = Get-Date
   } Else {
@@ -45,77 +103,20 @@ Function uptime() {
   Select-Object Days, Hours, Seconds, Milliseconds| Format-Table -AutoSize
 }
 
-$DEV = "$ENV:USERPROFILE\dev"
-$WORK = "$ENV:USERPROFILE\work"
-$TOOL = "$ENV:HOMEDRIVE\tools"
-$DOC = $(resolve-path "$ENV:USERPROFILE\Documents")
-$DESKTOP = $(resolve-path "$ENV:USERPROFILE\Desktop")
-
-# My enemy is windows-store-python recommender. This alias over-ride anaconda-python.
-# Set-Alias python ${ENV:SystemDrive}\Python38\python.exe
-
-Set-Alias chrome ${ENV:ProgramFiles(x86)}\Google\Chrome\Application\chrome.exe
-Set-Alias open Explorer
-Set-Alias pdf ${Env:LOCALAPPDATA}\SumatraPDF\sumatrapdf.exe
-Set-Alias ssh $TOOL\msys64\usr\bin\ssh.exe
-Set-Alias n ${Env:SystemDrive}\tools\neovim\bin\nvim.exe
-Set-Alias nvim ${Env:SystemDrive}\tools\neovim\bin\nvim.exe
-Set-Alias v $TOOL\vim82-kaoriya-win64\gvim.exe
-Set-Alias vim $TOOL\vim82-kaoriya-win64\vim.exe
-Set-Alias gvim $TOOL\vim82-kaoriya-win64\gvim.exe
-Set-Alias vlc ${ENV:ProgramFiles(x86)}\VideoLAN\VLC\vlc.exe
-Set-Alias which Get-Command
-
-
-# Set-Alias code ${Env:LOCALAPPDATA}\Programs\Microsoft VS Code\bin\code.cmd" $*
-
-# create a directory then change to it
-# PS> mcd newFolder
-function mcd { mkdir @args; cd @args }
-# remove a directory
-# PS> rdf this_folder_and_its_spawn
-function rmd { Remove-Item -recurse -force @args }
-
-function DEV() {cd $DEV }
-function DOC() {cd $DOC }
-function DRIVE() {cd $HOMEDRIVE }
-function DESK() {cd $DESKTOP }
-
-# calculate the size of the directory and its contents
 function Get-DirectorySize() {
     param ([string]$root = $(resolve-path .))
     gci -re $root |
       ?{ -not $_.PSIsContainer } |
       measure-object -sum -property Length
   }
-
-# Sanity
-Set-Alias ll Get-ChildItem
-#Set-Alias pwd Get-Location
-
-function Edit-Vimrc {. $TOOL\vim82-kaoriya-win64\gvim.exe ${Env:USERPROFILE}\dotfiles\dots\vim}
+Set-Alias size Get-DirectorySize
+function Edit-Vimrc {gvim ${Env:USERPROFILE}\dotfiles\dots\vim}
 Set-Alias vv Edit-Vimrc
-
-function Edit-Powershell {. $TOOL\vim82-kaoriya-win64\gvim.exe ${Env:USERPROFILE}\dotfiles\dots\windows\Microsoft.PowerShell_profile.ps1 }
+function Edit-Powershell {gvim ${Env:USERPROFILE}\dotfiles\dots\windows\Microsoft.PowerShell_profile.ps1 }
 Set-Alias vp Edit-Powershell
-
-# Git Aliases
-function _git_status { git status }
-Set-Alias gst _git_status
-
 # Edit Profile
-function Edit-Profile { subl $Profile }
+function Edit-Profile { gvim $Profile }
 Set-Alias ep Edit-Profile
-
-# parse the PATH environment variable; make it readable
-# PS> path
-function path { ($env:Path).Replace(';',"`n") }
-
-# wrap MKLINK command
-# PS> mklink /h alias path\to\file
-# PS> mklink /j alias path\to\folder
-# function mklink { cmd /c mklink $args }
-
 Function New-SymLink ($link, $target)
 {
     if (test-path -pathtype container $target)
@@ -145,9 +146,6 @@ Function Remove-SymLink ($link)
 }
 Set-Alias unlink Remove-SymLink
 
-# enable Write-Debug messages
-# toggle state by repeated issuing command
-# PS> debug
 function Set-DebugMode()
 {
     switch ($DebugPreference) {
@@ -175,10 +173,12 @@ function Reload-Profile {
       Write-Verbose "Running $_"
       . $_
     }
-  }     
+  }
 }
-
 Set-Alias reload Reload-Profile
+# }}}
+
+# Import-Module {{{
 Set-PSReadlineOption -EditMode Emacs
 import-module vssetup
 # Install-Module vssetup -Scope CurrentUser  -Force -AllowClobber
@@ -187,3 +187,6 @@ Import-Module 'C:\tools\vcpkg\scripts\posh-vcpkg'
 # vcpkg   install boost:x86-windows pthreads:x86-windows
 Import-Module oh-my-posh
 Set-Theme Paradox
+# }}}
+
+# vim: ts=2 et sw=2 fdm=marker ft=ps1

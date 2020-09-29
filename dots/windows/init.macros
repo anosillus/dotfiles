@@ -1,22 +1,13 @@
-ls=ls --color=auto --show-control-chars -N $*
-licecap="C:\Program Files (x86)\LICEcap\licecap.exe" $*
-vlc="C:\Program Files\VideoLAN\vlc\vlc.exe" $*
-REM code="C:\Users\anosillus\AppData\Local\Programs\Microsoft VS Code\bin\code.cmd" $*
-REM ag=ag --nocolor $*
+rg=c:\tools\ripgrep\rg.exe
 find=c:\tools\msys64\usr\bin\find.exe $*
+code="C:\Users\anosillus\AppData\Local\Programs\Microsoft VS Code\bin\code.cmd" $*
 ssh=c:\tools\msys64\usr\bin\ssh.exe $*
-v=gvim $*
-mv=mv -i $*
-cp=cp -i $*
-rm=rm -i $*
-grep=grep --color=auto $*
-python3="c:\Python38\python"
-python="c:\Python38\python"
-REM vcvars64="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat"
-REM choco=C:\ProgramData\chocolatey\bin\choco.exe $*
-REM vagrant=c:\dev\vagrant\bin\vagrant.exe $*
-docker="C:\Program Files\Docker\Docker\resources\bin\docker.exe" $*
-docker-compose="C:\Program Files\Docker\Docker\resources\bin\docker-compose.exe" $*
-curl="C:\tools\msys64\mingw64\bin\curl.exe"
+grep=c:\tools\msys64\mingw64\bin\gerp.exe $*
+python3=c:\Python38\python
+python=c:\Python38\python
+curl=c:\tools\msys64\mingw64\bin\curl.exe
+cmigemo=c:\tools\cmigemo-default-win64\cmigemo.exe
+
+
 
 

@@ -62,13 +62,12 @@ set history=100
 set undolevels=100
 " }}}
 
-runtime! debian.vim
 
 " call s:source_rc('gui.vim')
 " call s:source_rc('private.vim')
 call s:source_rc('env.vim')
-call s:source_rc('plug.vim')
 call s:source_rc('keymap.vim')
+call s:source_rc('plug.vim')
 call s:source_rc('filetype.vim')
 
 set runtimepath^=$HOME/.vim
@@ -85,6 +84,8 @@ if !exists('g:colors_name')
   colorscheme morning
 endif
 " }}}
+
+filetype indent plugin on
 
 if (has('termguicolors'))
  set termguicolors

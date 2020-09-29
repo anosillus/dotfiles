@@ -8,12 +8,17 @@ setlocal matchtime=1
 setlocal list
 setlocal listchars=tab:>-,trail:-,nbsp:%,extends:>,precedes:<
 set formatoptions+=mM
-set foldmethod=marker
+" set foldmethod=marker
+set foldmethod=expr
+  \ foldexpr=lsp#ui#vim#folding#foldexpr()
+  \ foldtext=lsp#ui#vim#folding#foldtext()
 " ---------- Command/Status Line ----------
 setlocal ruler
 setlocal laststatus=2
 set cmdheight=2
 setlocal showcmd
+set modeline
+set modelines=5
 " ---------- Search ----------
 setlocal hlsearch
 setlocal incsearch
