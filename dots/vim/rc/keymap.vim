@@ -158,11 +158,9 @@ inoremap <C-i> <Right>
 " <o> is 'New Line'. {{{
 " map o is o
 nnoremap go :<C-u>e<Space>
-" imap <C-o> <Plug>(coc-snippets-expand)
-" vmap <C-o> <Plug>(coc-snippets-select)
-" imap <C-o> <Plug>(coc-snippets-expand-jump)
 nnoremap <Leader>o :<C-u>for i in range(v:count1) \| call append(line('.'), '') \| endfor<CR>
 nnoremap <Leader>O :<C-u>for i in range(v:count1) \| call append(line('.')-1, '') \| endfor<CR>
+" iv<C-o> is coc snippets
 " }}}
 " Todo later
 
@@ -211,7 +209,6 @@ noremap mO zX
 " Middle Scsreen.
 nnoremap gm M
 nnoremap <C-m> zz
-nmap md <Plug>(EasyAlign)
 " leader m is denite
 " }}}
 
@@ -256,6 +253,7 @@ nmap b <Plug>(ref-keyword)
 let g:jedi#documentation_command = 'b'
 " xmap B :<C-u>'<,'>Gtrans<CR>
 nnoremap <leader>b :<C-u>Denite -split=vertical help -start-filter<CR>
+"nmap B is coc document.
 omap b (
 omap B {
 " }}}
@@ -318,10 +316,13 @@ noremap gt <C-]>
 
 " <r> is 'Replace'. {{{
 " map r is r
-inoremap <C-r> <ESC>R
-" nnoremap <Leader>r :<C-u>QuickRun<CR>
+" map R is operator
 nnoremap <C-r> *:%s///g<Left><Left>
+inoremap <C-r> <ESC>R
+" Leader r is symbol rename.
+" nnoremap <Leader>r :<C-u>QuickRun<CR>
 " }}}
+
 " <a> is 'Visual Mode/Head/Macro'. {{{
 " Visual Mode
 nnoremap a v
@@ -334,8 +335,9 @@ nnoremap ga gv
 vnoremap <C-a> 0
 inoremap <C-a> <Esc>0i
 " Macro
-noremap <leader>a q
-noremap <M-a> @ "This defined at Meta.
+"
+" noremap <leader>a q  #quickrun
+" noremap <M-a> @ "This defined at Meta.
 " }}}
 
 " <d> is 'Delete'. {{{
@@ -367,8 +369,11 @@ omap W <Nop>
 " }}}
 
 " <q> is 'Quit'. {{{
-nnoremap q :<C-u>bprevious<CR>
-nnoremap Q :<C-u>bdelete<CR>
+nmap q <plug>(coc-codeaction)
+xmap q <Plug>(coc-codeaction-selected)
+
+nnoremap <C-q> :<C-u>q!<CR>
+" nnoremap Q history
 nnoremap <Leader>q :<C-u>q<CR>
 nnoremap <Leader>Q :<C-u>q!<CR>
 " <C-q> is history
@@ -534,3 +539,5 @@ tmap ® <bar>
 tnoremap <Esc> <C-\><C-n>
 tnoremap <C-g> <C-\><C-n>:q!<CR>,
 " }}}
+
+" vim: ts=2 et sw=2 fdm=marker

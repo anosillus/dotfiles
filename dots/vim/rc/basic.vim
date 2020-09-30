@@ -5,6 +5,7 @@ setlocal wrap
 setlocal showmatch
 setlocal matchpairs+=<:>,「:」,（:）
 setlocal matchtime=1
+set updatetime=300
 setlocal list
 setlocal listchars=tab:>-,trail:-,nbsp:%,extends:>,precedes:<
 set formatoptions+=mM
@@ -15,6 +16,11 @@ set foldmethod=expr
 " ---------- Command/Status Line ----------
 setlocal ruler
 setlocal laststatus=2
+if has("patch-8.1.1564")
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
 set cmdheight=2
 setlocal showcmd
 set modeline
@@ -60,6 +66,7 @@ set virtualedit& virtualedit+=block
 setlocal fileformats=unix,dos,mac
 setlocal fileencodings=utf-8,iso-2022-jp,cp932,euc-jp
 language message en_US.utf8
+set shortmess+=c
 " ---------- Bell Off ----------
 setlocal visualbell
 setlocal noerrorbells

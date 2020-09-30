@@ -140,9 +140,9 @@ endif
 if !isdirectory(expand('$CACHE/vim/undo'))
     call mkdir(expand('$CACHE/vim/undo'), 'p')
 endif
-if !isdirectory(expand('$CACHE/vim/backup'))
-    call mkdir(expand('$CACHE/vim/backup'), 'p')
-endif
+" if !isdirectory(expand('$CACHE/vim/backup'))
+    " call mkdir(expand('$CACHE/vim/backup'), 'p')
+" endif
 
 set helplang=en,ja
 set directory=+~/.cache/vim/
@@ -153,8 +153,10 @@ if !has('nvim')
 else
   set viminfo+=n~/.cache/vim/nviminfo
 endif
-set backup
-set writebackup
+set nobackup
+set nowritebackup
+" set backup
+" set writebackup
 set noswapfile
 set undofile
 set history=100

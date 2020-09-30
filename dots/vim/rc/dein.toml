@@ -3,20 +3,15 @@ repo = 'Shougo/dein.vim'
 
 # complete {{{
 [[plugins]]
-repo = 'prabirshrestha/vim-lsp'
-hook_add = '''
-let g:lsp_diagnostics_enabled = 0
-let g:lsp_highlight_references_enabled = 1
-highlight lspReference ctermfg=red guifg=red ctermbg=green guibg=green
-'''
+repo = 'neoclide/coc-neco'
 [[plugins]]
-repo = 'mattn/vim-lsp-settings'
+repo = 'neoclide/coc-sources'
 [[plugins]]
-repo = 'mattn/vim-lsp-icons'
-[[plugins]]
-repo = 'hrsh7th/vim-vsnip'
-[[plugins]]
-repo = 'hrsh7th/vim-vsnip-integ'
+repo = 'neoclide/coc.nvim'
+rev = 'release'
+on_i = 1
+merged = '0'
+hook_add = 'source ~/.vim/rc/plugins/coc.rc.vim'
 # }}}
 
 # filetype {{{
@@ -33,120 +28,23 @@ repo = 'thinca/vim-ref'
 hook_add = '''
 let g:ref_no_default_key_mappings = 1
 let g:ref_man_lang = 'ja'
-let g:ref_pydoc_cmd	 = 'python3 -m pydoc'
+let g:ref_pydoc_cmd = 'python3 -m pydoc'
 let g:ref_cache_dir = $HOME . '/.vim/vim-ref/cache'
 let g:ref_use_cache           = 1
 let g:ref_use_vimproc         = 1
 '''
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
 # }}}
 
 # View {{{
 [[plugins]]
 repo = 'ap/vim-css-color'
-[[plugins]]
-repo = 'ryanoasis/vim-devicons'
 # Lightline {{{
 [[plugins]]
 repo = 'itchyny/lightline.vim'
-depends = ['vista', 'vim-devicons']
-hook_add = '''
-let g:lightline = {
-\   'colorscheme': 'jellybeans',
-\   'mode_map': {'c': 'NORMAL'},
-\   'active': {
-\     'left': [ ['mode', 'paste'],
-\               ['ale', 'anzu', 'cocstatus', 'currentfunction',  'readonly', 'filename', 'qfstatusline', 'modified'],
-\               ['method']],
-\     'right':[ ['lineinfo'],[ 'percent'],
-\               ['fileformat', 'fileencoding', 'filetype'],
-\               ['blame'],
-\               ['gitbranch', 'gitstage'],
-\               ['linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok'],
-\               ['toggl_task', 'toggl_time']],
-\   },
-\   'component_function': {
-\     'ale':             'ALEGetStatusLine',
-\     'anzu':            'anzu#search_status',
-\     'cocstatus':       'coc#status',
-\     'method':          'NearestMethodOrFunction',
-\     'currentfunction': 'CocCurrentFunction',
-\     'fileencoding':    'LightlineFileencoding',
-\     'fileformat':      'LightlineFileformat',
-\     'filetype':        'LightlineFiletype',
-\     'blame':           'LightlineGitBlame',
-\     'mode':            'LightlineMode',
-\     'modified':        'LightlineModified',
-\     'readonly':        'LightlineReadonly',
-\     'gitbranch': 'gina#component#repo#branch',
-\     'gitstage':  'gina#component#status#staged',
-\     'component_function': {
-\     'toggl_task': 'toggl#task',
-\     'toggl_time': 'toggl#time'
-\   },
-\   'component_expand': {
-\     'linter_checking': 'lightline#ale#checking',
-\     'linter_warnings': 'lightline#ale#warnings',
-\     'linter_errors':   'lightline#ale#errors',
-\     'linter_ok':       'lightline#ale#ok'
-\   },
-\   'component_type':    {
-\     'qfstatusline':    'error',
-\     'linter_checking': 'left',
-\     'linter_warnings': 'warning',
-\     'linter_errors':   'error',
-\     'linter_ok':       'left',
-\   }
-\ }
-\}
-
-let g:Qfstatusline#UpdateCmd = function('lightline#update')
-let g:lightline#ale#indicator_checking = '...'
-let g:lightline#ale#indicator_warnings = 'W'
-let g:lightline#ale#indicator_errors = 'E'
-let g:lightline#ale#indicator_ok = 'OK'
-let g:lightline#ale#indicator_ok = "\uf00c"
-
-" let staged = 	  let unstaged = gina#component#status#unstaged()
-" let conflicted = gina#component#status#conflicted()
-
-
-function! LightlineGitBlame() abort
-  let blame = get(b:, 'coc_git_blame', '')
-  return winwidth(0) > 120 ? blame : ''
-endfunction
-
-function! LightlineFileencoding()
-  return winwidth(0) > 70 ? (&fileencoding !=# '' ? &fileencoding : &encoding) : ''
-endfunction
-
-function! LightlineFileformat()
-	return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
-endfunction
-
-function! CocCurrentFunction()
-    return get(b:, 'coc_current_function', '')
-endfunction
-
-function! LightlineFiletype()
-	return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
-endfunction
-
-function! LightlineMode()
-  return winwidth(0) > 60 ? lightline#mode() : ''
-endfunction
-
-function! LightlineModified()
-  return &filetype =~# 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
-endfunction
-
-function! LightlineReadonly()
-  return &filetype !~? 'help\|vimfiler\|gundo' && &readonly ? 'x' : ''
-endfunction
-
-function! NearestMethodOrFunction() abort
-  return get(b:, 'vista_nearest_method_or_function', '')
-endfunction
-'''
+hook_add = 'source ~/.vim/rc/plugins/lightline.rc.vim'
+depends = ['vista', 'vim-devicons','lightline-ale']
 # }}}
 
 [[plugins]]
@@ -174,54 +72,6 @@ repo = 'kana/vim-operator-user'
 repo = 'kana/vim-textobj-user'
 # }}}
 
-[[plugins]]
-repo = 'machakann/vim-sandwich'
-depends = ['vim-operator-user','vim-textobj-user']
-hook_post_update = '''
-let g:sandwich#recipes = deepcopy(g:sandwich#default_recipes)
-let g:sandwich#recipes += [
-\    {'buns': ['（', '）']},
-\    {'buns': ['［', '］']},
-\    {'buns': ['｛', '｝']},
-\    {'buns': ['＜', '＞']},
-\    {'buns': ['≪', '≫']},
-\    {'buns': ['「', '」']},
-\    {'buns': ['『', '』']},
-\    {'buns': ['〈', '〉']},
-\    {'buns': ['《', '》']},
-\    {'buns': ['〔', '〕']},
-\    {'buns': ['【', '】']},
-\ ]
-'''
-hook_add = '''
-  let g:operator_sandwich_no_default_key_mappings = 1
-  let g:textobj_sandwich_no_default_key_mappings = 1
-  let g:sandwich_no_default_key_mappings = 1
-  map  w  <Plug>(operator-sandwich-add)
-  map  wD <Plug>(operator-sandwich-delete)<Plug>(textobj-sandwich-query-a)
-  map  wd <Plug>(operator-sandwich-delete)<Plug>(textobj-sandwich-auto-a)
-  map  wR <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-query-a)
-  map  wr <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-auto-a)
-  map  wR <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-query-a)
-  map  wr <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-auto-a)
-  omap W  <Plug>(textobj-sandwich-query-i)
-  omap w  <Plug>(textobj-sandwich-auto-i)
-  omap aW <Plug>(textobj-sandwich-query-a)
-  omap aw <Plug>(textobj-sandwich-auto-a)
-  omap sW <Plug>(textobj-sandwich-query-i)
-  omap sw <Plug>(textobj-sandwich-auto-i)
-  omap tW <Plug>(textobj-sandwich-query-a)
-  omap tw <Plug>(textobj-sandwich-query-a)
-  xmap w  <Plug>(textobj-sandwich-auto-i)
-  xmap W  <Plug>(textobj-sandwich-query-i)
-  xmap aW <Plug>(textobj-sandwich-query-a)
-  xmap aw <Plug>(textobj-sandwich-auto-a)
-  xmap sW <Plug>(textobj-sandwich-query-i)
-  xmap sw <Plug>(textobj-sandwich-auto-i)
-  xmap tW <Plug>(textobj-sandwich-query-a)
-  xmap tw <Plug>(textobj-sandwich-query-a)
-'''
-
 # Configs {{{
 [[plugins]]
 repo ='editorconfig/editorconfig-vim'
@@ -246,60 +96,7 @@ repo = 'skanehira/gh.vim'
 repo = 'lambdalisue/gina.vim'
 
 [[plugins]]
-repo = 'thinca/vim-fontzoom'
-hook_add = '''
-let g:fontzoom_no_default_key_mappings = 1
-'''
-
-# {{{ Gundo
-[[plugins]]
-repo = 'sjl/gundo.vim'
-hook_add = '''
-let g:gundo_map_move_older = 'n'
-let g:gundo_map_move_newer = 'e'
-let g:gundo_prefer_python3 = 1
-nnoremap <leader>z :<C-u>GundoToggle<CR>
-'''
-# }}}
-# {{{ submode
-[[plugins]]
-repo = 'kana/vim-submode'
-hook_add = '''
-call submode#enter_with('bufmove', 'n', '', '<C-g>h', '<C-w>>')
-call submode#enter_with('bufmove', 'n', '', '<C-g>i', '<C-w><')
-call submode#enter_with('bufmove', 'n', '', '<C-g>n', '<C-w>+')
-call submode#enter_with('bufmove', 'n', '', '<C-g>e', '<C-w>-')
-call submode#enter_with('bufmove', 'n', '', '<C-g>H', '<C-w>H')
-call submode#enter_with('bufmove', 'n', '', '<C-g>I', '<C-w>L')
-call submode#enter_with('bufmove', 'n', '', '<C-g>N', '<C-w>J')
-call submode#enter_with('bufmove', 'n', '', '<C-g>E', '<C-w>K')
-call submode#enter_with('bufmove', 'n', '', '<C-g>O', '<C-w>r')
-call submode#enter_with('bufmove', 'n', '', '<C-g>y', ':Fontzoom<CR>')
-call submode#enter_with('bufmove', 'n', '', '<C-g>;', ':Fontzoom -<CR>')
-
-call submode#map('bufmove', 'n', '', 'h', '<C-w>>')
-call submode#map('bufmove', 'n', '', 'i', '<C-w><')
-call submode#map('bufmove', 'n', '', 'n', '<C-w>+')
-call submode#map('bufmove', 'n', '', 'e', '<C-w>-')
-call submode#map('bufmove', 'n', '', 'H', '<C-w>H')
-call submode#map('bufmove', 'n', '', 'I', '<C-w>L')
-call submode#map('bufmove', 'n', '', 'N', '<C-w>J')
-call submode#map('bufmove', 'n', '', 'E', '<C-w>K')
-call submode#map('bufmove', 'n', '', 'O', '<C-w>r')
-call submode#map('bufmove', 'n', '', 'y', ':Fontzoom<CR>')
-call submode#map('bufmove', 'n', '', ';', ':Fontzoom -<CR>')
-call submode#enter_with('bufmove', 'n', '', '<C-g>y', ':call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 2)<CR>')
-call submode#enter_with('bufmove', 'n', '', '<C-g>u', ':call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -2)<CR>')
-call submode#enter_with('bufmove', 'n', '', '<C-g>Y', ':call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 4)<CR>')
-call submode#enter_with('bufmove', 'n', '', '<C-g>U', ':call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -4)<CR>')
-
-call submode#map('bufmove', 'n', '', 'y', ':call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 2)<CR>')
-call submode#map('bufmove', 'n', '', 'u', ':call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -2)<CR>')
-call submode#map('bufmove', 'n', '', 'U', ':call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 4)<CR>')
-call submode#map('bufmove', 'n', '', 'Y', ':call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -4)<CR>')
-'''
-# }}}
-# }}}
+repo = 'chrisbra/unicode.vim'
 
 [[plugins]]
 repo = 'yuttie/comfortable-motion.vim'

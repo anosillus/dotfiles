@@ -187,6 +187,7 @@ defx = '''
   \ ':<C-u>Defx -buffer-name=temp -split=vertical<CR>'
 '''
 # defx }}}
+# 
 # Denite {{{
 [[plugins]]
 repo = 'Shougo/denite.nvim'
@@ -290,6 +291,16 @@ repo = 'kana/vim-smartinput'
 on_map = {i = '<Plug>'}
 
 [[plugins]]
+repo = 'sjl/gundo.vim'
+on_map = {n = '<Plug>'}
+hook_add = '''
+let g:gundo_map_move_older = 'n'
+let g:gundo_map_move_newer = 'e'
+let g:gundo_prefer_python3 = 1
+nnoremap <leader>z :<C-u>GundoToggle<CR>
+'''
+
+[[plugins]]
 repo = 'Shougo/context_filetype.vim'
 
 # deol {{{
@@ -336,8 +347,15 @@ on_map = {ic = '<Plug>'}
 hook_source = '''
 let g:unicoder_exclude_filetypes = ['tex', 'latex', 'plaintex', 'ipynb']
 '''
-# [[plugins]]
-# repo = 'chrisbra/unicode.vim'
+
+[[plugins]]
+repo = 'thinca/vim-fontzoom'
+on_map = {n = '<Plug>'}
+hook_add = '''
+let g:fontzoom_no_default_key_mappings = 1
+nmap + <Plug>(fontzoom-larger)
+nmap - <Plug>(fontzoom-smaller)
+'''
 
 # {{{ SKK
 [[plugins]]
@@ -506,6 +524,9 @@ on_ft = 'sql'
 repo = 'heavenshell/vim-pydocstring'
 build = 'make install'
 on_ft = 'python'
+[[plugins]]
+repo = 'tweekmonster/braceless.vim'
+on_event = ['BufEnter','FileType']
 #  }}}
 # Rust {{{
 [[plugins]]
@@ -608,13 +629,13 @@ repo = 'kana/vim-textobj-indent'
 depends = 'vim-textobj-user'
 hook_add = '''
 let  g:textobj_indent_no_default_key_mappings = 1
-xmap g <Plug>(textobj-indent-a)
+xmap l <Plug>(textobj-indent-a)
 xmap j <Plug>(textobj-indent-i)
-xmap G <Plug>(textobj-indent-same-a)
+xmap L <Plug>(textobj-indent-same-a)
 xmap J <Plug>(textobj-indent-same-i)
-omap g <Plug>(textobj-indent-a)
+omap L <Plug>(textobj-indent-a)
 omap j <Plug>(textobj-indent-i)
-omap G <Plug>(textobj-indent-same-a)
+omap L <Plug>(textobj-indent-same-a)
 omap J <Plug>(textobj-indent-same-i)
 '''
 
@@ -624,7 +645,8 @@ on_map = {ox = '<Plug>'}
 repo = 'sgur/vim-textobj-parameter'
 depends = 'vim-textobj-user'
 on_source = 'vim-textobj-user'
-hook_add = '''
+on_map = {ox = '<Plug>'}
+hook_source = '''
 let g:vim_textobj_parameter_mapping = ','
 call textobj#user#plugin('parameter', {
 \   '-': {
@@ -680,17 +702,6 @@ omap sz <Plug>(textobj-fold-i)
 omap sz <Plug>(textobj-fold-i)
 '''
 on_map = {ox = '<Plug>'}
-
-[[plugins]]
-repo = 'machakann/vim-highlightedundo'
-on_map = {n = '<Plug>'}
-hook_add = '''
-" nmap z     <Plug>(highlightedundo-undo)
-" nmap Z     <Plug>(highlightedundo-redo)
-" nmap gz    <Plug>(highlightedundo-Undo)
-nmap z-    <Plug>(highlightedundo-gminus)
-nmap z+    <Plug>(highlightedundo-gplus)
-'''
 
 [[plugins]]
 repo = 'kana/vim-operator-replace'
@@ -752,7 +763,90 @@ xmap le <Plug>(caw:jump:comment-prev)
 '''
 # }}}
 # end Operator }}}
- 
+
+# sub-mode {{{
+[[plugins]]
+repo = 'kana/vim-submode'
+hook_post_source = '''
+call submode#enter_with('bufmove', 'n', '', '<C-g>h', '<C-w>>')
+call submode#enter_with('bufmove', 'n', '', '<C-g>i', '<C-w><')
+call submode#enter_with('bufmove', 'n', '', '<C-g>n', '<C-w>+')
+call submode#enter_with('bufmove', 'n', '', '<C-g>e', '<C-w>-')
+call submode#enter_with('bufmove', 'n', '', '<C-g>H', '<C-w>H')
+call submode#enter_with('bufmove', 'n', '', '<C-g>I', '<C-w>L')
+call submode#enter_with('bufmove', 'n', '', '<C-g>N', '<C-w>J')
+call submode#enter_with('bufmove', 'n', '', '<C-g>E', '<C-w>K')
+call submode#enter_with('bufmove', 'n', '', '<C-g>O', '<C-w>r')
+call submode#map('bufmove', 'n', '', 'h', '<C-w>>')
+call submode#map('bufmove', 'n', '', 'i', '<C-w><')
+call submode#map('bufmove', 'n', '', 'n', '<C-w>+')
+call submode#map('bufmove', 'n', '', 'e', '<C-w>-')
+call submode#map('bufmove', 'n', '', 'H', '<C-w>H')
+call submode#map('bufmove', 'n', '', 'I', '<C-w>L')
+call submode#map('bufmove', 'n', '', 'N', '<C-w>J')
+call submode#map('bufmove', 'n', '', 'E', '<C-w>K')
+call submode#map('bufmove', 'n', '', 'O', '<C-w>r')
+call submode#enter_with('bufmove', 'n', '', '<C-g>y', ':call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 2)<CR>')
+call submode#enter_with('bufmove', 'n', '', '<C-g>u', ':call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -2)<CR>')
+call submode#enter_with('bufmove', 'n', '', '<C-g>Y', ':call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 4)<CR>')
+call submode#enter_with('bufmove', 'n', '', '<C-g>U', ':call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -4)<CR>')
+call submode#map('bufmove', 'n', '', 'y', ':call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 2)<CR>')
+call submode#map('bufmove', 'n', '', 'u', ':call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -2)<CR>')
+call submode#map('bufmove', 'n', '', 'U', ':call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 4)<CR>')
+call submode#map('bufmove', 'n', '', 'Y', ':call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -4)<CR>')
+'''
+# }}}
+
+# sandwitch {{{
+[[plugins]]
+repo = 'machakann/vim-sandwich'
+depends = ['vim-operator-user','vim-textobj-user']
+on_map = {nox = '<Plug>'}
+hook_post_source = '''
+let g:sandwich#recipes = deepcopy(g:sandwich#default_recipes)
+let g:sandwich#recipes += [
+\    {'buns': ['（', '）']},
+\    {'buns': ['［', '］']},
+\    {'buns': ['｛', '｝']},
+\    {'buns': ['＜', '＞']},
+\    {'buns': ['≪', '≫']},
+\    {'buns': ['「', '」']},
+\    {'buns': ['『', '』']},
+\    {'buns': ['〈', '〉']},
+\    {'buns': ['《', '》']},
+\    {'buns': ['〔', '〕']},
+\    {'buns': ['【', '】']},
+\ ]
+'''
+hook_add = '''
+  let g:operator_sandwich_no_default_key_mappings = 1
+  let g:textobj_sandwich_no_default_key_mappings = 1
+  let g:sandwich_no_default_key_mappings = 1
+  map  w  <Plug>(operator-sandwich-add)
+  map  wD <Plug>(operator-sandwich-delete)<Plug>(textobj-sandwich-query-a)
+  map  wd <Plug>(operator-sandwich-delete)<Plug>(textobj-sandwich-auto-a)
+  map  wR <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-query-a)
+  map  wr <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-auto-a)
+  map  wR <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-query-a)
+  map  wr <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-auto-a)
+  omap W  <Plug>(textobj-sandwich-query-i)
+  omap w  <Plug>(textobj-sandwich-auto-i)
+  omap aW <Plug>(textobj-sandwich-query-a)
+  omap aw <Plug>(textobj-sandwich-auto-a)
+  omap sW <Plug>(textobj-sandwich-query-i)
+  omap sw <Plug>(textobj-sandwich-auto-i)
+  omap tW <Plug>(textobj-sandwich-query-a)
+  omap tw <Plug>(textobj-sandwich-query-a)
+  xmap w  <Plug>(textobj-sandwich-auto-i)
+  xmap W  <Plug>(textobj-sandwich-query-i)
+  xmap aW <Plug>(textobj-sandwich-query-a)
+  xmap aw <Plug>(textobj-sandwich-auto-a)
+  xmap sW <Plug>(textobj-sandwich-query-i)
+  xmap sw <Plug>(textobj-sandwich-auto-i)
+  xmap tW <Plug>(textobj-sandwich-query-a)
+  xmap tw <Plug>(textobj-sandwich-query-a)
+'''
+# }}}
 # Motion  {{{
 # is.vim {{{
 [[plugins]]
@@ -841,6 +935,7 @@ repo = 'haya14busa/incsearch.vim'
 on_map = '<Plug>',
 on_func = 'incsearch#go'
 depends = ['incsearch-easymotion.vim','incsearch-migemo.vim', 'incsearch-fuzzy.vim']
+on_source = ['incsearch-easymotion.vim','incsearch-migemo.vim', 'incsearch-fuzzy.vim']
 hook_source = '''
   let g:incsearch#auto_nohlsearch = 1
   let g:incsearch#consistent_n_direction = 1
@@ -907,5 +1002,4 @@ map  E <Plug>(edgemotion-k)
 on_map = {n = '<Plug>', x = '<Plug>'}
 # }}}
 # end Motion }}}
-
 # vim: ts=2 et sw=2 fdm=marker

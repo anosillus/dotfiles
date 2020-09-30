@@ -35,6 +35,7 @@ endfunction
 function! s:on_lsp_buffer_enabled() abort
   setlocal omnifunc=lsp#complete
   setlocal signcolumn=yes
+
   if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
   nmap <buffer> gd <plug>(lsp-definition)
   nmap <buffer> gr <plug>(lsp-references)
@@ -45,7 +46,6 @@ function! s:on_lsp_buffer_enabled() abort
   setl foldmethod=expr
     \ foldexpr=lsp#ui#vim#folding#foldexpr()
     \ foldtext=lsp#ui#vim#folding#foldtext()
-
 endfunction
 
 augroup lsp_install
@@ -103,6 +103,7 @@ augroup MyAutoCmd
   autocmd BufNewFile,BufRead workflows setlocal filetype=yaml
   autocmd BufNewFile,BufRead *.vue setlocal filetype=javascript
   autocmd BufNew,BufNewFile,BufRead .textlintrc setlocal filetype=json
+  autocmd FileType python BracelessEnable +indent
   autocmd FileType python map <silent> lo <Plug>(pydocstring)
   " autocmd FileType python xmap <silent> lo :<C-u>'<,'>Pydocstring<CR>
   " autocmd BufNewFile,BufRead markdown call s:auto_goyo()
