@@ -16,5 +16,4 @@ set -U fith_user_path $HOME/.rbenv/bin $fish_user_paths
 
 # set -g -x CPPFLAGS "$CPPFLAGS -I /usr/local/opt/binutils/include"
 # set -g -x LDFLAGS "$LDFLAGS -L /usr/local/opt/binutils/lib"
-alias v='gvim'
-alias vv='gvim --remote-tab-silent'
+alias v='/mnt/c/tools/vim82-kaoriya-win64/gvim.exe'
