@@ -25,14 +25,14 @@ repo = 'kannokanno/previm'
 on_cmd = 'PrevimOpen'
 depends = 'open-browser.vim'
 
-[[plugins]]
-repo = 'thinca/vim-quickrun'
-on_cmd = 'QuickRun'
-depends = 'previm'
-hook_add = '''let g:quickrun_no_default_key_mappings = 1
-nnoremap <Leader>r :<C-u>QuickRun<CR>
-'''
-hook_source = 'source ~/.vim/rc/plugins/quickrun.rc.vim'
+# [[plugins]]
+# repo = 'thinca/vim-quickrun'
+# on_cmd = 'QuickRun'
+# depends = 'previm'
+# hook_add = '''let g:quickrun_no_default_key_mappings = 1
+# nnoremap <Leader>r :<C-u>QuickRun<CR>
+# '''
+# hook_source = 'source ~/.vim/rc/plugins/quickrun.rc.vim'
 # }}}
 # vista {{{
 [[plugins]]
@@ -95,7 +95,7 @@ hook_add = '''
 [[plugins]]
 repo = 'Shougo/defx.nvim'
 hook_add = '''
-  nnoremap <silent>   [Leader]f
+  nnoremap <silent>  <leader>,
   \ :<C-u>Defx -listed -resume -buffer-name=win-`win_getid()`<CR>
 '''
 hook_source = '''
@@ -122,9 +122,9 @@ defx = '''
   \ defx#do_action('move')
   nnoremap <silent><buffer><expr> p
   \ defx#do_action('paste')
-  nnoremap <silent><buffer><expr> l
+  nnoremap <silent><buffer><expr> i
   \ defx#do_action('open')
-  nnoremap <silent><buffer><expr> E
+  nnoremap <silent><buffer><expr> I
   \ defx#do_action('open', 'vsplit')
   nnoremap <silent><buffer><expr> P
   \ defx#do_action('preview')
