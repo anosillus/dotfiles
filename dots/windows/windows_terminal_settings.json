@@ -27,7 +27,10 @@
     {
         "defaults":
         {
-            // Put settings here that you want to apply to all profiles.
+            "hidden": false,
+            "fontFace": "Cica",
+            "useAcrylic": true,
+            "acrylicOpacity": 0.8
         },
         "list":
         [
@@ -36,29 +39,60 @@
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "name": "Windows PowerShell",
                 "commandline": "powershell.exe",
-                "hidden": false,
-                "fontFace": "Cica",
-                "useAcrylic": true,
-                "acrylicOpacity": 0.8
+
             },
             {
                 // Make changes here to the cmd.exe profile.
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
                 "name": "Command Prompt",
                 "commandline": "cmd.exe",
-                "hidden": false,
-                "fontFace": "Cica"
             },
             {
                 "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
-                "hidden": false,
                 "name": "Ubuntu",
                 "source": "Windows.Terminal.Wsl",
-                "fontFace": "Cica"
             },
             {
+                "guid": "{a588172d-0e3a-455f-b649-9073024e77a8}",
+                "name": "Anaconad 3",
+                "commandline": "powershell.exe -ExecutionPolicy ByPass -NoExit -Command & '%ProgramData%\\Anaconda3\\shell\\condabin\\conda-hook.ps1' ; conda activate '%ProgramData%\\Anaconda3'",
+                "icon": "%ALLUSERSPROFILE%\\Anaconda3\\Menu\\anaconda-navigator.ico",
+                "startingDirectory": "%USERSPROFILE%\\dev"
+            },
+            {
+                "guid": "{a588172d-0e3a-455f-b649-9073024e77a8}",
+                "name": "Anaconad 3 (admin) ",
+                "commandline": "powershell.exe -ExecutionPolicy ByPass -NoExit -Command Start-Process -Verb RunAs '%ProgramData%\\Anaconda3\\shell\\conda\\bin\\conda-hook.ps1' ; conda activate '%ProgramData%\\Anaconda3",
+                "icon": "%ALLUSERSPROFILE%\\Anaconda3\\Menu\\anaconda-navigator.ico",
+                "startingDirectory": "%USERSPROFILE%\\dev"
+            },
+            {
+                "guid": "{845d7cb6-6f32-43db-881e-07e65ab14004}",
+                "name":  "SSH to Home 💻",
+                "tabTitle": "💻",
+                "commandline": "ssh home@domein",
+                "icon": "C:{mylogo}}.png"
+            },
+            {
+                "guid": "{3ac03975-080e-47c5-bbe3-886fcb8b84c2}",
+                "name": "Windows Terminal (admin)",
+                "commandline": "powershell.exe -command Start-Process -Verb RunAs \"shell:appsFolder\\Microsoft.WindowsTerminal_8wekyb3d8bbwe!App\"",
+                "icon": "ms-appx:///Images/Square44x44Logo.targetsize-32.png"
+            },
+            {
+                "guid": "{b81e0b0c-6ef3-4db5-978c-a738c239504f}",
+                "name": "MSYS2",
+                "commandline": "%SystemDrive%\\tools\\msys64\\msys2_shell.cmd -defterm -no-start -mingw64",
+                "startingDirectory": "%SystemDrive%:\\tools\\msys64\\home\\user",
+                "icon": "%SystemDrive%\\tools\\msys64\\msys2.ico"
+            },
+//            {
+//                "name": "Developer Command Prompt for VS 2019",
+//                "commandline": "cmd.exe /k \%ProgramFiles(x86)%/Microsoft Visual Studio/2019/Professional/Common7/Tools/VsDevCmd.bat\"",
+//                "startingDirectory": "%USERPROFILE%"
+//            },
+            {
                 "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
-                "hidden": false,
                 "name": "Azure Cloud Shell",
                 "source": "Windows.Terminal.Azure"
             }

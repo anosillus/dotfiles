@@ -9,10 +9,8 @@ set updatetime=300
 setlocal list
 setlocal listchars=tab:>-,trail:-,nbsp:%,extends:>,precedes:<
 set formatoptions+=mM
-" set foldmethod=marker
-set foldmethod=expr
-  \ foldexpr=lsp#ui#vim#folding#foldexpr()
-  \ foldtext=lsp#ui#vim#folding#foldtext()
+set foldmethod=marker
+" set foldtext
 " ---------- Command/Status Line ----------
 setlocal ruler
 setlocal laststatus=2

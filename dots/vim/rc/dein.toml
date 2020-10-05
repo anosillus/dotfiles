@@ -125,9 +125,7 @@ repo = 'previm/previm'
 [[plugins]]
 repo = 'azadkuh/vim-cmus'
 # }}}
-
 # command }}}
-
 # nvim_setting {{{
 [[plugins]]
 repo = 'roxma/vim-hug-neovim-rpc'

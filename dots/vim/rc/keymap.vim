@@ -33,12 +33,13 @@ nnoremap <silent><leader><CR> :<C-u>Deol -split=floating<CR>
 " < :/; > is 'Command'. {{{
 noremap ;  :
 noremap :  ;
-nnoremap <leader>; :<C-u>Denite command_history<CR>
-nnoremap <leader>: :<C-u>Denite file/old -start-filter<CR>
-nnoremap m;        :<C-u>Denite file/rec:~/.vim/rc -start-filter<CR>
-nnoremap m:        :<C-u>Denite file/rec -start-filter<CR>
+" nnoremap <leader>; :<C-u>Denite command_history<CR>
+" nnoremap <leader>: :<C-u>Denite file/old -start-filter<CR>
+" nnoremap <-;> denite
+" nnoremap <-:> denite
+" nnoremap m;        :<C-u>Denite file/rec:~/.vim/rc -start-filter<CR>
+" nnoremap m:        :<C-u>Denite file/rec -start-filter<CR>
 " }}}
-
 
 " Change histry mover
 map , /
@@ -230,6 +231,8 @@ nnoremap <C-m> zz
 " j is denite/unite {{{
 nmap j  <Nop>
 xmap j  <Nop>
+" gJ is gJ
+
 " nnoremap  jp  :Ipython<CR>
 " vnoremap  jp  :VIpython<CR>
 
@@ -244,6 +247,8 @@ xmap j  <Nop>
 " map k is.vim
 " map K is.vim
 onoremap k s
+noremap gn gk
+noremap gN gK
 
 " }}}
 
@@ -266,6 +271,10 @@ nnoremap s i
 nnoremap S I
 nnoremap t a
 nnoremap T A
+nnoremap gt ga
+nnoremap gT gA
+nnoremap gs gi
+nnoremap gS gI
 " s,t omap is for inner/outer.
 onoremap s i
 onoremap t a
@@ -274,7 +283,6 @@ xnoremap t a
 " sentence is k
 " tag is a
 " xmap <S/T> is <Plug>(niceblock)
-" Indent
 inoremap <C-s> <C-d>
 " inoremap <C-t> <C-t>
 " <C-s> is fasetr than 'l', but not needed.
@@ -283,34 +291,7 @@ nnoremap <C-t> :<C-u>Vista!!<CR>
 " nx<leader>s is easymotion
 nnoremap <silent> <Leader>t :<C-u>Denite -split=vertical outline -start-filter -auto-resize<CR>
 " nnoremap <buffer> <leader>t :<C-u>DeniteCursorWord tag<CR>
-
-imap <expr> <C-n>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-n>'
-smap <expr> <C-n>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-n>'
-" Expand or jump
-imap <expr> <C-o>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-o>'
-smap <expr> <C-o>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-o>'
-
-" Jump forward or backward
-imap <expr> <C-i>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<C-i>'
-smap <expr> <C-i>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<C-i>'
-imap <expr> <C-h> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<C-h>'
-smap <expr> <C-h> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<C-h>'
-
-" Select or cut text to use as $TM_SELECTED_TEXT in the next snippet.
-" See https://github.com/hrsh7th/vim-vsnip/pull/50
-" nmap        \   <Plug>(vsnip-select-text)
-" xmap        \   <Plug>(vsnip-select-text)
-" nmap        |   <Plug>(vsnip-cut-text)
-" xmap        |   <Plug>(vsnip-cut-text)
-
-" If you want to use snippet for multiple filetypes, you can `g:vsip_filetypes` for it.
-let g:vsnip_filetypes = {}
-let g:vsnip_filetypes.javascriptreact = ['javascript']
-let g:vsnip_filetypes.typescriptreact = ['typescript']
-
-nnoremap gs :<C-u>%s/\v//g<Left><Left><Left>
-vnoremap gs :s/\v//g<Left><Left><Left>
-noremap gt <C-]>
+noremap gt <c-]>
 " I don't use '<C-]>'
 " }}}
 
@@ -319,6 +300,10 @@ noremap gt <C-]>
 " map R is operator
 nnoremap <C-r> *:%s///g<Left><Left>
 inoremap <C-r> <ESC>R
+nnoremap gr :<C-u>%s/\v//g<Left><Left><Left>
+vnoremap gr :s/\v//g<Left><Left><Left>
+
+
 " Leader r is symbol rename.
 " nnoremap <Leader>r :<C-u>QuickRun<CR>
 " }}}
@@ -332,16 +317,14 @@ onoremap a t
 " omap a is tag
 " Head
 nnoremap ga gv
+nnoremap gA gV
 vnoremap <C-a> 0
 inoremap <C-a> <Esc>0i
-" Macro
-"
-" noremap <leader>a q  #quickrun
-" noremap <M-a> @ "This defined at Meta.
 " }}}
 
 " <d> is 'Delete'. {{{
 inoremap <C-d> <C-u>
+" gd is jump by coc.
 " }}}
 " 10 %
 
