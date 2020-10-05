@@ -35,10 +35,11 @@ Set-Alias 7z ${Env:ProgramFiles}\7-Zip\7z.exe
 Set-Alias aws ${Env:ProgramFiles}\Amazon\AWSCLIV2\aws.exe
 Set-Alias capture ${Env:ProgramFiles}\ShareX.exe
 Set-Alias chrome ${ENV:ProgramFiles(x86)}\Google\Chrome\Application\chrome.exe
-Set-Alias cmigemo= ${Env:SystemDrive}\tools\cmigemo-default-win64\cmigemo.exe
+Set-Alias cmigemo ${Env:SystemDrive}\tools\cmigemo-default-win64\cmigemo.exe
 Set-Alias docker ${Env:ProgramData}\DockerDesktop\version-bin\docker.exe
 Set-Alias docker-compose ${Env:ProgramFiles}\Docker\Docker\resources\bin\docker-compose.exe
 Set-Alias gcloud ${Env:ProgramFiles(x86)}\Google\'Cloud SDK'\google-cloud-sdk\bin\gcloud-ps.ps1
+Set-Alias gh ${Env:ProgramFiles(x86)}\'GitHub CLI'\gh.exe
 Set-Alias gvim ${Env:SystemDrive}\tools\vim82-kaoriya-win64\gvim.exe
 Set-Alias java ${Env:ProgramFiles(x86)}\'Common Files'\Oracle\Java\javapath\java.exe
 Set-Alias n ${Env:SystemDrive}\tools\neovim\bin\nvim.exe
@@ -53,10 +54,7 @@ Set-Alias picture ${ENV:ProgramFiles(x86)}\QuickPictureViewer\quick-picture-view
 Set-Alias python ${Env:SystemDrive}\Python38\python
 Set-Alias python3 ${Env:SystemDrive}\Python38\python
 Set-Alias quick-picture-viwer ${ENV:ProgramFiles(x86)}\QuickPictureViewer\quick-picture-viewer.exe
-Set-Alias rapidee ${Env:ProgramFiles}\'Rapid Environment Editor'\RapidEE.exe
 Set-Alias rg ${Env:SystemDrive}\tools\ripgrep\rg.exe
-Set-Alias sceen-shot ${Env:ProgramFiles}\ShareX.exe
-Set-Alias sharex ${Env:ProgramFiles}\ShareX.exe
 Set-Alias ssh $TOOL\msys64\usr\bin\ssh.exe
 Set-Alias sumatrapdf ${Env:LOCALAPPDATA}\SumatraPDF\sumatrapdf.exe
 Set-Alias v ${Env:SystemDrive}\tools\vim82-kaoriya-win64\gvim.exe
@@ -64,12 +62,11 @@ Set-Alias vagrant ${Env:SystemDrive}\HashiCorp\Vagrant\bin\vagrant.exe
 Set-Alias vbox ${Env:ProgramFiles}\Oracle\VirtualBox\virtualbox.exe
 Set-Alias vcpkg ${Env:SystemDrive}\tools\vcpkg\vcpkg.exe
 Set-Alias vim ${Env:SystemDrive}\tools\vim82-kaoriya-win64\vim.exe
-Set-Alias virtualbox ${Env:ProgramFiles}\Oracle\VirtualBox\virtualbox.exe
 Set-Alias vlc ${ENV:ProgramFiles(x86)}\VideoLAN\VLC\vlc.exe
 
-# Set-Alias curl ${Env:SystemDrive}\tools\msys64\mingw64\bin\curl.exe
+Set-Alias curl ${Env:SystemDrive}\tools\msys64\mingw64\bin\curl.exe
 # Set-Alias captura ${ENV:ProgramFiles(x86)}\Captura\captura.exe
-# Set-Alias code ${Env:LOCALAPPDATA}\Programs\'Microsoft VS Code'\bin\code.cmd
+Set-Alias code ${Env:LOCALAPPDATA}\Programs\'Microsoft VS Code'\bin\code.cmd
 # }}}
 
 # short-cut alias {{{
