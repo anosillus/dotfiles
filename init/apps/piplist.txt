@@ -9,6 +9,7 @@ Flake8-bugbear
 Flake8-builtins
 Flake8-import-order
 Flake8-string-format
+python-language-server[all]
 Isort
 Mypy
 Pandas-vet
