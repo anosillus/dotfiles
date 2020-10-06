@@ -50,7 +50,7 @@ let g:ale_linters = {
 \   'typescript': ['eslint'],
 \   'json':       ['eslint','prettier', 'jsonlint'],
 \   'latex':      ['vale', 'textlint'],
-\   'markdown':   ['markdownlint', 'prettier'],
+\   'markdown':   ['markdownlint', 'prettier', 'textlint'],
 \   'python':     ['pylama', 'black', 'flake8','mypy'],
 \   'r':          ['lintr'],
 \   'rust':       ['rustfmt'],

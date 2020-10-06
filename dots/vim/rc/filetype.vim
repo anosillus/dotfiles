@@ -106,7 +106,6 @@ augroup MyAutoCmd
   autocmd BufNewFile,BufRead workflows setlocal filetype=yaml
   autocmd BufNewFile,BufRead *.vue setlocal filetype=javascript
   autocmd BufNew,BufNewFile,BufRead .textlintrc setlocal filetype=json
-  autocmd FileType python BracelessEnable +indent
   autocmd FileType python map <silent> lo <Plug>(pydocstring)
   " autocmd FileType python xmap <silent> lo :<C-u>'<,'>Pydocstring<CR>
   " autocmd BufNewFile,BufRead markdown call s:auto_goyo()
