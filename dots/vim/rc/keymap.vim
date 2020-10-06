@@ -251,7 +251,7 @@ onoremap k s
 
 " b is 50%
 " <b> is 'Help/Document' {{{
-nmap b <Plug>(ref-keyword)
+" nmap b <Plug>(ref-keyword)
 let g:jedi#documentation_command = 'b'
 " xmap B :<C-u>'<,'>Gtrans<CR>
 nnoremap <leader>b :<C-u>Denite -split=vertical help -start-filter<CR>
