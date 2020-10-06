@@ -79,7 +79,7 @@ Set-Alias la Get-ChildItem
 function mcd { mkdir @args; cd @args }
 function rmd { Remove-Item -recurse -force @args }
 function path { ($env:Path).Replace(';',"`n") }
-function skkserv {C:\tools\yaskkserv2\target\release\yaskkserv2.exe --config-filename $HOME\.skk\yaskkserv2.conf}
+function skkserv {C:\tools\yaskkserv2\target\release\yaskkserv2.exe --config-filename $HOME\.skk\win_yaskkserv2.conf}
 
 function DEV() {cd $DEV }
 function DOC() {cd $DOC }
