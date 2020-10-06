@@ -6,9 +6,9 @@ grep=c:\tools\msys64\mingw64\bin\gerp.exe $*
 mecab=c:\Program Files\MeCab\bin\mecab.exe
 python3=c:\Python38\python
 python=c:\Python38\python
-curl=c:\tools\msys64\mingw64\bin\curl.exe
+curl=C:\Tools\msys64\usr\bin\curl.exe
 cmigemo=c:\tools\cmigemo-default-win64\cmigemo.exe
-
+eblook=C:\Tools\eblook\bin\eblook.exe
 
 
 
