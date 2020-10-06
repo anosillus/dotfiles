@@ -33,10 +33,12 @@ Set-Alias 7z ${Env:ProgramFiles}\7-Zip\7z.exe
 Set-Alias aws ${Env:ProgramFiles}\Amazon\AWSCLIV2\aws.exe
 Set-Alias capture ${Env:ProgramFiles}\ShareX.exe
 Set-Alias chrome ${ENV:ProgramFiles(x86)}\Google\Chrome\Application\chrome.exe
+Set-Alias cabocha ${ENV:ProgramFiles(x86)}\CaboCha\bin\cabocha.exe
 Set-Alias cmigemo ${Env:SystemDrive}\tools\cmigemo-default-win64\cmigemo.exe
+Set-Alias eblook ${Env:SystemDrive}\tools\eblook\bin\eblook.exe
 Set-Alias docker ${Env:ProgramData}\DockerDesktop\version-bin\docker.exe
 Set-Alias docker-compose ${Env:ProgramFiles}\Docker\Docker\resources\bin\docker-compose.exe
-Set-Alias mecab ${Env:ProgramFiles}\Mecab\bin\mecab.exe
+Set-Alias mecab ${Env:ProgramFiles(x86)}\Mecab\bin\mecab.exe
 Set-Alias gcloud ${Env:ProgramFiles(x86)}\Google\'Cloud SDK'\google-cloud-sdk\bin\gcloud-ps.ps1
 Set-Alias gh ${Env:ProgramFiles(x86)}\'GitHub CLI'\gh.exe
 Set-Alias gvim ${Env:SystemDrive}\tools\vim82-kaoriya-win64\gvim.exe

@@ -514,7 +514,7 @@ of_ft = ['javascript', 'typescript']
 # markdown {{{
 [[plugins]]
 repo = 'rhysd/vim-gfm-syntax'
-on_ft = 'markdown'
+on_ft = 'markdown.gfm'
 [[plugins]]
 repo = 'osyo-manga/vim-precious'
 depends = 'context_filetype.vim'
@@ -536,6 +536,14 @@ on_ft = 'markdown'
 [[plugins]]
 repo = 'mattn/vim-maketable'
 on_ft = 'markdown'
+[[plugins]]
+repo = 'benshuailyu/online-thesaurus-vim'
+on_ft = 'markdown'
+hook_add = '''
+let g:use_default_key_map = 0
+nnoremap gb :call Thesaurus_LookCurrentWord()<CR>
+'''
+
 # }}}
 # SQL {{{
 [[plugins]]
@@ -551,6 +559,11 @@ on_ft = 'python'
 repo = 'tweekmonster/braceless.vim'
 on_event = ['BufEnter','FileType']
 #  }}}
+# R {{{
+[[plugins]]
+repo = 'jalvesaq/Nvim-R'
+on_ft = 'R'
+# }}}
 # Rust {{{
 [[plugins]]
 repo = 'rhysd/rust-doc.vim'
@@ -590,17 +603,15 @@ repo = 'rhysd/unite-codic.vim'
 repo = 'vim-jp/vimdoc-ja'
 # [[plugins]]
 # repo = 'deton/eblook.vim'
-# on_event=['BufReadPost', 'FileReadPost']
-# if = 'if exists("b:jp_mode")'
+# on_if = "matchstr(expand('%:p'),'jp.md') !=# ''"
 # hook_source = 'source ~/.vim/rc/plugins/eblook.rc.vim'
 # hook_add = '''
-    # map <unique> <silent> <Leader><C-b> <Plug>EblookInput
-    # nmap <unique> <silent> <C-b> <Plug>EblookSearch
-    # vmap <unique> <silent> <C-b> <Plug>EblookSearch
+#     map <unique> <silent> <Leader><C-b> <Plug>EblookInput
+#     nmap <unique> <silent> <C-b> <Plug>EblookSearch
+#     vmap <unique> <silent> <C-b> <Plug>EblookSearch
 # '''
 [[plugins]]
 repo = 'vim-jp/autofmt'
-# on_event=['BufReadPost', 'BufNewFile']
 on_if = "matchstr(expand('%:p'),'jp.md') !=# ''"
 hook_source = '''
 set formatexpr=autofmt#japanese#formatexpr()
@@ -608,12 +619,10 @@ set formatexpr=autofmt#japanese#formatexpr()
 # jasegment {{{
 [[plugins]]
 repo = 'deton/jasegment.vim'
-# on_event=['BufReadPost', 'BufNewFile']
 on_if = "matchstr(expand('%:p'),'jp.md') !=# ''"
 hook_source = '''
 let g:jasegment#highlight = 2
 let g:jasegment_no_default_key_mappings = 1
-let g:jasegment#model = 'mecab'
 nmap <silent> I <Plug>JaSegmentMoveNE
 nmap <silent> i <Plug>JaSegmentMoveNW
 nmap <silent> h <Plug>JaSegmentMoveNB

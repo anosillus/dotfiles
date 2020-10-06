@@ -13,7 +13,6 @@ on_i = 1
 merged = '0'
 hook_add = 'source ~/.vim/rc/plugins/coc.rc.vim'
 # }}}
-
 # filetype {{{
 [[plugins]]
 repo = 'sheerun/vim-polyglot'
@@ -23,8 +22,19 @@ let g:loaded_sleuth = 1
 '''
 [[plugins]]
 repo = 'romainl/vim-devdocs'
+# }}}
+# vim-ref {{{
+[[plugins]]
+repo = 'mojako/ref-sources.vim'
+[[plugins]]
+repo = 'terlar/vim-ref-fish'
+on_ft = 'fish'
+hook_add = '''
+setlocal keywordprg=:Ref\ fish
+'''
 [[plugins]]
 repo = 'thinca/vim-ref'
+depends = 'ref-sources.vim'
 hook_add = '''
 let g:ref_no_default_key_mappings = 1
 let g:ref_man_lang = 'ja'
@@ -32,11 +42,42 @@ let g:ref_pydoc_cmd = 'python3 -m pydoc'
 let g:ref_cache_dir = $HOME . '/.vim/vim-ref/cache'
 let g:ref_use_cache           = 1
 let g:ref_use_vimproc         = 1
+let g:ref_wikipedia_lang = ['ja', 'en']
+let g:ref_source_webdict_sites = {
+\   'alc' : {
+\     'url' : 'http://eow.alc.co.jp/%s/UTF-8/'
+\   },
+\   'je': {
+\     'url': 'http://dictionary.infoseek.ne.jp/jeword/%s',
+\   },
+\   'ej': {
+\     'url': 'http://dictionary.infoseek.ne.jp/ejword/%s',
+\   }
+\ }
+"デフォルトサイト
+let g:ref_source_webdict_sites.default = 'alc'
+"出力に対するフィルタ。最初の数行を削除
+function! g:ref_source_webdict_sites.je.filter(output)
+  return join(split(a:output, "\n")[15 :], "\n")
+endfunction
+function! g:ref_source_webdict_sites.ej.filter(output)
+  return join(split(a:output, "\n")[15 :], "\n")
+endfunction
+function! g:ref_source_webdict_sites.alc.filter(output)
+  return join(split(a:output, "\n")[42 :], "\n")
+endfunction
+nmap bb <Plug>(ref-keyword)
+noremap <expr> ba ':Ref webdict ej ' . expand('<cword>') . '<CR>'
+noremap <expr> bA ':Ref webdict je ' . expand('<cword>') . '<CR>'
+noremap <expr> br ':Ref webdict alc ' . expand('<cword>') . '<CR>'
+noremap <expr> bs ':Ref kotobank ' . expand('<cword>') . '<CR>'
+noremap <expr> bS ':Ref kotobankje ' . expand('<cword>') . '<CR>'
+noremap <expr> bT ':Ref wikipedia ' . expand('<cword>') . '<CR>'
+noremap <expr> bt ':Ref wikipedia_en ' . expand('<cword>') . '<CR>'
 '''
 [[plugins]]
 repo = 'ryanoasis/vim-devicons'
 # }}}
-
 # View {{{
 [[plugins]]
 repo = 'ap/vim-css-color'
@@ -59,7 +100,6 @@ repo = 'wakatime/vim-wakatime'
 # let g:wakatime_PythonBinary = g:python3_host_prog
 # '''
 # }}}
-
 # dependent {{{
 [[plugins]]
 repo = 'nixprime/cpsm'
@@ -71,7 +111,6 @@ repo = 'kana/vim-operator-user'
 [[plugins]]
 repo = 'kana/vim-textobj-user'
 # }}}
-
 # Configs {{{
 [[plugins]]
 repo ='editorconfig/editorconfig-vim'
@@ -94,10 +133,8 @@ repo = 'skanehira/gh.vim'
 
 [[plugins]]
 repo = 'lambdalisue/gina.vim'
-
 [[plugins]]
 repo = 'chrisbra/unicode.vim'
-
 [[plugins]]
 repo = 'yuttie/comfortable-motion.vim'
 hook_add = '''
@@ -105,7 +142,7 @@ let g:comfortable_motion_no_default_key_mappings = 1
 noremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(40)<CR>
 noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-40)<CR>
 '''
-
+# sandwitch {{{
 [[plugins]]
 repo = 'machakann/vim-sandwich'
 # depends = ['vim-operator-user','vim-textobj-user']
@@ -131,11 +168,12 @@ hook_add = '''
   let g:textobj_sandwich_no_default_key_mappings = 1
   let g:sandwich_no_default_key_mappings = 1
   nmap w  <Plug>(operator-sandwich-add)
-  map  wD <Plug>(operator-sandwich-delete)<Plug>(textobj-sandwich-query-a)
+  nmap W  <Plug>(operator-sandwich-add)<Plug>(operator-sandwich-synchro-count)
+  map  Wd <Plug>(operator-sandwich-delete)<Plug>(textobj-sandwich-query-a)
   map  wd <Plug>(operator-sandwich-delete)<Plug>(textobj-sandwich-auto-a)
-  map  wR <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-query-a)
+  map  Wr <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-query-a)
   map  wr <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-auto-a)
-  map  wR <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-query-a)
+  map  Wr <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-query-a)
   map  wr <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-auto-a)
   omap W  <Plug>(textobj-sandwich-query-i)
   omap w  <Plug>(textobj-sandwich-auto-i)
@@ -154,7 +192,7 @@ hook_add = '''
   xmap tW <Plug>(textobj-sandwich-query-a)
   xmap tw <Plug>(textobj-sandwich-query-a)
 '''
-
+# }}}
 # action {{{
 # emment {{{
 [[plugins]]
