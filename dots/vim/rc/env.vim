@@ -32,6 +32,7 @@ if has('gui_running')
         \   'encoding': 'euc-jp',
         \}
   elseif g:os ==? 'Linux'
+    echo 'linux'
     runtime! debian.vim
     let g:python3_host_prog='/usr/bin/python3'
     let g:python_host_prog='/usr/bin/python2'
@@ -39,20 +40,22 @@ if has('gui_running')
     let g:pydocstring_doq_path = $HOME.'/.local/bin/doq'
     let g:jasegment#mecab#args = '-Owakati -d /usr/lib/x86_64-linux-gnu/mecab/dic/mecab-ipadic-neologd/'
     " Use yaskkserv
-    let g:eskk#server = {
-        \	'host': 'localhost',
-        \	'port':  1178,
-   \}
+
     let g:eskk#dictionary = {
         \   'path': expand('$CACHE/skk-jisyo'),
         \   'sorted': 0,
-        \   'encoding': 'utf-8',
+        \   'encoding': 'utf-8'
         \}
     let g:eskk#large_dictionary = {
-        \   'path': '$HOME/.skk/SKK-JISYO.L',
+        \   'path': '/home/anosillus/dotfiles/dots/skk/SKK-JISYO.L',
         \   'sorted': 1,
-        \   'encoding': 'euc-jp',
+        \   'encoding': 'euc-jp'
         \}
+    let g:eskk#server = {
+        \	'host': 'localhost',
+        \	'port':  1178
+        \}
+
   elseif g:os ==? 'Windows'
     let g:vimproc#download_windows_dll = 1
     set runtimepath+=C:\Users\anosillus\AppData\Local\Microsoft\WindowsApps\python.exe
