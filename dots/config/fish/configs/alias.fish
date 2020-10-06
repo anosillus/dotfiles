@@ -17,6 +17,7 @@ alias gi='gem install'
 alias ni='npm install'
 alias ng='npm install -g'
 alias html='google-chrome'
+alias skkserv='yaskkserv2 --config-filename ~/.skk/linux_yaskkserv2.conf'
 
 #alias jn='jupyter-notebook'
 #alias pip='pip3'

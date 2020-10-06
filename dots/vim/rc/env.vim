@@ -4,15 +4,6 @@ scriptencoding utf-8
 if !exists('g:os')
   if has('win64') || has('win32') || has('win16')
     let g:os = 'Windows'
-    echo "Win"
-  elseif has("unix")
-    let s:lines = readfile("/proc/version")
-    if s:lines[0] =~ "Microsoft"
-      let g:os = 'WSL'
-      echo "WSL"
-    elseif substitute(system('uname'), '\n', '', '') =~ "Linux"
-      let g:os = 'Linux'
-    endif
   else
     let g:os = substitute(system('uname'), '\n', '', '')
   endif
@@ -43,16 +34,15 @@ if has('gui_running')
   elseif g:os ==? 'Linux'
     runtime! debian.vim
     let g:python3_host_prog='/usr/bin/python3'
-    let g:python_host_prog='/usr/bin/python3'
+    let g:python_host_prog='/usr/bin/python2'
     let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
     let g:pydocstring_doq_path = $HOME.'/.local/bin/doq'
     let g:jasegment#mecab#args = '-Owakati -d /usr/lib/x86_64-linux-gnu/mecab/dic/mecab-ipadic-neologd/'
     " Use yaskkserv
     let g:eskk#server = {
         \	'host': 'localhost',
-        \	'port': 1178,
-    \}
-
+        \	'port':  1178,
+   \}
     let g:eskk#dictionary = {
         \   'path': expand('$CACHE/skk-jisyo'),
         \   'sorted': 0,
@@ -72,7 +62,7 @@ if has('gui_running')
     let g:pydocstring_doq_path='C:\Users\anosillus\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.8_qbz5n2kfra8p0\LocalCache\local-packages\Python38\Scripts\doq.exe'
     let g:python3_host_prog = expand('C:\Users\anosillus\AppData\Local\Microsoft\WindowsApps\python.exe')
     let g:jasegment#mecab#cmd="C:/'Program Files'/MeCab/bin/mecab.exe"
-    let g:jasegment#mecab#args="-Owakati -d C:\Tools\mecab-ipadic-neologd"
+    let g:jasegment#mecab#args='-Owakati -d C:\Tools\mecab-ipadic-neologd'
     let g:jasegment#mecab#enc='utf-8'
     let g:eskk#dictionary = {
         \   'path': expand('$CACHE/skk-jisyo'),
@@ -89,34 +79,6 @@ if has('gui_running')
     \	'port':  1178,
     \	'type': 'notfound',
     \}
-    set shellslash
-  elseif g:os ==? "WSL"
-    let g:python3_host_prog='/usr/bin/python3'
-    let g:python_host_prog='/usr/bin/python3'
-    let g:pydocstring_doq_path = $HOME.'/.local/bin/doq'
-    let g:wakatime_PythonBinary =  g:python_host_prog
-    let g:eskk#server = {'host': 'localhost','port': 1178}
-    let g:eskk#dictionary = {
-        \   'path': expand('/mnt/c/Users/anosillus/.config/skk/skk-jisyo'),
-        \   'sorted': 0,
-        \   'encoding': 'utf-8',
-        \}
-    let g:eskk#large_dictionary = {
-        \   'path': '/mnt/c/Users/anosillus/skk/SKK-JISYO.L',
-        \   'sorted': 1,
-        \   'encoding': 'euc-jp',
-        \}
-    let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
-    set grepprg=/mnt/c/Msys64/usr/bin/grep.exe\ -n
-    set shell=C:\WINDOWS\System32\bash.exe
-    set shellcmdflag=-c
-    set shellquote=\"
-    set shellxescape=
-    set shellxquote=
-    augroup myYank
-      autocmd!
-      autocmd TextYankPost * :call system('clip.exe', @")
-    augroup END
   endif
 endif
 
@@ -124,7 +86,7 @@ let g:sql_type_default = 'pgsql'
 let g:go_bin_path = $GOPATH.'/bin'
 
 "----------- GUI -----------
-"
+
 if has('gui')
   setl guioptions=egLta
   if !has('nvim') && has('patch-7.4.1770')
