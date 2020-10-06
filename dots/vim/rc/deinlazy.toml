@@ -613,7 +613,6 @@ on_if = "matchstr(expand('%:p'),'jp.md') !=# ''"
 hook_source = '''
 let g:jasegment#highlight = 2
 let g:jasegment_no_default_key_mappings = 1
-let g:jasegment#model = 'mecab'
 nmap <silent> I <Plug>JaSegmentMoveNE
 nmap <silent> i <Plug>JaSegmentMoveNW
 nmap <silent> h <Plug>JaSegmentMoveNB

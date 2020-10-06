@@ -37,6 +37,7 @@ if has('gui_running')
     let g:python_host_prog='/usr/bin/python2'
     let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
     let g:pydocstring_doq_path = $HOME.'/.local/bin/doq'
+    let g:jasegment#model = 'mecab'
     let g:jasegment#mecab#args = '-Owakati -d /usr/lib/x86_64-linux-gnu/mecab/dic/mecab-ipadic-neologd/'
     " Use yaskkserv
     let g:eskk#server = {
@@ -61,7 +62,12 @@ if has('gui_running')
     let g:lsp_settings_servers_dir='C:\Users\anosillus\.config\vim-lsp-settings'
     let g:pydocstring_doq_path='C:\Users\anosillus\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.8_qbz5n2kfra8p0\LocalCache\local-packages\Python38\Scripts\doq.exe'
     let g:python3_host_prog = expand('C:\Users\anosillus\AppData\Local\Microsoft\WindowsApps\python.exe')
-    let g:jasegment#mecab#cmd="C:/'Program Files'/MeCab/bin/mecab.exe"
+    let g:jasegment#model = 'cabocha'
+    " let g:jasegment#cabocha#args = '-I0 -O2 -f1 -d C:\Tools\mecab-ipadic-neologd'
+    " to complile neologd in shift-jis is troublesome.
+    let g:jasegment#mecab#cmd='"C:/Program Files (x86)/MeCab/bin/mecab.exe"'
+    let g:jasegment#cabocha#cmd = '"C:/Program Files (x86)/CaboCha/bin/cabocha.exe"'
+    let g:jasegment#cabocha#enc = 'cp932'
     let g:jasegment#mecab#args='-Owakati -d C:\Tools\mecab-ipadic-neologd'
     let g:jasegment#mecab#enc='utf-8'
     let g:eskk#dictionary = {
