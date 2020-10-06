@@ -60,6 +60,11 @@ function! s:initialize_ref_viewer()
   setlocal nonumber
 endfunction
 
+function! s:initialize_ref_viewer()
+  let g:jp_mode = 1
+endfunction
+
+
 function! s:auto_goyo()
   " setlocal filetype=markdown
   :Goyo 80
@@ -67,10 +72,8 @@ endfunction
 
 augroup MyAutoCmd
   autocmd!
-  autocmd BufEnter */jp_memo/*.md setlocal filetype=jp_md
-  autocmd BufEnter jp_*.md call setlocal filetype=jp_md
-  autocmd BufEnter *jp.md call setlocal filetype=jp_md
-  " autocmd WinEnter * if b:japanese_mode ==# 1|call plug#load('coc.vim')|endif
+ " autocmd BufRead,BufNewFile *jp.md call s:jp_mode()
+ " autocmd WinEnter * if b:japanese_mode ==# 1|call plug#load('coc.vim')|endif
   autocmd WinEnter * if winnr('$') == 1 && &buftype == "quickfix"|q|endif
   autocmd BufNew * call timer_start(0, { -> s:bufnew() })
   autocmd FileType vim setlocal tabstop=2 shiftwidth=2 expandtab

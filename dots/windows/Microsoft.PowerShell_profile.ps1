@@ -1,24 +1,21 @@
 # Path {{{
-$env:Path += ";${Env:APPDATA}\Python\Python38\Scripts"
+# $env:Path += ";${Env:APPDATA}\Python\Python38\Scripts"
 $env:Path += ";${Env:APPDATA}\npm"
 $env:Path += ";${Env:ProgramFiles}\Git\cmd"
 $env:Path += ";${Env:ProgramFiles}\nodejs"
 $env:Path += ";${Env:SystemDrive}\Go\bin"
-$env:Path += ";${Env:SystemDrive}\Python38\Scripts"
-$env:Path += ";${Env:LOCALAPPDATA}\Python\Python38\scripts"
+# $env:Path += ";${Env:LOCALAPPDATA}\Programs\Python\Python38\Scripts"
 $env:Path += ";${Env:SystemDrive}\Ruby27-x64\bin"
 $env:Path += ";${Env:SystemDrive}\tools\llvm-project\Release\bin"
 $env:Path += ";${Env:USERPROFILE}\.cargo\bin"
 $env:Path += ";${Env:USERPROFILE}\go\bin"
 $env:Path += ";${Env:ProgramData}\chocolatey\bin"
 # last, mingw is too strong.
-$env:Path += ";${Env:SystemDrive}\tools\msys64\mingw64\bin"
+# $env:Path += ";${Env:SystemDrive}\tools\msys64\mingw64\bin"
 # $env:Path += ";${Env:SystemDrive}\tools\msys64\usr\bin"
 # }}}}
 
 # Issue with VisualStudio {{{
-# VScode 2020 doesn't work by  Import-VisualStudioVars.
-# Import-VisualStudioVars -VisualStudioVersion 2020 -Architecture amd64
 # Install-Module Pscx -Scope CurrentUser  -Force -AllowClobber -AllowClobber
 # }}}
 
@@ -31,6 +28,7 @@ $DESKTOP = $(resolve-path "$ENV:USERPROFILE\Desktop")
 # }}}
 
 # Program Alias {{{
+Set-Alias make_dict ${Env:SystemDrive}\tools\yaskkserv2\target\release\yaskkserv2_make_dictionary.exe
 Set-Alias 7z ${Env:ProgramFiles}\7-Zip\7z.exe
 Set-Alias aws ${Env:ProgramFiles}\Amazon\AWSCLIV2\aws.exe
 Set-Alias capture ${Env:ProgramFiles}\ShareX.exe
@@ -38,6 +36,7 @@ Set-Alias chrome ${ENV:ProgramFiles(x86)}\Google\Chrome\Application\chrome.exe
 Set-Alias cmigemo ${Env:SystemDrive}\tools\cmigemo-default-win64\cmigemo.exe
 Set-Alias docker ${Env:ProgramData}\DockerDesktop\version-bin\docker.exe
 Set-Alias docker-compose ${Env:ProgramFiles}\Docker\Docker\resources\bin\docker-compose.exe
+Set-Alias mecab ${Env:ProgramFiles}\Mecab\bin\mecab.exe
 Set-Alias gcloud ${Env:ProgramFiles(x86)}\Google\'Cloud SDK'\google-cloud-sdk\bin\gcloud-ps.ps1
 Set-Alias gh ${Env:ProgramFiles(x86)}\'GitHub CLI'\gh.exe
 Set-Alias gvim ${Env:SystemDrive}\tools\vim82-kaoriya-win64\gvim.exe
@@ -51,11 +50,9 @@ Set-Alias pdf ${Env:LOCALAPPDATA}\SumatraPDF\sumatrapdf.exe
 Set-Alias perl ${Env:SystemDrive}\Strawberry\perl\bin\perl.exe
 Set-Alias pic ${ENV:ProgramFiles(x86)}\QuickPictureViewer\quick-picture-viewer.exe
 Set-Alias picture ${ENV:ProgramFiles(x86)}\QuickPictureViewer\quick-picture-viewer.exe
-Set-Alias python ${Env:SystemDrive}\Python38\python
-Set-Alias python3 ${Env:SystemDrive}\Python38\python
 Set-Alias quick-picture-viwer ${ENV:ProgramFiles(x86)}\QuickPictureViewer\quick-picture-viewer.exe
 Set-Alias rg ${Env:SystemDrive}\tools\ripgrep\rg.exe
-Set-Alias ssh $TOOL\msys64\usr\bin\ssh.exe
+Set-Alias ssh ${Env:SystemDrive}\tools\msys64\usr\bin\ssh.exe
 Set-Alias sumatrapdf ${Env:LOCALAPPDATA}\SumatraPDF\sumatrapdf.exe
 Set-Alias v ${Env:SystemDrive}\tools\vim82-kaoriya-win64\gvim.exe
 Set-Alias vagrant ${Env:SystemDrive}\HashiCorp\Vagrant\bin\vagrant.exe
@@ -63,8 +60,10 @@ Set-Alias vbox ${Env:ProgramFiles}\Oracle\VirtualBox\virtualbox.exe
 Set-Alias vcpkg ${Env:SystemDrive}\tools\vcpkg\vcpkg.exe
 Set-Alias vim ${Env:SystemDrive}\tools\vim82-kaoriya-win64\vim.exe
 Set-Alias vlc ${ENV:ProgramFiles(x86)}\VideoLAN\VLC\vlc.exe
-
-Set-Alias curl ${Env:SystemDrive}\tools\msys64\mingw64\bin\curl.exe
+# Set-Alias curl ${Env:SystemDrive}\tools\msys64\usr\bin\curl.exe
+Set-Alias grep ${Env:SystemDrive}\tools\msys64\usr\bin\grep.exe
+# Set-Alias python ${Env:LOCALAPPDATA}\Programs\Python\Python38\python.exe
+# Set-Alias python3 ${Env:LOCALAPPDATA}\Programs\Python\Python38\python.exe
 # Set-Alias captura ${ENV:ProgramFiles(x86)}\Captura\captura.exe
 Set-Alias code ${Env:LOCALAPPDATA}\Programs\'Microsoft VS Code'\bin\code.cmd
 # }}}
@@ -80,6 +79,7 @@ Set-Alias la Get-ChildItem
 function mcd { mkdir @args; cd @args }
 function rmd { Remove-Item -recurse -force @args }
 function path { ($env:Path).Replace(';',"`n") }
+function skkserv {C:\tools\yaskkserv2\target\release\yaskkserv2.exe --config-filename $HOME\.skk\yaskkserv2.conf}
 
 function DEV() {cd $DEV }
 function DOC() {cd $DOC }

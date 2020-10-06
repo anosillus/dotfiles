@@ -36,7 +36,6 @@ noremap :  ;
 " nnoremap <leader>; :<C-u>Denite command_history<CR>
 " nnoremap <leader>: :<C-u>Denite file/old -start-filter<CR>
 " nnoremap <-;> denite
-" nnoremap <-:> denite
 " nnoremap m;        :<C-u>Denite file/rec:~/.vim/rc -start-filter<CR>
 " nnoremap m:        :<C-u>Denite file/rec -start-filter<CR>
 " }}}
@@ -247,8 +246,6 @@ xmap j  <Nop>
 " map k is.vim
 " map K is.vim
 onoremap k s
-noremap gn gk
-noremap gN gK
 
 " }}}
 
@@ -273,8 +270,9 @@ nnoremap t a
 nnoremap T A
 nnoremap gt ga
 nnoremap gT gA
-nnoremap gs gi
-nnoremap gS gI
+nnoremap gs :<C-u>%s/\v//g<Left><Left><Left>
+vnoremap gs :s/\v//g<Left><Left><Left>
+" nnoremap gS gI
 " s,t omap is for inner/outer.
 onoremap s i
 onoremap t a
@@ -305,7 +303,7 @@ vnoremap gr :s/\v//g<Left><Left><Left>
 
 
 " Leader r is symbol rename.
-" nnoremap <Leader>r :<C-u>QuickRun<CR>
+" nnoremap <Leader>R :<C-u>QuickRun<CR>
 " }}}
 
 " <a> is 'Visual Mode/Head/Macro'. {{{

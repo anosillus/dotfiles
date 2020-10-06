@@ -25,15 +25,16 @@ repo = 'kannokanno/previm'
 on_cmd = 'PrevimOpen'
 depends = 'open-browser.vim'
 
-# [[plugins]]
-# repo = 'thinca/vim-quickrun'
-# on_cmd = 'QuickRun'
-# depends = 'previm'
-# hook_add = '''let g:quickrun_no_default_key_mappings = 1
-# nnoremap <Leader>r :<C-u>QuickRun<CR>
-# '''
-# hook_source = 'source ~/.vim/rc/plugins/quickrun.rc.vim'
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+on_cmd = 'QuickRun'
+depends = 'previm'
+hook_add = '''let g:quickrun_no_default_key_mappings = 1
+nnoremap <Leader>R :<C-u>QuickRun<CR>
+'''
+hook_source = 'source ~/.vim/rc/plugins/quickrun.rc.vim'
 # }}}
+
 # vista {{{
 [[plugins]]
 repo = 'liuchengxu/vista.vim'
@@ -82,7 +83,6 @@ let g:vista#renderer#icons = {
 \ }
 '''
 
-
 [[plugins]]
 repo = 'Shougo/junkfile.vim'
 on_source = 'denite.nvim'
@@ -93,12 +93,37 @@ hook_add = '''
 
 # defx {{{
 [[plugins]]
+repo = 'ristijanhusak/defx-icons'
+
+[[plugins]]
+repo ="kristijanhusak/defx-git"
+
+[[plugins]]
 repo = 'Shougo/defx.nvim'
 hook_add = '''
-  nnoremap <silent>  <leader>,
+  nnoremap <silent>  <leader>:
   \ :<C-u>Defx -listed -resume -buffer-name=win-`win_getid()`<CR>
 '''
+depends = ['defx-git', 'defx-icons']
 hook_source = '''
+  call defx#custom#column('git', 'indicators', {
+        \ 'Modified'  : '✹',
+        \ 'Staged'    : '✚',
+        \ 'Untracked' : '✭',
+        \ 'Renamed'   : '➜',
+        \ 'Unmerged'  : '═',
+        \ 'Ignored'   : '☒',
+        \ 'Deleted'   : '✖',
+        \ 'Unknown'   : '?'
+        \ })
+  call defx#custom#column('filename', {
+        \ 'min_width': 40,
+        \ 'max_width': 40,
+        \ })
+  call defx#custom#option('_', {
+        \ 'columns': 'indent:git:icons:filename',
+        \ 'show_ignored_files': 1,
+        \ })
   call defx#custom#column('mark', {
           \ 'readonly_icon': '✗',
           \ 'selected_icon': '✓',
@@ -187,7 +212,7 @@ defx = '''
   \ ':<C-u>Defx -buffer-name=temp -split=vertical<CR>'
 '''
 # defx }}}
-# 
+
 # Denite {{{
 [[plugins]]
 repo = 'Shougo/denite.nvim'
@@ -203,8 +228,8 @@ hook_add = '''
         \ :<C-u>Denite -default-action=replace -buffer-name=register
         \ register neoyank<CR>
   nnoremap <silent> <Leader><Leader>
-  \ :<C-u>Denite file/rec:~/.vim/rc<CR>
-  nnoremap <silent><expr> g, wordcount().chars > 30000 ?
+  \ :<C-u>Denite file/rec<CR>
+  nnoremap <silent><expr> j, wordcount().chars > 30000 ?
   \ ":\<C-u>Denite -buffer-name=search -start-filter
   \  -search line/external\<CR>" :
   \ ":\<C-u>Denite -buffer-name=search -start-filter -search line\<CR>"
@@ -213,29 +238,28 @@ hook_add = '''
   \ ":\<C-u>DeniteCursorWord -buffer-name=search -search line\<CR>"
   xnoremap <silent> *
   \ "qy:Denite -input=`@q` -buffer-name=search -search line<CR>
-  nnoremap <silent><expr> <space>J finddir('.git', ';') != '' ?
+  nnoremap <silent><expr> <leader>J finddir('.git', ';') != '' ?
   \ ":\<C-u>Denite -sorters=sorter/rank -unique
   \  file/point file/old file/dirty file/git file file:new\<CR>" :
   \ ":\<C-u>Denite -sorters=sorter/rank -unique
   \  file/point file/old file file:new\<CR>"
-  nnoremap <silent> j,
+  nnoremap <silent> <C-j>
   \ :<C-u>Denite -buffer-name=search -resume<CR>
   nnoremap <silent><expr> jt  &filetype == 'help' ?  "g\<C-]>" :
   \ ":\<C-u>DeniteCursorWord -buffer-name=tag -immediately tag:include\<CR>"
   nnoremap <silent><expr> jp  &filetype == 'help' ?
   \ ":\<C-u>pop\<CR>" : ":\<C-u>Denite jump\<CR>"
   nnoremap <silent> <Leader>j :<C-u>Denite dein<CR>
-  nnoremap <silent> <Leader>J :<C-u>Denite ghq -default-action=cd<CR>
   nnoremap <silent> jg :<C-u>Denite -buffer-name=search
   \ -no-empty grep<CR>
   nnoremap <silent> ja :<C-u>Denite -buffer-name=deol -split=floating
-  \ -cursor-pos=`tabpagenr()-1` deol:zsh<CR>
+  \ -cursor-pos=`tabpagenr()-1` deol:fish<CR>
   nnoremap <silent> jz :<C-u>Denite change jump<CR>
   nnoremap <silent> <C-q> :<C-u>Denite change -start-filter<CR>
-
   nnoremap <silent> jb :<C-u>DeniteCursorWord help<CR>
-  nnoremap <silent> j;
+  nnoremap <silent> <C-;>
   \ :<C-u>Denite command command_history<CR>
+  nnoremap <silent> <leader>; :<C-u>Denite file/old -start-filter<CR>
 '''
 
 [plugins.ftplugin]
@@ -269,7 +293,6 @@ denite = '''
   \ denite#do_map('redraw')
 '''
 # denite }}}
-
 
 # ALE {{{
 [[plugins]]
@@ -414,7 +437,7 @@ hook_source = '''
       " call  <CR>
       " call deoplete#enable()
       inoremap <expr><C-o> deoplete#auto_complete()
-      inoremap <expr><C-i> deoplete#smart_close_popup()."\<C-o>"
+      inoremap <expr><C-k> deoplete#smart_close_popup()."\<C-o>"
       inoremap <expr><C-h> deoplete#undo_completion()
       inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
   endfunction
@@ -565,37 +588,53 @@ repo = 'msbmsb/porter-stem.vim'
 repo = 'rhysd/unite-codic.vim'
 [[plugins]]
 repo = 'vim-jp/vimdoc-ja'
-#[[plugins]]
+# [[plugins]]
 # repo = 'deton/eblook.vim'
-# hook_source = '''
-# let eblook_no_default_key_mappings = 1
-# let eblook_stemming = 1
-# let eblook_decorate_syntax = 1
-# '''
+# on_event=['BufReadPost', 'FileReadPost']
+# if = 'if exists("b:jp_mode")'
+# hook_source = 'source ~/.vim/rc/plugins/eblook.rc.vim'
 # hook_add = '''
-# map <Leader>B <Plug>EblookInput
-# map <C-b> <Plug>EblookSearch
+    # map <unique> <silent> <Leader><C-b> <Plug>EblookInput
+    # nmap <unique> <silent> <C-b> <Plug>EblookSearch
+    # vmap <unique> <silent> <C-b> <Plug>EblookSearch
 # '''
 [[plugins]]
 repo = 'vim-jp/autofmt'
+# on_event=['BufReadPost', 'BufNewFile']
+on_if = "matchstr(expand('%:p'),'jp.md') !=# ''"
 hook_source = '''
 set formatexpr=autofmt#japanese#formatexpr()
 '''
 # jasegment {{{
 [[plugins]]
 repo = 'deton/jasegment.vim'
-on_ft = 'jp_md'
+# on_event=['BufReadPost', 'BufNewFile']
+on_if = "matchstr(expand('%:p'),'jp.md') !=# ''"
 hook_source = '''
-let b:loaded_jasegment = 1
+let g:jasegment#highlight = 2
 let g:jasegment_no_default_key_mappings = 1
 let g:jasegment#model = 'mecab'
+nmap <silent> I <Plug>JaSegmentMoveNE
+nmap <silent> i <Plug>JaSegmentMoveNW
+nmap <silent> h <Plug>JaSegmentMoveNB
+omap <silent> I <Plug>JaSegmentMoveOE
+omap <silent> i <Plug>JaSegmentMoveOW
+omap <silent> h <Plug>JaSegmentMoveOB
+xmap <silent> I <Plug>JaSegmentMoveVE
+xmap <silent> i <Plug>JaSegmentMoveVW
+xmap <silent> h <Plug>JaSegmentMoveVB
+omap <silent> sj <Plug>JaSegmentTextObjA
+omap <silent> tj <Plug>JaSegmentTextObjI
+xmap <silent> sj <Plug>JaSegmentTextObjVA
+xmap <silent> tj <Plug>JaSegmentTextObjVI
+noremap <silent> <C-i> f。
+noremap <silent> <C-h> F。
 '''
 # }}}
 # end filetype }}}
 # filetype }}}
 
 # {{{ text object
-
 [[plugins]]
 repo = 'bps/vim-textobj-python'
 depends = 'vim-textobj-user'
@@ -667,10 +706,10 @@ depends = 'vim-textobj-user'
 on_source = 'vim-textobj-user'
 hook_add = '''
 let g:textobj_entire_no_default_key_mappings = 1
-omap tg <Plug>(textobj-entire-a)
-xmap tg <Plug>(textobj-entire-a)
-omap sg <Plug>(textobj-entire-i)
-xmap sg <Plug>(textobj-entire-i)
+omap te <Plug>(textobj-entire-a)
+xmap te <Plug>(textobj-entire-a)
+omap se <Plug>(textobj-entire-i)
+xmap se <Plug>(textobj-entire-i)
 '''
 on_map = {ox = '<Plug>'}
 
@@ -797,56 +836,6 @@ call submode#map('bufmove', 'n', '', 'Y', ':call comfortable_motion#flick(g:comf
 '''
 # }}}
 
-# sandwitch {{{
-[[plugins]]
-repo = 'machakann/vim-sandwich'
-depends = ['vim-operator-user','vim-textobj-user']
-on_map = {nox = '<Plug>'}
-hook_post_source = '''
-let g:sandwich#recipes = deepcopy(g:sandwich#default_recipes)
-let g:sandwich#recipes += [
-\    {'buns': ['（', '）']},
-\    {'buns': ['［', '］']},
-\    {'buns': ['｛', '｝']},
-\    {'buns': ['＜', '＞']},
-\    {'buns': ['≪', '≫']},
-\    {'buns': ['「', '」']},
-\    {'buns': ['『', '』']},
-\    {'buns': ['〈', '〉']},
-\    {'buns': ['《', '》']},
-\    {'buns': ['〔', '〕']},
-\    {'buns': ['【', '】']},
-\ ]
-'''
-hook_add = '''
-  let g:operator_sandwich_no_default_key_mappings = 1
-  let g:textobj_sandwich_no_default_key_mappings = 1
-  let g:sandwich_no_default_key_mappings = 1
-  map  w  <Plug>(operator-sandwich-add)
-  map  wD <Plug>(operator-sandwich-delete)<Plug>(textobj-sandwich-query-a)
-  map  wd <Plug>(operator-sandwich-delete)<Plug>(textobj-sandwich-auto-a)
-  map  wR <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-query-a)
-  map  wr <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-auto-a)
-  map  wR <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-query-a)
-  map  wr <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-auto-a)
-  omap W  <Plug>(textobj-sandwich-query-i)
-  omap w  <Plug>(textobj-sandwich-auto-i)
-  omap aW <Plug>(textobj-sandwich-query-a)
-  omap aw <Plug>(textobj-sandwich-auto-a)
-  omap sW <Plug>(textobj-sandwich-query-i)
-  omap sw <Plug>(textobj-sandwich-auto-i)
-  omap tW <Plug>(textobj-sandwich-query-a)
-  omap tw <Plug>(textobj-sandwich-query-a)
-  xmap w  <Plug>(textobj-sandwich-auto-i)
-  xmap W  <Plug>(textobj-sandwich-query-i)
-  xmap aW <Plug>(textobj-sandwich-query-a)
-  xmap aw <Plug>(textobj-sandwich-auto-a)
-  xmap sW <Plug>(textobj-sandwich-query-i)
-  xmap sw <Plug>(textobj-sandwich-auto-i)
-  xmap tW <Plug>(textobj-sandwich-query-a)
-  xmap tw <Plug>(textobj-sandwich-query-a)
-'''
-# }}}
 # Motion  {{{
 # is.vim {{{
 [[plugins]]
@@ -904,14 +893,10 @@ hook_add = '''
 nmap <leader>s <Plug>(easymotion-overwin-f2)
 xmap <leader>s <Plug>(easymotion-bd-f2)
 " smart f & F
-omap f <Plug>(easymotion-bd-fl)
-xmap f <Plug>(easymotion-bd-fl)
-omap F <Plug>(easymotion-Fl)
-xmap F <Plug>(easymotion-Fl)
-omap p <Plug>(easymotion-tl)
-xmap p <Plug>(easymotion-tl)
-omap P <Plug>(easymotion-Tl)
-xmap P <Plug>(easymotion-Tl)
+map f <Plug>(easymotion-bd-fl)
+map F <Plug>(easymotion-Fl)
+map p <Plug>(easymotion-tl)
+map P <Plug>(easymotion-Tl)
 map <C-n> <Plug>(easymotion-j)
 map <C-e> <Plug>(easymotion-k)
 map U <Plug>(easymotion-linebackward)
@@ -934,8 +919,8 @@ repo = 'haya14busa/incsearch-fuzzy.vim'
 repo = 'haya14busa/incsearch.vim'
 on_map = '<Plug>',
 on_func = 'incsearch#go'
-depends = ['incsearch-easymotion.vim','incsearch-migemo.vim', 'incsearch-fuzzy.vim']
-on_source = ['incsearch-easymotion.vim','incsearch-migemo.vim', 'incsearch-fuzzy.vim']
+depends = ['incsearch-easymotion.vim','incsearch-migemo.vim', 'incsearch-fuzzy.vim','vital-migemo']
+# on_source = ['incsearch-easymotion.vim','incsearch-migemo.vim', 'incsearch-fuzzy.vim']
 hook_source = '''
   let g:incsearch#auto_nohlsearch = 1
   let g:incsearch#consistent_n_direction = 1

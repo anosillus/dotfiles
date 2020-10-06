@@ -1,15 +1,13 @@
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
+inoremap <silent><expr> "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <expr><S-TAB> pumvisible() ? "\<C-e>" : "\<C-h>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 inoremap <silent><expr> <c-k> coc#refresh()
-
 if exists('*complete_info')
   inoremap <expr> <CR> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 else
@@ -21,7 +19,6 @@ nmap <silent> gd <Plug>(coc-definition)
 " nmap <silent> gt <Plug>(coc-type-definition)
 " nmap <silent> gi <Plug>(coc-implementation)
 " nmap <silent> gr <Plug>(coc-references)
-
 
 imap <C-o> <Plug>(coc-snippets-expand)
 vmap <C-o> <Plug>(coc-snippets-select)
@@ -64,14 +61,14 @@ nmap <leader>ac  <Plug>(coc-codeaction)
 
 " Map function and class text objects
 " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
-xmap if <Plug>(coc-funcobj-i)
-omap if <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
-omap af <Plug>(coc-funcobj-a)
-xmap ic <Plug>(coc-classobj-i)
-omap ic <Plug>(coc-classobj-i)
-xmap ac <Plug>(coc-classobj-a)
-omap ac <Plug>(coc-classobj-a)
+xmap tf <Plug>(coc-funcobj-i)
+omap tf <Plug>(coc-funcobj-i)
+xmap sf <Plug>(coc-funcobj-a)
+omap sf <Plug>(coc-funcobj-a)
+xmap tc <Plug>(coc-classobj-i)
+omap tc <Plug>(coc-classobj-i)
+xmap sc <Plug>(coc-classobj-a)
+omap sc <Plug>(coc-classobj-a)
 
 " Use CTRL-S for selections ranges.
 " Requires 'textDocument/selectionRange' support of language server.
