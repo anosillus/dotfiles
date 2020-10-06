@@ -45,7 +45,7 @@ if has('gui_running')
     let g:jasegment#mecab#args = '-Owakati -d /usr/lib/x86_64-linux-gnu/mecab/dic/mecab-ipadic-neologd/'
     " Use yaskkserv
     let g:eskk#server = {
-				\	'host': 'localhost',
+        \	'host': 'localhost',
         \	'port': 1178,
     \}
 
@@ -59,20 +59,17 @@ if has('gui_running')
         \   'sorted': 1,
         \   'encoding': 'euc-jp',
         \}
-
-    " set runtimepath=~/.vim,/var/lib/vim/addons,/usr/share/vim/vimfiles,/usr/share/vim/vim81,/usr/share/vim/vimfiles/after,/var/lib/vim/addons/after,~/.vim/after
   elseif g:os ==? 'Windows'
     let g:vimproc#download_windows_dll = 1
-    set runtimepath+='C:\Users\anosillus\AppData\Local\Programs\Python\Python38'
-    set pythonthreedll+='C:\Users\anosillus\AppData\Local\Programs\Python\Python38\python38.dll'
+    set runtimepath+=C:\Users\anosillus\AppData\Local\Microsoft\WindowsApps\python.exe
+    set pythonthreedll+=C:\Users\anosillus\AppData\Local\Programs\Python\Python38\python38.dll
     let &pythonthreedll='C:\Users\anosillus\AppData\Local\Programs\Python\Python38\python38.dll'
-    let g:lsp_settings_servers_dir = 'C:\Users\anosillus\.config\vim-lsp-settings'
-    let g:pydocstring_doq_path = 'C:\Users\anosillus\AppData\Local\Programs\Python\Python38\Scripts\doq'
-    let g:python3_host_prog = expand('C:\Users\anosillus\AppData\Local\Programs\Python\Python38\python.exe')
-
-    let g:jasegment#mecab#cmd = 'C:/"Program Files"/MeCab/bin/mecab.exe'
-    " let g:jasegment#mecab#args="-Owakati -d C:\Tools\mecab-ipadic-neologd"
-    let g:jasegment#mecab#enc='shift-jis'
+    let g:lsp_settings_servers_dir='C:\Users\anosillus\.config\vim-lsp-settings'
+    let g:pydocstring_doq_path='C:\Users\anosillus\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.8_qbz5n2kfra8p0\LocalCache\local-packages\Python38\Scripts\doq.exe'
+    let g:python3_host_prog = expand('C:\Users\anosillus\AppData\Local\Microsoft\WindowsApps\python.exe')
+    let g:jasegment#mecab#cmd="C:/'Program Files'/MeCab/bin/mecab.exe"
+    let g:jasegment#mecab#args="-Owakati -d C:\Tools\mecab-ipadic-neologd"
+    let g:jasegment#mecab#enc='utf-8'
     let g:eskk#dictionary = {
         \   'path': expand('$CACHE/skk-jisyo'),
         \   'sorted': 0,
@@ -83,7 +80,6 @@ if has('gui_running')
         \   'sorted': 1,
         \   'encoding': 'euc-jp',
         \}
-    " Use google-ime-skk
     let g:eskk#server = {
     \	'host': 'localhost',
     \	'port':  1178,
