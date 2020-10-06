@@ -646,7 +646,8 @@
       },
       "sysPrefix": "/usr",
       "fileHash": "b9fd26a9dfb0fd6fe278d6a1b251a879217e23d5ae44ddf163886feacc851fa98d6e3d77b6e7277a8e07872c88243d396dafd530053f1e719e120d41b25de3d6",
-      "type": "Unknown"
+      "type": "Unknown",
+      "cachedEntry": true
     },
     "PipEnvInformation": [],
     "preferredGlobalPyInterpreter": {
@@ -722,6 +723,7 @@
       "sysPrefix": "/usr",
       "fileHash": "b9fd26a9dfb0fd6fe278d6a1b251a879217e23d5ae44ddf163886feacc851fa98d6e3d77b6e7277a8e07872c88243d396dafd530053f1e719e120d41b25de3d6",
       "type": "Unknown",
+      "cachedEntry": true,
       "displayName": "Python 3.8.2 64-bit"
     },
     "/usr/bin/python2.interpreter.Details.v7": {
@@ -843,6 +845,31 @@
         }
       },
       "expiry": 1602062461113
-    }
+    },
+    "InterpreterAutoSeletionRule-cachedInterpreters": {
+      "architecture": 3,
+      "path": "/bin/python3",
+      "version": {
+        "options": {
+          "loose": false,
+          "includePrerelease": false
+        },
+        "loose": false,
+        "raw": "3.8.2-final",
+        "major": 3,
+        "minor": 8,
+        "patch": 2,
+        "prerelease": [
+          "final"
+        ],
+        "build": [],
+        "version": "3.8.2-final"
+      },
+      "sysPrefix": "/usr",
+      "fileHash": "b9fd26a9dfb0fd6fe278d6a1b251a879217e23d5ae44ddf163886feacc851fa98d6e3d77b6e7277a8e07872c88243d396dafd530053f1e719e120d41b25de3d6",
+      "type": "Unknown",
+      "displayName": "Python 3.8.2 64-bit"
+    },
+    "pylint_DisableLinterInstallPrompt": true
   }
 }

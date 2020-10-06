@@ -55,9 +55,9 @@ repo = 'Yggdroot/indentLine'
 repo = 'markonm/traces.vim'
 [[plugins]]
 repo = 'wakatime/vim-wakatime'
-hook_source = '''
-let g:wakatime_PythonBinary = g:python3_host_prog
-'''
+# hook_source = '''
+# let g:wakatime_PythonBinary = g:python3_host_prog
+# '''
 # }}}
 
 # dependent {{{

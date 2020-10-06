@@ -64,7 +64,7 @@ set undolevels=100
 
 
 " call s:source_rc('gui.vim')
-call s:source_rc('private.vim')
+" call s:source_rc('private.vim')
 call s:source_rc('env.vim')
 call s:source_rc('keymap.vim')
 call s:source_rc('plug.vim')

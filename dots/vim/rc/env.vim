@@ -4,10 +4,14 @@ scriptencoding utf-8
 if !exists('g:os')
   if has('win64') || has('win32') || has('win16')
     let g:os = 'Windows'
+    echo "Win"
   elseif has("unix")
     let s:lines = readfile("/proc/version")
     if s:lines[0] =~ "Microsoft"
       let g:os = 'WSL'
+      echo "WSL"
+    elseif substitute(system('uname'), '\n', '', '') =~ "Linux"
+      let g:os = 'Linux'
     endif
   else
     let g:os = substitute(system('uname'), '\n', '', '')
