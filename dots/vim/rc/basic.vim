@@ -3,7 +3,7 @@ scriptencoding=utf8
 " ---------- Basic Option ----------
 setlocal wrap
 setlocal showmatch
-setlocal matchpairs+=<:>,「:」,（:）
+setlocal matchpairs+=<:>,「:」,（:）,『:』,【:】,《:》,〈:〉,［:］,‘:’,“:”
 setlocal matchtime=1
 set updatetime=300
 setlocal list

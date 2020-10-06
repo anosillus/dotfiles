@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 oh-my-fish/plugin-aws
 oh-my-fish/plugin-extract
 oh-my-fish/plugin-gi
@@ -5,3 +6,12 @@ fishpkg/fish-prompt-metro
 FabioAntunes/fish-nvm
 edc/bass
 /**
+=======
+
+
+
+
+
+
+
+>>>>>>> 8606925d05ce2bbef7074f8c69528a4e7e94f741

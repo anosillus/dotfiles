@@ -106,6 +106,55 @@ noremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(40)<CR>
 noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-40)<CR>
 '''
 
+[[plugins]]
+repo = 'machakann/vim-sandwich'
+# depends = ['vim-operator-user','vim-textobj-user']
+# on_map = {nox = '<Plug>'}
+hook_post_update = '''
+let g:sandwich#recipes = deepcopy(g:sandwich#default_recipes)
+let g:sandwich#recipes += [
+\    {'buns': ['（', '）']},
+\    {'buns': ['［', '］']},
+\    {'buns': ['｛', '｝']},
+\    {'buns': ['＜', '＞']},
+\    {'buns': ['≪', '≫']},
+\    {'buns': ['「', '」']},
+\    {'buns': ['『', '』']},
+\    {'buns': ['〈', '〉']},
+\    {'buns': ['《', '》']},
+\    {'buns': ['〔', '〕']},
+\    {'buns': ['【', '】']},
+\ ]
+'''
+hook_add = '''
+  let g:operator_sandwich_no_default_key_mappings = 1
+  let g:textobj_sandwich_no_default_key_mappings = 1
+  let g:sandwich_no_default_key_mappings = 1
+  nmap w  <Plug>(operator-sandwich-add)
+  map  wD <Plug>(operator-sandwich-delete)<Plug>(textobj-sandwich-query-a)
+  map  wd <Plug>(operator-sandwich-delete)<Plug>(textobj-sandwich-auto-a)
+  map  wR <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-query-a)
+  map  wr <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-auto-a)
+  map  wR <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-query-a)
+  map  wr <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-auto-a)
+  omap W  <Plug>(textobj-sandwich-query-i)
+  omap w  <Plug>(textobj-sandwich-auto-i)
+  omap aW <Plug>(textobj-sandwich-query-a)
+  omap aw <Plug>(textobj-sandwich-auto-a)
+  omap sW <Plug>(textobj-sandwich-query-i)
+  omap sw <Plug>(textobj-sandwich-auto-i)
+  omap tW <Plug>(textobj-sandwich-query-a)
+  omap tw <Plug>(textobj-sandwich-query-a)
+  xmap w  <Plug>(textobj-sandwich-auto-i)
+  xmap W  <Plug>(textobj-sandwich-query-i)
+  xmap aW <Plug>(textobj-sandwich-query-a)
+  xmap aw <Plug>(textobj-sandwich-auto-a)
+  xmap sW <Plug>(textobj-sandwich-query-i)
+  xmap sw <Plug>(textobj-sandwich-auto-i)
+  xmap tW <Plug>(textobj-sandwich-query-a)
+  xmap tw <Plug>(textobj-sandwich-query-a)
+'''
+
 # action {{{
 # emment {{{
 [[plugins]]
@@ -113,9 +162,8 @@ repo = 'mattn/emmet-vim'
 hook_add = '''
 let g:user_emmet_install_global = 1
 let g:user_emmet_mode='vn'
-let g:user_emmet_leader_key='<C-/>'
+let g:user_emmet_leader_key='<Meta-y>'
 '''
-
 [[plugins]]
 repo = 'pbrisbin/vim-mkdir'
 [[plugins]]
@@ -137,6 +185,9 @@ repo = 'roxma/nvim-yarp'
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
 build = 'make'
+
+[[plugins]]
+repo = 'osyo-manga/vital-migemo'
 # }}}
 
 # vim: ts=2 et sw=2 fdm=marker

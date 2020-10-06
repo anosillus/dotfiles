@@ -5,7 +5,11 @@ set fish_greeting "Hello, world"
 
 switch (uname)
   case Linux
+    if uname -r | grep 'microsoft' > /dev/null
+      . ~/.config/fish/configs/wsl.fish
+    else
       . ~/.config/fish/configs/linux.fish
+    end
   case Darwin
       . ~/.config/fish/configs/mac.fish
   case FreeBSD NetBSD DragonFly
@@ -15,8 +19,6 @@ switch (uname)
 end
 . ~/.config/fish/configs/alias.fish
 . ~/.config/fish/configs/func.fish
-
-
 
 if not functions -q fisher
     set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config

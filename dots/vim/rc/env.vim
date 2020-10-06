@@ -45,7 +45,7 @@ if has('gui_running')
     let g:jasegment#mecab#args = '-Owakati -d /usr/lib/x86_64-linux-gnu/mecab/dic/mecab-ipadic-neologd/'
     " Use yaskkserv
     let g:eskk#server = {
-				\	'host': 'localhost',
+        \	'host': 'localhost',
         \	'port': 1178,
     \}
 
@@ -59,17 +59,17 @@ if has('gui_running')
         \   'sorted': 1,
         \   'encoding': 'euc-jp',
         \}
-
-    " set runtimepath=~/.vim,/var/lib/vim/addons,/usr/share/vim/vimfiles,/usr/share/vim/vim81,/usr/share/vim/vimfiles/after,/var/lib/vim/addons/after,~/.vim/after
   elseif g:os ==? 'Windows'
     let g:vimproc#download_windows_dll = 1
-    set runtimepath+='C:\Python38'
-    set pythonthreedll+='C:\Python38\python38.dll'
-    let &pythonthreedll='C:\Python38\python38.dll'
-    let g:lsp_settings_servers_dir = 'C:\Users\anosillus\.config\vim-lsp-settings'
-
-    let g:pydocstring_doq_path = 'C:\Python38\Scripts\doq'
-    let g:python3_host_prog = expand('C:\Python38\python.exe')
+    set runtimepath+=C:\Users\anosillus\AppData\Local\Microsoft\WindowsApps\python.exe
+    set pythonthreedll+=C:\Users\anosillus\AppData\Local\Programs\Python\Python38\python38.dll
+    let &pythonthreedll='C:\Users\anosillus\AppData\Local\Programs\Python\Python38\python38.dll'
+    let g:lsp_settings_servers_dir='C:\Users\anosillus\.config\vim-lsp-settings'
+    let g:pydocstring_doq_path='C:\Users\anosillus\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.8_qbz5n2kfra8p0\LocalCache\local-packages\Python38\Scripts\doq.exe'
+    let g:python3_host_prog = expand('C:\Users\anosillus\AppData\Local\Microsoft\WindowsApps\python.exe')
+    let g:jasegment#mecab#cmd="C:/'Program Files'/MeCab/bin/mecab.exe"
+    let g:jasegment#mecab#args="-Owakati -d C:\Tools\mecab-ipadic-neologd"
+    let g:jasegment#mecab#enc='utf-8'
     let g:eskk#dictionary = {
         \   'path': expand('$CACHE/skk-jisyo'),
         \   'sorted': 0,
@@ -80,10 +80,9 @@ if has('gui_running')
         \   'sorted': 1,
         \   'encoding': 'euc-jp',
         \}
-    " Use google-ime-skk
     let g:eskk#server = {
     \	'host': 'localhost',
-    \	'port': 55100,
+    \	'port':  1178,
     \	'type': 'notfound',
     \}
     set shellslash
@@ -91,6 +90,7 @@ if has('gui_running')
     let g:python3_host_prog='/usr/bin/python3'
     let g:python_host_prog='/usr/bin/python3'
     let g:pydocstring_doq_path = $HOME.'/.local/bin/doq'
+    let g:wakatime_PythonBinary =  g:python_host_prog
     let g:eskk#server = {'host': 'localhost','port': 1178}
     let g:eskk#dictionary = {
         \   'path': expand('/mnt/c/Users/anosillus/.config/skk/skk-jisyo'),
@@ -98,11 +98,17 @@ if has('gui_running')
         \   'encoding': 'utf-8',
         \}
     let g:eskk#large_dictionary = {
-        \   'path': '/mnt/c/Users/anosillus/.skk/SKK-JISYO.L',
+        \   'path': '/mnt/c/Users/anosillus/skk/SKK-JISYO.L',
         \   'sorted': 1,
         \   'encoding': 'euc-jp',
         \}
     let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
+    set grepprg=/mnt/c/Msys64/usr/bin/grep.exe\ -n
+    set shell=C:\WINDOWS\System32\bash.exe
+    set shellcmdflag=-c
+    set shellquote=\"
+    set shellxescape=
+    set shellxquote=
     augroup myYank
       autocmd!
       autocmd TextYankPost * :call system('clip.exe', @")

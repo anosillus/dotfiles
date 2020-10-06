@@ -1,3 +1,2 @@
-if 1
-    source $HOME/.vim/rc/start.vim
-endif
+source $HOME/.vim/rc/start.vim
+
