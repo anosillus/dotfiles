@@ -555,9 +555,6 @@ on_ft = 'sql'
 repo = 'heavenshell/vim-pydocstring'
 build = 'make install'
 on_ft = 'python'
-[[plugins]]
-repo = 'tweekmonster/braceless.vim'
-on_event = ['BufEnter','FileType']
 #  }}}
 # R {{{
 [[plugins]]

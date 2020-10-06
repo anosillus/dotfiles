@@ -144,8 +144,24 @@ let g:quickrun#config= {
 \ },
 \ 'perl6': {'hook/eval/template': '{%s}().perl.print'},
 \ 'python': {
+\   'type': executable('/usr/bin/env/python') ? 'python/env':
+\           executable('/usr/bin/python') ? 'python/base':
+\           executable('C:/Users/anosillus/AppData/Local/Microsoft/WindowsApps/python.exe') ? 'python/windows':
+\           executable('C:/Users/anosillus/Anaconda3/python.exe') ? 'python/conda': ''
+\ },
+\  'python/base': {
 \    'hook/eval/template': 'print(%s)',
 \    'command': 'python'
+\ },
+\  'python/env': {
+\    'hook/eval/template': 'print(%s)',
+\    'command': 'python'
+\ },
+\  'python/windows': {
+\   'command': 'python',
+\ },
+\  'python/conda': {
+\   'command': 'C:\Users\anosillus\Anaconda3\python.exe',
 \ },
 \ 'php': {},
 \ 'r': {
