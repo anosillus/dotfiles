@@ -89,8 +89,8 @@ augroup MyAutoCmd
   autocmd BufNewFile,BufRead *.ipynb setlocal filetype=jupyter
   autocmd FileType gina-commit setlocal filetype=gitcommit
   autocmd FileType gitcommit setlocal spell
-  autocmd BufNewFile,BufRead textlintrc setlocal filetype=json
-  autocmd FileType c,cpp setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4 cindent shiftround
+  autocmd BufNewFile,BufRead textlintrc, .textlinrc setlocal filetype=json
+  autocmd FileType json setlocal expandtab foldmarker=syntax
   "https://vim-jp.org/vimdoc-ja/indent.html
   " Reload .vimrc automatically.
   autocmd BufWritePost .vimrc,vimrc,*.rc.vim source $MYVIMRC | redraw
@@ -104,8 +104,8 @@ augroup MyAutoCmd
   autocmd BufNewFile,BufRead *.ps1 setlocal filetype=ps1
   autocmd BufNewFile,BufRead init.macros setlocal filetype=dosbatch
   autocmd BufNewFile,BufRead workflows setlocal filetype=yaml
+  autocmd BufNewFile,BufRead textlinrc, .textlintrc setlocal filetype=json
   autocmd BufNewFile,BufRead *.vue setlocal filetype=javascript
-  autocmd BufNew,BufNewFile,BufRead .textlintrc setlocal filetype=json
   autocmd FileType python map <silent> lo <Plug>(pydocstring)
   " autocmd FileType python xmap <silent> lo :<C-u>'<,'>Pydocstring<CR>
   " autocmd BufNewFile,BufRead markdown call s:auto_goyo()

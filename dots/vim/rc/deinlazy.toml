@@ -642,6 +642,34 @@ noremap <silent> <C-h> F。
 
 # {{{ text object
 [[plugins]]
+repo = 'kana/vim-textobj-line'
+depends = 'vim-textobj-user'
+hook_source = '''
+let g:textobj_line_no_default_key_mappings = 1
+xmap tl <Plug>(textobj-line-a)
+omap tl <Plug>(textobj-line-a)
+xmap sl <Plug>(textobj-line-i)
+omap sl <Plug>(textobj-line-i)
+'''
+on_map = {ox = '<Plug>'}
+
+[[plugins]]
+repo = 'vimtaku/vim-textobj-keyvalue'
+depends = 'vim-textobj-user'
+hook_source = '''
+let g:textobj_key_no_default_key_mappings = 1
+xmap tk <Plug>(textobj-key-a)
+omap tk <Plug>(textobj-key-a)
+xmap sk <Plug>(textobj-key-i)
+omap sk <Plug>(textobj-key-i)
+xmap tv <Plug>(textobj-value-a)
+omap tv <Plug>(textobj-value-a)
+xmap sv <Plug>(textobj-value-i)
+omap sv <Plug>(textobj-value-i)
+'''
+on_map = {ox = '<Plug>'}
+
+[[plugins]]
 repo = 'bps/vim-textobj-python'
 depends = 'vim-textobj-user'
 on_ft = 'python'
@@ -674,17 +702,49 @@ repo = 'kana/vim-textobj-indent'
 depends = 'vim-textobj-user'
 hook_add = '''
 let  g:textobj_indent_no_default_key_mappings = 1
-xmap l <Plug>(textobj-indent-a)
-xmap j <Plug>(textobj-indent-i)
-xmap L <Plug>(textobj-indent-same-a)
-xmap J <Plug>(textobj-indent-same-i)
-omap L <Plug>(textobj-indent-a)
-omap j <Plug>(textobj-indent-i)
-omap L <Plug>(textobj-indent-same-a)
-omap J <Plug>(textobj-indent-same-i)
+xmap t< <Plug>(textobj-indent-a)
+xmap s< <Plug>(textobj-indent-i)
+omap t< <Plug>(textobj-indent-a)
+omap s< <Plug>(textobj-indent-i)
+xmap t> <Plug>(textobj-indent-same-a)
+xmap s> <Plug>(textobj-indent-same-i)
+omap t> <Plug>(textobj-indent-same-a)
+omap s> <Plug>(textobj-indent-same-i)
 '''
-
 on_map = {ox = '<Plug>'}
+
+[[plugins]]
+repo = 'rhysd/vim-textobj-anyblock'
+depends = 'vim-textobj-user'
+hook_add = '''
+let g:loaded_textobj_anyblock = 1
+call textobj#user#plugin('anyblock', {
+    \ '-' : {
+    \      'select-a' : 'tb', '*select-a-function*' : 'textobj#anyblock#select_a',
+    \      'select-i' : 'sb', '*select-i-function*' : 'textobj#anyblock#select_i',
+    \   },
+    \ })
+'''
+on_map = {ox = '<Plug>'}
+
+
+[[plugins]]
+repo = 'pocke/vim-textobj-markdown'
+depends = 'vim-textobj-user'
+on_ft = 'markdown'
+hook_add = '''
+let g:loaded_textobj_markdown = 1
+call textobj#user#plugin('markdowncodeblock', {
+\   '-': {
+\     'select-i-function': 'textobj#markdown#i',
+\     'select-i': 'sc',
+\     'select-a-function': 'textobj#markdown#a',
+\     'select-a': 'tc',
+\   },
+\ })
+'''
+on_map = {ox = '<Plug>'}
+
 # {{{ parameter
 [[plugins]]
 repo = 'sgur/vim-textobj-parameter'

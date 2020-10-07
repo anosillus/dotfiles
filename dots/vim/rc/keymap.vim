@@ -191,7 +191,8 @@ inoremap <C-y> <Delete>
 
 " <m> is 'Mark/Fold/MiddleScreen'. {{{
 " Mark
-nnoremap M '
+nnoremap m '
+nnoremap M m
 " nmap <leader>m is Denite
 " Fold
 noremap mn zj
@@ -298,6 +299,7 @@ noremap gt <c-]>
 " map R is operator
 nnoremap <C-r> *:%s///g<Left><Left>
 inoremap <C-r> <ESC>R
+vnoremap r s
 nnoremap gr :<C-u>%s/\v//g<Left><Left><Left>
 vnoremap gr :s/\v//g<Left><Left><Left>
 

@@ -124,6 +124,21 @@ hook_add = '''
 let g:fastfold_savehook = 1
 let g:fastfold_fdmhook = 0
 let g:fastfold_fold_movement_commands = [']m', '[m', 'mk']
+let g:markdown_folding = 1
+let g:tex_fold_enabled = 1
+let g:vimsyn_folding = 'af'
+let g:xml_syntax_folding = 1
+let g:javaScript_fold = 1
+let g:sh_fold_enabled= 7
+let g:ruby_fold = 1
+let g:perl_fold = 1
+let g:perl_fold_blocks = 1
+let g:r_syntax_folding = 1
+let g:rust_fold = 1
+let g:php_folding = 1
+
+xnoremap sm :<c-u>FastFoldUpdate<cr><esc>:<c-u>normal! ]zv[z<cr>
+xnoremap tm :<c-u>FastFoldUpdate<cr><esc>:<c-u>normal! ]zV[z<cr>
 '''
 [[plugin]]
 repo = 'skanehira/gh.vim'

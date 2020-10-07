@@ -17,6 +17,7 @@
     "apostrophe": true,
     "@textlint-rule/preset-google": true,
     "web-plus-db": true,
+    "abbr-within-parentheses": true,
     "footnote-order": true,
     "date-weekday-mismatch": true,
     "period-in-list-item": {
@@ -24,9 +25,6 @@
       "allowEmoji": false,
       "allowOrderedList": false,
       "forceAppendPeriod": false
-    },
-    "max-comma": {
-      "max": 3
     },
     "no-start-duplicated-conjunction": {
       "interval": 5
@@ -40,6 +38,7 @@
     "ja-hiragana-fukushi": true,
     "ja-hiragana-keishikimeishi": true,
     "ja-hiragana-hojodoushi": true,
+    "@textlint-ja/no-synonyms": true,
     "preset-jtf-style": {
       "4.3.1.丸かっこ（）": false
     },
@@ -107,4 +106,3 @@
     "comments": true
   }
 }
-// vim:tw=88 ff=unix ft=json fdm=syntax sw=2 ts=2
