@@ -65,13 +65,13 @@ function! g:ref_source_webdict_sites.alc.filter(output)
   return join(split(a:output, "\n")[42 :], "\n")
 endfunction
 nmap bb <Plug>(ref-keyword)
-noremap <expr> ba ':Ref webdict ej ' . expand('<cword>') . '<CR>'
-noremap <expr> bA ':Ref webdict je ' . expand('<cword>') . '<CR>'
-noremap <expr> br ':Ref webdict alc ' . expand('<cword>') . '<CR>'
-noremap <expr> bs ':Ref kotobank ' . expand('<cword>') . '<CR>'
-noremap <expr> bS ':Ref kotobankje ' . expand('<cword>') . '<CR>'
-noremap <expr> bT ':Ref wikipedia ' . expand('<cword>') . '<CR>'
-noremap <expr> bt ':Ref wikipedia_en ' . expand('<cword>') . '<CR>'
+noremap <expr> bs ':Ref webdict ej ' . expand('<cword>') . '<CR>'
+noremap <expr> bS ':Ref webdict je ' . expand('<cword>') . '<CR>'
+noremap <expr> ba ':Ref webdict alc ' . expand('<cword>') . '<CR>'
+noremap <expr> bt ':Ref kotobankje ' . expand('<cword>') . '<CR>'
+noremap <expr> bT ':Ref kotobank ' . expand('<cword>') . '<CR>'
+noremap <expr> br ':Ref wikipedia_en ' . expand('<cword>') . '<CR>'
+noremap <expr> bR ':Ref wikipedia ' . expand('<cword>') . '<CR>'
 '''
 [[plugins]]
 repo = 'ryanoasis/vim-devicons'
