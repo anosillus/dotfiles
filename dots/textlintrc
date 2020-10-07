@@ -1,11 +1,8 @@
 {
   "rules": {
-    // My rule. {{{
     "max-number-of-lines": {
       "max": 300
     },
-    // }}}
-    // Englsh rules. {{{
     "common-misspellings": true,
     "stop-words": {
       "defaultWords": true,
@@ -14,18 +11,12 @@
     },
     "diacritics": true,
     "en-capitalization": true,
-    "no-start-duplicated-conjunction": {
-      "interval": 2
-    },
     "en-max-word-count": {
       "max": 50
     },
     "apostrophe": true,
-    // }}}
-    // Tech rules. {{{
     "@textlint-rule/preset-google": true,
     "web-plus-db": true,
-    // "spellcheck-tech-word": true,
     "footnote-order": true,
     "date-weekday-mismatch": true,
     "period-in-list-item": {
@@ -37,36 +28,21 @@
     "max-comma": {
       "max": 3
     },
-    "en-max-word-count": {
-      "max": 50
-    },
     "no-start-duplicated-conjunction": {
       "interval": 5
     },
     "ginger": {
       "skipPatterns": ["/JavaScript/i"]
     },
-    "period-in-list-item": {
-      "periodMarks": [".", "。", "．"],
-      "allowEmoji": false,
-      "allowOrderedList": false,
-      "forceAppendPeriod": false
-    }
-    // }}}
-    // Japanese rule(compatible with English.{{{
     "no-hoso-kinshi-yogo": true,
     "prefer-tari-tari": true,
     "@textlint-ja/textlint-rule-no-insert-dropping-sa": true,
     "ja-hiragana-fukushi": true,
     "ja-hiragana-keishikimeishi": true,
     "ja-hiragana-hojodoushi": true,
-    "foreign-language-writing": true,
-    // JTF-style {{{
     "preset-jtf-style": {
       "4.3.1.丸かっこ（）": false
     },
-    // }}}
-    // technical writing {{{
     "preset-ja-technical-writing": {
       "max-comma": {
         "max": 3
@@ -88,7 +64,6 @@
         "max": 99
       },
       "no-dropping-the-ra": true,
-      "no-mix-dearu-desumasu": true,
       "no-nfd": true,
       "no-mix-dearu-desumasu": {
         "preferInHeader": "",
@@ -115,8 +90,6 @@
       "no-unmatched-pair": true,
       "no-invalid-control-character": true
     },
-    // }}}
-    // novel settings {{{
     "general-novel-style-ja": {
       "chars_leading_paragraph": false,
       "no_punctuation_at_closing_quote": true,
@@ -129,11 +102,9 @@
       "appropriate_use_of_minus_sign": true,
       "max_arabic_numeral_digits": false
     }
-    // }}}
-    // End Japanese Settings }}}
   },
   "filters": {
     "comments": true
   }
 }
-// vim:tw=88 ff=unix ft=json fdm=marker sw=2 ts=2
+// vim:tw=88 ff=unix ft=json fdm=syntax sw=2 ts=2
