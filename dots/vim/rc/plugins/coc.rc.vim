@@ -61,14 +61,14 @@ nmap <leader>ac  <Plug>(coc-codeaction)
 
 " Map function and class text objects
 " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
-xmap tf <Plug>(coc-funcobj-i)
-omap tf <Plug>(coc-funcobj-i)
-xmap sf <Plug>(coc-funcobj-a)
-omap sf <Plug>(coc-funcobj-a)
-xmap tc <Plug>(coc-classobj-i)
-omap tc <Plug>(coc-classobj-i)
-xmap sc <Plug>(coc-classobj-a)
-omap sc <Plug>(coc-classobj-a)
+" xmap tf <Plug>(coc-funcobj-i)
+" omap tf <Plug>(coc-funcobj-i)
+" xmap sf <Plug>(coc-funcobj-a)
+" omap sf <Plug>(coc-funcobj-a)
+" xmap tc <Plug>(coc-classobj-i)
+" omap tc <Plug>(coc-classobj-i)
+" xmap sc <Plug>(coc-classobj-a)
+" omap sc <Plug>(coc-classobj-a)
 
 " Use CTRL-S for selections ranges.
 " Requires 'textDocument/selectionRange' support of language server.

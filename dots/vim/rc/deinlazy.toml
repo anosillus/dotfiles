@@ -651,6 +651,7 @@ xmap sl <Plug>(textobj-line-i)
 omap sl <Plug>(textobj-line-i)
 '''
 
+
 [[plugins]]
 repo = 'vimtaku/vim-textobj-keyvalue'
 depends = 'vim-textobj-user'
@@ -667,6 +668,17 @@ xmap sv <Plug>(textobj-value-i)
 omap sv <Plug>(textobj-value-i)
 '''
 
+[[plugins]]
+repo = 'sgur/vim-textobj-parameter'
+depends = 'vim-textobj-user'
+on_map = {ox = '<Plug>'}
+hook_source = 'let g:textobj_line_no_default_key_mappings = 1'
+hook_add = '''
+xmap t, <Plug>(textobj-parameter-a)
+omap t, <Plug>(textobj-parameter-a)
+xmap s, <Plug>(textobj-parameter-i)
+omap s, <Plug>(textobj-parameter-i)
+'''
 [[plugins]]
 repo = 'kana/vim-textobj-function'
 depends = 'vim-textobj-user'

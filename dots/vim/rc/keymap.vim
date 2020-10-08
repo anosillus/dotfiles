@@ -245,7 +245,6 @@ xmap j  <Nop>
 " <k/K> is Search 'Up/Down'. {{{
 " map k is.vim
 " map K is.vim
-omap k s
 " }}}
 
 " b is 50%
