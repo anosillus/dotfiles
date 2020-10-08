@@ -4,7 +4,7 @@ $env:Path += ";${Env:APPDATA}\npm"
 $env:Path += ";${Env:ProgramFiles}\Git\cmd"
 $env:Path += ";${Env:ProgramFiles}\nodejs"
 $env:Path += ";${Env:SystemDrive}\Go\bin"
-# $env:Path += ";${Env:LOCALAPPDATA}\Programs\Python\Python38\Scripts"
+$env:Path += ";${Env:LOCALAPPDATA} \Packages\PythonSoftwareFoundation.Python.3.8_qbz5n2kfra8p0\LocalCache\local-packages\Python38\Scripts"
 $env:Path += ";${Env:SystemDrive}\Ruby27-x64\bin"
 $env:Path += ";${Env:SystemDrive}\tools\llvm-project\Release\bin"
 $env:Path += ";${Env:USERPROFILE}\.cargo\bin"
@@ -36,7 +36,7 @@ Set-Alias chrome ${ENV:ProgramFiles(x86)}\Google\Chrome\Application\chrome.exe
 Set-Alias cabocha ${ENV:ProgramFiles(x86)}\CaboCha\bin\cabocha.exe
 Set-Alias cmigemo ${Env:SystemDrive}\tools\cmigemo-default-win64\cmigemo.exe
 Set-Alias eblook ${Env:SystemDrive}\tools\eblook\bin\eblook.exe
-Set-Alias docker ${Env:ProgramData}\DockerDesktop\version-bin\docker.exe
+Set-Alias docker ${Env:ProgramData}\Docker\Docker\resources\docker.exe
 Set-Alias docker-compose ${Env:ProgramFiles}\Docker\Docker\resources\bin\docker-compose.exe
 Set-Alias mecab ${Env:ProgramFiles(x86)}\Mecab\bin\mecab.exe
 Set-Alias gcloud ${Env:ProgramFiles(x86)}\Google\'Cloud SDK'\google-cloud-sdk\bin\gcloud-ps.ps1

@@ -87,24 +87,19 @@
                 "startingDirectory": "%USERPROFILE%",
                 "icon": "C:{mylogo}}.png"
             },
-//            {
+            {
+                "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+                "hidden": false,
+                "name": "Azure Cloud Shell",
+                "source": "Windows.Terminal.Azure"
+            }
+            //            {
 //                "name": "Developer Command Prompt for VS 2019",
 //                "commandline": "cmd.exe /k \%ProgramFiles(x86)%/Microsoft Visual Studio/2019/Professional/Common7/Tools/VsDevCmd.bat\"",
 //                "startingDirectory": "%USERPROFILE%"
 //            },
-            {
-                "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
-                "name": "Azure Cloud Shell",
-                "source": "Windows.Terminal.Azure"
-            },
-            {
-                "guid": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
-                "hidden": false,
-                "name": "Ubuntu-20.04",
-                "source": "Windows.Terminal.Wsl"
-            }        ]
+        ]
     },
-
     // Add custom color schemes to this array.
     // To learn more about color schemes, visit https://aka.ms/terminal-color-schemes
     "schemes": [],

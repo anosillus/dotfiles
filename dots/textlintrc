@@ -32,7 +32,6 @@
     "ginger": {
       "skipPatterns": ["/JavaScript/i"]
     },
-    "no-hoso-kinshi-yogo": true,
     "prefer-tari-tari": true,
     "@textlint-ja/textlint-rule-no-insert-dropping-sa": true,
     "ja-hiragana-fukushi": true,
@@ -85,7 +84,7 @@
       "ja-no-successive-word": true,
       "ja-no-redundant-expression": true,
       "ja-unnatural-alphabet": true,
-      "ja-no-abusage": false,
+      "ja-no-abusage": true,
       "no-unmatched-pair": true,
       "no-invalid-control-character": true
     },
@@ -103,6 +102,12 @@
     }
   },
   "filters": {
-    "comments": true
+    "comments": true,
+    "allowlist": {
+      "allow": [
+        "/\\$\\$[\\s\\S]*?\\$\\$/m"
+      ]
+    }
   }
 }
+
