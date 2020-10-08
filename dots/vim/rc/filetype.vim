@@ -32,38 +32,12 @@ endfunction
 " endfunction
 " }}}
 
-function! s:on_lsp_buffer_enabled() abort
-  setlocal omnifunc=lsp#complete
-  setlocal signcolumn=yes
-
-  if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
-  nmap <buffer> gd <plug>(lsp-definition)
-  nmap <buffer> gr <plug>(lsp-references)
-  nmap <buffer> gi <plug>(lsp-implementation)
-  nmap <buffer> gt <plug>(lsp-type-definition)
-  nmap <buffer> <C-r> <plug>(lsp-rename)
-  nmap <buffer> B <plug>(lsp-hover)
-  setl foldmethod=expr
-    \ foldexpr=lsp#ui#vim#folding#foldexpr()
-    \ foldtext=lsp#ui#vim#folding#foldtext()
-endfunction
-
-augroup lsp_install
-  au!
-  autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
-augroup END
-
 function! s:initialize_ref_viewer()
   nmap <buffer> s <Plug>(ref-back)
   nmap <buffer> t <Plug>(ref-forward)
   nnoremap <buffer> q <C-w>c
   setlocal nonumber
 endfunction
-
-function! s:initialize_ref_viewer()
-  let g:jp_mode = 1
-endfunction
-
 
 function! s:auto_goyo()
   " setlocal filetype=markdown
@@ -86,26 +60,24 @@ augroup MyAutoCmd
   " autocmd BufNewFile,BufRead *.ipynb nmap <silent><Leader>o :VimpyterStartJupyter<CR>
   " autocmd BufNewFile,BufRead *.ipynb nmap <C-CR> :VimpyterStartJupyter<CR>
   " autocmd BufNewFile,BufRead *.ipynb highlight VimpyterUpdate term=bold ctermfg=14
-  autocmd BufNewFile,BufRead *.ipynb setlocal filetype=jupyter
-  autocmd FileType gina-commit setlocal filetype=gitcommit
+  autocmd BufNewFile,BufRead *.ipynb set filetype=jupyter
+  autocmd FileType gina-commit set filetype=gitcommit
   autocmd FileType gitcommit setlocal spell
-  autocmd BufNewFile,BufRead textlintrc, .textlinrc setlocal filetype=json
+  autocmd BufNewFile,BufRead textlintrc, .textlinrc set filetype=json
   autocmd FileType json setlocal expandtab foldmarker=syntax
   "https://vim-jp.org/vimdoc-ja/indent.html
   " Reload .vimrc automatically.
   autocmd BufWritePost .vimrc,vimrc,*.rc.vim source $MYVIMRC | redraw
   autocmd FileType,Syntax,BufNewFile,BufNew,BufRead
     \ call vimrc#on_filetype() " it need for ale
-  autocmd BufNewFile,BufRead *.R,*.Rout,*.r,*.Rhistory,*.Rt,*.Rout.save,*.Rout.fail setlocal filetype=r
-  autocmd BufNewFile,BufRead *.[rR]history setlocal filetype=r
+  autocmd BufNewFile,BufRead *.R,*.Rout,*.r,*.Rhistory,*.Rt,*.Rout.save,*.Rout.fail set filetype=r
+  autocmd BufNewFile,BufRead *.[rR]history set filetype=r
   " autocmd BufNew,BufRead,BufNewFile *.{mkd,markdown,md,mdwn,mkdn}  call s:auto_goyo()
-  autocmd BufNew,BufRead,BufNewFile *.{mkd,markdown,md,mdwn,mkdn} setlocal filetype=markdown
-  autocmd BufRead,BufNewFile README.md setlocal ft=markdown.gfm
-  autocmd BufNewFile,BufRead *.ps1 setlocal filetype=ps1
-  autocmd BufNewFile,BufRead init.macros setlocal filetype=dosbatch
-  autocmd BufNewFile,BufRead workflows setlocal filetype=yaml
-  autocmd BufNewFile,BufRead textlinrc, .textlintrc setlocal filetype=json
-  autocmd BufNewFile,BufRead *.vue setlocal filetype=javascript
+  autocmd BufNew,BufRead,BufNewFile *.{mkd,markdown,md,mdwn,mkdn} set filetype=markdown
+  autocmd BufRead,BufNewFile README.md set filetype=markdown.gfm
+  autocmd BufNewFile,BufRead init.macros set filetype=dosbatch
+  autocmd BufNewFile,BufRead workflows set filetype=yaml
+  autocmd BufNewFile,BufRead *.vue set filetype=javascript
   autocmd FileType python map <silent> lo <Plug>(pydocstring)
   " autocmd FileType python xmap <silent> lo :<C-u>'<,'>Pydocstring<CR>
   " autocmd BufNewFile,BufRead markdown call s:auto_goyo()

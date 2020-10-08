@@ -93,8 +93,8 @@ hook_add = '''
 
 # defx {{{
 [[plugins]]
-repo = 'ristijanhusak/defx-icons'
-
+repo = 'kristijanhusak/defx-icons'
+  
 [[plugins]]
 repo ="kristijanhusak/defx-git"
 
@@ -310,10 +310,6 @@ repo = 'thinca/vim-template'
 on_event = 'BufNewFile'
 
 [[plugins]]
-repo = 'kana/vim-smartinput'
-on_map = {i = '<Plug>'}
-
-[[plugins]]
 repo = 'sjl/gundo.vim'
 on_map = {n = '<Plug>'}
 hook_add = '''
@@ -332,7 +328,11 @@ repo = 'Shougo/deol.nvim'
 depends = 'denite.nvim'
 on_source = ['defx.nvim', 'denite.nvim']
 hook_add = '''
-  nnoremap <silent> <Leader>f :<C-u>Deol fish -no-start-insert<CR>
+  if g:os ==? 'Windows'
+    nnoremap <silent> <Leader>f :<C-u>Deol powershell -no-start-insert<CR>
+  else
+    nnoremap <silent> <Leader>f :<C-u>Deol fish -no-start-insert<CR>
+  end
   nnoremap <silent> <Leader>D  :<C-u>call deol#kill_editor()<CR>
 '''
 hook_source = '''
@@ -365,11 +365,9 @@ fish = '''
 # deol }}}
 
 [[plugins]]
-repo = 'arthurxavierx/vim-unicoder'
-on_map = {ic = '<Plug>'}
-hook_source = '''
-let g:unicoder_exclude_filetypes = ['tex', 'latex', 'plaintex', 'ipynb']
-'''
+repo   = 'junegunn/vim-easy-align'
+n_map = {nx = '<Plug>'}
+
 
 [[plugins]]
 repo = 'thinca/vim-fontzoom'
@@ -644,19 +642,20 @@ noremap <silent> <C-h> F。
 [[plugins]]
 repo = 'kana/vim-textobj-line'
 depends = 'vim-textobj-user'
-hook_source = '''
-let g:textobj_line_no_default_key_mappings = 1
+on_map = {ox = '<Plug>'}
+hook_source = 'let g:textobj_line_no_default_key_mappings = 1'
+hook_add = '''
 xmap tl <Plug>(textobj-line-a)
 omap tl <Plug>(textobj-line-a)
 xmap sl <Plug>(textobj-line-i)
 omap sl <Plug>(textobj-line-i)
 '''
-on_map = {ox = '<Plug>'}
 
 [[plugins]]
 repo = 'vimtaku/vim-textobj-keyvalue'
 depends = 'vim-textobj-user'
-hook_source = '''
+on_map = {ox = '<Plug>'}
+hook_= '''
 let g:textobj_key_no_default_key_mappings = 1
 xmap tk <Plug>(textobj-key-a)
 omap tk <Plug>(textobj-key-a)
@@ -667,20 +666,7 @@ omap tv <Plug>(textobj-value-a)
 xmap sv <Plug>(textobj-value-i)
 omap sv <Plug>(textobj-value-i)
 '''
-on_map = {ox = '<Plug>'}
 
-[[plugins]]
-repo = 'bps/vim-textobj-python'
-depends = 'vim-textobj-user'
-on_ft = 'python'
-hook_source = '''
-let g:textobj_python_no_default_key_mappings = 1
-xmap tf <Plug>(textobj-python-function-a)
-omap tf <Plug>(textobj-python-function-a)
-xmap sf <Plug>(textobj-python-function-i)
-omap sf <Plug>(textobj-python-function-i)
-'''
-on_map = {ox = '<Plug>'}
 [[plugins]]
 repo = 'kana/vim-textobj-function'
 depends = 'vim-textobj-user'
@@ -714,57 +700,15 @@ omap s> <Plug>(textobj-indent-same-i)
 on_map = {ox = '<Plug>'}
 
 [[plugins]]
-repo = 'rhysd/vim-textobj-anyblock'
+repo = 'osyo-manga/vim-textobj-multiblock'
 depends = 'vim-textobj-user'
+on_map = {ox = '<Plug>'}
 hook_add = '''
-let g:loaded_textobj_anyblock = 1
-call textobj#user#plugin('anyblock', {
-    \ '-' : {
-    \      'select-a' : 'tb', '*select-a-function*' : 'textobj#anyblock#select_a',
-    \      'select-i' : 'sb', '*select-i-function*' : 'textobj#anyblock#select_i',
-    \   },
-    \ })
+omap tb <Plug>(textobj-multiblock-a)
+omap sb <Plug>(textobj-multiblock-i)
+xmap tb <Plug>(textobj-multiblock-a)
+xmap sb <Plug>(textobj-multiblock-i)
 '''
-on_map = {ox = '<Plug>'}
-
-
-[[plugins]]
-repo = 'pocke/vim-textobj-markdown'
-depends = 'vim-textobj-user'
-on_ft = 'markdown'
-hook_add = '''
-let g:loaded_textobj_markdown = 1
-call textobj#user#plugin('markdowncodeblock', {
-\   '-': {
-\     'select-i-function': 'textobj#markdown#i',
-\     'select-i': 'sc',
-\     'select-a-function': 'textobj#markdown#a',
-\     'select-a': 'tc',
-\   },
-\ })
-'''
-on_map = {ox = '<Plug>'}
-
-# {{{ parameter
-[[plugins]]
-repo = 'sgur/vim-textobj-parameter'
-depends = 'vim-textobj-user'
-on_source = 'vim-textobj-user'
-on_map = {ox = '<Plug>'}
-hook_source = '''
-let g:vim_textobj_parameter_mapping = ','
-call textobj#user#plugin('parameter', {
-\   '-': {
-\     'select-a': "t" . g:vim_textobj_parameter_mapping,  '*select-a-function*': 'textobj#parameter#select_a'
-\   , 'select-i': "s" . g:vim_textobj_parameter_mapping,  '*select-i-function*': 'textobj#parameter#select_i'
-\   }
-\ , 'greedy': {
-\     'select-i': "s2,",  '*select-i-function*': 'textobj#parameter#select_greedy_i'
-\   }
-\ })
-let g:loaded_textobj_parameter = 1
-'''
-# }}}
 
 [[plugins]]
 repo = 'kana/vim-textobj-entire'
@@ -780,25 +724,8 @@ xmap se <Plug>(textobj-entire-i)
 on_map = {ox = '<Plug>'}
 
 [[plugins]]
-repo = 'machakann/vim-textobj-char'
-depends = 'vim-textobj-user'
-on_source = 'vim-textobj-user'
-hook_source = '''
-omap sf <Plug>(textobj-char-f-i)
-omap sF <Plug>(textobj-char-F-i)
-omap tf <Plug>(textobj-char-f-a)
-omap tF <Plug>(textobj-char-F-a)
-xmap sf <Plug>(textobj-char-f-i)
-xmap sF <Plug>(textobj-char-F-i)
-xmap tf <Plug>(textobj-char-f-a)
-xmap tF <Plug>(textobj-char-F-a)
-'''
-on_map = {ox = '<Plug>'}
-
-[[plugins]]
 repo =  'kana/vim-textobj-fold'
 depends = 'vim-textobj-user'
-on_source = 'vim-textobj-user'
 hook_add = '''
 let g:textobj_fold_no_default_key_mappings = 1
 omap tz <Plug>(textobj-fold-a)
@@ -933,8 +860,8 @@ repo = 'easymotion/vim-easymotion'
 on_map = '<Plug>'
 on_func = ['EasyMotion#go']
 hook_source = '''
-let g:EasyMotion_keys = 'neihdoarstdluyfwp;qj,.'
-" let g:EasyMotion_use_smartsign_us = 1
+let g:EasyMotion_keys = 'NEIHDOARSTDLUYFWP;QJ,.'
+let g:EasyMotion_use_smartsign_us = 1
 let g:EasyMotion_do_mapping = 0
 " Do not shade
 let g:EasyMotion_do_shade = 0
@@ -967,9 +894,9 @@ map <C-n> <Plug>(easymotion-j)
 map <C-e> <Plug>(easymotion-k)
 map U <Plug>(easymotion-linebackward)
 map Y <Plug>(easymotion-lineforward)
-nmap <Leader>w <Plug>(easymotion-overwin-w)
-xmap <Leader>w <Plug>(easymotion-bd-w)
-omap <Leader>w <Plug>(easymotion-bd-w)
+nmap <Space>w <Plug>(easymotion-overwin-w)
+xmap <Space>w <Plug>(easymotion-bd-w)
+omap <Space>w <Plug>(easymotion-bd-w)
 '''
 on_map = {n = '<Plug>', x = '<Plug>'}
 # }}}
@@ -1045,7 +972,6 @@ on_map = '<Plug>'
 # edgemotion {{{
 [[plugins]]
 repo = 'haya14busa/vim-edgemotion'
-merged = 0
 hook_add = '''
 map  N <Plug>(edgemotion-j)
 map  E <Plug>(edgemotion-k)
@@ -1053,4 +979,5 @@ map  E <Plug>(edgemotion-k)
 on_map = {n = '<Plug>', x = '<Plug>'}
 # }}}
 # end Motion }}}
+
 # vim: ts=2 et sw=2 fdm=marker

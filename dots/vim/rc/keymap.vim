@@ -14,10 +14,9 @@ nmap <Leader><Leader> :<C-u>w<CR>
 " }}}
 
 " <Enter> is 'Page Scroll'. {{{
-nnoremap  <CR> <C-f>
+nmap  <CR> <C-f>
 " xmap     <CR> <Plug>(EasyAlign)
-vmap <CR> <Plug>(EasyAlign)
-xmap <Enter>  <Plug>(EasyAlign)
+xmap <CR>  <Plug>(EasyAlign)
 nmap     <S-CR>  <C-b>
 noremap  <C-CR>  <C-d>
 inoremap <C-CR> <ESC>+i
@@ -246,8 +245,7 @@ xmap j  <Nop>
 " <k/K> is Search 'Up/Down'. {{{
 " map k is.vim
 " map K is.vim
-onoremap k s
-
+omap k s
 " }}}
 
 " b is 50%
@@ -280,7 +278,7 @@ onoremap t a
 xnoremap s i
 xnoremap t a
 " sentence is k
-" tag is a
+" tag is sandwitch.vim
 " xmap <S/T> is <Plug>(niceblock)
 inoremap <C-s> <C-d>
 " inoremap <C-t> <C-t>
@@ -313,9 +311,6 @@ vnoremap gr :s/\v//g<Left><Left><Left>
 nnoremap a v
 nnoremap A V
 nnoremap <C-a> <C-v>
-onoremap a t
-" omap a is tag
-" Head
 nnoremap ga gv
 nnoremap gA gV
 vnoremap <C-a> 0
@@ -352,7 +347,7 @@ omap W <Nop>
 " }}}
 
 " <q> is 'Quit'. {{{
-nmap q <plug>(coc-codeaction)
+nmap q :bd<CR>
 xmap q <Plug>(coc-codeaction-selected)
 
 nnoremap <C-q> :<C-u>q!<CR>

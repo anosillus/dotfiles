@@ -78,6 +78,10 @@ repo = 'ryanoasis/vim-devicons'
 # }}}
 # View {{{
 [[plugins]]
+repo = 'luochen1990/rainbow'
+hook_add = 'let g:rainbow_active = 1'
+
+[[plugins]]
 repo = 'ap/vim-css-color'
 # Lightline {{{
 [[plugins]]
@@ -145,9 +149,17 @@ repo = 'skanehira/gh.vim'
 # config }}}
 
 [[plugins]]
-repo = 'lambdalisue/gina.vim'
+repo = 'jacquesbh/vim-showmarks'
+hook_add = '''
+nnoremap <C-m> :ShowMarksOnce<cr>
+'''
+
 [[plugins]]
-repo = 'chrisbra/unicode.vim'
+repo = 'cohama/lexima.vim'
+# on_map = {i = '<Plug>'}
+
+[[plugins]]
+repo = 'lambdalisue/gina.vim'
 [[plugins]]
 repo = 'yuttie/comfortable-motion.vim'
 hook_add = '''
@@ -190,16 +202,12 @@ hook_add = '''
   map  wr <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-auto-a)
   omap W  <Plug>(textobj-sandwich-query-i)
   omap w  <Plug>(textobj-sandwich-auto-i)
-  omap aW <Plug>(textobj-sandwich-query-a)
-  omap aw <Plug>(textobj-sandwich-auto-a)
   omap sW <Plug>(textobj-sandwich-query-i)
   omap sw <Plug>(textobj-sandwich-auto-i)
   omap tW <Plug>(textobj-sandwich-query-a)
   omap tw <Plug>(textobj-sandwich-query-a)
   xmap w  <Plug>(textobj-sandwich-auto-i)
   xmap W  <Plug>(textobj-sandwich-query-i)
-  xmap aW <Plug>(textobj-sandwich-query-a)
-  xmap aw <Plug>(textobj-sandwich-auto-a)
   xmap sW <Plug>(textobj-sandwich-query-i)
   xmap sw <Plug>(textobj-sandwich-auto-i)
   xmap tW <Plug>(textobj-sandwich-query-a)

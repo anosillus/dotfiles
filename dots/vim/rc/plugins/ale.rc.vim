@@ -74,7 +74,7 @@ let g:ale_fixers = {
 \   'typescript': ['remove_trailing_lines', 'trim_whitespace', 'prettier', 'eslint'],
 \   'java':       ['remove_trailing_lines', 'trim_whitespace'],
 \   'json':       ['remove_trailing_lines', 'trim_whitespace', 'prettier', 'fixjson'],
-\   'markdown':   ['remove_trailing_lines', 'prettier', 'textlint'],
+\   'markdown':   ['remove_trailing_lines', 'prettier'],
 \   'python':     ['remove_trailing_lines', 'trim_whitespace', 'add_blank_lines_for_python_control_statements', 'black', 'reorder-python-imports'],
 \   'r':          ['remove_trailing_lines', 'trim_whitespace', 'styler'],
 \   'rust':       ['remove_trailing_lines', 'trim_whitespace', 'rustfmt'],
