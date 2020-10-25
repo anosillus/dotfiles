@@ -228,8 +228,6 @@ repo = 'pbrisbin/vim-mkdir'
 [[plugins]]
 repo = 'junegunn/fzf'
 [[plugins]]
-repo = 'previm/previm'
-[[plugins]]
 repo = 'azadkuh/vim-cmus'
 # }}}
 # command }}}

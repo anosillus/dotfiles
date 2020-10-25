@@ -461,10 +461,6 @@ hook_source = '''
 
 # small command {{{
 [[plugins]]
-repo = 'junegunn/vim-easy-align'
-on_map = {nx = '<Plug>'}
-
-[[plugins]]
 repo = 'kana/vim-niceblock'
 on_map = {x = '<Plug>'}
 hook_add = '''
@@ -679,22 +675,22 @@ omap t, <Plug>(textobj-parameter-a)
 xmap s, <Plug>(textobj-parameter-i)
 omap s, <Plug>(textobj-parameter-i)
 '''
-[[plugins]]
-repo = 'kana/vim-textobj-function'
-depends = 'vim-textobj-user'
-on_ft = ['vim', 'c', 'java']
-hook_add = '''
-let g:textobj_function_no_default_key_mappings = 1
-xmap tf <Plug>(textobj-function-i) 
-omap tf <Plug>(textobj-function-i) 
-xmap sf <Plug>(textobj-function-a)
-omap sf <Plug>(textobj-function-a) 
-xmap tF <Plug>(textobj-function-I) 
-omap tF <Plug>(textobj-function-I) 
-xmap sF <Plug>(textobj-function-A)
-omap sF <Plug>(textobj-function-A) 
-'''
-on_map = {ox = '<Plug>'}
+# [[plugins]]
+# repo = 'kana/vim-textobj-function'
+# depends = 'vim-textobj-user'
+# on_ft = ['vim', 'c', 'java']
+# hook_add = '''
+# let g:textobj_function_no_default_key_mappings = 1
+# xmap tf <Plug>(textobj-function-i) 
+# omap tf <Plug>(textobj-function-i) 
+# xmap sf <Plug>(textobj-function-a)
+# omap sf <Plug>(textobj-function-a) 
+# xmap tF <Plug>(textobj-function-I) 
+# omap tF <Plug>(textobj-function-I) 
+# xmap sF <Plug>(textobj-function-A)
+# omap sF <Plug>(textobj-function-A) 
+# '''
+# on_map = {ox = '<Plug>'}
 [[plugins]]
 repo = 'kana/vim-textobj-indent'
 depends = 'vim-textobj-user'

@@ -5,29 +5,28 @@ if !isdirectory(expand($CACHE))
 endif
 
 " Load dein.
-" let s:dein_dir = finddir('dein.vim', '.;')
-" if s:dein_dir != '' || &runtimepath !~ '/dein.vim'
-"   if s:dein_dir == '' && &runtimepath !~ '/dein.vim'
-"     let s:dein_dir = expand('$CACHE/dein'). '/repos/github.com/Shougo/dein.vim'
-"     if !isdirectory(s:dein_dir)
-"       execute '!git clone https://github.com/Shougo/dein.vim' s:dein_dir
-"     endif
-"   endif
-"   execute 'set runtimepath^=' . substitute(
-"      \ fnamemodify(s:dein_dir, ':p') , '/$', '', '')
-" endif
+let s:dein_dir = finddir('dein.vim', '.;')
+if s:dein_dir != '' || &runtimepath !~ '/dein.vim'
+  if s:dein_dir == '' && &runtimepath !~ '/dein.vim'
+    let s:dein_dir = expand('$CACHE/dein'). '/repos/github.com/Shougo/dein.vim'
+    if !isdirectory(s:dein_dir)
+      execute '!git clone https://github.com/Shougo/dein.vim' s:dein_dir
+    endif
+  endif
+  execute 'set runtimepath^=' . substitute(
+     \ fnamemodify(s:dein_dir, ':p') , '/$', '', '')
+endif
+
+" set runtimepath+=$HOME/.cache/dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=$HOME/.cache/dein/repos/github.com/Shougo/dein.vim
 
 
-set runtimepath+=/home/anosillus/.cache/dein/repos/github.com/Shougo/dein.vim
-
-call dein#begin('/home/anosillus/.cache/dein')
+" call dein#begin('/home/anosillus/.cache/dein')
 
 " let g:dein#auto_recache = 1
 let g:dein#install_progress_type = 'title'
 let g:dein#enable_notification = 1
-let g:dein#notification_icon = '~/.vim/signs/warn.png'
-
-
+" let g:dein#notification_icon = '~/.vim/signs/warn.png'
 let s:path = expand('$CACHE/dein')
 if !dein#load_state(s:path)
   finish
