@@ -1,3 +1,0 @@
-LUDES="README.md LICENSE"
-DOTFILES_DIRS="$HOME/dotfiles/dots $HOME/private_dotfiles/dots"
-EXCLUDES="README.md LICENSE Assets/*"
