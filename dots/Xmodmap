@@ -1,0 +1,16 @@
+keycode  26 = e E (
+keycode  27 = r R #
+keycode  28 = t T %
+keycode  31 = i I )
+keycode  32 = o O _
+keycode  38 = a A @
+keycode  39 = s S $
+keycode  40 = d D ^
+keycode  36 = Return Return ~
+keycode  43 = h H &
+keycode  45 = k K ?
+keycode  56 = b B "
+keycode  57 = n N *
+keycode  58 = m M {
+keycode  59 = comma less }
+keycode  60 = period greater |
