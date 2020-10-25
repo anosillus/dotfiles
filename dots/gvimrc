@@ -34,8 +34,8 @@ else
    " set guifont=Courier\ 10\ Pitch\ 14
    " set guifont=Font\ Family\ 12
    " set guifontwide=Font\ Family\ 12
-   set guifontwide=Cica /16
-   set guifont=Cica /16
+   set guifontwide=Cica\ 16
+   set guifont=Cica\ 16
 endif
 " }}}
 

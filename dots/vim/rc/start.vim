@@ -62,7 +62,6 @@ set history=100
 set undolevels=100
 " }}}
 
-
 " call s:source_rc('gui.vim')
 " call s:source_rc('private.vim')
 call s:source_rc('env.vim')

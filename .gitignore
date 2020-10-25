@@ -9,11 +9,3 @@ keys/
 .ccls-cache/
 sessions/
 private.*
-config/evolution
-config/GitKraken
-config/gnome*
-config/ibus*
-config/menu
-config/mineapps.list
-config/pulse
-config/vivaldi
