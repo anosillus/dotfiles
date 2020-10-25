@@ -26,6 +26,15 @@ if not functions -q fisher
     fish -c fisher
 end
 
+
+if functions -q aws-cli
+    complete --command aws --no-files --arguments '(begin; set --local --export COMP_SHELL fish; set --local --export COMP_LINE (commandline); aws_completer | sed \'s/ $//\'; end)'
+end
+
+set -U FZF_LEGACY_KEYBINDINGS 0
+set -U FZF_REVERSE_ISEARCH_OPTS "--reverse --height=100%"
+
+
 set -g theme_display_git yes
 set -g theme_display_git_dirty yes
 set -g theme_display_git_untracked yes
