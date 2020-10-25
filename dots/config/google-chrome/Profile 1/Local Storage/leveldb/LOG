@@ -1,0 +1,10 @@
+2020/10/26-00:32:13.574 44f1 Reusing MANIFEST /home/anosillus/.config/google-chrome/Profile 1/Local Storage/leveldb/MANIFEST-000001
+2020/10/26-00:32:44.551 44f1 Level-0 table #5: started
+2020/10/26-00:32:44.553 44f1 Level-0 table #5: 92480 bytes OK
+2020/10/26-00:32:44.554 44f1 Delete type=0 #3
+2020/10/26-00:32:47.112 44d8 Level-0 table #7: started
+2020/10/26-00:32:47.114 44d8 Level-0 table #7: 83270 bytes OK
+2020/10/26-00:32:47.114 44d8 Delete type=0 #4
+2020/10/26-00:47:54.512 8e12 Level-0 table #9: started
+2020/10/26-00:47:54.513 8e12 Level-0 table #9: 16218 bytes OK
+2020/10/26-00:47:54.514 8e12 Delete type=0 #6

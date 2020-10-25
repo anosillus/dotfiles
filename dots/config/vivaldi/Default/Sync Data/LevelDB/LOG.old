@@ -1,0 +1,6 @@
+2020/10/26-02:36:23.439 53e7 Reusing MANIFEST /home/anosillus/.config/vivaldi/Default/Sync Data/LevelDB/MANIFEST-000001
+2020/10/26-02:36:23.439 53e7 Recovering log #20
+2020/10/26-02:36:23.440 53e7 Reusing old log /home/anosillus/.config/vivaldi/Default/Sync Data/LevelDB/000020.log 
+2020/10/26-02:36:26.402 5407 Level-0 table #24: started
+2020/10/26-02:36:26.406 5407 Level-0 table #24: 754163 bytes OK
+2020/10/26-02:36:26.407 5407 Delete type=0 #20

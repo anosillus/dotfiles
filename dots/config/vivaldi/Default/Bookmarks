@@ -1,0 +1,340 @@
+{
+   "checksum": "e8775f90d6699dc28300a048c7c92ebc",
+   "roots": {
+      "bookmark_bar": {
+         "children": [ {
+            "children": [ {
+               "date_added": "13248114433840857",
+               "guid": "68fc9516-59ac-447e-a8a6-ff27d558da91",
+               "id": "7",
+               "meta_info": {
+                  "Description": "hotels, booking, apartments",
+                  "Partner": "68fc9516-59ac-447e-a8a6-ff27d558da91",
+                  "Thumbnail": "/resources/sd_booking.com.png"
+               },
+               "name": "Booking.com",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/bookingcom-en-us"
+            }, {
+               "date_added": "13248114433840929",
+               "guid": "a4d0c752-2bf7-470d-85cd-8b2ddd1ec82b",
+               "id": "8",
+               "meta_info": {
+                  "Description": "video",
+                  "Partner": "a4d0c752-2bf7-470d-85cd-8b2ddd1ec82b",
+                  "Thumbnail": "/resources/sd_youtube.png"
+               },
+               "name": "YouTube",
+               "type": "url",
+               "url": "https://www.youtube.com/"
+            }, {
+               "date_added": "13246342820660962",
+               "guid": "6f7e802b-87ed-454d-ae23-95407a64de52",
+               "id": "30",
+               "meta_info": {
+                  "Description": "shopping",
+                  "Partner": "6f7e802b-87ed-454d-ae23-95407a64de52",
+                  "Thumbnail": "/resources/sd_walmart.png"
+               },
+               "name": "Walmart",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/walmart-pc"
+            }, {
+               "date_added": "13248114433840938",
+               "guid": "c49a405e-ba3d-42b4-ad9a-4831e2ed35e4",
+               "id": "9",
+               "meta_info": {
+                  "Description": "shopping, electronics",
+                  "Partner": "c49a405e-ba3d-42b4-ad9a-4831e2ed35e4",
+                  "Thumbnail": "/resources/sd_amazon.png"
+               },
+               "name": "Amazon",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/amazon"
+            }, {
+               "date_added": "13248114433840946",
+               "guid": "44d32981-5dcf-4a1f-be5b-3c0d03c7a0a1",
+               "id": "10",
+               "meta_info": {
+                  "Description": "shopping",
+                  "Partner": "44d32981-5dcf-4a1f-be5b-3c0d03c7a0a1",
+                  "Thumbnail": "/resources/sd_ebay.png"
+               },
+               "name": "eBay",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/ebay-en-us"
+            }, {
+               "date_added": "13248114433840953",
+               "guid": "0efbb5fb-d366-4a91-95b1-b5690a0cf0ef",
+               "id": "11",
+               "meta_info": {
+                  "Description": "shopping",
+                  "Partner": "0efbb5fb-d366-4a91-95b1-b5690a0cf0ef",
+                  "Thumbnail": "/resources/sd_aliexpress.png"
+               },
+               "name": "AliExpress",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/aliexpresscom-us"
+            }, {
+               "children": [ {
+                  "date_added": "13248114433840990",
+                  "guid": "4384d754-0aa9-467f-9066-a2f6443cde7d",
+                  "id": "16",
+                  "meta_info": {
+                     "Description": "vivaldi",
+                     "Partner": "4384d754-0aa9-467f-9066-a2f6443cde7d",
+                     "Thumbnail": "/resources/sd_vivaldi.png"
+                  },
+                  "name": "Vivaldi Features",
+                  "type": "url",
+                  "url": "https://vivaldi.com/bk/sd-browser-features"
+               }, {
+                  "date_added": "13248114433841000",
+                  "guid": "4e03018e-a197-4b80-9b6e-55caa5028c64",
+                  "id": "17",
+                  "meta_info": {
+                     "Description": "vivaldi",
+                     "Partner": "4e03018e-a197-4b80-9b6e-55caa5028c64",
+                     "Thumbnail": "/resources/sd_vivaldi_community.gif"
+                  },
+                  "name": "Vivaldi Community",
+                  "type": "url",
+                  "url": "https://vivaldi.com/bk/sd-community"
+               }, {
+                  "date_added": "13248114433841008",
+                  "guid": "a4715241-d0fd-4d0f-b2ca-6e4267d644b3",
+                  "id": "18",
+                  "meta_info": {
+                     "Partner": "a4715241-d0fd-4d0f-b2ca-6e4267d644b3",
+                     "Thumbnail": "/resources/sd_webmail.png"
+                  },
+                  "name": "Vivaldi Webmail",
+                  "type": "url",
+                  "url": "https://vivaldi.com/bk/sd-webmail"
+               }, {
+                  "date_added": "13248114433841017",
+                  "guid": "0abc2e81-fc07-42e5-b4e2-2dd4ce02f92b",
+                  "id": "19",
+                  "meta_info": {
+                     "Partner": "0abc2e81-fc07-42e5-b4e2-2dd4ce02f92b",
+                     "Thumbnail": "/resources/sd_help.png"
+                  },
+                  "name": "Get Started",
+                  "type": "url",
+                  "url": "https://vivaldi.com/bk/sd-get-started"
+               } ],
+               "date_added": "13248114433840987",
+               "date_modified": "13248114433841017",
+               "guid": "04f107b7-203e-49e6-ab97-d6b9e613cc4a",
+               "id": "15",
+               "meta_info": {
+                  "Partner": "04f107b7-203e-49e6-ab97-d6b9e613cc4a"
+               },
+               "name": "Vivaldi",
+               "type": "folder"
+            }, {
+               "date_added": "13248114433840962",
+               "guid": "c0f2e6cc-ebba-45c0-9e7e-47480ce92b30",
+               "id": "12",
+               "meta_info": {
+                  "Description": "shopping",
+                  "Partner": "c0f2e6cc-ebba-45c0-9e7e-47480ce92b30",
+                  "Thumbnail": "/resources/sd_homedepot.png"
+               },
+               "name": "The Home Depot",
+               "type": "url",
+               "url": "http://vivaldi.com/bk/homedepot-us"
+            }, {
+               "date_added": "13248114433840971",
+               "guid": "5ff5b9a8-0995-4a99-b381-9860ec9e4880",
+               "id": "13",
+               "meta_info": {
+                  "Description": "shopping",
+                  "Partner": "5ff5b9a8-0995-4a99-b381-9860ec9e4880",
+                  "Thumbnail": "/resources/sd_bestbuy.png"
+               },
+               "name": "Best Buy",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/bestbuy-us"
+            }, {
+               "date_added": "13248114433840979",
+               "guid": "719c6802-36cf-40c9-b931-f9ab386db081",
+               "id": "14",
+               "meta_info": {
+                  "Partner": "719c6802-36cf-40c9-b931-f9ab386db081",
+                  "Thumbnail": "/resources/sd_airbnb.png"
+               },
+               "name": "Airbnb",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/airbnb-us-bk"
+            } ],
+            "date_added": "13248114433840839",
+            "date_modified": "13248114574644796",
+            "guid": "44641543-f123-438f-bc5c-8da7bb7c6819",
+            "id": "6",
+            "meta_info": {
+               "Partner": "44641543-f123-438f-bc5c-8da7bb7c6819",
+               "Speeddial": "true"
+            },
+            "name": "Speed Dial",
+            "type": "folder"
+         }, {
+            "children": [ {
+               "date_added": "13248114433841036",
+               "guid": "f56c1a38-3e9e-48fc-8d6c-b800f226dbfb",
+               "id": "22",
+               "meta_info": {
+                  "Partner": "f56c1a38-3e9e-48fc-8d6c-b800f226dbfb",
+                  "Thumbnail": "/resources/sd_booking.com.png"
+               },
+               "name": "Booking.com",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/booking-us-bk"
+            }, {
+               "date_added": "13248114433841044",
+               "guid": "f79cd6e8-ebc0-444d-ac96-00da456dcb59",
+               "id": "23",
+               "meta_info": {
+                  "Partner": "f79cd6e8-ebc0-444d-ac96-00da456dcb59",
+                  "Thumbnail": "/resources/sd_aliexpress.png"
+               },
+               "name": "AliExpress",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/ali-us-bk"
+            }, {
+               "date_added": "13246342820661098",
+               "guid": "095ac6b6-af9f-43e3-a181-b76f286b99ea",
+               "id": "31",
+               "meta_info": {
+                  "Partner": "095ac6b6-af9f-43e3-a181-b76f286b99ea",
+                  "Thumbnail": "/resources/sd_airbnb.png"
+               },
+               "name": "Airbnb",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/airbnb-us-bk"
+            }, {
+               "date_added": "13248114433841051",
+               "guid": "4ac3d5a6-bbdd-4b1d-92a1-eaea6df81e84",
+               "id": "24",
+               "meta_info": {
+                  "Partner": "4ac3d5a6-bbdd-4b1d-92a1-eaea6df81e84",
+                  "Thumbnail": "/resources/sd_amazon.png"
+               },
+               "name": "Amazon",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/amazon-us-bk"
+            }, {
+               "date_added": "13248114433841059",
+               "guid": "930d9804-4a0f-45ee-9317-b78ed2b548fd",
+               "id": "25",
+               "meta_info": {
+                  "Partner": "930d9804-4a0f-45ee-9317-b78ed2b548fd",
+                  "Thumbnail": "/resources/sd_ebay.png"
+               },
+               "name": "eBay",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/ebay-us-bk"
+            }, {
+               "date_added": "13248114433841066",
+               "guid": "8fe00cea-a6cd-4581-b01c-265281a681c1",
+               "id": "26",
+               "meta_info": {
+                  "Partner": "8fe00cea-a6cd-4581-b01c-265281a681c1"
+               },
+               "name": "Overstock",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/overstock-us-bk"
+            }, {
+               "date_added": "13248114433841074",
+               "guid": "2a44b514-79a6-43aa-a493-a19dcbef49ea",
+               "id": "27",
+               "meta_info": {
+                  "Partner": "2a44b514-79a6-43aa-a493-a19dcbef49ea",
+                  "Thumbnail": "/resources/sd_ja_rakuten.png"
+               },
+               "name": "Rakuten",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/rakuten-us-bk"
+            }, {
+               "date_added": "13248114433841029",
+               "guid": "7c8f3ab2-7248-404d-b2f7-9c3917e7ae94",
+               "id": "21",
+               "meta_info": {
+                  "Description": "shopping",
+                  "Partner": "7c8f3ab2-7248-404d-b2f7-9c3917e7ae94",
+                  "Thumbnail": "/resources/sd_walmart.png"
+               },
+               "name": "Walmart",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/walmart-pc"
+            }, {
+               "date_added": "13248114433841081",
+               "guid": "7e159573-093a-45aa-8822-e86f7f25a545",
+               "id": "28",
+               "meta_info": {
+                  "Partner": "7e159573-093a-45aa-8822-e86f7f25a545",
+                  "Thumbnail": "/resources/sd_expedia.png"
+               },
+               "name": "Expedia",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/expedia"
+            }, {
+               "date_added": "13248114433841088",
+               "guid": "9bed7c4c-c99e-4843-9da4-5a40dc567c82",
+               "id": "29",
+               "meta_info": {
+                  "Partner": "9bed7c4c-c99e-4843-9da4-5a40dc567c82",
+                  "Thumbnail": "/resources/sd_hulu.png"
+               },
+               "name": "Hulu",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/hulu"
+            } ],
+            "date_added": "13248114433841026",
+            "date_modified": "13248114574645140",
+            "guid": "12c04539-d01e-4fd3-9fbf-aa09a91e91ba",
+            "id": "20",
+            "meta_info": {
+               "Partner": "12c04539-d01e-4fd3-9fbf-aa09a91e91ba"
+            },
+            "name": "Bookmarks",
+            "type": "folder"
+         } ],
+         "date_added": "13248114433301206",
+         "date_modified": "0",
+         "guid": "00000000-0000-4000-a000-000000000002",
+         "id": "1",
+         "name": "Bookmarks",
+         "type": "folder"
+      },
+      "other": {
+         "children": [  ],
+         "date_added": "13248114433301207",
+         "date_modified": "0",
+         "guid": "00000000-0000-4000-a000-000000000003",
+         "id": "2",
+         "name": "Other bookmarks",
+         "type": "folder"
+      },
+      "synced": {
+         "children": [  ],
+         "date_added": "13248114433301209",
+         "date_modified": "0",
+         "guid": "00000000-0000-4000-a000-000000000004",
+         "id": "3",
+         "name": "Mobile bookmarks",
+         "type": "folder"
+      },
+      "trash": {
+         "children": [  ],
+         "date_added": "13248114433301212",
+         "date_modified": "0",
+         "guid": "00000000-0000-4000-a000-000000040000",
+         "id": "4",
+         "name": "Trash",
+         "type": "folder"
+      }
+   },
+   "sync_metadata": "CoIBCggIiIECEgIzMRIAGlhyaVN0NGczd1RmMDJ2dzBhSTdmUllqOEpjTlQ1a1loRHdaUWVZbWpLMWVFUHFrWUFwajdzeDdidnBDempyakNIVjZ4MVhBMzVRNmtpd3pzRENvUHZYUT09IAEqGFcvSDh5bi92eUNiQUpLU2YvOGxRWXc9PRK+AQgHErkBChxWd1V3QnlRTExvaTJPbWF5TVkrK0JKWURQWU09EkA8Qz5xWnRCZGE1WEFTaTVVU0JMWmlLRUxRPT0vNjhmYzk1MTYtNTlhYy00NDdlLWE4YTYtZmYyN2Q1NThkYTkxGAAgACgAMAc49oL1i9EuQPaC9YvRLkoceHlPUHVvQWhIWGpWaTUzajBxVnZocmlTWWlnPVoeIhxqZzFmY2xBTnpwNDBmQVZGeDVQbWp5bll5YlU9ZQAAAAASvwEIDBK6AQocUHRsVkZVT0dnaWJMRkMrUk5VTk0rcWdpMHNJPRJAPEM+Vy9IOHluL3Z5Q2JBSktTZi84bFFZdz09L2MwZjJlNmNjLWViYmEtNDVjMC05ZTdlLTQ3NDgwY2U5MmIzMBgAIAEoATAeOLS6zYPWLkC0us2D1i5KHEc3UWhlZXhMc2lUUDFGS2lHRVRvOFF2MndyQT1aHyId/VBIMU0xaERHd2NPY0IyLzRpS1l0UCsvM2JhUT1lAAAAABK+AQgIErkBChxyT3VROUdMZW5RMTkzVjc0Y2VLRkE4Lzk1UjA9EkA8Qz5xWnRCZGE1WEFTaTVVU0JMWmlLRUxRPT0vYTRkMGM3NTItMmJmNy00NzBkLTg1Y2QtOGIyZGRkMWVjODJiGAAgACgAMAg49oL1i9EuQPaC9YvRLkocWHdXdVhmMVRMcWtzcEVjbnhZbVRjM3MzQjdrPVoeIhxyUCtBcE9VcmlNcUZwbnA5eUpnQ08ycTVnVlE9ZTj9dtsSvgEIBhK5AQocb0NyalJ2eSt2T2RXMW5ZdWhuaEhyMlB3REpzPRJAPEM+cVp0QmRhNVhBU2k1VVNCTFppS0VMUT09LzQ0NjQxNTQzLWYxMjMtNDM4Zi1iYzVjLThkYTdiYjdjNjgxORgAIAAoADAGOPaC9YvRLkD2gvWL0S5KHFc4di81SzduRXN1MW82WWpVUjdyWEhHSnNrZz1aHiIcajBwWlNRakhFbTdWYjl0eEZBVUJsbmt1TXFRPWUAAAAAEr8BCAoSugEKHFZsYjlJZkdaZ2l2Z25nK1JLWVYxclo3Rkc1ST0SQDxDPnFadEJkYTVYQVNpNVVTQkxaaUtFTFE9PS80NGQzMjk4MS01ZGNmLTRhMWYtYmU1Yi0zYzBkMDNjN2EwYTEYACAAKAAwCzj2gvWL0S5A9oL1i9EuShxWRmxPSEQwN29SY3k4MEdYdmZjdGVhMFFkbTg9Wh8iHe52UVRuVk94S0hwcXJhbEdadktVcThNSDE5Ylk9ZQAAAAASvwEIFBK6AQocNGgzVG5jclpKLytHU3E1ajRNanUzSFZweVc4PRJAPEM+cVp0QmRhNVhBU2k1VVNCTFppS0VMUT09LzEyYzA0NTM5LWQwMWUtNGZkMy05ZmJmLWFhMDlhOTFlOTFiYRgAIAAoADASOPaC9YvRLkD2gvWL0S5KHGJnU3JkUkM2WDlGVnovOTkrRDZ0MzRQSXlGMD1aHyIdtVR3NkVyaDBEclR0Z1k5cHdxOUs5VEtnWWpBaz1lAAAAABK/AQgREroBChx2WXZuY1k4RXZ3WWJQOW0rbld4UTc4Mk1jcmc9EkA8Qz5xWnRCZGE1WEFTaTVVU0JMWmlLRUxRPT0vNGUwMzAxOGUtYTE5Ny00YjgwLTliNmUtNTVjYWE1MDI4YzY0GAAgACgAMA849oL1i9EuQPaC9YvRLkocRU5RRUNWVHlkTUo5bzZkcVZlMVI2V1lHWWNZPVofIh27THdmVHhwMGNBYzdKa2JOY1ZFajgzTG9UZ2pnPWUAAAAAEr8BCBwSugEKHHcxNkFNbmhHR2U4V2tMWWhWRERIc1RaZG1nOD0SQDxDPlcvSDh5bi92eUNiQUpLU2YvOGxRWXc9PS83ZTE1OTU3My0wOTNhLTQ1YWEtODgyMi1lODZmN2YyNWE1NDUYACABKAEwGji1us2D1i5AtbrNg9YuShxKME1yTzRPcG5DY3NjSW51cUVDRm5ZV3JBUFE9Wh8iHf9zZFpXbnJqTmgyaWJxWkNTcklBMEgzYWJtZGc9ZQAAAAASvwEICxK6AQoceWlXdzBvNi9CR1hhQzNacFNJeFNUcDZGaWJVPRJAPEM+cVp0QmRhNVhBU2k1VVNCTFppS0VMUT09LzBlZmJiNWZiLWQzNjYtNGE5MS05NWIxLWI1NjkwYTBjZjBlZhgAIAAoADAMOPaC9YvRLkD2gvWL0S5KHDFHL2E4YXZaWWViSStLb0VIaGJMVTI2VllMcz1aHyId93pEejJkd0tWa3RMYzg2aCtmbmszNXBXK0pUVT1lX5lctxK/AQgaEroBChxWbk1HUUR2UEdXVGEwYnY0eENHNnFUbytnRzg9EkA8Qz5xWnRCZGE1WEFTaTVVU0JMWmlLRUxRPT0vOGZlMDBjZWEtYTZjZC00NTgxLWIwMWMtMjY1MjgxYTY4MWMxGAAgACgAMBg49oL1i9EuQPaC9YvRLkocekRQZ2FEbXR2c1VIU1ozQ1lERWUrZ3N3a3YwPVofIh37dDNXYXRNY3VZYXhDcTM4dUdmdC8va0R5eHYwPWUAAAAAEr8BCBcSugEKHEZiUE5JTjlYQlNQbUN0VWVUSXBKUHc1YjBrQT0SQDxDPnFadEJkYTVYQVNpNVVTQkxaaUtFTFE9PS9mNzljZDZlOC1lYmMwLTQ0NGQtYWM5Ni0wMGRhNDU2ZGNiNTkYACAAKAAwFDj2gvWL0S5A9oL1i9EuShxwS25ZbGE1VnB1L0E0UEluQ1lMZzhGeXZJU3M9Wh8iHb1tK0U4ajdjdTVQUER0RElkaU0rWnNEVTlnUGM9ZQAAAAASvwEIHhK6AQocTmMvOHFFaVRIZEQzVHdhdUMrZ2R1cVhNRkxrPRJAPEM+cVp0QmRhNVhBU2k1VVNCTFppS0VMUT09LzZmN2U4MDJiLTg3ZWQtNDU0ZC1hZTIzLTk1NDA3YTY0ZGU1MhgAIAAoADAJOPaC9YvRLkD2gvWL0S5KHGxCTHdkVng3WjhyR08zZjFTcmNMZEZvLzBuOD1aHyIduUNldnZQbDVIcXdOVDBwcmMrdW5zUlJCOEFtMD1lAAAAABLAAQgdErsBChwzTDJkaHRJQzZrR1l4MXQ3dVN4Q2YxRkY5RFE9EkA8Qz5XL0g4eW4vdnlDYkFKS1NmLzhsUVl3PT0vOWJlZDdjNGMtYzk5ZS00ODQzLTlkYTQtNWE0MGRjNTY3YzgyGAAgASgBMBw4tbrNg9YuQLW6zYPWLkocdHdwMEY3RFY5bE15RGpXUG9aK1g0MVlmR0dFPVogIh7/uTJnSDMydkJIMFVtMkVISEdJaEQ0ZlFkTjgxVT1lAAAAABK/AQgSEroBChx6UUVqR1J2aWZQbVRTSjN2MlR1bjQwdngzRWc9EkA8Qz5xWnRCZGE1WEFTaTVVU0JMWmlLRUxRPT0vYTQ3MTUyNDEtZDBmZC00ZDBmLWIyY2EtNmU0MjY3ZDY0NGIzGAAgACgAMBA49oL1i9EuQPaC9YvRLkoccFE5emx2a2QxaXRXcEg0bTlUOHRXdURVZ1VBPVofIh3dcm9XbGt6eFlvTEp0OUtTYWExL2tGY2QzcFNBPWUAAAAAEr8BCBMSugEKHDcrOVFiMFFMamtvb2ZtWFJJbjFRcC8zL2lQOD0SQDxDPnFadEJkYTVYQVNpNVVTQkxaaUtFTFE9PS8wYWJjMmU4MS1mYzA3LTQyZTUtYjRlMi0yZGQ0Y2UwMmY5MmIYACAAKAAwETj2gvWL0S5A9oL1i9EuShxTa2kyNHE2dFNoVkg2bWR3ZDJhQVJFbEdEMHc9Wh8iHe5pTTVGZ3NPUWFLWHArc3o5T01JNXAzM1lGKzg9ZQAAAAASvwEIHxK6AQocdFIwbzJiOXZHb1NwMDJqeml6azNmUURuNDFNPRJAPEM+cVp0QmRhNVhBU2k1VVNCTFppS0VMUT09LzA5NWFjNmI2LWFmOWYtNDNlMy1hMTgxLWI3NmYyODZiOTllYRgAIAAoADAVOPaC9YvRLkD2gvWL0S5KHHRNc0NYZ2F1Qk1CVGdEZjV5LzNoVUhydjVxZz1aHyId3nVralJBQTRFYnlkZ1htRk5LRDNDYkkyaUdGaz1lAAAAABK/AQgJEroBChx0Q3hrVzFUYXk2SGY0Z3VZOE1mODJLR3NqSzQ9EkA8Qz5xWnRCZGE1WEFTaTVVU0JMWmlLRUxRPT0vYzQ5YTQwNWUtYmEzZC00MmI0LWFkOWEtNDgzMWUyZWQzNWU0GAAgACgAMAo49oL1i9EuQPaC9YvRLkoceXU0L0pJckNsUGlxWnBKOWdLWDRIa3pEUFVzPVofIh3cditJeEJ5eW56Tm8yWGRXc0VaTEJKUzlHMDEwPWXDfjbUEr4BCBYSuQEKHHdMaE9CTUw2WjdJeHBWYnlrTnBRZ09qQm1adz0SQDxDPnFadEJkYTVYQVNpNVVTQkxaaUtFTFE9PS9mNTZjMWEzOC0zZTllLTQ4ZmMtOGQ2Yy1iODAwZjIyNmRiZmIYACAAKAAwEzj2gvWL0S5A9oL1i9EuShxwTG1OdS9vNDNadEtac3ErWEVMRUxDV2FUanc9Wh4iHHpCSmhzYzZndWlwOHAvcVMvK0dGcVJJdDZxaz1lAAAAABK/AQgYEroBChw3NGQvZmFMOGxXVWJnV1dkYXRrUXQrK3Y0WDg9EkA8Qz5xWnRCZGE1WEFTaTVVU0JMWmlLRUxRPT0vNGFjM2Q1YTYtYmJkZC00YjFkLTkyYTEtZWFlYTZkZjgxZTg0GAAgACgAMBY49oL1i9EuQPaC9YvRLkocdVpXVHlVbWd3UVFMWjNRU3pyRzdZTnJiU1drPVofIh3vZ2htSjBoaTh3Unk0N2tjUEpnNkpsTnBnN3AwPWUAAAAAEr8BCBkSugEKHGtiQ2hGSFBNRkVKdkF0a2tPRE56d1JNY28yRT0SQDxDPnFadEJkYTVYQVNpNVVTQkxaaUtFTFE9PS85MzBkOTgwNC00YTBmLTQ1ZWUtOTMxNy1iNzhlZDJiNTQ4ZmQYACAAKAAwFzj2gvWL0S5A9oL1i9EuShxOOWtsckN5VlV3eDB3aldPa2hMbmV5dzV3aUk9Wh8iHfdBRVRSc05lWUFRTXBrdWRUbnVrZXF1eUdaMFU9ZQAAAAASvwEIFRK6AQocb3NoZmRldFJZeWppS01hTG9oSlA5cHBqUjlRPRJAPEM+Vy9IOHluL3Z5Q2JBSktTZi84bFFZdz09LzdjOGYzYWIyLTcyNDgtNDA0ZC1iMmY3LTljMzkxN2U3YWU5NBgAIAEoATAfOLW6zYPWLkC1us2D1i5KHGllMlJUVDNWT0NpYW9vWDluUDB6Sk56aWpyZz1aHyId/jNGdHlVNE1MT05LZWh2OEE0NjgxMW91Tjhibz1lAAAAABJoCAMSZAoceTVXRTI3dUk2dlgvRGVJU0hKem5qTXF1V1dzPRITPFM+c3luY2VkX2Jvb2ttYXJrcxgAIAAoADAFOABAAEocNzlsK0xSRVVwaWFFdkREK0c0M2NwWFN0d0JjPVoAZQAAAAASvwEIGxK6AQocWHpJa04xZlUzUm81N0I1angxOUN0MnRnaVVVPRJAPEM+cVp0QmRhNVhBU2k1VVNCTFppS0VMUT09LzJhNDRiNTE0LTc5YTYtNDNhYS1hNDkzLWExOWRjYmVmNDllYRgAIAAoADAZOPaC9YvRLkD2gvWL0S5KHExuSkl2MXJ3dHdERkNGSUtqSWVWSzZmU0RFOD1aHyId/WovWlJXZ21DUVpMWjM3VmVXeDVsU1pkVUU5OD1lAAAAABJnCAISYwocekRWR3JydFpMZE0rNEJUeWJnK0hDT3JXZ3lvPRISPFM+b3RoZXJfYm9va21hcmtzGAAgACgAMAM4AEAAShw1dXN5L2NwZnBpMUV0b0JIRGdYSXMwcWI0ckE9WgBlAAAAABK/AQgOEroBChx4bnFRaUJxZnp3QXZDbDVzY2pDTnpWNnkrRlk9EkA8Qz5XL0g4eW4vdnlDYkFKS1NmLzhsUVl3PT0vNzE5YzY4MDItMzZjZi00MGM5LWI5MzEtZjlhYjM4NmRiMDgxGAAgASgBMBs4tLrNg9YuQLS6zYPWLkocbXFFc1FobGUwc1JMQUx6NTN5OGJyTDNJcGNFPVofIh3/czl4czB5aDNrTDhBNmRaUVFqUlBXTExFTE1vPWUAAAAAEmcIBBJjChxKa0tJYlF3QUxJNG1XQm1FTytweE9kYzBUQXM9EhI8Uz50cmFzaF9ib29rbWFya3MYACAAKAAwAjgAQABKHFBlaFEvU0IzU1ZMbzJCdGZGUDhKS1ZxQXdmdz1aAGUAAAAAEr8BCA8SugEKHFJJV2RQcVJLMXNKaW0zM3VEbVB2T1plRjZ3bz0SQDxDPnFadEJkYTVYQVNpNVVTQkxaaUtFTFE9PS8wNGYxMDdiNy0yMDNlLTQ5ZTYtYWI5Ny1kNmI5ZTYxM2NjNGEYACAAKAAwDTj2gvWL0S5A9oL1i9EuShxscDl6cHlYcjJJd1BiSHNhOVN1T3NBYTB2Wkk9Wh8iHftKdW5YYW1nbmFoSHdRVVJPcWJIcm9RYkhrR289ZQAAAAASvgEIEBK5AQocQ0ZHeGpoZ2lBOVdEd3hkSEJkcXJZUHp5aU1jPRJAPEM+cVp0QmRhNVhBU2k1VVNCTFppS0VMUT09LzQzODRkNzU0LTBhYTktNDY3Zi05MDY2LWEyZjY0NDNjZGU3ZBgAIAAoADAOOPaC9YvRLkD2gvWL0S5KHE1BY1QzN3VsQVhUK2RKOUJsZTNwQWw0R3Jqdz1aHiIcdkxkd25td3N4NDRqMVRGUG9PSDhVQkNvbndNPWUAAAAAEmQIARJgChwvRUtMYVVVeU1kYktFazFCYTJVaW55RG5mN0k9Eg88Uz5ib29rbWFya19iYXIYACAAKAAwBDgAQABKHFUrR0dJdFpFRHBac0lTbE9VYUlUdUlMZE1uST1aAGUAAAAAEr8BCA0SugEKHHdvUlcvTkkzVGJ1K2xNRlRHMlRsOVRlK2tVMD0SQDxDPlcvSDh5bi92eUNiQUpLU2YvOGxRWXc9PS81ZmY1YjlhOC0wOTk1LTRhOTktYjM4MS05ODYwZWM5ZTQ4ODAYACABKAEwHTi0us2D1i5AtLrNg9YuShxmL1NyUTFza3hIZ25Mdkl4TVZtVElEREg3T1k9Wh8iHf5xZ2ZkWFRYbU54V3RjUThpbEdNeWJkK3RmY0k9ZQAAAAAYACCU2oP21S4=",
+   "version": 1
+}

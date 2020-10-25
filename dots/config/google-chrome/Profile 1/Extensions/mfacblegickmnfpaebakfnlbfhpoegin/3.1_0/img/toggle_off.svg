@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="26px" height="13px" viewBox="0 0 26 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
+    <title>Toggle Off</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M19.5,0 L6.5,0 C2.912,0 0,2.912 0,6.5 C0,10.088 2.912,13 6.5,13 L19.5,13 C23.088,13 26,10.088 26,6.5 C26,2.912 23.088,0 19.5,0 Z M6.5,10.4 C4.342,10.4 2.6,8.658 2.6,6.5 C2.6,4.342 4.342,2.6 6.5,2.6 C8.658,2.6 10.4,4.342 10.4,6.5 C10.4,8.658 8.658,10.4 6.5,10.4 Z" id="Toggle-Off" fill="#D1D1D1" fill-rule="nonzero"></path>
+    </g>
+</svg>
