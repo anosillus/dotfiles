@@ -8,7 +8,6 @@ let g:lightline = {
 \     'right':[ ['lineinfo'],[ 'percent'],
 \               ['fileformat', 'fileencoding', 'filetype'],
 \               ['blame'],
-\               ['gitbranch', 'gitstage'],
 \               ['linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok'],
 \               ['toggl_task', 'toggl_time']],
 \   },
@@ -25,8 +24,6 @@ let g:lightline = {
 \     'mode':            'LightlineMode',
 \     'modified':        'LightlineModified',
 \     'readonly':        'LightlineReadonly',
-\     'gitbranch': 'gina#component#repo#branch',
-\     'gitstage':  'gina#component#status#staged',
 \     'component_function': {
 \     'toggl_task': 'toggl#task',
 \     'toggl_time': 'toggl#time'
@@ -47,7 +44,12 @@ let g:lightline = {
 \ }
 \}
 
+"\     'gitbranch': 'gina#component#repo#branch',
+"\     'gitstage':  'gina#component#status#staged',
+"\               ['gitbranch', 'gitstage'],
+
 let g:Qfstatusline#UpdateCmd = function('lightline#update')
+
 let g:lightline#ale#indicator_checking = '...'
 let g:lightline#ale#indicator_warnings = 'W'
 let g:lightline#ale#indicator_errors = 'E'

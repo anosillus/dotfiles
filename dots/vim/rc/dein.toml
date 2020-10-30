@@ -39,10 +39,11 @@ hook_add = '''
 let g:ref_no_default_key_mappings = 1
 let g:ref_man_lang = 'ja'
 let g:ref_pydoc_cmd = 'python3 -m pydoc'
-let g:ref_cache_dir = $HOME . '/.vim/vim-ref/cache'
+let g:ref_cache_dir = expand($CONFIG) . '/vim-ref/cache'
 let g:ref_use_cache           = 1
 let g:ref_use_vimproc         = 1
 let g:ref_wikipedia_lang = ['ja', 'en']
+let g:ref_source_webdict_cmd = 'lynx -dump -nonumbers %s'
 let g:ref_source_webdict_sites = {
 \   'alc' : {
 \     'url' : 'http://eow.alc.co.jp/%s/UTF-8/'
@@ -71,7 +72,7 @@ noremap <expr> ba ':Ref webdict alc ' . expand('<cword>') . '<CR>'
 noremap <expr> bt ':Ref kotobankje ' . expand('<cword>') . '<CR>'
 noremap <expr> bT ':Ref kotobank ' . expand('<cword>') . '<CR>'
 noremap <expr> br ':Ref wikipedia_en ' . expand('<cword>') . '<CR>'
-noremap <expr> bR ':Ref wikipedia ' . expand('<cword>') . '<CR>'
+noremap <expr> bR ':Ref wikipedia_ja ' . expand('<cword>') . '<CR>'
 '''
 [[plugins]]
 repo = 'ryanoasis/vim-devicons'
@@ -88,10 +89,67 @@ repo = 'ap/vim-css-color'
 repo = 'itchyny/lightline.vim'
 hook_add = 'source ~/.vim/rc/plugins/lightline.rc.vim'
 depends = ['vista', 'vim-devicons','lightline-ale']
-# }}}
-
 [[plugins]]
 repo = 'maximbaz/lightline-ale'
+# }}}
+
+
+
+# vista {{{
+[[plugins]]
+repo = 'liuchengxu/vista.vim'
+hook_add = '''
+let g:vista_icon_indent = ['╰─▸ ', '├─▸ ']
+let g:vista_default_executive = 'coc'
+let g:vista_fzf_preview = ['right:50%']
+let g:vista#renderer#enable_icon = 1
+let g:vista#renderer#icons = {
+\ 'func':           "\Uff794",
+\ 'function':       "\Uff794",
+\ 'functions':      "\Uff794",
+\ 'var':            "\Uff71b",
+\ 'variable':       "\Uff71b",
+\ 'variables':      "\Uff71b",
+\ 'const':          "\Uff8ff",
+\ 'constant':       "\Uff8ff",
+\ 'method':         "\Uff6a6",
+\ 'package':        "\Ufe612",
+\ 'packages':       "\Ufe612",
+\ 'enum':           "\Uff435",
+\ 'enumerator':     "\Uff435",
+\ 'module':         "\Uff668",
+\ 'modules':        "\Uff668",
+\ 'type':           "\Ufe22b",
+\ 'typedef':        "\Ufe22b",
+\ 'types':          "\Ufe22b",
+\ 'field':          "\Uff93d",
+\ 'fields':         "\Uff93d",
+\ 'macro':          "\Uff8a3",
+\ 'macros':         "\Uff8a3",
+\ 'map':            "\Uffb44",
+\ 'class':          "\Uff9a9",
+\ 'augroup':        "\Uffb44",
+\ 'struct':         "\Uffb44",
+\ 'union':          "\Uffacd",
+\ 'member':         "\Uff02b",
+\ 'target':         "\Uff893",
+\ 'property':       "\Uffab6",
+\ 'interface':      "\Uffa52",
+\ 'namespace':      "\Uff475",
+\ 'subroutine':     "\Uff915",
+\ 'implementation': "\Uff87a",
+\ 'typeParameter':  "\Uff278",
+\ 'default':        "\Uff29c"
+\ }
+'''
+
+[[plugins]]
+repo = 'Shougo/junkfile.vim'
+on_source = 'denite.nvim'
+hook_add = '''
+  nnoremap <silent> [Window]e :<C-u>Denite junkfile:new junkfile<CR>
+'''
+# }}}
 [[plugins]]
 repo = 'Yggdroot/indentLine'
 [[plugins]]
@@ -156,10 +214,9 @@ nnoremap <C-m> :ShowMarksOnce<cr>
 
 [[plugins]]
 repo = 'cohama/lexima.vim'
-# on_map = {i = '<Plug>'}
 
-[[plugins]]
-repo = 'lambdalisue/gina.vim'
+# [[plugins]]
+# repo = 'lambdalisue/gina.vim'
 [[plugins]]
 repo = 'yuttie/comfortable-motion.vim'
 hook_add = '''
@@ -170,8 +227,6 @@ noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-40)<CR>
 # sandwitch {{{
 [[plugins]]
 repo = 'machakann/vim-sandwich'
-# depends = ['vim-operator-user','vim-textobj-user']
-# on_map = {nox = '<Plug>'}
 hook_post_update = '''
 let g:sandwich#recipes = deepcopy(g:sandwich#default_recipes)
 let g:sandwich#recipes += [

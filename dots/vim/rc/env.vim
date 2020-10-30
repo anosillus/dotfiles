@@ -38,7 +38,7 @@ if has('gui_running')
     let g:python_host_prog='/usr/bin/python2'
     let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
     let g:pydocstring_doq_path = $HOME.'/.local/bin/doq'
-    let g:jasegment#model = 'mecab'
+    let g:jasegment#model = 'cabocha'
     let g:jasegment#mecab#args = '-Owakati -d /usr/lib/x86_64-linux-gnu/mecab/dic/mecab-ipadic-neologd/'
     " Use yaskkserv
 
@@ -53,8 +53,8 @@ if has('gui_running')
         \   'encoding': 'euc-jp'
         \}
     let g:eskk#server = {
-        \	'host': 'localhost',
-        \	'port':  1178
+        \   'host': 'localhost',
+        \   'port':  1178
         \}
 
   elseif g:os ==? 'Windows'
@@ -71,7 +71,7 @@ if has('gui_running')
     let g:jasegment#mecab#cmd='"C:/Program Files (x86)/MeCab/bin/mecab.exe"'
     let g:jasegment#cabocha#cmd = '"C:/Program Files (x86)/CaboCha/bin/cabocha.exe"'
     " let g:jasegment#cabocha#enc = 'utf-8'
-    let g:jasegment#model = 'mecab'
+    let g:jasegment#model = 'cabocha'
     " let g:jasegment#mecab#args='-Owakati -d C:\Tools\mecab-ipadic-neologd'
     let g:jasegment#mecab#enc='utf-8'
     let g:eskk#dictionary = {

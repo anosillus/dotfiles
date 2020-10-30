@@ -35,62 +35,6 @@ nnoremap <Leader>R :<C-u>QuickRun<CR>
 hook_source = 'source ~/.vim/rc/plugins/quickrun.rc.vim'
 # }}}
 
-# vista {{{
-[[plugins]]
-repo = 'liuchengxu/vista.vim'
-hook_add = '''
-let g:vista_icon_indent = ['╰─▸ ', '├─▸ ']
-" let g:vista_default_executive = 'coc'
-let g:vista_fzf_preview = ['right:50%']
-let g:vista#renderer#enable_icon = 1
-let g:vista#renderer#icons = {
-\ 'func':           "\Uff794",
-\ 'function':       "\Uff794",
-\ 'functions':      "\Uff794",
-\ 'var':            "\Uff71b",
-\ 'variable':       "\Uff71b",
-\ 'variables':      "\Uff71b",
-\ 'const':          "\Uff8ff",
-\ 'constant':       "\Uff8ff",
-\ 'method':         "\Uff6a6",
-\ 'package':        "\Ufe612",
-\ 'packages':       "\Ufe612",
-\ 'enum':           "\Uff435",
-\ 'enumerator':     "\Uff435",
-\ 'module':         "\Uff668",
-\ 'modules':        "\Uff668",
-\ 'type':           "\Ufe22b",
-\ 'typedef':        "\Ufe22b",
-\ 'types':          "\Ufe22b",
-\ 'field':          "\Uff93d",
-\ 'fields':         "\Uff93d",
-\ 'macro':          "\Uff8a3",
-\ 'macros':         "\Uff8a3",
-\ 'map':            "\Uffb44",
-\ 'class':          "\Uff9a9",
-\ 'augroup':        "\Uffb44",
-\ 'struct':         "\Uffb44",
-\ 'union':          "\Uffacd",
-\ 'member':         "\Uff02b",
-\ 'target':         "\Uff893",
-\ 'property':       "\Uffab6",
-\ 'interface':      "\Uffa52",
-\ 'namespace':      "\Uff475",
-\ 'subroutine':     "\Uff915",
-\ 'implementation': "\Uff87a",
-\ 'typeParameter':  "\Uff278",
-\ 'default':        "\Uff29c"
-\ }
-'''
-
-[[plugins]]
-repo = 'Shougo/junkfile.vim'
-on_source = 'denite.nvim'
-hook_add = '''
-  nnoremap <silent> [Window]e :<C-u>Denite junkfile:new junkfile<CR>
-'''
-# }}}
-
 # defx {{{
 [[plugins]]
 repo = 'kristijanhusak/defx-icons'
@@ -504,6 +448,9 @@ of_ft = ['javascript', 'typescript']
 [[plugins]]
 repo = 'othree/yajs.vim'
 of_ft = ['javascript', 'typescript']
+[[plugins]]
+repo = 'othree/es.next.syntax.vim'
+of_ft = ['javascript', 'typescript']
 # }}}
 # markdown {{{
 [[plugins]]
@@ -512,8 +459,7 @@ on_ft = 'markdown.gfm'
 [[plugins]]
 repo = 'osyo-manga/vim-precious'
 depends = 'context_filetype.vim'
-of_ft = ['markdown', 'text']
-# of_ft = ['toml','markdown', 'text']
+of_ft = ['toml','markdown', 'text']
 [[plugins]]
 repo = 'mzlogin/vim-markdown-toc'
 on_ft = 'markdown'
@@ -523,6 +469,13 @@ on_ft = 'markdown'
 hook_source = '''
 let g:markdown_enable_mappings = 0
 let g:markdown_enable_spell_checking = 0
+let g:vim_markdown_no_extensions_in_markdown = 1
+map <leader>n <Plug>Markdown_MoveToNextHeader
+map <leader>e <Plug>Markdown_MoveToPreviousHeader
+map N <Plug>Markdown_MoveToNextSiblingHeader
+map E  <Plug>Markdown_MoveToPreviousSiblingHeader
+map <leader>E <Plug>Markdown_MoveToCurHeader
+map <leader>E <Plug>Markdown_MoveToParentHeader
 '''
 [[plugins]]
 repo = 'junegunn/goyo.vim'
@@ -532,12 +485,11 @@ repo = 'mattn/vim-maketable'
 on_ft = 'markdown'
 [[plugins]]
 repo = 'benshuailyu/online-thesaurus-vim'
-on_ft = 'markdown'
+# on_ft = 'markdown'
 hook_add = '''
 let g:use_default_key_map = 0
 nnoremap gb :call Thesaurus_LookCurrentWord()<CR>
 '''
-
 # }}}
 # SQL {{{
 [[plugins]]
@@ -549,6 +501,9 @@ on_ft = 'sql'
 repo = 'heavenshell/vim-pydocstring'
 build = 'make install'
 on_ft = 'python'
+hook_add = 'map <silent> lo <Plug>(pydocstring)'
+
+
 #  }}}
 # R {{{
 [[plugins]]
@@ -646,7 +601,6 @@ omap tl <Plug>(textobj-line-a)
 xmap sl <Plug>(textobj-line-i)
 omap sl <Plug>(textobj-line-i)
 '''
-
 
 [[plugins]]
 repo = 'vimtaku/vim-textobj-keyvalue'
