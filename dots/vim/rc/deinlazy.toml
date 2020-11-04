@@ -444,9 +444,21 @@ repo = 'othree/javascript-libraries-syntax.vim'
 of_ft = ['javascript', 'typescript']
 [[plugins]]
 repo = 'othree/yajs.vim'
-of_ft = ['javascript', 'typescript']
+of_ft = 'javascript'
 [[plugins]]
 repo = 'othree/es.next.syntax.vim'
+of_ft = ['javascript', 'typescript']
+[[plugins]]
+repo = 'jparise/vim-graphql'
+of_ft = ['javascript', 'typescript']
+[[plugins]]
+repo = 'peitalin/vim-jsx-typescript'
+of_ft = ['javascript', 'typescript']
+[[plugins]]
+repo = 'HerringtonDarkholme/yats.vim'
+of_ft = 'typescript'
+[[plugins]]
+repo = 'styled-components/vim-styled-components'
 of_ft = ['javascript', 'typescript']
 # }}}
 # markdown {{{
@@ -480,13 +492,6 @@ on_ft = 'markdown'
 [[plugins]]
 repo = 'mattn/vim-maketable'
 on_ft = 'markdown'
-[[plugins]]
-repo = 'benshuailyu/online-thesaurus-vim'
-# on_ft = 'markdown'
-hook_add = '''
-let g:use_default_key_map = 0
-nnoremap gb :call Thesaurus_LookCurrentWord()<CR>
-'''
 # }}}
 # SQL {{{
 [[plugins]]

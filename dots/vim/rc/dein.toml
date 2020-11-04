@@ -65,7 +65,6 @@ endfunction
 function! g:ref_source_webdict_sites.alc.filter(output)
   return join(split(a:output, "\n")[42 :], "\n")
 endfunction
-nmap bb <Plug>(ref-keyword)
 noremap <expr> bs ':Ref webdict ej ' . expand('<cword>') . '<CR>'
 noremap <expr> bS ':Ref webdict je ' . expand('<cword>') . '<CR>'
 noremap <expr> ba ':Ref webdict alc ' . expand('<cword>') . '<CR>'
@@ -73,9 +72,16 @@ noremap <expr> bt ':Ref kotobankje ' . expand('<cword>') . '<CR>'
 noremap <expr> bT ':Ref kotobank ' . expand('<cword>') . '<CR>'
 noremap <expr> br ':Ref wikipedia_en ' . expand('<cword>') . '<CR>'
 noremap <expr> bR ':Ref wikipedia_ja ' . expand('<cword>') . '<CR>'
+noremap <expr> bA :OnlineThesaurusCurrentWord<CR>
 '''
+
+
+
 [[plugins]]
 repo = 'ryanoasis/vim-devicons'
+[[plugins]]
+repo = 'beloglazov/vim-online-thesaurus'
+hook_add = 'let g:online_thesaurus_map_keys = 0'
 # }}}
 # View {{{
 [[plugins]]

@@ -19,10 +19,10 @@ nmap <silent> gd <Plug>(coc-definition)
 " nmap <silent> gt <Plug>(coc-type-definition)
 " nmap <silent> gi <Plug>(coc-implementation)
 " nmap <silent> gr <Plug>(coc-references)
-
-" imap <C-o> <Plug>(coc-snippets-expand)
-" vmap <C-o> <Plug>(coc-snippets-select)
-" imap <C-o> <Plug>(coc-snippets-expand-jump)
+imap <C-o> <Plug>(coc-snippets-expand)
+vmap <C-o> <Plug>(coc-snippets-select)
+imap <C-o> <Plug>(coc-snippets-expand-jump)
+nmap <leader>R <Plug>(coc-rename)
 
 nnoremap <silent> B :call <SID>show_documentation()<CR>
 
