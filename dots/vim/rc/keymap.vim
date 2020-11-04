@@ -97,7 +97,6 @@ snoremap <silent> <DEL> <c-g>c
 snoremap <silent> <c-i> <c-g>c
 snoremap <silent> <c-h> <c-g>c
 snoremap <c-r> <c-g>"_c<c-r>
-
 snoremap <c-r> <c-g>"_c<c-r>
 
 function! s:check_back_space() abort
@@ -156,9 +155,11 @@ inoremap <C-i> <Right>
 " o is 50 % userd(i, v, g is empty.)
 " <o> is 'New Line'. {{{
 " map o is o
-nnoremap go :<C-u>e<Space>
+" nnoremap go :<C-u>e<Space>
+" go is history jump
 nnoremap <Leader>o :<C-u>for i in range(v:count1) \| call append(line('.'), '') \| endfor<CR>
 nnoremap <Leader>O :<C-u>for i in range(v:count1) \| call append(line('.')-1, '') \| endfor<CR>
+
 " iv<C-o> is coc snippets
 " }}}
 " Todo later
@@ -209,9 +210,12 @@ noremap mO zX
 " Middle Scsreen.
 nnoremap gm M
 nnoremap <C-m> zz
+xmap mf zf
+noremap md zd
+noremap mD zD
+
 " leader m is denite
 " }}}
-
 
 " l is 10%. <leader> and L is empty.
 " <l> is 'Comment'. {{{
@@ -305,7 +309,7 @@ vnoremap gr :s/\v//g<Left><Left><Left>
 " nnoremap <Leader>R :<C-u>QuickRun<CR>
 " }}}
 
-" <a> is 'Visual Mode/Head/Macro'. {{{
+" <a> is 'Visual/Head'. {{{
 " Visual Mode
 nnoremap a v
 nnoremap A V
@@ -345,11 +349,11 @@ omap W <Nop>
 " nxo<leader>w is earymotion
 " }}}
 
-" <q> is 'Quit'. {{{
-nmap q :bd<CR>
-xmap q <Plug>(coc-codeaction-selected)
-
-nnoremap <C-q> :<C-u>q!<CR>
+" <q> is 'Macro/Quit.' {{{
+" nmap q :bd<CR>
+noremap Q @
+" xmap q <Plug>(coc-codeaction-selected)
+" nnoremap <C-q> :<C-u>q!<CR>
 " nnoremap Q history
 nnoremap <Leader>q :<C-u>q<CR>
 nnoremap <Leader>Q :<C-u>q!<CR>
@@ -359,13 +363,17 @@ nnoremap <Leader>Q :<C-u>q!<CR>
 " imap <C-q> <C-f>
 imap <C-q> <ESC>==i
 "}}}
+
 " <g> is 'Git/Definition'. {{{
 nnoremap gp :Denite gitlog -start-filter<CR>
 nnoremap gP :Denite gitlog:all -start-filter<CR>
 nnoremap gf :Denite gitchanged -start-filter<CR>
 nnoremap gF :Denite gitfiles -start-filter<CR>
 let g:jedi#goto_assignments_command = '<leader>g'
-nmap <silent> <leader>g <Plug>(coc-definition)
+" gt is tag
+" nmap <silent> <leader>g <Plug>(coc-definition)
+" <leader>g is denite dein
+" gM is denite mark
 " nmap <C-g> is submode
 " }}}
 
@@ -409,15 +417,14 @@ nnoremap [CMUS]b :CmusNext<cr>
 " <z> is 'Undo/Redo'. {{{
 nnoremap z u
 nnoremap Z <C-r>
-" inoremap <C-z> <ESC>:<C-U>undo<CR>i
+inoremap <C-z> <ESC>:<C-U>undo<CR>i
 " nnoremap gz U
-" nnoremap gz :<C-U>undo<CR>
+nnoremap gz :<C-U>undo<CR>
 " nnoremap <leader>z :<C-u>GundoToggle<CR>
 " increment
 noremap <C-z> <C-a>
 " <C-z> is for Suspend.
 " }}}
-
 " }}}
 
 " Meta key mappings {{{
@@ -425,88 +432,89 @@ noremap <C-z> <C-a>
 " map  ú ! "This broke vim"
 " map! ú ! "This broke vim"
 map   <M-q>  !
-map!  <M-q>  !
+lmap  <M-q>  !
 tmap  <M-q>  !
 
 " a
 map  á @
-map! á @
+lmap á @
 tmap á @
 
 " r
 map  ò #
-map! ò #
+lmap ò #
 tmap ò #
 
 " s
 map  ó $
-map! ó $
+lmap ó $
 tmap ó $
 
 " t
 map  ô %
-map! ô %
+lmap ô %
 tmap ô %
 
 " d
 map  ä ^
-map! ä ^
+lmap ä ^
 tmap ä ^
 
 " h
 map  è &
-map! è &
+lmap è &
 tmap è &
 
 " n
 map  î *
-map! î *
+lmap î *
 tmap î *
 
 " e
 map  å (
-map! å (
+lmap å (
 tmap å (
 
 " i
 map  é )
-map! é )
+lmap é )
 tmap é )
 
 " o
 map  ï _
-map! ï _
+lmap ï _
 tmap ï _
 
 " <CR>
 " Note : <M-CR> isn't work, I use <M-;>)
 map  <M-;> <kPlus>
-map! <M-;> <kPlus>
+lmap <M-;> <kPlus>
 tmap <M-;> <kPlus>
 
 " b
 map  â "
-map! â "
+lmap â "
 tmap â "
 
 " k
 map  ë ?
-map! ë ?
+lmap ë ?
 tmap ë ?
 
 " m
 map  í {
-map! í {
+lmap í {
 tmap í {
 
 " ,
 map  ¬ }
-map! ¬ }
+lmap ¬ }
 tmap ¬ }
 
 " .
 map  ® <bar>
 map! ® <bar>
+lmap ® <bar>
 tmap ® <bar>
 " }}}
 

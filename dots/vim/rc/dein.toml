@@ -93,8 +93,6 @@ depends = ['vista', 'vim-devicons','lightline-ale']
 repo = 'maximbaz/lightline-ale'
 # }}}
 
-
-
 # vista {{{
 [[plugins]]
 repo = 'liuchengxu/vista.vim'
@@ -147,7 +145,6 @@ let g:vista#renderer#icons = {
 repo = 'Shougo/junkfile.vim'
 on_source = 'denite.nvim'
 hook_add = '''
-  nnoremap <silent> [Window]e :<C-u>Denite junkfile:new junkfile<CR>
 '''
 # }}}
 [[plugins]]
@@ -198,9 +195,6 @@ let g:perl_fold_blocks = 1
 let g:r_syntax_folding = 1
 let g:rust_fold = 1
 let g:php_folding = 1
-
-xnoremap sm :<c-u>FastFoldUpdate<cr><esc>:<c-u>normal! ]zv[z<cr>
-xnoremap tm :<c-u>FastFoldUpdate<cr><esc>:<c-u>normal! ]zV[z<cr>
 '''
 [[plugin]]
 repo = 'skanehira/gh.vim'
@@ -211,6 +205,39 @@ repo = 'jacquesbh/vim-showmarks'
 hook_add = '''
 nnoremap <C-m> :ShowMarksOnce<cr>
 '''
+
+# sub-mode {{{
+[[plugins]]
+repo = 'kana/vim-submode'
+hook_add = '''
+call submode#enter_with('bufmove', 'n', '', '<C-g>h', '<C-w>>')
+call submode#enter_with('bufmove', 'n', '', '<C-g>i', '<C-w><')
+call submode#enter_with('bufmove', 'n', '', '<C-g>n', '<C-w>+')
+call submode#enter_with('bufmove', 'n', '', '<C-g>e', '<C-w>-')
+call submode#enter_with('bufmove', 'n', '', '<C-g>H', '<C-w>H')
+call submode#enter_with('bufmove', 'n', '', '<C-g>I', '<C-w>L')
+call submode#enter_with('bufmove', 'n', '', '<C-g>N', '<C-w>J')
+call submode#enter_with('bufmove', 'n', '', '<C-g>E', '<C-w>K')
+call submode#enter_with('bufmove', 'n', '', '<C-g>O', '<C-w>r')
+call submode#map('bufmove', 'n', '', 'h', '<C-w>>')
+call submode#map('bufmove', 'n', '', 'i', '<C-w><')
+call submode#map('bufmove', 'n', '', 'n', '<C-w>+')
+call submode#map('bufmove', 'n', '', 'e', '<C-w>-')
+call submode#map('bufmove', 'n', '', 'H', '<C-w>H')
+call submode#map('bufmove', 'n', '', 'I', '<C-w>L')
+call submode#map('bufmove', 'n', '', 'N', '<C-w>J')
+call submode#map('bufmove', 'n', '', 'E', '<C-w>K')
+call submode#map('bufmove', 'n', '', 'O', '<C-w>r')
+call submode#enter_with('bufmove', 'n', '', '<C-g>y', ':call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 2)<CR>')
+call submode#enter_with('bufmove', 'n', '', '<C-g>u', ':call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -2)<CR>')
+call submode#enter_with('bufmove', 'n', '', '<C-g>Y', ':call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 4)<CR>')
+call submode#enter_with('bufmove', 'n', '', '<C-g>U', ':call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -4)<CR>')
+call submode#map('bufmove', 'n', '', 'y', ':call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 2)<CR>')
+call submode#map('bufmove', 'n', '', 'u', ':call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -2)<CR>')
+call submode#map('bufmove', 'n', '', 'U', ':call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 4)<CR>')
+call submode#map('bufmove', 'n', '', 'Y', ':call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -4)<CR>')
+'''
+# }}}
 
 [[plugins]]
 repo = 'cohama/lexima.vim'

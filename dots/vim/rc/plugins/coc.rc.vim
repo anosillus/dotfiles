@@ -20,9 +20,9 @@ nmap <silent> gd <Plug>(coc-definition)
 " nmap <silent> gi <Plug>(coc-implementation)
 " nmap <silent> gr <Plug>(coc-references)
 
-imap <C-o> <Plug>(coc-snippets-expand)
-vmap <C-o> <Plug>(coc-snippets-select)
-imap <C-o> <Plug>(coc-snippets-expand-jump)
+" imap <C-o> <Plug>(coc-snippets-expand)
+" vmap <C-o> <Plug>(coc-snippets-select)
+" imap <C-o> <Plug>(coc-snippets-expand-jump)
 
 nnoremap <silent> B :call <SID>show_documentation()<CR>
 
@@ -37,7 +37,7 @@ endfunction
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
-nmap <leader>r <Plug>(coc-rename)
+" nmap <leader>r <Plug>(coc-rename)
 
 " Formatting selected code.
 " xmap <leader>f  <Plug>(coc-format-selected)
@@ -53,8 +53,8 @@ augroup end
 
 " Applying codeAction to the selected region.
 " Example: `<leader>aap` for current paragraph
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
+" xmap <leader>a  <Plug>(coc-codeaction-selected)
+" nmap <leader>a  <Plug>(coc-codeaction-selected)
 
 " Remap keys for applying codeAction to the current buffer.
 nmap <leader>ac  <Plug>(coc-codeaction)

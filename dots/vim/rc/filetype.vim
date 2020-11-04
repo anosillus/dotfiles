@@ -4,9 +4,9 @@ function! s:template_keywords()
   silent %s/<%=\(.\{-}\)%>/\=eval(submatch(1))/ge
   silent %s/<+FILE NAME+>/\=expand('%:t')/g
   silent %s/<+DATE+>/\=strftime('%Y-%m-%d')/g
-  silent %s/<+MAIL+>/\anosillus@gmail.com/g
+  " silent %s/<+MAIL+>/\anosillus@gmail.com/g
   silent %s/<+AUTHOR+>/\@anosillus/g
-  silent %s/<+MIT_LICENCE+>/\MIT/g
+  " silent %s/<+MIT_LICENCE+>/\MIT/g
   if search('<+CURSOR+>')
     execute 'normal! "_da>'
   endif
@@ -30,9 +30,8 @@ augroup MyAutoCmd
  " autocmd BufRead,BufNewFile *jp.md call s:jp_mode()
  " autocmd WinEnter * if b:japanese_mode ==# 1|call plug#load('coc.vim')|endif
   autocmd WinEnter * if winnr('$') == 1 && &buftype == "quickfix"|q|endif
-  autocmd BufNew * call timer_start(0, { -> s:bufnew() })
+  " autocmd BufNew * call timer_start(0, { -> s:bufnew() })
   autocmd FileType ref,help call s:initialize_ref_viewer()
-
   " autocmd BufRead,BufNewFile,BufReadPre *.ts setlocal filetype=typescript
   " autocmd BufRead,BufNewFile *.csv,*.dat setfiletype csv
   " autocmd BufNewFile,BufRead *.ipynb nmap <leader>o :VimpyterInsertPythonBlock<CR>

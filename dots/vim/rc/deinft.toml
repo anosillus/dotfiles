@@ -60,10 +60,6 @@ _ = '''
   if &l:textwidth != 70 && &filetype !=# 'help'
     setlocal textwidth=0
   endif
-  " Use FoldCCtext().
-  if &filetype !=# 'help'
-    setlocal foldtext=FoldCCtext()
-  endif
   if !&l:modifiable
     setlocal nofoldenable
     setlocal foldcolumn=0
@@ -76,7 +72,7 @@ python = '''
 setlocal foldmethod=indent
 setlocal softtabstop=4
 setlocal shiftwidth=4
-setlocal textwidth=80
+setlocal textwidth=88
 setlocal smarttab
 setlocal expandtab
 setlocal nosmartindent
@@ -97,7 +93,7 @@ vim = '''
 if line('$') > 1000
   syntax sync minlines=200
 endif
-setlocal foldmethod=indent
+setlocal foldmethod=marker
 setlocal shiftwidth=2 softtabstop=2
 setlocal iskeyword+=:,#
 '''
