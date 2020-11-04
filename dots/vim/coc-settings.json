@@ -17,8 +17,6 @@
   "list.insertMappings": {
     "<C-c>": "do:exit"
   },
-  "eslint.autoFixOnSave": true,
-  "eslint.filetypes": ["javascript", "typescript", "javascriptreact"],
   "languageserver": {
     "gopls": {
       "command": "gopls",
@@ -34,6 +32,7 @@
       "filetypes": ["dockerfile"],
       "args": ["--stdio"]
     },
+
     "ccls": {
       "command": "ccls",
       "filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
@@ -47,6 +46,16 @@
       "filetypes": ["sh"],
       "args": ["start"],
       "ignoredRootPaths": ["~"]
+    },
+    "graphql": {
+      "command": "graphql-lsp",
+      "args": ["server", "-m", "stream"],
+      "filetypes": ["typescript", "typescriptreact", "graphql"]
+    },
+    "sql": {
+      "command": "sql-language-server",
+      "args": ["up", "--method", "stdio"],
+      "filetypes": ["sql", "mysql"]
     },
     "efm": {
       "command": "efm-langserver",

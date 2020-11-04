@@ -173,7 +173,7 @@ hook_add = '''
   xnoremap <silent> <C-v>
         \ :<C-u>Denite -default-action=replace -buffer-name=register
         \ register neoyank<CR>
-  nnoremap <silent> <Leader><Leader>
+  nnoremap <silent> <c-Space>
   \ :<C-u>Denite file/rec<CR>
   nnoremap <silent><expr> M, wordcount().chars > 30000 ?
   \ ":\<C-u>Denite -buffer-name=search -start-filter
@@ -504,7 +504,9 @@ repo = 'heavenshell/vim-pydocstring'
 build = 'make install'
 on_ft = 'python'
 hook_add = 'map <silent> lo <Plug>(pydocstring)'
-
+[[plugins]]
+repo = 'tmhedberg/SimpylFold'
+on_ft = 'python'
 
 #  }}}
 # R {{{

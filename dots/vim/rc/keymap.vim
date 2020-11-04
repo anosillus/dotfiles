@@ -7,6 +7,7 @@ nmap [Space]   <Nop>
 vnoremap <leader><Leader> <ESC>
 " cnoremap <silent> <Space><Space> <ESC>
 cnoremap <silent> <C-c> <ESC>
+" nnoremap <c-Space> :<C-u>w<CR>
 
 "this isn't work"
 inoremap <C-c> <ESC>
@@ -41,10 +42,10 @@ noremap :  ;
 
 " Change histry mover
 map , /
-nnoremap g. g;
-nnoremap g: g,
+" nnoremap g. g;
+" nnoremap g: g,
 " <C-,/.> didn't work on ubuntu.
-" nnoremap g, " change list next
+" nnoremap g, "remmaped for search
 " cnoremap <C-,> <C-r>/
 " }}}
 
@@ -159,6 +160,7 @@ inoremap <C-i> <Right>
 " go is history jump
 nnoremap <Leader>o :<C-u>for i in range(v:count1) \| call append(line('.'), '') \| endfor<CR>
 nnoremap <Leader>O :<C-u>for i in range(v:count1) \| call append(line('.')-1, '') \| endfor<CR>
+nnoremap <C-o> o<Esc>
 
 " iv<C-o> is coc snippets
 " }}}
@@ -167,6 +169,11 @@ nnoremap <Leader>O :<C-u>for i in range(v:count1) \| call append(line('.')-1, ''
 " < u/y > is 'Left/Right'{{{
 noremap u <Left>
 noremap y <Right>
+nnoremap <leader>u <C-o>
+nnoremap <leader>y <C-i>
+nnoremap <leader>U g;
+nnoremap <leader>Y g.
+
 "map U,Y is easymotion
 noremap <C-u> :bprevious<CR>
 noremap <C-y> :bnext<CR>
@@ -437,82 +444,98 @@ tmap  <M-q>  !
 
 " a
 map  á @
+map! á @
 lmap á @
 tmap á @
 
 " r
 map  ò #
+map! ò #
 lmap ò #
 tmap ò #
 
 " s
 map  ó $
+map! ó $
 lmap ó $
 tmap ó $
 
 " t
 map  ô %
+map! ô %
 lmap ô %
 tmap ô %
 
 " d
 map  ä ^
+map! ä ^
 lmap ä ^
 tmap ä ^
 
 " h
 map  è &
+map! è &
 lmap è &
 tmap è &
 
 " n
 map  î *
+map! î *
 lmap î *
 tmap î *
 
 " e
 map  å (
+map! å (
 lmap å (
 tmap å (
 
 " i
 map  é )
+map! é )
 lmap é )
 tmap é )
 
 " o
 map  ï _
+map! ï _
 lmap ï _
 tmap ï _
 
 " <CR>
 " Note : <M-CR> isn't work, I use <M-;>)
 map  <M-;> <kPlus>
+map! <M-;> <kPlus>
 lmap <M-;> <kPlus>
 tmap <M-;> <kPlus>
 
 " b
 map  â "
+map! â "
 lmap â "
 tmap â "
 
 " k
 map  ë ?
+map! ë ?
 lmap ë ?
 tmap ë ?
 
 " m
 map  í {
+map! í {
 lmap í {
 tmap í {
 
 " ,
 map  ¬ }
+map! ¬ }
 lmap ¬ }
 tmap ¬ }
 
 " .
 map  ® <bar>
+map! ® <bar>
 map! ® <bar>
 lmap ® <bar>
 tmap ® <bar>

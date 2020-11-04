@@ -69,7 +69,6 @@ _ = '''
 
 python = '''
 " Indent settings.
-setlocal foldmethod=indent
 setlocal softtabstop=4
 setlocal shiftwidth=4
 setlocal textwidth=88
@@ -114,6 +113,7 @@ setlocal expandtab foldmarker=syntax
 
 javascript = '''
 setlocal keywordprg=:DD
+setlocal foldmethod=syntax
 '''
 
 fish = '''

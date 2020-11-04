@@ -3,16 +3,16 @@ repo = 'Shougo/dein.vim'
 
 # complete {{{
 [[plugins]]
-repo = 'neoclide/coc-neco'
-[[plugins]]
-repo = 'neoclide/coc-sources'
-[[plugins]]
 repo = 'neoclide/coc.nvim'
 rev = 'release'
 on_i = 1
 merged = '0'
 hook_add = 'source ~/.vim/rc/plugins/coc.rc.vim'
+[[plugins]]
+repo = 'SirVer/ultisnips'
 # }}}
+
+
 # filetype {{{
 [[plugins]]
 repo = 'sheerun/vim-polyglot'

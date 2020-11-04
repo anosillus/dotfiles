@@ -1,7 +1,6 @@
-inoremap <silent><expr> "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-e>" : "\<C-h>"
+inoremap <expr> <C-n> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <C-e> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <silent><expr> <c-space> coc#refresh()
 
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -14,11 +13,29 @@ else
   inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
 
+let g:coc_global_extensions = [
+  \ 'coc-tsserver',
+  \ 'coc-snippets',
+  \ 'coc-python',
+  \ 'coc-emoji',
+  \ 'coc-word',
+  \ 'coc-omni',
+  \ 'coc-syntax',
+  \ 'coc-ultisnips',
+  \ 'coc-rls',
+  \ 'coc-json',
+  \ 'coc-html',
+  \ 'coc-go',
+  \ 'coc-cmake'
+  \ ]
+
+
+
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
-" nmap <silent> gt <Plug>(coc-type-definition)
+nmap <silent> gD <Plug>(coc-type-definition)
 " nmap <silent> gi <Plug>(coc-implementation)
-" nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gb <Plug>(coc-references)
 imap <C-o> <Plug>(coc-snippets-expand)
 vmap <C-o> <Plug>(coc-snippets-select)
 imap <C-o> <Plug>(coc-snippets-expand-jump)
