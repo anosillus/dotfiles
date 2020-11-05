@@ -15,8 +15,6 @@ nmap <Leader><Leader> :<C-u>w<CR>
 
 " <Enter> is 'Page Scroll'. {{{
 nmap  <CR> <C-f>
-" xmap     <CR> <Plug>(EasyAlign)
-xmap <CR>  <Plug>(EasyAlign)
 nmap     <S-CR>  <C-b>
 noremap  <C-CR>  <C-d>
 inoremap <C-CR> <ESC>+i
@@ -40,7 +38,7 @@ noremap :  ;
 " }}}
 
 " Change histry mover
-map , /
+" map , /
 nnoremap g. g;
 nnoremap g: g,
 " <C-,/.> didn't work on ubuntu.
@@ -71,15 +69,6 @@ nnoremap <Leader>= <C-w>=
 " map  <silent> <Esc><Esc> :<C-u>nohlsearch<CR>
 noremap  <bs> _x
 noremap  <Leader><bs> _X
-
-" Gina {{{
-nnoremap <Right> :<C-u>Gina diff<CR>
-nnoremap <Left> :<C-u>Gina commit<CR>
-nnoremap <UP> :<C-u>Gina status<CR>
-nnoremap <Down> :<C-u>Gina push<CR>
-" nnoremap <Down> :<C-u>call gina#custom#execute('/\%(status\|branch\|ls\|grep\|changes\|tag\)','setlocal winfixheight',)
-" }}}
-
 " }}}
 
 " Right Hand {{{
@@ -98,8 +87,6 @@ snoremap <silent> <c-i> <c-g>c
 snoremap <silent> <c-h> <c-g>c
 snoremap <c-r> <c-g>"_c<c-r>
 
-snoremap <c-r> <c-g>"_c<c-r>
-
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
@@ -108,7 +95,7 @@ endfunction
 nnoremap gn <C-w>j
 nnoremap ge <C-w>k
 nnoremap gN <C-w>J
-nnoremap gE <C-w>K
+snoremap gE <C-w>K
 inoremap <C-n> <Down>
 inoremap <C-e> <Up>
 " cnoremap <C-n> <C-n>
@@ -119,10 +106,10 @@ cnoremap <C-e> <C-p>
 
 " h/i is 100 %.
 " < h/i > is 'Word Motion'. {{{
-noremap i w
-noremap h b
-noremap I e
-noremap H ge
+" noremap i w
+" noremap h b
+" noremap I e
+" noremap H ge
 noremap <Leader>h ^
 noremap <Leader>i $
 noremap <Leader>H 0
@@ -173,7 +160,6 @@ nnoremap gu :vs
 nnoremap gy :sp
 cnoremap <C-u> <Left>
 cnoremap <C-y> <Right>
-
 inoremap <C-u> <BS>
 inoremap <C-y> <Delete>
 
@@ -208,8 +194,13 @@ noremap mo zMzv
 noremap mO zX
 " Middle Scsreen.
 nnoremap gm M
-nnoremap <C-m> zz
-" leader m is denite
+" nnoremap <C-m> zz
+" leader m is denite mark
+" C-m is show mark
+" mz is gundo
+" m, is word count
+" m* is another count
+" mt  is tag.
 " }}}
 
 
@@ -252,7 +243,6 @@ xmap j  <Nop>
 " nmap b <Plug>(ref-keyword)
 let g:jedi#documentation_command = 'b'
 " xmap B :<C-u>'<,'>Gtrans<CR>
-nnoremap <leader>b :<C-u>Denite -split=vertical help -start-filter<CR>
 "nmap B is coc document.
 omap b (
 omap B {
@@ -326,35 +316,29 @@ inoremap <C-d> <C-u>
 " map <leader>f <Plug>(coc-git-nextchunk)
 " map <leader>p <Plug>(coc-git-prevchunk)
 " n <C-f><C-p> is ale
-
-inoremap <C-f> <C-y>
-inoremap <C-p> <C-e>
+inoremap <C-p> [Nop]
+inoremap <C-f> <C-e>
+inoremap <C-p> <C-y>
 " }}}
 " 80 %
 " 100%
 " <w> is 'Operator/Word-grep'. {{{
 " moxmap<w,W> is sandwitch and Word-gerp
-nmap w <Nop>
-xmap w <Nop>
-omap w <Nop>
-nmap W <Nop>
-xmap W <Nop>
-omap W <Nop>
+nnoremap wq :<C-u>w<CR>
 " nmap<C-w> is denite
-" ic<C-w> is word-delete.
 " nxo<leader>w is earymotion
 " }}}
 
 " <q> is 'Quit'. {{{
-nmap q :bd<CR>
+" map q is q
+nnoremap Q @
+nmap qq :bd<CR>
 xmap q <Plug>(coc-codeaction-selected)
-
-nnoremap <C-q> :<C-u>q!<CR>
-" nnoremap Q history
+imap <C-q> <C-]>
+" nnoremap <-q> is denite history
 nnoremap <Leader>q :<C-u>q<CR>
 nnoremap <Leader>Q :<C-u>q!<CR>
 " <C-q> is history
-" qq is too slow.
 " <Todo> fix to '={}' from ==.
 " imap <C-q> <C-f>
 imap <C-q> <ESC>==i
@@ -381,9 +365,9 @@ nnoremap gV gP
 noremap  mV P
 vnoremap v  "_dp
 vnoremap V  "_dP
-inoremap <C-x>   <Delete>
-inoremap <C-v>   <C-r><Right>
-inoremap <S-C-v> <ESC>"+pi
+" inoremap <C-x>   <Delete>
+inoremap <C-v>   <C-r><C-r><Right>
+inoremap <C-b> <ESC>"+pi
 " inoremap <C-c> <ESC>
 "nx <C-v> is neoyank
 cnoremap <C-v> <C-r>"

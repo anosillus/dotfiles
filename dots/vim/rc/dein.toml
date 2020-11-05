@@ -1,18 +1,17 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
-# complete {{{
-[[plugins]]
-repo = 'neoclide/coc-neco'
-[[plugins]]
-repo = 'neoclide/coc-sources'
+# coc {{{
 [[plugins]]
 repo = 'neoclide/coc.nvim'
 rev = 'release'
-on_i = 1
+on_if = "matchstr(expand('%:p'),'jp.md') ==# ''"
 merged = '0'
 hook_add = 'source ~/.vim/rc/plugins/coc.rc.vim'
-# }}}
+
+[[plugins]]
+repo = 'honza/vim-snippets'
+
 # filetype {{{
 [[plugins]]
 repo = 'sheerun/vim-polyglot'
@@ -22,6 +21,9 @@ let g:loaded_sleuth = 1
 '''
 [[plugins]]
 repo = 'romainl/vim-devdocs'
+
+[[plugins]]
+repo = 'mmikeww/autohotkey.vim'
 # }}}
 # vim-ref {{{
 [[plugins]]
@@ -151,27 +153,39 @@ repo = 'skanehira/gh.vim'
 [[plugins]]
 repo = 'jacquesbh/vim-showmarks'
 hook_add = '''
-nnoremap <C-m> :ShowMarksOnce<cr>
+nnoremap <C-m> :<c-u>ShowMarksOnce<cr>
+'''
+# [[plugins]]
+# repo = 'lambdalisue/gina.vim'
+# hook_add = '''
+# nnoremap <Right> :<C-u>Gina diff<CR>
+# nnoremap <Left> :<C-u>Gina commit<CR>
+# nnoremap <UP> :<C-u>Gina status<CR>
+# nnoremap <Down> :<C-u>Gina push<CR>
+# '''
+[[plugins]]
+repo = 'junegunn/vim-easy-align'
+hook_add = '''
+xmap <CR> <Plug>(EasyAlign)
+nmap mg <Plug>(EasyAlign)
 '''
 
 [[plugins]]
 repo = 'cohama/lexima.vim'
-# on_map = {i = '<Plug>'}
 
-[[plugins]]
-repo = 'lambdalisue/gina.vim'
 [[plugins]]
 repo = 'yuttie/comfortable-motion.vim'
 hook_add = '''
 let g:comfortable_motion_no_default_key_mappings = 1
-noremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(40)<CR>
-noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-40)<CR>
+noremap <silent> <ScrollWheelDown> :<c-u>call comfortable_motion#flick(40)<CR>
+noremap <silent> <ScrollWheelUp>   :<c-u>call comfortable_motion#flick(-40)<CR>
 '''
+[[plugins]]
+repo = 'arthurxavierx/vim-unicoder'
+
 # sandwitch {{{
 [[plugins]]
 repo = 'machakann/vim-sandwich'
-# depends = ['vim-operator-user','vim-textobj-user']
-# on_map = {nox = '<Plug>'}
 hook_post_update = '''
 let g:sandwich#recipes = deepcopy(g:sandwich#default_recipes)
 let g:sandwich#recipes += [
@@ -189,29 +203,35 @@ let g:sandwich#recipes += [
 \ ]
 '''
 hook_add = '''
-  let g:operator_sandwich_no_default_key_mappings = 1
-  let g:textobj_sandwich_no_default_key_mappings = 1
-  let g:sandwich_no_default_key_mappings = 1
-  nmap w  <Plug>(operator-sandwich-add)
-  nmap W  <Plug>(operator-sandwich-add)<Plug>(operator-sandwich-synchro-count)
-  map  Wd <Plug>(operator-sandwich-delete)<Plug>(textobj-sandwich-query-a)
-  map  wd <Plug>(operator-sandwich-delete)<Plug>(textobj-sandwich-auto-a)
-  map  Wr <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-query-a)
-  map  wr <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-auto-a)
-  map  Wr <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-query-a)
-  map  wr <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-auto-a)
-  omap W  <Plug>(textobj-sandwich-query-i)
-  omap w  <Plug>(textobj-sandwich-auto-i)
-  omap sW <Plug>(textobj-sandwich-query-i)
-  omap sw <Plug>(textobj-sandwich-auto-i)
-  omap tW <Plug>(textobj-sandwich-query-a)
-  omap tw <Plug>(textobj-sandwich-query-a)
-  xmap w  <Plug>(textobj-sandwich-auto-i)
-  xmap W  <Plug>(textobj-sandwich-query-i)
-  xmap sW <Plug>(textobj-sandwich-query-i)
-  xmap sw <Plug>(textobj-sandwich-auto-i)
-  xmap tW <Plug>(textobj-sandwich-query-a)
-  xmap tw <Plug>(textobj-sandwich-query-a)
+let g:operator_sandwich_no_default_key_mappings = 1
+let g:textobj_sandwich_no_default_key_mappings = 1
+let g:sandwich_no_default_key_mappings = 1
+" nmap w <Nop>
+" xmap w <Nop>
+" omap w <Nop>
+" nmap W <Nop>
+" xmap W <Nop>
+" omap W <Nop>
+nmap w  <Plug>(operator-sandwich-add)
+nmap W  <Plug>(operator-sandwich-add)<Plug>(operator-sandwich-synchro-count)
+map  Wd <Plug>(operator-sandwich-delete)<Plug>(textobj-sandwich-query-a)
+map  wd <Plug>(operator-sandwich-delete)<Plug>(textobj-sandwich-auto-a)
+map  Wr <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-query-a)
+map  wr <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-auto-a)
+map  mw <Plug>(operator-sandwich-delete)<Plug>(textobj-sandwich-auto-a)s
+map  mW <Plug>(operator-sandwich-delete)<Plug>(textobj-sandwich-query-a)s
+omap W  <Plug>(textobj-sandwich-query-i)
+omap w  <Plug>(textobj-sandwich-auto-i)
+omap sW <Plug>(textobj-sandwich-query-i)
+omap sw <Plug>(textobj-sandwich-auto-i)
+omap tW <Plug>(textobj-sandwich-query-a)
+omap tw <Plug>(textobj-sandwich-query-a)
+xmap w  <Plug>(textobj-sandwich-auto-i)
+xmap W  <Plug>(textobj-sandwich-query-i)
+xmap sW <Plug>(textobj-sandwich-query-i)
+xmap sw <Plug>(textobj-sandwich-auto-i)
+xmap tW <Plug>(textobj-sandwich-query-a)
+xmap tw <Plug>(textobj-sandwich-query-a)
 '''
 # }}}
 # action {{{
@@ -221,7 +241,7 @@ repo = 'mattn/emmet-vim'
 hook_add = '''
 let g:user_emmet_install_global = 1
 let g:user_emmet_mode='vn'
-let g:user_emmet_leader_key='<Meta-y>'
+let g:user_emmet_leader_key='<C-.>'
 '''
 [[plugins]]
 repo = 'pbrisbin/vim-mkdir'

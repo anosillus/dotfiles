@@ -3,7 +3,7 @@ let g:lightline = {
 \   'mode_map': {'c': 'NORMAL'},
 \   'active': {
 \     'left': [ ['mode', 'paste'],
-\               ['ale', 'anzu', 'cocstatus', 'currentfunction',  'readonly', 'filename', 'qfstatusline', 'modified'],
+\               ['ale', 'anzu', 'currentfunction',  'readonly', 'filename', 'qfstatusline', 'modified'],
 \               ['method']],
 \     'right':[ ['lineinfo'],[ 'percent'],
 \               ['fileformat', 'fileencoding', 'filetype'],
@@ -15,18 +15,13 @@ let g:lightline = {
 \   'component_function': {
 \     'ale':             'ALEGetStatusLine',
 \     'anzu':            'anzu#search_status',
-\     'cocstatus':       'coc#status',
 \     'method':          'NearestMethodOrFunction',
-\     'currentfunction': 'CocCurrentFunction',
 \     'fileencoding':    'LightlineFileencoding',
 \     'fileformat':      'LightlineFileformat',
 \     'filetype':        'LightlineFiletype',
-\     'blame':           'LightlineGitBlame',
 \     'mode':            'LightlineMode',
 \     'modified':        'LightlineModified',
 \     'readonly':        'LightlineReadonly',
-\     'gitbranch': 'gina#component#repo#branch',
-\     'gitstage':  'gina#component#status#staged',
 \     'component_function': {
 \     'toggl_task': 'toggl#task',
 \     'toggl_time': 'toggl#time'
@@ -57,11 +52,6 @@ let g:lightline#ale#indicator_ok = "\uf00c"
 " let staged = 	  let unstaged = gina#component#status#unstaged()
 " let conflicted = gina#component#status#conflicted()
 
-
-function! LightlineGitBlame() abort
-  let blame = get(b:, 'coc_git_blame', '')
-  return winwidth(0) > 120 ? blame : ''
-endfunction
 
 function! LightlineFileencoding()
   return winwidth(0) > 70 ? (&fileencoding !=# '' ? &fileencoding : &encoding) : ''

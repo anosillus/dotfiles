@@ -62,14 +62,13 @@ set history=100
 set undolevels=100
 " }}}
 
-
 " call s:source_rc('gui.vim')
-" call s:source_rc('private.vim')
+call s:source_rc('private.vim')
 call s:source_rc('env.vim')
 call s:source_rc('keymap.vim')
 call s:source_rc('plug.vim')
 call s:source_rc('filetype.vim')
-
+call s:source_rc('basic.vim')
 set runtimepath^=$HOME/.vim
 
 " ColorScheme {{{
@@ -91,7 +90,6 @@ if (has('termguicolors'))
  set termguicolors
 endif
 
-call s:source_rc('basic.vim')
 
 set signcolumn=yes
 
