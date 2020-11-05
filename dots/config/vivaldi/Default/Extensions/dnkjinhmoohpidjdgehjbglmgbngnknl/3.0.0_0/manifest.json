@@ -1,0 +1,32 @@
+{
+   "background": {
+      "run_at": "document_start",
+      "scripts": [ "background.js" ]
+   },
+   "browser_action": {
+      "name": "Click to change the icon's color"
+   },
+   "content_scripts": [ {
+      "js": [ "content.js" ],
+      "match_about_blank": true,
+      "matches": [ "https://www.deepl.com/*" ],
+      "run_at": "document_start"
+   } ],
+   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+   "description": "Chrome extension to format and translate selected text directly from PDF files with DeepL.",
+   "icons": {
+      "128": "img/translation_128.png",
+      "16": "img/translation_16.png",
+      "48": "img/translation_48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvppJy7hN7d8SgpkJ5iZwApbeyhjfUZnWqWYKhfa5F3lfMOJ4hoy8qwshlfda7js7eGx6Wdib9oQZWpuo6K7T9yihUcC5rhxq8RRdFsOmFRV4oAuy1U4zlolxyeFTJn92nocyFgVro8GwgoKUFiiSZW77sFsQGg4irhLI/yB/lTGiPyQmGDeqkJjHcKw+GMs7TguisB+oLqI0isLtabFvZy7wUI58Te1+VS+EtCH3b5LEr7jmKzPAoj15mZZ1kCMlBQwy+y0IMQxAkoVVoGJEq318ncCcyvgbq7k4EgS0vSCdK52hxUO/I/4MgiuzkrMU/TUTR5cq8S1PhM0ljSNrQwIDAQAB",
+   "manifest_version": 2,
+   "name": "PDF Translator",
+   "options_ui": {
+      "chrome_style": true,
+      "page": "option.html"
+   },
+   "permissions": [ "tabs", "webNavigation", "webRequest", "\u003Call_urls>", "webRequestBlocking", "file:///*/*", "storage" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "3.0.0"
+}

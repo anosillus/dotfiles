@@ -1,4 +1,3 @@
-
 echo Hi Hexley!
 
 set -g -x EDITOR  gvim

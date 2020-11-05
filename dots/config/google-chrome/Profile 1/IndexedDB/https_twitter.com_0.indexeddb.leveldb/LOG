@@ -1,0 +1,5 @@
+2020/10/26-00:32:38.122 44f1 Reusing MANIFEST /home/anosillus/.config/google-chrome/Profile 1/IndexedDB/https_twitter.com_0.indexeddb.leveldb/MANIFEST-000001
+2020/10/26-00:33:11.939 4d53 Level-0 table #5: started
+2020/10/26-00:33:11.941 4d53 Level-0 table #5: 1262 bytes OK
+2020/10/26-00:33:11.941 4d53 Delete type=0 #3
+2020/10/26-00:33:11.941 4d53 Manual compaction at level-0 from (begin) .. (end); will stop at (end)

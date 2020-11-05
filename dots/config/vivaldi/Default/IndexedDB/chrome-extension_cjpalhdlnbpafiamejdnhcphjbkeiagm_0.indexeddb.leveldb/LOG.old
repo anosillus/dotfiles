@@ -1,0 +1,8 @@
+2020/10/26-02:36:23.820 53e6 Reusing MANIFEST /home/anosillus/.config/vivaldi/Default/IndexedDB/chrome-extension_cjpalhdlnbpafiamejdnhcphjbkeiagm_0.indexeddb.leveldb/MANIFEST-000001
+2020/10/26-02:36:23.820 53e6 Recovering log #7
+2020/10/26-02:36:23.820 53e6 Reusing old log /home/anosillus/.config/vivaldi/Default/IndexedDB/chrome-extension_cjpalhdlnbpafiamejdnhcphjbkeiagm_0.indexeddb.leveldb/000007.log 
+2020/10/26-02:36:25.823 53e7 Level-0 table #11: started
+2020/10/26-02:36:25.823 53e7 Level-0 table #11: 0 bytes OK
+2020/10/26-02:36:25.824 53e7 Delete type=0 #7
+2020/10/26-02:36:25.824 53e7 Manual compaction at level-0 from (begin) .. (end); will stop at (end)
+2020/10/26-02:36:25.824 53e7 Manual compaction at level-1 from (begin) .. (end); will stop at (end)
