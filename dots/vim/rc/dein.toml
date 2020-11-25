@@ -81,8 +81,6 @@ noremap <expr> bR ':Ref wikipedia_ja ' . expand('<cword>') . '<CR>'
 noremap <expr> bA :OnlineThesaurusCurrentWord<CR>
 '''
 
-
-
 [[plugins]]
 repo = 'ryanoasis/vim-devicons'
 [[plugins]]
@@ -265,6 +263,28 @@ call submode#map('bufmove', 'n', '', 'U', ':call comfortable_motion#flick(g:comf
 call submode#map('bufmove', 'n', '', 'Y', ':call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -4)<CR>')
 '''
 # }}}
+
+# smart word {{{
+# [[plugins]]
+# repo = 'kana/vim-smartword'
+# on_map = {nxo = '<Plug>'}
+# hook_add = '''
+# map <C-i> <Plug>(smartword-w)
+# map <C-h> <Plug>(smartword-b)
+#" map <M-i> <Plug>(smartword-e)
+#" map <M-h> <Plug>(smartword-ge)
+# '''
+[[plugins]]
+repo = 'chaoren/vim-wordmotion'
+hook_add = '''
+let g:wordmotion_nomap = 1
+map i <Plug>WordMotion_w
+noremap I W
+map h <Plug>WordMotion_b
+noremap H B
+map <C-h> <Plug>WordMotion_ge
+map <C-i> <Plug>WordMotion_e
+'''
 
 # [[plugins]]
 # repo = 'lambdalisue/gina.vim'
