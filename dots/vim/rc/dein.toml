@@ -1,18 +1,10 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
-<<<<<<< HEAD
 # complete {{{
-[[plugins]]
-repo = 'neoclide/coc.nvim'
-# rev = 'release'
-# on_i = 1
-# merged = '0'
-# hook_add = 'source ~/.vim/rc/plugins/coc.rc.vim'
 [[plugins]]
 repo = 'SirVer/ultisnips'
 # }}}
-=======
 # coc {{{
 [[plugins]]
 repo = 'neoclide/coc.nvim'
@@ -23,7 +15,6 @@ hook_add = 'source ~/.vim/rc/plugins/coc.rc.vim'
 
 [[plugins]]
 repo = 'honza/vim-snippets'
->>>>>>> 3e2dfaaae8138f6cd9224ab77e16885ce5c9c70f
 
 # filetype {{{
 [[plugins]]
@@ -224,10 +215,8 @@ repo = 'skanehira/gh.vim'
 [[plugins]]
 repo = 'jacquesbh/vim-showmarks'
 hook_add = '''
-<<<<<<< HEAD
 nnoremap M :ShowMarksOnce<cr>
-=======
-nnoremap <C-m> :<c-u>ShowMarksOnce<cr>
+"nnoremap <C-m> :<c-u>ShowMarksOnce<cr>
 '''
 # [[plugins]]
 # repo = 'lambdalisue/gina.vim'
@@ -242,12 +231,10 @@ repo = 'junegunn/vim-easy-align'
 hook_add = '''
 xmap <CR> <Plug>(EasyAlign)
 nmap mg <Plug>(EasyAlign)
->>>>>>> 3e2dfaaae8138f6cd9224ab77e16885ce5c9c70f
 '''
 
 # sub-mode {{{
 [[plugins]]
-<<<<<<< HEAD
 repo = 'kana/vim-submode'
 hook_add = '''
 call submode#enter_with('bufmove', 'n', '', '<C-g>h', '<C-w>>')
@@ -279,17 +266,12 @@ call submode#map('bufmove', 'n', '', 'Y', ':call comfortable_motion#flick(g:comf
 '''
 # }}}
 
-[[plugins]]
-repo = 'cohama/lexima.vim'
-
 # [[plugins]]
 # repo = 'lambdalisue/gina.vim'
 [[plugins]]
-=======
 repo = 'cohama/lexima.vim'
 
 [[plugins]]
->>>>>>> 3e2dfaaae8138f6cd9224ab77e16885ce5c9c70f
 repo = 'yuttie/comfortable-motion.vim'
 hook_add = '''
 let g:comfortable_motion_no_default_key_mappings = 1

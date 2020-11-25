@@ -24,12 +24,8 @@ endif
 " let g:dein#auto_recache = 1
 let g:dein#install_progress_type = 'tabline'
 let g:dein#enable_notification = 1
-<<<<<<< HEAD
-" let g:dein#notification_icon = '~/.vim/signs/warn.png'
-=======
 let g:dein#notification_icon = '~/.vim/signs/warn.png'
 
->>>>>>> 3e2dfaaae8138f6cd9224ab77e16885ce5c9c70f
 let s:path = expand('$CACHE/dein')
 if !dein#load_state(s:path)
   finish

@@ -36,7 +36,6 @@ let g:coc_global_extensions = [
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gD <Plug>(coc-type-definition)
 " nmap <silent> gi <Plug>(coc-implementation)
-<<<<<<< HEAD
 nmap <silent> gb <Plug>(coc-references)
 " Use <C-l> for trigger snippet expand.
 imap <C-o> <Plug>(coc-snippets-expand)
@@ -56,11 +55,9 @@ imap <C-n> <Plug>(coc-snippets-expand-jump)
 " nmap <leader>R <Plug>(coc-rename)
 
 nnoremap <silent> B :call <SID>show_documentation()<CR>
-=======
 " nmap <silent> gr <Plug>(coc-references)
 
 nnoremap <silent>bb :call <SID>show_documentation()<CR>
->>>>>>> 3e2dfaaae8138f6cd9224ab77e16885ce5c9c70f
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)

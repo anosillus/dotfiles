@@ -175,46 +175,35 @@ hook_add = '''
         \ register neoyank<CR>
   nnoremap <silent> <c-Space>
   \ :<C-u>Denite file/rec<CR>
-<<<<<<< HEAD
   nnoremap <silent><expr> M, wordcount().chars > 30000 ?
-=======
   nnoremap <silent><expr> r. wordcount().chars > 30000 ?
->>>>>>> 3e2dfaaae8138f6cd9224ab77e16885ce5c9c70f
   \ ":\<C-u>Denite -buffer-name=search -start-filter
   \  -search line/external\<CR>" :
   \ ":\<C-u>Denite -buffer-name=search -start-filter -search line\<CR>"
   nnoremap <silent><expr> m* wordcount().chars > 30000 ?
   \ ":\<C-u>DeniteCursorWord -buffer-name=search -search line/external\<CR>" :
   \ ":\<C-u>DeniteCursorWord -buffer-name=search -search line\<CR>"
-<<<<<<< HEAD
   xnoremap <silent> *
   \ "qy:Denite -input=`@q` -buffer-name=search -search line<CR>
   nnoremap <silent><expr> gq finddir('.git', ';') != '' ?
-=======
   nnoremap <silent><expr> <leader>j finddir('.git', ';') != '' ?
->>>>>>> 3e2dfaaae8138f6cd9224ab77e16885ce5c9c70f
   \ ":\<C-u>Denite -sorters=sorter/rank -unique
   \  file/point file/old file/dirty file/git file file:new\<CR>" :
   \ ":\<C-u>Denite -sorters=sorter/rank -unique
   \  file/point file/old file file:new\<CR>"
-<<<<<<< HEAD
   nnoremap <silent> <C-j>    " 
   \ :<C-u>Denite -buffer-name=search -resume<CR>
   nnoremap <silent><expr> gt  &filetype == 'help' ?  "g\<C-]>" :
-=======
   nnoremap <silent> <C-j>
   \ :<C-u>Denite -buffer-name=search -resume grep<CR>
   nnoremap <silent><expr> mt  &filetype == 'help' ?  "g\<C-]>" :
->>>>>>> 3e2dfaaae8138f6cd9224ab77e16885ce5c9c70f
   \ ":\<C-u>DeniteCursorWord -buffer-name=tag -immediately tag:include\<CR>"
   nnoremap <silent><expr> gM  &filetype == 'help' ?
   \ ":\<C-u>pop\<CR>" : ":\<C-u>Denite jump\<CR>"
-<<<<<<< HEAD
   nnoremap <silent> <Leader>g :<C-u>Denite dein<CR>
   nnoremap <silent> go :<C-u>Denite change jump<CR>
   nnoremap <silent> <C-q> :<C-u>Denite change -start-filter<CR>
   nnoremap <silent> bb :<C-u>DeniteCursorWord help<CR>
-=======
   nnoremap <silent> <Leader>J :<C-u>Denite dein<CR>
   nnoremap <silent> jg :<C-u>Denite -buffer-name=search grep<CR>
   nnoremap <silent> <leader>z :<C-u>Denite change jump<CR>
@@ -222,7 +211,6 @@ hook_add = '''
   nnoremap <silent> <C-b> :<C-u>DeniteCursorWord help<CR>
   nnoremap <silent> <leader>b :<C-u>Denite -split=vertical help -start-filter<CR>
   nnoremap <silent> <C-;> :<C-u>Denite command command_history<CR>
->>>>>>> 3e2dfaaae8138f6cd9224ab77e16885ce5c9c70f
   nnoremap <silent> <leader>; :<C-u>Denite file/old -start-filter<CR>
 '''
 # nnoremap <silent> je :<C-u>Denite junkfile:new junkfile<CR>
@@ -330,9 +318,6 @@ fish = '''
 # deol }}}
 
 [[plugins]]
-repo = 'cohama/lexima.vim'
-
-[[plugins]]
 repo = 'thinca/vim-fontzoom'
 on_map = {n = '<Plug>'}
 hook_add = '''
@@ -340,46 +325,6 @@ let g:fontzoom_no_default_key_mappings = 1
 nmap + <Plug>(fontzoom-larger)
 nmap - <Plug>(fontzoom-smaller)
 '''
-
-[[plugins]]
-repo = 'vim-jp/autofmt'
-hook_source = '''
-set formatexpr=autofmt#japanese#formatexpr()
-'''
-
-# sub-mode {{{
-[[plugins]]
-repo = 'kana/vim-submode'
-on_map = '<Plug>'
-hook_post_source = '''
-call submode#enter_with('bufmove', 'n', '', '<C-g>h', '<C-w>>')
-call submode#enter_with('bufmove', 'n', '', '<C-g>i', '<C-w><')
-call submode#enter_with('bufmove', 'n', '', '<C-g>n', '<C-w>+')
-call submode#enter_with('bufmove', 'n', '', '<C-g>e', '<C-w>-')
-call submode#enter_with('bufmove', 'n', '', '<C-g>H', '<C-w>H')
-call submode#enter_with('bufmove', 'n', '', '<C-g>I', '<C-w>L')
-call submode#enter_with('bufmove', 'n', '', '<C-g>N', '<C-w>J')
-call submode#enter_with('bufmove', 'n', '', '<C-g>E', '<C-w>K')
-call submode#enter_with('bufmove', 'n', '', '<C-g>O', '<C-w>r')
-call submode#map('bufmove', 'n', '', 'h', '<C-w>>')
-call submode#map('bufmove', 'n', '', 'i', '<C-w><')
-call submode#map('bufmove', 'n', '', 'n', '<C-w>+')
-call submode#map('bufmove', 'n', '', 'e', '<C-w>-')
-call submode#map('bufmove', 'n', '', 'H', '<C-w>H')
-call submode#map('bufmove', 'n', '', 'I', '<C-w>L')
-call submode#map('bufmove', 'n', '', 'N', '<C-w>J')
-call submode#map('bufmove', 'n', '', 'E', '<C-w>K')
-call submode#map('bufmove', 'n', '', 'O', '<C-w>r')
-call submode#enter_with('bufmove', 'n', '', '<C-g>y', ':call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 2)<CR>')
-call submode#enter_with('bufmove', 'n', '', '<C-g>u', ':call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -2)<CR>')
-call submode#enter_with('bufmove', 'n', '', '<C-g>Y', ':call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 4)<CR>')
-call submode#enter_with('bufmove', 'n', '', '<C-g>U', ':call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -4)<CR>')
-call submode#map('bufmove', 'n', '', 'y', ':call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 2)<CR>')
-call submode#map('bufmove', 'n', '', 'u', ':call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -2)<CR>')
-call submode#map('bufmove', 'n', '', 'U', ':call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 4)<CR>')
-call submode#map('bufmove', 'n', '', 'Y', ':call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -4)<CR>')
-'''
-# }}}
 
 # deoplete {{{
 [[plugins]]
@@ -497,13 +442,10 @@ hook_source = '''
 # }}}
 
 # small command {{{
-<<<<<<< HEAD
-=======
 # [[plugins]]
 # repo = 'junegunn/vim-easy-align'
 # on_map = {nx = '<Plug>'}
 
->>>>>>> 3e2dfaaae8138f6cd9224ab77e16885ce5c9c70f
 [[plugins]]
 repo = 'kana/vim-niceblock'
 on_map = {x = '<Plug>'}
@@ -571,10 +513,6 @@ on_ft = 'markdown.gfm'
 [[plugins]]
 repo = 'osyo-manga/vim-precious'
 depends = 'context_filetype.vim'
-<<<<<<< HEAD
-=======
-# of_ft = ['markdown', 'text']
->>>>>>> 3e2dfaaae8138f6cd9224ab77e16885ce5c9c70f
 of_ft = ['toml','markdown', 'text']
 [[plugins]]
 repo = 'mzlogin/vim-markdown-toc'
@@ -712,10 +650,6 @@ omap tl <Plug>(textobj-line-a)
 xmap sl <Plug>(textobj-line-i)
 omap sl <Plug>(textobj-line-i)
 '''
-<<<<<<< HEAD
-
-=======
->>>>>>> 3e2dfaaae8138f6cd9224ab77e16885ce5c9c70f
 [[plugins]]
 repo = 'vimtaku/vim-textobj-keyvalue'
 depends = 'vim-textobj-user'
@@ -799,14 +733,11 @@ depends = 'vim-textobj-user'
 on_ft = ['vim', 'c', 'java']
 hook_source =  'let g:textobj_function_no_default_key_mappings = 1'
 hook_add = '''
-<<<<<<< HEAD
 let g:textobj_function_no_default_key_mappings = 1
 xmap tf <Plug>(textobj-function-i)
 omap tf <Plug>(textobj-function-i)
-=======
 xmap tf <Plug>(textobj-function-i) 
 omap tf <Plug>(textobj-function-i) 
->>>>>>> 3e2dfaaae8138f6cd9224ab77e16885ce5c9c70f
 xmap sf <Plug>(textobj-function-a)
 omap sf <Plug>(textobj-function-a)
 xmap tF <Plug>(textobj-function-I)
@@ -817,17 +748,6 @@ omap sF <Plug>(textobj-function-A)
 on_map = {ox = '<Plug>'}
 
 [[plugins]]
-<<<<<<< HEAD
-repo = 'bps/vim-textobj-python'
-depends = 'vim-textobj-user'
-on_ft = ['python']
-hook_add = '''
-let g:textobj_python_no_default_key_mappings = 1
-xmap tf <Plug>(textobj-python-function-i)
-omap tf <Plug>(textobj-python-function-i)
-xmap sf <Plug>(textobj-python-function-a)
-omap sf <Plug>(textobj-python-function-a)
-=======
 repo = 'bps/vim-textobj-python' 
 depends = 'vim-textobj-user'
 on_ft = ['python']
@@ -841,7 +761,6 @@ xmap sc <Plug>(textobj-python-class-i)
 omap sc <Plug>(textobj-python-class-i) 
 xmap tc <Plug>(textobj-python-class-a)
 omap tc <Plug>(textobj-python-class-a) 
->>>>>>> 3e2dfaaae8138f6cd9224ab77e16885ce5c9c70f
 '''
 on_map = {ox = '<Plug>'}
 

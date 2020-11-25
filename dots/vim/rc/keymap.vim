@@ -39,15 +39,9 @@ noremap :  ;
 " }}}
 
 " Change histry mover
-<<<<<<< HEAD
 map , /
 " nnoremap g. g;
 " nnoremap g: g,
-=======
-" map , /
-nnoremap g. g;
-nnoremap g: g,
->>>>>>> 3e2dfaaae8138f6cd9224ab77e16885ce5c9c70f
 " <C-,/.> didn't work on ubuntu.
 " nnoremap g, "remmaped for search
 " cnoremap <C-,> <C-r>/
@@ -93,10 +87,6 @@ snoremap <silent> <DEL> <c-g>c
 snoremap <silent> <c-i> <c-g>c
 snoremap <silent> <c-h> <c-g>c
 snoremap <c-r> <c-g>"_c<c-r>
-<<<<<<< HEAD
-snoremap <c-r> <c-g>"_c<c-r>
-=======
->>>>>>> 3e2dfaaae8138f6cd9224ab77e16885ce5c9c70f
 
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -213,14 +203,10 @@ noremap mo zMzv
 noremap mO zX
 " Middle Scsreen.
 nnoremap gm M
-<<<<<<< HEAD
-nnoremap <C-m> zz
 xmap mf zf
 noremap md zd
 noremap mD zD
-
 " leader m is denite
-=======
 " nnoremap <C-m> zz
 " leader m is denite mark
 " C-m is show mark
@@ -228,7 +214,6 @@ noremap mD zD
 " m, is word count
 " m* is another count
 " mt  is tag.
->>>>>>> 3e2dfaaae8138f6cd9224ab77e16885ce5c9c70f
 " }}}
 
 " l is 10%. <leader> and L is empty.
@@ -356,14 +341,12 @@ nnoremap wq :<C-u>w<CR>
 " nxo<leader>w is earymotion
 " }}}
 
-<<<<<<< HEAD
 " <q> is 'Macro/Quit.' {{{
 " nmap q :bd<CR>
 noremap Q @
 " xmap q <Plug>(coc-codeaction-selected)
 " nnoremap <C-q> :<C-u>q!<CR>
 " nnoremap Q history
-=======
 " <q> is 'Quit'. {{{
 " map q is q
 nnoremap Q @
@@ -371,7 +354,6 @@ nmap qq :bd<CR>
 xmap q <Plug>(coc-codeaction-selected)
 imap <C-q> <C-]>
 " nnoremap <-q> is denite history
->>>>>>> 3e2dfaaae8138f6cd9224ab77e16885ce5c9c70f
 nnoremap <Leader>q :<C-u>q<CR>
 nnoremap <Leader>Q :<C-u>q!<CR>
 " <C-q> is history
