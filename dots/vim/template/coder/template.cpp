@@ -1,11 +1,12 @@
 // -*- coding: utf-8 -*-
 // vim:fenc=utf-8
 // File name: <+FILE NAME+>
+// Author: <+AUTHOR+>
 // First Edit: <+DATE+>
 // Last Change: <%= strftime('%Y-%m-%d') %>
 
+
 #include <cstdlib>
-#include <iostream>
 #include <bits/stdc++.h>
 using namespace std;
 using LL = long long; using PII = pair<LL, LL>; using VI = vector<LL>; using VVI = vector<VI>;
@@ -26,6 +27,4 @@ using VB = vector<bool>; using VS = vector<string>; using VP = vector<PII>;
 
 int main(){
 	<+CURSOR+>
-
-    return 0;
 }

@@ -16,17 +16,18 @@ endif
 let g:coc_global_extensions = [
   \ 'coc-tsserver',
   \ 'coc-snippets',
-  \ 'coc-python',
+  \ 'coc-pyright',
   \ 'coc-emoji',
   \ 'coc-word',
   \ 'coc-omni',
   \ 'coc-syntax',
-  \ 'coc-ultisnips',
+  \ 'coc-snippets',
   \ 'coc-rls',
   \ 'coc-json',
   \ 'coc-html',
   \ 'coc-go',
-  \ 'coc-cmake'
+  \ 'coc-cmake',
+  \ 'coc-marketplace'
   \ ]
 
 
@@ -36,10 +37,22 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gD <Plug>(coc-type-definition)
 " nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gb <Plug>(coc-references)
+" Use <C-l> for trigger snippet expand.
 imap <C-o> <Plug>(coc-snippets-expand)
-vmap <C-o> <Plug>(coc-snippets-select)
-imap <C-o> <Plug>(coc-snippets-expand-jump)
-nmap <leader>R <Plug>(coc-rename)
+
+" Use <C-j> for select text for visual placeholder of snippet.
+vmap <C-n> <Plug>(coc-snippets-select)
+
+" Use <C-j> for jump to next placeholder, it's default of coc.nvim
+let g:coc_snippet_next = '<c-n>'
+
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<c-e>'
+
+" Use <C-j> for both expand and jump (make expand higher priority.)
+imap <C-n> <Plug>(coc-snippets-expand-jump)
+
+" nmap <leader>R <Plug>(coc-rename)
 
 nnoremap <silent> B :call <SID>show_documentation()<CR>
 

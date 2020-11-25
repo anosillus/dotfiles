@@ -592,7 +592,6 @@ noremap <silent> <C-h> F。
 # }}}
 # end filetype }}}
 # filetype }}}
-
 # {{{ text object
 [[plugins]]
 repo = 'kana/vim-textobj-line'
@@ -610,7 +609,7 @@ omap sl <Plug>(textobj-line-i)
 repo = 'vimtaku/vim-textobj-keyvalue'
 depends = 'vim-textobj-user'
 on_map = {ox = '<Plug>'}
-hook_= '''
+hook_add = '''
 let g:textobj_key_no_default_key_mappings = 1
 xmap tk <Plug>(textobj-key-a)
 omap tk <Plug>(textobj-key-a)
@@ -623,32 +622,97 @@ omap sv <Plug>(textobj-value-i)
 '''
 
 [[plugins]]
-repo = 'sgur/vim-textobj-parameter'
+repo = 'machakann/vim-swap'
 depends = 'vim-textobj-user'
-on_map = {ox = '<Plug>'}
-hook_source = 'let g:textobj_line_no_default_key_mappings = 1'
 hook_add = '''
-xmap t, <Plug>(textobj-parameter-a)
-omap t, <Plug>(textobj-parameter-a)
-xmap s, <Plug>(textobj-parameter-i)
-omap s, <Plug>(textobj-parameter-i)
+let g:swap_no_default_key_mappings = 1
+let g:swap#keymappings = {
+\   '0': ['0'],
+\   '1': ['1'],
+\   '2': ['2'],
+\   '3': ['3'],
+\   '4': ['4'],
+\   '5': ['5'],
+\   '6': ['6'],
+\   '7': ['7'],
+\   '8': ['8'],
+\   '9': ['9'],
+\   "\<CR>": ['CR'],
+\   "\<BS>": ['BS'],
+\   "\<C-h>": ['BS'],
+\   'u': ['undo'],
+\   "\<C-r>": ['redo'],
+\   'h': ['swap_prev'],
+\   'i': ['swap_next'],
+\   'n': ['move_prev'],
+\   'e': ['move_next'],
+\   's': ['sort'],
+\   'S': ['SORT'],
+\   'g': ['group'],
+\   'G': ['ungroup'],
+\   'r': ['reverse'],
+\   "\<Left>": ['swap_prev'],
+\   "\<Right>": ['swap_next'],
+\   "\<Up>": ['move_prev'],
+\   "\<Down>": ['move_next'],
+\   "\<Esc>": ['Esc'],
+\ }
+
+omap g< <Plug>(swap-prev)
+xmap g< <Plug>(swap-prev)
+omap g> <Plug>(swap-next)
+xmap g> <Plug>(swap-next)
+omap g. <Plug>(swap-interactive)
+xmap g. <Plug>(swap-interactive)
+omap s, <Plug>(swap-textobject-i)
+xmap s, <Plug>(swap-textobject-i)
+omap t, <Plug>(swap-textobject-a)
+xmap t, <Plug>(swap-textobject-a)
 '''
+on_map = {ox = '<Plug>'}
+
 # [[plugins]]
-# repo = 'kana/vim-textobj-function'
+# repo = 'sgur/vim-textobj-parameter'
 # depends = 'vim-textobj-user'
-# on_ft = ['vim', 'c', 'java']
-# hook_add = '''
-# let g:textobj_function_no_default_key_mappings = 1
-# xmap tf <Plug>(textobj-function-i) 
-# omap tf <Plug>(textobj-function-i) 
-# xmap sf <Plug>(textobj-function-a)
-# omap sf <Plug>(textobj-function-a) 
-# xmap tF <Plug>(textobj-function-I) 
-# omap tF <Plug>(textobj-function-I) 
-# xmap sF <Plug>(textobj-function-A)
-# omap sF <Plug>(textobj-function-A) 
-# '''
 # on_map = {ox = '<Plug>'}
+# hook_source = 'let g:textobj_line_no_default_key_mappings = 1'
+# hook_add = '''
+# xmap t, <Plug>(textobj-parameter-a)
+# omap t, <Plug>(textobj-parameter-a)
+# xmap s, <Plug>(textobj-parameter-i)
+# omap s, <Plug>(textobj-parameter-i)
+# '''
+
+[[plugins]]
+repo = 'kana/vim-textobj-function'
+depends = 'vim-textobj-user'
+on_ft = ['vim', 'c', 'java']
+hook_add = '''
+let g:textobj_function_no_default_key_mappings = 1
+xmap tf <Plug>(textobj-function-i)
+omap tf <Plug>(textobj-function-i)
+xmap sf <Plug>(textobj-function-a)
+omap sf <Plug>(textobj-function-a)
+xmap tF <Plug>(textobj-function-I)
+omap tF <Plug>(textobj-function-I)
+xmap sF <Plug>(textobj-function-A)
+omap sF <Plug>(textobj-function-A)
+'''
+on_map = {ox = '<Plug>'}
+
+[[plugins]]
+repo = 'bps/vim-textobj-python'
+depends = 'vim-textobj-user'
+on_ft = ['python']
+hook_add = '''
+let g:textobj_python_no_default_key_mappings = 1
+xmap tf <Plug>(textobj-python-function-i)
+omap tf <Plug>(textobj-python-function-i)
+xmap sf <Plug>(textobj-python-function-a)
+omap sf <Plug>(textobj-python-function-a)
+'''
+on_map = {ox = '<Plug>'}
+
 [[plugins]]
 repo = 'kana/vim-textobj-indent'
 depends = 'vim-textobj-user'

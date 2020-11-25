@@ -40,7 +40,7 @@ let g:ale_linter_aliases = {'gitcommit': ['gitcommit', 'text']}
 let g:ale_linters = {
 \   'c':          ['clang'],
 \   'cmake':      ['cmake'],
-\   'cpp':        ['clang', 'g++', 'ccls'],
+\   'cpp':        ['clang-format', 'clangtidy', 'g++', 'ccls'],
 \   'css':        ['prettier', 'stylelint'],
 \   'Dockerfile': ['hadolint'],
 \   'fish':       ['fish'],
@@ -63,8 +63,8 @@ let g:ale_linters = {
 
 let g:ale_fixers = {
 \   'bash':       ['remove_trailing_lines', 'trim_whitespace', 'language-server', 'shellcheck'],
-\   'c':          ['remove_trailing_lines', 'trim_whitespace', 'trim_whitespace', 'clang-format'],
-\   'cpp':        ['remove_trailing_lines', 'trim_whitespace', 'trim_whitespace', 'clang-format'],
+\   'c':          ['remove_trailing_lines', 'trim_whitespace'],
+\   'cpp':        ['remove_trailing_lines', 'trim_whitespace'],
 \   'css':        ['remove_trailing_lines', 'trim_whitespace', 'prettier', 'stylelint'],
 \   'Dockerfile': ['remove_trailing_lines', 'trim_whitespace'],
 \   'fish':       ['remove_trailing_lines', 'trim_whitespace'],

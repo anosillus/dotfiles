@@ -4,9 +4,338 @@
     "INTERPRETERS_CACHE_v3_PipEnvService": []
   },
   "coc-python|global": {
-    "INTERPRETERS_CACHE_v3_CondaEnvFileService": [],
-    "INTERPRETERS_CACHE_v3_CondaEnvService": [],
-    "INTERPRETERS_CACHE_v3_VirtualEnvService": [],
+    "INTERPRETERS_CACHE_v3_CondaEnvFileService": [
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/miniconda3/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.3-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 3,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.3-final"
+        },
+        "sysPrefix": "/home/anosillus/miniconda3",
+        "fileHash": "5d0c653f43b4a57b55612000cbecabab754b715b71098b7344c4c474ac081d3ebea2d939be483e2a68d867c522a3bb79e2a05a5cfd30e1fb216542f68be5a11b",
+        "companyDisplayName": "Anaconda, Inc.",
+        "type": "Conda",
+        "envPath": "/home/anosillus/miniconda3",
+        "envName": "base"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/versions/anaconda3-2020.07/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.3-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 3,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.3-final"
+        },
+        "sysPrefix": "/home/anosillus/.pyenv/versions/anaconda3-2020.07",
+        "fileHash": "d160d01e6de8311e9d05cb3b65d380cd2ee42f05d1a3acc0c22d3541f0c1a1ce51adbe9f9bdfc19ebe53b37ba9557b8ca66a8d84d45ce13b0dbd6aa0ab383a46",
+        "companyDisplayName": "Anaconda, Inc.",
+        "type": "Conda",
+        "envPath": "/home/anosillus/.pyenv/versions/anaconda3-2020.07",
+        "envName": "anaconda3-2020.07"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/versions/anaconda3-2020.07/envs/open_cv_env/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.9.0-final",
+          "major": 3,
+          "minor": 9,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.9.0-final"
+        },
+        "sysPrefix": "/home/anosillus/.pyenv/versions/anaconda3-2020.07/envs/open_cv_env",
+        "fileHash": "72f792d3eb531f63cd42989db47a67f326432ed06909f8557b9bb9293c2e1fd95b11bf1228b2de8ac0d2631f6a19aa286fc4bfdb270640cb6e8fc58aec89ef5a",
+        "companyDisplayName": "Anaconda, Inc.",
+        "type": "Conda",
+        "envPath": "/home/anosillus/.pyenv/versions/anaconda3-2020.07/envs/open_cv_env",
+        "envName": "open_cv_env"
+      }
+    ],
+    "INTERPRETERS_CACHE_v3_CondaEnvService": [
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/versions/anaconda3-2020.07/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.3-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 3,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.3-final"
+        },
+        "sysPrefix": "/home/anosillus/.pyenv/versions/anaconda3-2020.07",
+        "fileHash": "d160d01e6de8311e9d05cb3b65d380cd2ee42f05d1a3acc0c22d3541f0c1a1ce51adbe9f9bdfc19ebe53b37ba9557b8ca66a8d84d45ce13b0dbd6aa0ab383a46",
+        "companyDisplayName": "Anaconda, Inc.",
+        "type": "Conda",
+        "envPath": "/home/anosillus/.pyenv/versions/anaconda3-2020.07",
+        "envName": "anaconda3-2020.07"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/versions/anaconda3-2020.07/envs/open_cv_env/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.9.0-final",
+          "major": 3,
+          "minor": 9,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.9.0-final"
+        },
+        "sysPrefix": "/home/anosillus/.pyenv/versions/anaconda3-2020.07/envs/open_cv_env",
+        "fileHash": "72f792d3eb531f63cd42989db47a67f326432ed06909f8557b9bb9293c2e1fd95b11bf1228b2de8ac0d2631f6a19aa286fc4bfdb270640cb6e8fc58aec89ef5a",
+        "companyDisplayName": "Anaconda, Inc.",
+        "type": "Conda",
+        "envPath": "/home/anosillus/.pyenv/versions/anaconda3-2020.07/envs/open_cv_env",
+        "envName": "open_cv_env"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/miniconda3/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.3-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 3,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.3-final"
+        },
+        "sysPrefix": "/home/anosillus/miniconda3",
+        "fileHash": "5d0c653f43b4a57b55612000cbecabab754b715b71098b7344c4c474ac081d3ebea2d939be483e2a68d867c522a3bb79e2a05a5cfd30e1fb216542f68be5a11b",
+        "companyDisplayName": "Anaconda, Inc.",
+        "type": "Conda",
+        "envPath": "/home/anosillus/miniconda3",
+        "envName": "base"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/miniconda3/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.3-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 3,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.3-final"
+        },
+        "sysPrefix": "/home/anosillus/miniconda3",
+        "fileHash": "5d0c653f43b4a57b55612000cbecabab754b715b71098b7344c4c474ac081d3ebea2d939be483e2a68d867c522a3bb79e2a05a5cfd30e1fb216542f68be5a11b",
+        "companyDisplayName": "Anaconda, Inc.",
+        "type": "Conda",
+        "envPath": "/home/anosillus/miniconda3",
+        "envName": "base"
+      }
+    ],
+    "INTERPRETERS_CACHE_v3_VirtualEnvService": [
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/versions/anaconda3-2020.07/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.3-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 3,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.3-final"
+        },
+        "sysPrefix": "/home/anosillus/.pyenv/versions/anaconda3-2020.07",
+        "fileHash": "d160d01e6de8311e9d05cb3b65d380cd2ee42f05d1a3acc0c22d3541f0c1a1ce51adbe9f9bdfc19ebe53b37ba9557b8ca66a8d84d45ce13b0dbd6aa0ab383a46",
+        "envName": "anaconda3-2020.07",
+        "type": "Pyenv"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/versions/anaconda3-2020.07/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.3-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 3,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.3-final"
+        },
+        "sysPrefix": "/home/anosillus/.pyenv/versions/anaconda3-2020.07",
+        "fileHash": "d160d01e6de8311e9d05cb3b65d380cd2ee42f05d1a3acc0c22d3541f0c1a1ce51adbe9f9bdfc19ebe53b37ba9557b8ca66a8d84d45ce13b0dbd6aa0ab383a46",
+        "envName": "anaconda3-2020.07",
+        "type": "Pyenv"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/versions/anaconda3-2020.07/bin/python3.8",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.3-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 3,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.3-final"
+        },
+        "sysPrefix": "/home/anosillus/.pyenv/versions/anaconda3-2020.07",
+        "fileHash": "508ed93d98f9277287405ceeec34bb7f4a97133be7ecefacda9cffe47893e935f91175601e6803ea00863ee9fdd3be9874179d1b097926ffa1bcce7dcd8bac1e",
+        "envName": "anaconda3-2020.07",
+        "type": "Pyenv"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/versions/open_cv_env/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.9.0-final",
+          "major": 3,
+          "minor": 9,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.9.0-final"
+        },
+        "sysPrefix": "/home/anosillus/.pyenv/versions/open_cv_env",
+        "fileHash": "72f792d3eb531f63cd42989db47a67f326432ed06909f8557b9bb9293c2e1fd95b11bf1228b2de8ac0d2631f6a19aa286fc4bfdb270640cb6e8fc58aec89ef5a",
+        "envName": "open_cv_env",
+        "type": "Pyenv"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/versions/open_cv_env/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.9.0-final",
+          "major": 3,
+          "minor": 9,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.9.0-final"
+        },
+        "sysPrefix": "/home/anosillus/.pyenv/versions/open_cv_env",
+        "fileHash": "72f792d3eb531f63cd42989db47a67f326432ed06909f8557b9bb9293c2e1fd95b11bf1228b2de8ac0d2631f6a19aa286fc4bfdb270640cb6e8fc58aec89ef5a",
+        "envName": "open_cv_env",
+        "type": "Pyenv"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/versions/open_cv_env/bin/python3.9",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.9.0-final",
+          "major": 3,
+          "minor": 9,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.9.0-final"
+        },
+        "sysPrefix": "/home/anosillus/.pyenv/versions/open_cv_env",
+        "fileHash": "645a2ebeacb10a334f4cc0aeb97485fe68dfe18d310393ccf0b72c4ed3b28e98e1dcda470366955d3b905eb97e5a714dd452e6eeaced5bd03f9d25d047d9a8a5",
+        "envName": "open_cv_env",
+        "type": "Pyenv"
+      }
+    ],
     "/bin/python2.7.v3": {
       "data": {
         "architecture": 3,
@@ -30,7 +359,7 @@
         "sysPrefix": "/usr",
         "fileHash": "7d852e8533a9278886e23602d039196dbe915763f3b217dd00d8b7e54e44568dfe62e454b5c050d7a70f6707a49bc0619fce40091dd1ffb93fa53080f4deb25f"
       },
-      "expiry": 1604104019781
+      "expiry": 1606400404204
     },
     "/bin/python2.v3": {
       "data": {
@@ -55,7 +384,7 @@
         "sysPrefix": "/usr",
         "fileHash": "adccfa55871e83b77a7eb731b188fbd8617f8c19b8218efc59e90e03652b92195a121bb3bd09c02d430c8e2ada1de8df473e59abe0f00f5e16ec44a395f22e91"
       },
-      "expiry": 1604104019782
+      "expiry": 1606400404205
     },
     "/usr/bin/python3.8.v3": {
       "data": {
@@ -80,7 +409,7 @@
         "sysPrefix": "/usr",
         "fileHash": "84728d64311dcab37883463fb79cf85bc101a7822770ecc3e163bb68869a6e07e038fddae3a28bd3fdecbd129a63adf80be7ad6f7a70a580c83443a7838a7962"
       },
-      "expiry": 1604104019783
+      "expiry": 1606400404207
     },
     "/usr/bin/python3.v3": {
       "data": {
@@ -105,7 +434,7 @@
         "sysPrefix": "/usr",
         "fileHash": "80c5ca93cb060afc28f8fa713159ff10bc35f9af704d2c008930cf5ba1ed1fb3050e3326dd56dceb03d8bb2f87668ef675df2063d651c734c4c05963fc84b429"
       },
-      "expiry": 1604104019787
+      "expiry": 1606400404208
     },
     "/usr/bin/python2.7.v3": {
       "data": {
@@ -130,7 +459,7 @@
         "sysPrefix": "/usr",
         "fileHash": "7d852e8533a9278886e23602d039196dbe915763f3b217dd00d8b7e54e44568dfe62e454b5c050d7a70f6707a49bc0619fce40091dd1ffb93fa53080f4deb25f"
       },
-      "expiry": 1604104019783
+      "expiry": 1606400404209
     },
     "/usr/bin/python2.v3": {
       "data": {
@@ -155,7 +484,7 @@
         "sysPrefix": "/usr",
         "fileHash": "adccfa55871e83b77a7eb731b188fbd8617f8c19b8218efc59e90e03652b92195a121bb3bd09c02d430c8e2ada1de8df473e59abe0f00f5e16ec44a395f22e91"
       },
-      "expiry": 1604104019786
+      "expiry": 1606400404210
     },
     "/bin/python3.8.v3": {
       "data": {
@@ -180,7 +509,7 @@
         "sysPrefix": "/usr",
         "fileHash": "84728d64311dcab37883463fb79cf85bc101a7822770ecc3e163bb68869a6e07e038fddae3a28bd3fdecbd129a63adf80be7ad6f7a70a580c83443a7838a7962"
       },
-      "expiry": 1604104019787
+      "expiry": 1606400404271
     },
     "/bin/python3.v3": {
       "data": {
@@ -205,9 +534,975 @@
         "sysPrefix": "/usr",
         "fileHash": "80c5ca93cb060afc28f8fa713159ff10bc35f9af704d2c008930cf5ba1ed1fb3050e3326dd56dceb03d8bb2f87668ef675df2063d651c734c4c05963fc84b429"
       },
-      "expiry": 1604104019788
+      "expiry": 1606400404203
     },
     "INTERPRETERS_CACHE_v3_KnownPathsService": [
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/shims/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/usr",
+        "fileHash": "6a962d1db69f9193ff55f97d8386f73f56395ec7036da04a77949e5fa287050d8dc1c8575922e4657d764e9097703fe495c526463c8c88a519a55752864b6d69",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/shims/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/usr",
+        "fileHash": "6a962d1db69f9193ff55f97d8386f73f56395ec7036da04a77949e5fa287050d8dc1c8575922e4657d764e9097703fe495c526463c8c88a519a55752864b6d69",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/shims/python3.8",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/usr",
+        "fileHash": "6a962d1db69f9193ff55f97d8386f73f56395ec7036da04a77949e5fa287050d8dc1c8575922e4657d764e9097703fe495c526463c8c88a519a55752864b6d69",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/shims/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/usr",
+        "fileHash": "6a962d1db69f9193ff55f97d8386f73f56395ec7036da04a77949e5fa287050d8dc1c8575922e4657d764e9097703fe495c526463c8c88a519a55752864b6d69",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/shims/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/usr",
+        "fileHash": "6a962d1db69f9193ff55f97d8386f73f56395ec7036da04a77949e5fa287050d8dc1c8575922e4657d764e9097703fe495c526463c8c88a519a55752864b6d69",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/shims/python3.8",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/usr",
+        "fileHash": "6a962d1db69f9193ff55f97d8386f73f56395ec7036da04a77949e5fa287050d8dc1c8575922e4657d764e9097703fe495c526463c8c88a519a55752864b6d69",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/shims/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/usr",
+        "fileHash": "6a962d1db69f9193ff55f97d8386f73f56395ec7036da04a77949e5fa287050d8dc1c8575922e4657d764e9097703fe495c526463c8c88a519a55752864b6d69",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/shims/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/usr",
+        "fileHash": "6a962d1db69f9193ff55f97d8386f73f56395ec7036da04a77949e5fa287050d8dc1c8575922e4657d764e9097703fe495c526463c8c88a519a55752864b6d69",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/shims/python3.8",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/usr",
+        "fileHash": "6a962d1db69f9193ff55f97d8386f73f56395ec7036da04a77949e5fa287050d8dc1c8575922e4657d764e9097703fe495c526463c8c88a519a55752864b6d69",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/shims/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/usr",
+        "fileHash": "6a962d1db69f9193ff55f97d8386f73f56395ec7036da04a77949e5fa287050d8dc1c8575922e4657d764e9097703fe495c526463c8c88a519a55752864b6d69",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/shims/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/usr",
+        "fileHash": "6a962d1db69f9193ff55f97d8386f73f56395ec7036da04a77949e5fa287050d8dc1c8575922e4657d764e9097703fe495c526463c8c88a519a55752864b6d69",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/shims/python3.8",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/usr",
+        "fileHash": "6a962d1db69f9193ff55f97d8386f73f56395ec7036da04a77949e5fa287050d8dc1c8575922e4657d764e9097703fe495c526463c8c88a519a55752864b6d69",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/shims/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/usr",
+        "fileHash": "6a962d1db69f9193ff55f97d8386f73f56395ec7036da04a77949e5fa287050d8dc1c8575922e4657d764e9097703fe495c526463c8c88a519a55752864b6d69",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/shims/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/usr",
+        "fileHash": "6a962d1db69f9193ff55f97d8386f73f56395ec7036da04a77949e5fa287050d8dc1c8575922e4657d764e9097703fe495c526463c8c88a519a55752864b6d69",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/shims/python3.8",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/usr",
+        "fileHash": "6a962d1db69f9193ff55f97d8386f73f56395ec7036da04a77949e5fa287050d8dc1c8575922e4657d764e9097703fe495c526463c8c88a519a55752864b6d69",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/shims/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/usr",
+        "fileHash": "6a962d1db69f9193ff55f97d8386f73f56395ec7036da04a77949e5fa287050d8dc1c8575922e4657d764e9097703fe495c526463c8c88a519a55752864b6d69",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/shims/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/usr",
+        "fileHash": "6a962d1db69f9193ff55f97d8386f73f56395ec7036da04a77949e5fa287050d8dc1c8575922e4657d764e9097703fe495c526463c8c88a519a55752864b6d69",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/shims/python3.8",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/usr",
+        "fileHash": "6a962d1db69f9193ff55f97d8386f73f56395ec7036da04a77949e5fa287050d8dc1c8575922e4657d764e9097703fe495c526463c8c88a519a55752864b6d69",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/shims/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/usr",
+        "fileHash": "6a962d1db69f9193ff55f97d8386f73f56395ec7036da04a77949e5fa287050d8dc1c8575922e4657d764e9097703fe495c526463c8c88a519a55752864b6d69",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/shims/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/usr",
+        "fileHash": "6a962d1db69f9193ff55f97d8386f73f56395ec7036da04a77949e5fa287050d8dc1c8575922e4657d764e9097703fe495c526463c8c88a519a55752864b6d69",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/shims/python3.8",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/usr",
+        "fileHash": "6a962d1db69f9193ff55f97d8386f73f56395ec7036da04a77949e5fa287050d8dc1c8575922e4657d764e9097703fe495c526463c8c88a519a55752864b6d69",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/shims/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/usr",
+        "fileHash": "6a962d1db69f9193ff55f97d8386f73f56395ec7036da04a77949e5fa287050d8dc1c8575922e4657d764e9097703fe495c526463c8c88a519a55752864b6d69",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/shims/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/usr",
+        "fileHash": "6a962d1db69f9193ff55f97d8386f73f56395ec7036da04a77949e5fa287050d8dc1c8575922e4657d764e9097703fe495c526463c8c88a519a55752864b6d69",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/shims/python3.8",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/usr",
+        "fileHash": "6a962d1db69f9193ff55f97d8386f73f56395ec7036da04a77949e5fa287050d8dc1c8575922e4657d764e9097703fe495c526463c8c88a519a55752864b6d69",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/shims/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/usr",
+        "fileHash": "6a962d1db69f9193ff55f97d8386f73f56395ec7036da04a77949e5fa287050d8dc1c8575922e4657d764e9097703fe495c526463c8c88a519a55752864b6d69",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/shims/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/usr",
+        "fileHash": "6a962d1db69f9193ff55f97d8386f73f56395ec7036da04a77949e5fa287050d8dc1c8575922e4657d764e9097703fe495c526463c8c88a519a55752864b6d69",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/shims/python3.8",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/usr",
+        "fileHash": "6a962d1db69f9193ff55f97d8386f73f56395ec7036da04a77949e5fa287050d8dc1c8575922e4657d764e9097703fe495c526463c8c88a519a55752864b6d69",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/shims/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/usr",
+        "fileHash": "6a962d1db69f9193ff55f97d8386f73f56395ec7036da04a77949e5fa287050d8dc1c8575922e4657d764e9097703fe495c526463c8c88a519a55752864b6d69",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/shims/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/usr",
+        "fileHash": "6a962d1db69f9193ff55f97d8386f73f56395ec7036da04a77949e5fa287050d8dc1c8575922e4657d764e9097703fe495c526463c8c88a519a55752864b6d69",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/shims/python3.8",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/usr",
+        "fileHash": "6a962d1db69f9193ff55f97d8386f73f56395ec7036da04a77949e5fa287050d8dc1c8575922e4657d764e9097703fe495c526463c8c88a519a55752864b6d69",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/shims/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/usr",
+        "fileHash": "6a962d1db69f9193ff55f97d8386f73f56395ec7036da04a77949e5fa287050d8dc1c8575922e4657d764e9097703fe495c526463c8c88a519a55752864b6d69",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/shims/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/usr",
+        "fileHash": "6a962d1db69f9193ff55f97d8386f73f56395ec7036da04a77949e5fa287050d8dc1c8575922e4657d764e9097703fe495c526463c8c88a519a55752864b6d69",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/shims/python3.8",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/usr",
+        "fileHash": "6a962d1db69f9193ff55f97d8386f73f56395ec7036da04a77949e5fa287050d8dc1c8575922e4657d764e9097703fe495c526463c8c88a519a55752864b6d69",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/shims/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/usr",
+        "fileHash": "6a962d1db69f9193ff55f97d8386f73f56395ec7036da04a77949e5fa287050d8dc1c8575922e4657d764e9097703fe495c526463c8c88a519a55752864b6d69",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/shims/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/usr",
+        "fileHash": "6a962d1db69f9193ff55f97d8386f73f56395ec7036da04a77949e5fa287050d8dc1c8575922e4657d764e9097703fe495c526463c8c88a519a55752864b6d69",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/shims/python3.8",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/usr",
+        "fileHash": "6a962d1db69f9193ff55f97d8386f73f56395ec7036da04a77949e5fa287050d8dc1c8575922e4657d764e9097703fe495c526463c8c88a519a55752864b6d69",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/shims/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/usr",
+        "fileHash": "6a962d1db69f9193ff55f97d8386f73f56395ec7036da04a77949e5fa287050d8dc1c8575922e4657d764e9097703fe495c526463c8c88a519a55752864b6d69",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/shims/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/usr",
+        "fileHash": "6a962d1db69f9193ff55f97d8386f73f56395ec7036da04a77949e5fa287050d8dc1c8575922e4657d764e9097703fe495c526463c8c88a519a55752864b6d69",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/shims/python3.8",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/usr",
+        "fileHash": "6a962d1db69f9193ff55f97d8386f73f56395ec7036da04a77949e5fa287050d8dc1c8575922e4657d764e9097703fe495c526463c8c88a519a55752864b6d69",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/shims/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/usr",
+        "fileHash": "6a962d1db69f9193ff55f97d8386f73f56395ec7036da04a77949e5fa287050d8dc1c8575922e4657d764e9097703fe495c526463c8c88a519a55752864b6d69",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/shims/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/usr",
+        "fileHash": "6a962d1db69f9193ff55f97d8386f73f56395ec7036da04a77949e5fa287050d8dc1c8575922e4657d764e9097703fe495c526463c8c88a519a55752864b6d69",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/shims/python3.8",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/usr",
+        "fileHash": "6a962d1db69f9193ff55f97d8386f73f56395ec7036da04a77949e5fa287050d8dc1c8575922e4657d764e9097703fe495c526463c8c88a519a55752864b6d69",
+        "type": "Unknown"
+      },
       {
         "architecture": 3,
         "path": "/usr/bin/python",
@@ -789,34 +2084,35 @@
     "PipEnvInformation": [],
     "preferredGlobalPyInterpreter": {
       "architecture": 3,
-      "path": "/bin/python",
+      "path": "/home/anosillus/.pyenv/versions/open_cv_env/bin/python",
       "version": {
         "options": {
           "loose": false,
           "includePrerelease": false
         },
         "loose": false,
-        "raw": "3.8.6-final",
+        "raw": "3.9.0-final",
         "major": 3,
-        "minor": 8,
-        "patch": 6,
+        "minor": 9,
+        "patch": 0,
         "prerelease": [
           "final"
         ],
         "build": [],
-        "version": "3.8.6-final"
+        "version": "3.9.0-final"
       },
-      "sysPrefix": "/usr",
-      "fileHash": "44fd455d3832e1788f74d6305e0bd05a64cd83bc7d28d6aee251099652d3a5e8987b0afe3e6ff4e8b784471c2512d612d2e16232157c1bd4fa63393494b9593e",
-      "type": "Unknown",
-      "displayName": "Python 3.8.6 64-bit"
+      "sysPrefix": "/home/anosillus/.pyenv/versions/open_cv_env",
+      "fileHash": "72f792d3eb531f63cd42989db47a67f326432ed06909f8557b9bb9293c2e1fd95b11bf1228b2de8ac0d2631f6a19aa286fc4bfdb270640cb6e8fc58aec89ef5a",
+      "envName": "open_cv_env",
+      "type": "Pyenv",
+      "displayName": "Python 3.9.0 64-bit ('open_cv_env': pyenv)"
     },
     "/usr/bin/python2.interpreter.displayName.v7": {
       "data": {
         "displayName": "Python 2.7.18 64-bit",
         "hash": "adccfa55871e83b77a7eb731b188fbd8617f8c19b8218efc59e90e03652b92195a121bb3bd09c02d430c8e2ada1de8df473e59abe0f00f5e16ec44a395f22e91-e9346d13da5df3bd8305b00276b7c4fb"
       },
-      "expiry": 1604104019878
+      "expiry": 1606355788693
     },
     "/usr/bin/python3.interpreter.displayName.v7": {
       "data": {
@@ -830,7 +2126,7 @@
         "displayName": "Python 2.7.18 64-bit",
         "hash": "adccfa55871e83b77a7eb731b188fbd8617f8c19b8218efc59e90e03652b92195a121bb3bd09c02d430c8e2ada1de8df473e59abe0f00f5e16ec44a395f22e91-bd680867aaa633f41daf8a2c2039ca92"
       },
-      "expiry": 1604104019880
+      "expiry": 1606355788696
     },
     "/bin/python3.interpreter.displayName.v7": {
       "data": {
@@ -841,27 +2137,28 @@
     },
     "InterpreterAutoSeletionRule-system": {
       "architecture": 3,
-      "path": "/bin/python",
+      "path": "/home/anosillus/.pyenv/versions/open_cv_env/bin/python",
       "version": {
         "options": {
           "loose": false,
           "includePrerelease": false
         },
         "loose": false,
-        "raw": "3.8.6-final",
+        "raw": "3.9.0-final",
         "major": 3,
-        "minor": 8,
-        "patch": 6,
+        "minor": 9,
+        "patch": 0,
         "prerelease": [
           "final"
         ],
         "build": [],
-        "version": "3.8.6-final"
+        "version": "3.9.0-final"
       },
-      "sysPrefix": "/usr",
-      "fileHash": "44fd455d3832e1788f74d6305e0bd05a64cd83bc7d28d6aee251099652d3a5e8987b0afe3e6ff4e8b784471c2512d612d2e16232157c1bd4fa63393494b9593e",
-      "type": "Unknown",
-      "displayName": "Python 3.8.6 64-bit"
+      "sysPrefix": "/home/anosillus/.pyenv/versions/open_cv_env",
+      "fileHash": "72f792d3eb531f63cd42989db47a67f326432ed06909f8557b9bb9293c2e1fd95b11bf1228b2de8ac0d2631f6a19aa286fc4bfdb270640cb6e8fc58aec89ef5a",
+      "envName": "open_cv_env",
+      "type": "Pyenv",
+      "displayName": "Python 3.9.0 64-bit ('open_cv_env': pyenv)"
     },
     "/usr/bin/python2.interpreter.Details.v7": {
       "data": {
@@ -891,7 +2188,7 @@
           "displayName": "Python 2.7.18 64-bit"
         }
       },
-      "expiry": 1604104019892
+      "expiry": 1606355788719
     },
     "/usr/bin/python3.interpreter.Details.v7": {
       "data": {
@@ -927,7 +2224,7 @@
           "displayName": "Python 2.7.18 64-bit"
         }
       },
-      "expiry": 1604104019894
+      "expiry": 1606355788727
     },
     "/bin/python3.interpreter.Details.v7": {
       "data": {
@@ -961,27 +2258,28 @@
     },
     "InterpreterAutoSeletionRule-cachedInterpreters": {
       "architecture": 3,
-      "path": "/bin/python",
+      "path": "/home/anosillus/.pyenv/versions/open_cv_env/bin/python",
       "version": {
         "options": {
           "loose": false,
           "includePrerelease": false
         },
         "loose": false,
-        "raw": "3.8.6-final",
+        "raw": "3.9.0-final",
         "major": 3,
-        "minor": 8,
-        "patch": 6,
+        "minor": 9,
+        "patch": 0,
         "prerelease": [
           "final"
         ],
         "build": [],
-        "version": "3.8.6-final"
+        "version": "3.9.0-final"
       },
-      "sysPrefix": "/usr",
-      "fileHash": "44fd455d3832e1788f74d6305e0bd05a64cd83bc7d28d6aee251099652d3a5e8987b0afe3e6ff4e8b784471c2512d612d2e16232157c1bd4fa63393494b9593e",
-      "type": "Unknown",
-      "displayName": "Python 3.8.6 64-bit"
+      "sysPrefix": "/home/anosillus/.pyenv/versions/open_cv_env",
+      "fileHash": "72f792d3eb531f63cd42989db47a67f326432ed06909f8557b9bb9293c2e1fd95b11bf1228b2de8ac0d2631f6a19aa286fc4bfdb270640cb6e8fc58aec89ef5a",
+      "envName": "open_cv_env",
+      "type": "Pyenv",
+      "displayName": "Python 3.9.0 64-bit ('open_cv_env': pyenv)"
     },
     "pylint_DisableLinterInstallPrompt": true,
     "/bin/python.v3": {
@@ -1007,7 +2305,7 @@
         "sysPrefix": "/usr",
         "fileHash": "44fd455d3832e1788f74d6305e0bd05a64cd83bc7d28d6aee251099652d3a5e8987b0afe3e6ff4e8b784471c2512d612d2e16232157c1bd4fa63393494b9593e"
       },
-      "expiry": 1604104019782
+      "expiry": 1606400404206
     },
     "/usr/bin/python.v3": {
       "data": {
@@ -1032,21 +2330,21 @@
         "sysPrefix": "/usr",
         "fileHash": "44fd455d3832e1788f74d6305e0bd05a64cd83bc7d28d6aee251099652d3a5e8987b0afe3e6ff4e8b784471c2512d612d2e16232157c1bd4fa63393494b9593e"
       },
-      "expiry": 1604104019795
+      "expiry": 1606400404211
     },
     "/usr/bin/python.interpreter.displayName.v7": {
       "data": {
         "displayName": "Python 3.8.6 64-bit",
         "hash": "44fd455d3832e1788f74d6305e0bd05a64cd83bc7d28d6aee251099652d3a5e8987b0afe3e6ff4e8b784471c2512d612d2e16232157c1bd4fa63393494b9593e-bff6ac411c51da83d06074f977a1baee"
       },
-      "expiry": 1604104019877
+      "expiry": 1606355788692
     },
     "/bin/python.interpreter.displayName.v7": {
       "data": {
         "displayName": "Python 3.8.6 64-bit",
         "hash": "44fd455d3832e1788f74d6305e0bd05a64cd83bc7d28d6aee251099652d3a5e8987b0afe3e6ff4e8b784471c2512d612d2e16232157c1bd4fa63393494b9593e-9b78e9e232e28ceddf92171c7a4cf260"
       },
-      "expiry": 1604104019879
+      "expiry": 1606400404402
     },
     "/usr/bin/python.interpreter.Details.v7": {
       "data": {
@@ -1076,7 +2374,7 @@
           "displayName": "Python 3.8.6 64-bit"
         }
       },
-      "expiry": 1604104019888
+      "expiry": 1606355788715
     },
     "/bin/python.interpreter.Details.v7": {
       "data": {
@@ -1106,7 +2404,374 @@
           "displayName": "Python 3.8.6 64-bit"
         }
       },
-      "expiry": 1604104019893
+      "expiry": 1606355788723
+    },
+    "/home/anosillus/.pyenv/shims/python3.8.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/shims/python3.8",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/usr",
+        "fileHash": "6a962d1db69f9193ff55f97d8386f73f56395ec7036da04a77949e5fa287050d8dc1c8575922e4657d764e9097703fe495c526463c8c88a519a55752864b6d69"
+      },
+      "expiry": 1606400404251
+    },
+    "/home/anosillus/.pyenv/shims/python3.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/shims/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/usr",
+        "fileHash": "6a962d1db69f9193ff55f97d8386f73f56395ec7036da04a77949e5fa287050d8dc1c8575922e4657d764e9097703fe495c526463c8c88a519a55752864b6d69"
+      },
+      "expiry": 1606400404250
+    },
+    "/home/anosillus/.pyenv/shims/python.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/shims/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/usr",
+        "fileHash": "6a962d1db69f9193ff55f97d8386f73f56395ec7036da04a77949e5fa287050d8dc1c8575922e4657d764e9097703fe495c526463c8c88a519a55752864b6d69"
+      },
+      "expiry": 1606400404252
+    },
+    "/home/anosillus/.pyenv/versions/anaconda3-2020.07/bin/python3.8.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/versions/anaconda3-2020.07/bin/python3.8",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.3-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 3,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.3-final"
+        },
+        "sysPrefix": "/home/anosillus/.pyenv/versions/anaconda3-2020.07",
+        "fileHash": "508ed93d98f9277287405ceeec34bb7f4a97133be7ecefacda9cffe47893e935f91175601e6803ea00863ee9fdd3be9874179d1b097926ffa1bcce7dcd8bac1e"
+      },
+      "expiry": 1606400404267
+    },
+    "/home/anosillus/.pyenv/versions/open_cv_env/bin/python3.9.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/versions/open_cv_env/bin/python3.9",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.9.0-final",
+          "major": 3,
+          "minor": 9,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.9.0-final"
+        },
+        "sysPrefix": "/home/anosillus/.pyenv/versions/open_cv_env",
+        "fileHash": "645a2ebeacb10a334f4cc0aeb97485fe68dfe18d310393ccf0b72c4ed3b28e98e1dcda470366955d3b905eb97e5a714dd452e6eeaced5bd03f9d25d047d9a8a5"
+      },
+      "expiry": 1606400404265
+    },
+    "/home/anosillus/.pyenv/versions/anaconda3-2020.07/bin/python.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/versions/anaconda3-2020.07/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.3-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 3,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.3-final"
+        },
+        "sysPrefix": "/home/anosillus/.pyenv/versions/anaconda3-2020.07",
+        "fileHash": "d160d01e6de8311e9d05cb3b65d380cd2ee42f05d1a3acc0c22d3541f0c1a1ce51adbe9f9bdfc19ebe53b37ba9557b8ca66a8d84d45ce13b0dbd6aa0ab383a46"
+      },
+      "expiry": 1606400404269
+    },
+    "/home/anosillus/.pyenv/versions/anaconda3-2020.07/bin/python3.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/versions/anaconda3-2020.07/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.3-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 3,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.3-final"
+        },
+        "sysPrefix": "/home/anosillus/.pyenv/versions/anaconda3-2020.07",
+        "fileHash": "d160d01e6de8311e9d05cb3b65d380cd2ee42f05d1a3acc0c22d3541f0c1a1ce51adbe9f9bdfc19ebe53b37ba9557b8ca66a8d84d45ce13b0dbd6aa0ab383a46"
+      },
+      "expiry": 1606400404268
+    },
+    "/home/anosillus/.pyenv/versions/open_cv_env/bin/python3.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/versions/open_cv_env/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.9.0-final",
+          "major": 3,
+          "minor": 9,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.9.0-final"
+        },
+        "sysPrefix": "/home/anosillus/.pyenv/versions/open_cv_env",
+        "fileHash": "72f792d3eb531f63cd42989db47a67f326432ed06909f8557b9bb9293c2e1fd95b11bf1228b2de8ac0d2631f6a19aa286fc4bfdb270640cb6e8fc58aec89ef5a"
+      },
+      "expiry": 1606400404266
+    },
+    "/home/anosillus/.pyenv/versions/open_cv_env/bin/python.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/versions/open_cv_env/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.9.0-final",
+          "major": 3,
+          "minor": 9,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.9.0-final"
+        },
+        "sysPrefix": "/home/anosillus/.pyenv/versions/open_cv_env",
+        "fileHash": "72f792d3eb531f63cd42989db47a67f326432ed06909f8557b9bb9293c2e1fd95b11bf1228b2de8ac0d2631f6a19aa286fc4bfdb270640cb6e8fc58aec89ef5a"
+      },
+      "expiry": 1606400404267
+    },
+    "/home/anosillus/miniconda3/bin/python.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/home/anosillus/miniconda3/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.3-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 3,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.3-final"
+        },
+        "sysPrefix": "/home/anosillus/miniconda3",
+        "fileHash": "5d0c653f43b4a57b55612000cbecabab754b715b71098b7344c4c474ac081d3ebea2d939be483e2a68d867c522a3bb79e2a05a5cfd30e1fb216542f68be5a11b"
+      },
+      "expiry": 1606400404300
+    },
+    "/home/anosillus/.pyenv/versions/anaconda3-2020.07/envs/open_cv_env/bin/python.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/home/anosillus/.pyenv/versions/anaconda3-2020.07/envs/open_cv_env/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.9.0-final",
+          "major": 3,
+          "minor": 9,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.9.0-final"
+        },
+        "sysPrefix": "/home/anosillus/.pyenv/versions/anaconda3-2020.07/envs/open_cv_env",
+        "fileHash": "72f792d3eb531f63cd42989db47a67f326432ed06909f8557b9bb9293c2e1fd95b11bf1228b2de8ac0d2631f6a19aa286fc4bfdb270640cb6e8fc58aec89ef5a"
+      },
+      "expiry": 1606400404323
+    },
+    "ProposeLSBanner": false,
+    "CONDA_ENVIRONMENTS": {
+      "data": [
+        {
+          "name": "anaconda3-2020.07",
+          "path": "/home/anosillus/.pyenv/versions/anaconda3-2020.07"
+        },
+        {
+          "name": "open_cv_env",
+          "path": "/home/anosillus/.pyenv/versions/anaconda3-2020.07/envs/open_cv_env"
+        },
+        {
+          "name": "base",
+          "path": "/home/anosillus/miniconda3"
+        }
+      ]
+    },
+    "/home/anosillus/.pyenv/versions/open_cv_env/bin/python.interpreter.displayName.v7": {
+      "data": {
+        "displayName": "Python 3.9.0 64-bit ('open_cv_env': pyenv)",
+        "hash": "72f792d3eb531f63cd42989db47a67f326432ed06909f8557b9bb9293c2e1fd95b11bf1228b2de8ac0d2631f6a19aa286fc4bfdb270640cb6e8fc58aec89ef5a-2a23f7a9e9dbae0d3c397d9909e28f47"
+      },
+      "expiry": 1606355788688
+    },
+    "/home/anosillus/.pyenv/shims/python.interpreter.displayName.v7": {
+      "data": {
+        "displayName": "Python 3.8.6 64-bit",
+        "hash": "6a962d1db69f9193ff55f97d8386f73f56395ec7036da04a77949e5fa287050d8dc1c8575922e4657d764e9097703fe495c526463c8c88a519a55752864b6d69-128756b7a991dc5ff598acfc12c0a567"
+      },
+      "expiry": 1606355788690
+    },
+    "/home/anosillus/.pyenv/versions/open_cv_env/bin/python.interpreter.Details.v7": {
+      "data": {
+        "fileHash": "72f792d3eb531f63cd42989db47a67f326432ed06909f8557b9bb9293c2e1fd95b11bf1228b2de8ac0d2631f6a19aa286fc4bfdb270640cb6e8fc58aec89ef5a",
+        "info": {
+          "architecture": 3,
+          "path": "/home/anosillus/.pyenv/versions/open_cv_env/bin/python",
+          "version": {
+            "options": {
+              "loose": false,
+              "includePrerelease": false
+            },
+            "loose": false,
+            "raw": "3.9.0-final",
+            "major": 3,
+            "minor": 9,
+            "patch": 0,
+            "prerelease": [
+              "final"
+            ],
+            "build": [],
+            "version": "3.9.0-final"
+          },
+          "sysPrefix": "/home/anosillus/.pyenv/versions/open_cv_env",
+          "fileHash": "72f792d3eb531f63cd42989db47a67f326432ed06909f8557b9bb9293c2e1fd95b11bf1228b2de8ac0d2631f6a19aa286fc4bfdb270640cb6e8fc58aec89ef5a",
+          "envName": "open_cv_env",
+          "type": "Pyenv",
+          "displayName": "Python 3.9.0 64-bit ('open_cv_env': pyenv)"
+        }
+      },
+      "expiry": 1606355788707
+    },
+    "/home/anosillus/.pyenv/shims/python.interpreter.Details.v7": {
+      "data": {
+        "fileHash": "6a962d1db69f9193ff55f97d8386f73f56395ec7036da04a77949e5fa287050d8dc1c8575922e4657d764e9097703fe495c526463c8c88a519a55752864b6d69",
+        "info": {
+          "architecture": 3,
+          "path": "/home/anosillus/.pyenv/shims/python",
+          "version": {
+            "options": {
+              "loose": false,
+              "includePrerelease": false
+            },
+            "loose": false,
+            "raw": "3.8.6-final",
+            "major": 3,
+            "minor": 8,
+            "patch": 6,
+            "prerelease": [
+              "final"
+            ],
+            "build": [],
+            "version": "3.8.6-final"
+          },
+          "sysPrefix": "/usr",
+          "fileHash": "6a962d1db69f9193ff55f97d8386f73f56395ec7036da04a77949e5fa287050d8dc1c8575922e4657d764e9097703fe495c526463c8c88a519a55752864b6d69",
+          "type": "Unknown",
+          "displayName": "Python 3.8.6 64-bit"
+        }
+      },
+      "expiry": 1606355788711
     }
   },
   "coc-python|/home/anosillus/blog/hatena/hatenablog_post": {
@@ -1135,6 +2800,68 @@
       "fileHash": "44fd455d3832e1788f74d6305e0bd05a64cd83bc7d28d6aee251099652d3a5e8987b0afe3e6ff4e8b784471c2512d612d2e16232157c1bd4fa63393494b9593e",
       "type": "Unknown",
       "displayName": "Python 3.8.6 64-bit"
+    },
+    "INTERPRETERS_CACHE_v3_PipEnvService": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": []
+  },
+  "coc-python|/home/anosillus/dev/voice": {
+    "INTERPRETERS_CACHE_v3_PipEnvService:476ee9d57dfcfa765b8b752afdc50f98": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService:476ee9d57dfcfa765b8b752afdc50f98": [],
+    "autoSelectedWorkspacePythonInterpreter-/home/anosillus/dev/voice": {
+      "architecture": 3,
+      "path": "/home/anosillus/.pyenv/versions/open_cv_env/bin/python",
+      "version": {
+        "options": {
+          "loose": false,
+          "includePrerelease": false
+        },
+        "loose": false,
+        "raw": "3.9.0-final",
+        "major": 3,
+        "minor": 9,
+        "patch": 0,
+        "prerelease": [
+          "final"
+        ],
+        "build": [],
+        "version": "3.9.0-final"
+      },
+      "sysPrefix": "/home/anosillus/.pyenv/versions/open_cv_env",
+      "fileHash": "72f792d3eb531f63cd42989db47a67f326432ed06909f8557b9bb9293c2e1fd95b11bf1228b2de8ac0d2631f6a19aa286fc4bfdb270640cb6e8fc58aec89ef5a",
+      "envName": "open_cv_env",
+      "type": "Pyenv",
+      "displayName": "Python 3.9.0 64-bit ('open_cv_env': pyenv)"
+    },
+    "INTERPRETERS_CACHE_v3_PipEnvService": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": []
+  },
+  "coc-python|/home/anosillus/dev/mail": {
+    "INTERPRETERS_CACHE_v3_PipEnvService:ef4c3a8fcf60ce2dcb0b837c2973751d": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService:ef4c3a8fcf60ce2dcb0b837c2973751d": [],
+    "autoSelectedWorkspacePythonInterpreter-/home/anosillus/dev/mail": {
+      "architecture": 3,
+      "path": "/home/anosillus/.pyenv/versions/open_cv_env/bin/python",
+      "version": {
+        "options": {
+          "loose": false,
+          "includePrerelease": false
+        },
+        "loose": false,
+        "raw": "3.9.0-final",
+        "major": 3,
+        "minor": 9,
+        "patch": 0,
+        "prerelease": [
+          "final"
+        ],
+        "build": [],
+        "version": "3.9.0-final"
+      },
+      "sysPrefix": "/home/anosillus/.pyenv/versions/open_cv_env",
+      "fileHash": "72f792d3eb531f63cd42989db47a67f326432ed06909f8557b9bb9293c2e1fd95b11bf1228b2de8ac0d2631f6a19aa286fc4bfdb270640cb6e8fc58aec89ef5a",
+      "envName": "open_cv_env",
+      "type": "Pyenv",
+      "displayName": "Python 3.9.0 64-bit ('open_cv_env': pyenv)"
     },
     "INTERPRETERS_CACHE_v3_PipEnvService": [],
     "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": []

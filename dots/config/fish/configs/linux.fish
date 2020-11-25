@@ -1,4 +1,4 @@
-echo Hi Free-OS!
+# echo Hi Free-OS!
 
 # set -x PATH $HOME/.rbenv/bin $PATH
 # status --is-interactive; and source (rbenv init -|psub)
@@ -18,3 +18,8 @@ set -U fith_user_path $HOME/.rbenv/bin $fish_user_paths
 # set -g -x LDFLAGS "$LDFLAGS -L /usr/local/opt/binutils/lib"
 alias v='gvim'
 alias vv='gvim --remote-tab-silent'
+alias shodo='chromium -app="https://app.shodo.ink/"'
+alias gmail='chromium -app="https://mail.google.com/mail/u/0/#inbox"'
+alias gmail='chromium -app="https://mail.google.com/mail/u/0/#inbox"'
+alias gcp='chromium -app="https://console.cloud.google.com/"'
+alias domain='chromium -app="https://njal.la/domains/"'

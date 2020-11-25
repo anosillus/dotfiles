@@ -2,7 +2,7 @@
 # File name: <+FILE NAME+>
 # First Edit: <+DATE+>
 # Last Change: <%= strftime('%Y-%m-%d') %>
-
+# Author: <+AUTHOR+>
 """
 Description
 <+CURSOR+>

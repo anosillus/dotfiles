@@ -1,4 +1,4 @@
-set fish_greeting "Hello, world"
+# set fish_greeting "Hello, world"
 
 # set -x -g LS_COLORS "di=38;5;27:fi=38;5;7:ln=38;5;51:pi=40;38;5;11:so=38;5;13:or=38;5;197:mi=38;5;161:ex=38;5;9:"
 # set -x -g TERM "xterm-256color"
@@ -17,6 +17,7 @@ switch (uname)
    case '*'
     echo Who are you?
 end
+
 . ~/.config/fish/configs/alias.fish
 . ~/.config/fish/configs/func.fish
 
@@ -26,14 +27,21 @@ if not functions -q fisher
     fish -c fisher
 end
 
-
 if functions -q aws-cli
     complete --command aws --no-files --arguments '(begin; set --local --export COMP_SHELL fish; set --local --export COMP_LINE (commandline); aws_completer | sed \'s/ $//\'; end)'
 end
 
+# if functions -q anyenv
+  # set -x PATH ~/.anyenv/bin $PATH
+  # anyenv init - fish | source
+# end
+
+source (pyenv init - | psub)
+status --is-interactive; and pyenv init - | source
+status --is-interactive; and pyenv virtualenv-init - | source
+
 set -U FZF_LEGACY_KEYBINDINGS 0
 set -U FZF_REVERSE_ISEARCH_OPTS "--reverse --height=100%"
-
 
 set -g theme_display_git yes
 set -g theme_display_git_dirty yes

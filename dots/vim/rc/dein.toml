@@ -4,14 +4,13 @@ repo = 'Shougo/dein.vim'
 # complete {{{
 [[plugins]]
 repo = 'neoclide/coc.nvim'
-rev = 'release'
-on_i = 1
-merged = '0'
-hook_add = 'source ~/.vim/rc/plugins/coc.rc.vim'
+# rev = 'release'
+# on_i = 1
+# merged = '0'
+# hook_add = 'source ~/.vim/rc/plugins/coc.rc.vim'
 [[plugins]]
 repo = 'SirVer/ultisnips'
 # }}}
-
 
 # filetype {{{
 [[plugins]]
@@ -209,7 +208,7 @@ repo = 'skanehira/gh.vim'
 [[plugins]]
 repo = 'jacquesbh/vim-showmarks'
 hook_add = '''
-nnoremap <C-m> :ShowMarksOnce<cr>
+nnoremap M :ShowMarksOnce<cr>
 '''
 
 # sub-mode {{{
