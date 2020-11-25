@@ -125,6 +125,7 @@ endif
 " if !isdirectory(expand('$CACHE/vim/backup'))
     " call mkdir(expand('$CACHE/vim/backup'), 'p')
 " endif
+" 
 
 set helplang=en,ja
 set directory=+~/.cache/vim/

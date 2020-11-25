@@ -29,6 +29,7 @@
         {
             "hidden": false,
             "fontFace": "Cica",
+            "fontSize": 16,
             "useAcrylic": true,
             "acrylicOpacity": 0.8
         },

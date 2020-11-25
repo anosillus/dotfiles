@@ -22,9 +22,14 @@ if s:dein_dir != '' || &runtimepath !~ '/dein.vim'
 endif
 
 " let g:dein#auto_recache = 1
-let g:dein#install_progress_type = 'title'
+let g:dein#install_progress_type = 'tabline'
 let g:dein#enable_notification = 1
+<<<<<<< HEAD
 " let g:dein#notification_icon = '~/.vim/signs/warn.png'
+=======
+let g:dein#notification_icon = '~/.vim/signs/warn.png'
+
+>>>>>>> 3e2dfaaae8138f6cd9224ab77e16885ce5c9c70f
 let s:path = expand('$CACHE/dein')
 if !dein#load_state(s:path)
   finish
@@ -33,6 +38,10 @@ endif
 let s:dein_toml = '~/.vim/rc/dein.toml'
 let s:dein_lazy_toml = '~/.vim/rc/deinlazy.toml'
 let s:dein_ft_toml = '~/.vim/rc/deinft.toml'
+" call dein#begin(s:path, [
+     " \ expand('<sfile>'), s:dein_toml, s:dein_ft_toml
+     " \ ])
+
 call dein#begin(s:path, [
       \ expand('<sfile>'), s:dein_toml, s:dein_lazy_toml, s:dein_ft_toml
       \ ])

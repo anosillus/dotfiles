@@ -1,19 +1,25 @@
 # Path {{{
 # $env:Path += ";${Env:APPDATA}\Python\Python38\Scripts"
 $env:Path += ";${Env:APPDATA}\npm"
+$env:Path += ";${Env:LOCALAPPDATA}\Packages\PythonSoftwareFoundation.Python.3.8_qbz5n2kfra8p0\LocalCache\local-packages\Python38\Scripts"
+$env:Path += ";${Env:ProgramData}\chocolatey\bin"
 $env:Path += ";${Env:ProgramFiles}\Git\cmd"
 $env:Path += ";${Env:ProgramFiles}\nodejs"
 $env:Path += ";${Env:SystemDrive}\Go\bin"
-$env:Path += ";${Env:LOCALAPPDATA} \Packages\PythonSoftwareFoundation.Python.3.8_qbz5n2kfra8p0\LocalCache\local-packages\Python38\Scripts"
 $env:Path += ";${Env:SystemDrive}\Ruby27-x64\bin"
+$env:Path += ";${Env:SystemDrive}\tools\ffmpeg\bin"
 $env:Path += ";${Env:SystemDrive}\tools\llvm-project\Release\bin"
 $env:Path += ";${Env:USERPROFILE}\.cargo\bin"
 $env:Path += ";${Env:USERPROFILE}\go\bin"
-$env:Path += ";${Env:ProgramData}\chocolatey\bin"
 # last, mingw is too strong.
 # $env:Path += ";${Env:SystemDrive}\tools\msys64\mingw64\bin"
 # $env:Path += ";${Env:SystemDrive}\tools\msys64\usr\bin"
 # }}}}
+
+$NEXTWORD_DATA_PATH="${Env:SystemDrive}\tools\nextword-data-large"
+$GIT_SSH="${Env:SystemDrive}\tools\msys64\usr\bin\ssh.exe"
+$EDITOR="${Env:SystemDrive}\tools\vim82-kaoriya-win64\gvim.exe"
+$XDG_CONFIG_HOME="{$ENV:USERPROFILE}\.config"
 
 # Issue with VisualStudio {{{
 # Install-Module Pscx -Scope CurrentUser  -Force -AllowClobber -AllowClobber
@@ -68,6 +74,7 @@ Set-Alias grep ${Env:SystemDrive}\tools\msys64\usr\bin\grep.exe
 # Set-Alias python3 ${Env:LOCALAPPDATA}\Programs\Python\Python38\python.exe
 # Set-Alias captura ${ENV:ProgramFiles(x86)}\Captura\captura.exe
 Set-Alias code ${Env:LOCALAPPDATA}\Programs\'Microsoft VS Code'\bin\code.cmd
+# Set-Alias ffmpeg ${Env:SystemDrive}\Tools\ffmpeg\bin\ffmpeg.exe
 # }}}
 
 # short-cut alias {{{

@@ -11,10 +11,10 @@ switch (uname)
       . ~/.config/fish/configs/linux.fish
     end
   case Darwin
-      . ~/.config/fish/configs/mac.fish
+    . ~/.config/fish/configs/mac.fish
   case FreeBSD NetBSD DragonFly
     echo Hi Beastie!
-   case '*'
+  case '*'
     echo Who are you?
 end
 
@@ -22,9 +22,9 @@ end
 . ~/.config/fish/configs/func.fish
 
 if not functions -q fisher
-    set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
-    curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
-    fish -c fisher
+  set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
+  curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
+  fish -c fisher
 end
 
 if functions -q aws-cli
