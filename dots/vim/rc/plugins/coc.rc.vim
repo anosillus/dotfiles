@@ -1,7 +1,3 @@
-inoremap <expr> <C-n> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <C-e> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <silent><expr> <c-space> coc#refresh()
-
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
@@ -14,22 +10,22 @@ else
 endif
 
 let g:coc_global_extensions = [
-  \ 'coc-tsserver',
-  \ 'coc-snippets',
-  \ 'coc-pyright',
-  \ 'coc-emoji',
-  \ 'coc-word',
-  \ 'coc-omni',
-  \ 'coc-syntax',
-  \ 'coc-snippets',
-  \ 'coc-rls',
-  \ 'coc-json',
-  \ 'coc-html',
-  \ 'coc-go',
   \ 'coc-cmake',
-  \ 'coc-marketplace'
+  \ 'coc-emoji',
+  \ 'coc-go',
+  \ 'coc-html',
+  \ 'coc-json',
+  \ 'coc-marketplace',
+  \ 'coc-omni',
+  \ 'coc-pyright',
+  \ 'coc-python',
+  \ 'coc-rls',
+  \ 'coc-snippets',
+  \ 'coc-snippets',
+  \ 'coc-syntax',
+  \ 'coc-tsserver',
+  \ 'coc-word'
   \ ]
-
 
 
 " GoTo code navigation.
@@ -37,27 +33,30 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gD <Plug>(coc-type-definition)
 " nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gb <Plug>(coc-references)
-" Use <C-l> for trigger snippet expand.
-imap <C-o> <Plug>(coc-snippets-expand)
 
-" Use <C-j> for select text for visual placeholder of snippet.
-vmap <C-n> <Plug>(coc-snippets-select)
+inoremap <silent><expr> <C-i>  coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "<Right>" :
+      \ coc#refresh()
 
-" Use <C-j> for jump to next placeholder, it's default of coc.nvim
-let g:coc_snippet_next = '<c-n>'
+function! s:check_back_space() abort
+ let col = col('.') - 1
+ return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
-" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
-let g:coc_snippet_prev = '<c-e>'
+let g:coc_snippet_next = '<C-i>'
+let g:coc_snippet_prev = '<c-h>'
+
+inoremap <silent><expr> <C-n> pumvisible() ? "\<C-n>" : "<Down>"
+inoremap <silent><expr> <C-e> pumvisible() ? "\<C-p>" : "<Up>"
+inoremap <silent><expr> <c-k> coc#refresh()
 
 " Use <C-j> for both expand and jump (make expand higher priority.)
-imap <C-n> <Plug>(coc-snippets-expand-jump)
-
-" nmap <leader>R <Plug>(coc-rename)
+nmap <leader>R <Plug>(coc-rename)
+nmap <silent> gr <Plug>(coc-references)
 
 nnoremap <silent> B :call <SID>show_documentation()<CR>
-" nmap <silent> gr <Plug>(coc-references)
 
-nnoremap <silent>bb :call <SID>show_documentation()<CR>
+" nnoremap <silent>bb :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -76,21 +75,13 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " xmap <leader>f  <Plug>(coc-format-selected)
 " nmap <leader>f  <Plug>(coc-format-selected)
 
-augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder.
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
-
 " Applying codeAction to the selected region.
 " Example: `<leader>aap` for current paragraph
 " xmap <leader>a  <Plug>(coc-codeaction-selected)
 " nmap <leader>a  <Plug>(coc-codeaction-selected)
 
 " Remap keys for applying codeAction to the current buffer.
-nmap <leader>ac  <Plug>(coc-codeaction)
+" nmap <leader>ac  <Plug>(coc-codeaction)
 
 " Map function and class text objects
 " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
@@ -98,15 +89,16 @@ nmap <leader>ac  <Plug>(coc-codeaction)
 " omap tf <Plug>(coc-funcobj-i)
 " xmap sf <Plug>(coc-funcobj-a)
 " omap sf <Plug>(coc-funcobj-a)
-" xmap tc <Plug>(coc-classobj-i)
-" omap tc <Plug>(coc-classobj-i)
-" xmap sc <Plug>(coc-classobj-a)
-" omap sc <Plug>(coc-classobj-a)
+xmap tc <Plug>(coc-classobj-i)
+omap tc <Plug>(coc-classobj-i)
+xmap sc <Plug>(coc-classobj-a)
+omap sc <Plug>(coc-classobj-a)
 
 " Use CTRL-S for selections ranges.
 " Requires 'textDocument/selectionRange' support of language server.
-" nmap <silent> <C-> <Plug>(coc-range-select)
-" xmap <silent> <C-s> <Plug>(coc-range-select)
+" Use <C-j> for select text for visual placeholder of snippet.
+nmap <silent> <leader>a <Plug>(coc-range-select)
+xmap <silent> a <Plug>(coc-range-select)
 
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')

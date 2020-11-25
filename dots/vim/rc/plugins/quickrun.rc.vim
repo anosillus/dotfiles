@@ -12,7 +12,7 @@ let g:quickrun#config= {
 \   'args': '',
 \   'exec': '%c %o %s %a',
 \   'hook/extend_config/enable' : 1,
-\   'hook/shebang/enable': g:os ==? 'Windows',
+\   'hook/shebang/enable': has('win32') || has('win64'),
 \   'hook/close_buffer/enable_empty_data' : 1,
 \   'hook/close_buffer/enable_failure' : 1,
 \   'hook/close_quickfix/enable_hook_loaded' : 1,

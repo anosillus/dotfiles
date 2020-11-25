@@ -299,8 +299,8 @@ noremap gt <c-]>
 nnoremap <C-r> *:%s///g<Left><Left>
 inoremap <C-r> <ESC>R
 vnoremap r s
-nnoremap gr :<C-u>%s/\v//g<Left><Left><Left>
-vnoremap gr :s/\v//g<Left><Left><Left>
+" nnoremap gr :<C-u>%s/\v//g<Left><Left><Left>
+" vnoremap gr :s/\v//g<Left><Left><Left>
 
 
 " Leader r is symbol rename.

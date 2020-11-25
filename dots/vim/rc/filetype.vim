@@ -5,7 +5,7 @@ function! s:template_keywords()
   silent %s/<+FILE NAME+>/\=expand('%:t')/g
   silent %s/<+DATE+>/\=strftime('%Y-%m-%d')/g
   " silent %s/<+MAIL+>/\anosillus@gmail.com/g
-  silent %s/<+AUTHOR+>/\@anosillus/g
+  " silent %s/<+AUTHOR+>/\@anosillus/g
   " silent %s/<+MIT_LICENCE+>/\MIT/g
   if search('<+CURSOR+>')
     execute 'normal! "_da>'
@@ -39,23 +39,23 @@ augroup MyAutoCmd
   " autocmd BufNewFile,BufRead *.ipynb nmap <C-CR> :VimpyterStartJupyter<CR>
   " autocmd BufNewFile,BufRead *.ipynb highlight VimpyterUpdate term=bold ctermfg=14
   autocmd BufNewFile,BufRead *.ipynb set filetype=jupyter
-  autocmd FileType gina-commit set filetype=gitcommit
-  autocmd FileType gitcommit setlocal spell
+  " autocmd FileType gina-commit set filetype=gitcommit
+  " autocmd FileType gitcommit setlocal spell
   autocmd BufNewFile,BufRead textlintrc, .textlinrc set filetype=json
+  autocmd BufNewFile,BufRead .ahk set filetype=autohotkey
     "https://vim-jp.org/vimdoc-ja/indent.html
   " Reload .vimrc automatically.
-  autocmd BufWritePost .vimrc,vimrc,*.rc.vim source $MYVIMRC | redraw
-  autocmd FileType,Syntax,BufNewFile,BufNew,BufRead
-    \ call vimrc#on_filetype() " it need for ale
-  autocmd BufNewFile,BufRead *.R,*.Rout,*.r,*.Rhistory,*.Rt,*.Rout.save,*.Rout.fail set filetype=r
-  autocmd BufNewFile,BufRead *.[rR]history set filetype=r
+  " autocmd BufWritePost .vimrc,vimrc,*.rc.vim source $MYVIMRC | redraw
+  " autocmd FileType,Syntax,BufNewFile,BufNew,BufRead call vimrc#on_filetype() " it need for ale
+  " autocmd BufNewFile,BufRead *.R,*.Rout,*.r,*.Rhistory,*.Rt,*.Rout.save,*.Rout.fail set filetype=r
+  " autocmd BufNewFile,BufRead *.[rR]history set filetype=r
   " autocmd BufNew,BufRead,BufNewFile *.{mkd,markdown,md,mdwn,mkdn}  call s:auto_goyo()
   autocmd BufRead,BufNewFile README.md set filetype=markdown.gfm
   autocmd BufNewFile,BufRead init.macros set filetype=dosbatch
   autocmd BufNewFile,BufRead workflows set filetype=yaml
-  autocmd BufNewFile,BufRead *.vue set filetype=javascript
+  autocmd BufNewFile,BufRead .vue set filetype=javascript
   autocmd FileType help,git-status,git-log nnoremap <buffer> q <C-w>c
   autocmd User plugin-template-loaded call s:template_keywords()
   autocmd WinEnter * if (winnr('$') == 1) && (getbufvar(winbufnr(0), '&buftype')) == 'quickfix' | quit | endif
-  autocmd WinEnter * checktime
+  " autocmd WinEnter * checktime
 augroup END

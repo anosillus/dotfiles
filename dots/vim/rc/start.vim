@@ -1,3 +1,9 @@
+set encoding=utf-8
+
+if &compatible
+  set nocompatible
+endif
+
 if !v:vim_did_enter && has('reltime')
   let g:startuptime = reltime()
   augroup vimrc-startuptime
@@ -7,94 +13,43 @@ if !v:vim_did_enter && has('reltime')
   augroup END
 endif
 
-" == Encoding settings. == {{{1
-" Use utf-8.
-if &encoding !=? 'utf-8'
-  let &termencoding = &encoding
-  setglobal encoding=utf-8
-endif
-
-" Must after set of 'encoding'.
-scriptencoding utf-8
-
-if has('guess_encode')
-  setglobal fileencodings=ucs-bom,utf-8,iso-2022-jp,guess,euc-jp,cp932,latin1
-else
-  setglobal fileencodings=ucs-bom,utf-8,iso-2022-jp,euc-jp,cp932,latin1
-endif
-setglobal fileformats=unix,dos
-
-function! s:source_rc(path, ...) abort
-  let l:use_global = get(a:000, 0, !has('vim_starting'))
-  let l:abspath = resolve(expand('~/.vim/rc/' . a:path))
-  if !l:use_global
-    execute 'source' fnameescape(l:abspath)
-    return
-  endif
+function! s:source_rc(path) abort
+  let abspath = resolve(expand('~/.vim/rc/' . a:path))
+  execute 'source' fnameescape(abspath)
 endfunction
-" }}}
 
-"----------- System ----------- "{{{
-let $CACHE = expand('~/.cache')
-if !isdirectory(expand($CACHE))
-    call mkdir(expand($CACHE), 'p')
-endif
-if !isdirectory(expand('$CACHE/vim/undo'))
-    call mkdir(expand('$CACHE/vim/undo'), 'p')
-endif
-if !isdirectory(expand('$CACHE/vim/backup'))
-    call mkdir(expand('$CACHE/vim/backup'), 'p')
+augroup MyAutoCmd
+  autocmd!
+  autocmd FileType,Syntax,BufNewFile,BufNew,BufRead *?
+    if execute('filetype') =~# 'OFF'
+    " Lazy loading
+      silent! filetype plugin indent on
+      syntax enable
+      filetype detect
+    endif
+  autocmd CursorHold *.toml syntax sync minlines=300
+augroup END
+augroup filetypedetect
+augroup END
+
+if has('vim_starting')
+  call s:source_rc('setup.vim')
 endif
 
-set directory=+~/.cache/vim/
-set undodir=~/.cache/vim/undo
-set backupdir=~/.cache/vim/backup
-if !has('nvim')
-  set viminfo+=n~/.cache/vim/viminfo
-else
-  set viminfo+=n~/.cache/vim/nviminfo
-endif
-set backup
-set writebackup
-set noswapfile
-set undofile
-set history=100
-set undolevels=100
-" }}}
-
-" call s:source_rc('gui.vim')
-" call s:source_rc('private.vim')
-call s:source_rc('env.vim')
-call s:source_rc('keymap.vim')
 call s:source_rc('plug.vim')
-call s:source_rc('filetype.vim')
-call s:source_rc('basic.vim')
-set runtimepath^=$HOME/.vim
 
-" ColorScheme {{{
 if has('vim_starting') && !empty(argv())
-  if has('syntax')
-    syntax on
+  if execute('filetype') =~# 'OFF'
+    " Lazy loading
+    silent! filetype plugin indent on
+    syntax enable
+    filetype detect
   endif
-  colorscheme jellybeans
 endif
 
-if !exists('g:colors_name')
-  colorscheme morning
+if !has('vim_starting')
+  call dein#call_hook('source')
+  call dein#call_hook('post_source')
 endif
-" }}}
-
-filetype indent plugin on
-
-if (has('termguicolors'))
- set termguicolors
-endif
-
-
-set signcolumn=yes
-
-"---------------------------------------------------------------------------
 
 set secure
-
-" vim: foldmethod=marker

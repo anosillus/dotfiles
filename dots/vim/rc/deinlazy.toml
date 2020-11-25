@@ -1,10 +1,12 @@
-# command {{{
+# Shougoware {{{
+# Denite_Plugins {{{
+# neoyank {{{
 [[plugins]]
 repo = 'Shougo/neoyank.vim'
 on_event = 'TextYankPost'
 on_source = ['denite.nvim']
 hook_add = '''
-let g:neoyank#file = $HOME.'/.cache/yank/yankring.txt'
+let g:neoyank#file = $HOME.'/.cache/vim/yank/yankring.txt'
 '''
 [[plugins]]
 repo = 'machakann/vim-highlightedyank'
@@ -12,38 +14,109 @@ on_event = 'TextYankPost'
 hook_add = '''
 highlight HighlightedyankRegion cterm=reverse gui=reverse
 '''
-
-[[plugins]]
-repo = 'Shougo/echodoc.vim'
-on_event = 'CompleteDone'
-hook_source = '''
-  let g:echodoc#type = 'virtual'
-  call echodoc#enable()
-'''
-[[plugins]]
-repo = 'kannokanno/previm'
-on_cmd = 'PrevimOpen'
-depends = 'open-browser.vim'
-
-[[plugins]]
-repo = 'thinca/vim-quickrun'
-on_cmd = 'QuickRun'
-depends = 'previm'
-hook_add = '''
-let g:quickrun_no_default_key_mappings = 1
-nnoremap <silent> <Leader>r :QuickRun -mode n<CR>
-vnoremap <silent> <Leader>r :QuickRun -mode v<CR>
-'''
-hook_source = 'source ~/.vim/rc/plugins/quickrun.rc.vim'
 # }}}
 
-# defx {{{
+# Denite {{{
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+on_cmd = 'Denite'
+hook_source = 'source ~/.vim/rc/plugins/denite.rc.vim'
+# keymap {{{
+hook_add = '''
+  nnoremap <silent><leader>m :Denite mark <CR>
+  nnoremap <C-w> :<C-u>DeniteCursorWord grep <CR>
+  nnoremap <silent> <C-v>
+        \ :<C-u>Denite -buffer-name=register
+        \ register neoyank<CR>
+  xnoremap <silent> <C-v>
+        \ :<C-u>Denite -default-action=replace -buffer-name=register
+        \ register neoyank<CR>
+  nnoremap <silent> <c-Space>
+  \ :<C-u>Denite file/rec<CR>
+  nnoremap <silent><expr> M, wordcount().chars > 30000 ?
+  nnoremap <silent><expr> r. wordcount().chars > 30000 ?
+  \ ":\<C-u>Denite -buffer-name=search -start-filter
+  \  -search line/external\<CR>" :
+  \ ":\<C-u>Denite -buffer-name=search -start-filter -search line\<CR>"
+  nnoremap <silent><expr> m* wordcount().chars > 30000 ?
+  \ ":\<C-u>DeniteCursorWord -buffer-name=search -search line/external\<CR>" :
+  \ ":\<C-u>DeniteCursorWord -buffer-name=search -search line\<CR>"
+  xnoremap <silent> *
+  \ "qy:Denite -input=`@q` -buffer-name=search -search line<CR>
+  nnoremap <silent><expr> gq finddir('.git', ';') != '' ?
+  nnoremap <silent><expr> <leader>j finddir('.git', ';') != '' ?
+  \ ":\<C-u>Denite -sorters=sorter/rank -unique
+  \  file/point file/old file/dirty file/git file file:new\<CR>" :
+  \ ":\<C-u>Denite -sorters=sorter/rank -unique
+  \  file/point file/old file file:new\<CR>"
+  nnoremap <silent> <C-j>    " 
+  \ :<C-u>Denite -buffer-name=search -resume<CR>
+  nnoremap <silent><expr> gt  &filetype == 'help' ?  "g\<C-]>" :
+  nnoremap <silent> <C-j>
+  \ :<C-u>Denite -buffer-name=search -resume grep<CR>
+  nnoremap <silent><expr> mt  &filetype == 'help' ?  "g\<C-]>" :
+  \ ":\<C-u>DeniteCursorWord -buffer-name=tag -immediately tag:include\<CR>"
+  nnoremap <silent><expr> gM  &filetype == 'help' ?
+  \ ":\<C-u>pop\<CR>" : ":\<C-u>Denite jump\<CR>"
+  nnoremap <silent> <Leader>g :<C-u>Denite dein<CR>
+  nnoremap <silent> go :<C-u>Denite change jump<CR>
+  nnoremap <silent> <C-q> :<C-u>Denite change -start-filter<CR>
+  nnoremap <silent> bb :<C-u>DeniteCursorWord help<CR>
+  nnoremap <silent> <Leader>J :<C-u>Denite dein<CR>
+  nnoremap <silent> jg :<C-u>Denite -buffer-name=search grep<CR>
+  nnoremap <silent> <leader>z :<C-u>Denite change jump<CR>
+  nnoremap <silent> <C-q> :<C-u>Denite change -start-filter<CR>
+  nnoremap <silent> <C-b> :<C-u>DeniteCursorWord help<CR>
+  nnoremap <silent> <leader>b :<C-u>Denite -split=vertical help -start-filter<CR>
+  nnoremap <silent> <C-;> :<C-u>Denite command command_history<CR>
+  nnoremap <silent> <leader>; :<C-u>Denite file/old -start-filter<CR>
+'''
+# nnoremap <silent> je :<C-u>Denite junkfile:new junkfile<CR>
+# }}}
+
+# Denite_Eiletype{{{
+[plugins.ftplugin]
+denite = '''
+  " Define mappings
+  nnoremap <silent><buffer><expr> <CR>
+  \ denite#do_map('do_action')
+  nnoremap <silent><buffer><expr> a
+  \ denite#do_map('choose_action')
+  nnoremap <silent><buffer><expr> d
+  \ denite#do_map('do_action', 'delete')
+  nnoremap <silent><buffer><expr> i
+  \ denite#do_map('do_action', 'edit')
+  nnoremap <silent><buffer><expr> p
+  \ denite#do_map('do_action', 'preview')
+  nnoremap <silent><buffer><expr> N
+  \ denite#do_map('do_action', 'new')
+  nnoremap <silent><buffer><expr> q
+  \ denite#do_map('quit')
+  nnoremap <silent><buffer><expr> '
+  \ denite#do_map('quick_move')
+  nnoremap <silent><buffer><expr> s
+  \ denite#do_map('open_filter_buffer')
+  nnoremap <silent><buffer><expr> <Leader>
+  \ denite#do_map('toggle_select').'j'
+  nnoremap <silent><buffer><expr> r
+  \ denite#do_map('do_action', 'quickfix')
+  nnoremap <silent><buffer><expr> <C-r>
+  \ denite#do_map('restore_sources')
+  nnoremap <silent><buffer><expr> <C-l>
+  \ denite#do_map('redraw')
+'''
+# Denite_Filetype }}}
+# Denite }}}
+# Denite_Plugins }}}
+
+# Defx_Plugins {{{
 [[plugins]]
 repo = 'kristijanhusak/defx-icons'
   
 [[plugins]]
 repo ="kristijanhusak/defx-git"
 
+# Defx {{{
 [[plugins]]
 repo = 'Shougo/defx.nvim'
 hook_add = '''
@@ -80,6 +153,7 @@ hook_source = '''
           \ 'root_icon': ' ',
           \ })
 '''
+# Defx_Commnds {{{
 [plugins.ftplugin]
 defx = '''
   " Define mappings
@@ -157,141 +231,143 @@ defx = '''
   \ ':<C-u>wincmd w<CR>' :
   \ ':<C-u>Defx -buffer-name=temp -split=vertical<CR>'
 '''
-# defx }}}
+# Defx_Commnds }}}
+# Defx }}}
+# Defx_Plugins }}}
 
-# Denite {{{
-[[plugins]]
-repo = 'Shougo/denite.nvim'
-on_cmd = 'Denite'
-hook_source = 'source ~/.vim/rc/plugins/denite.rc.vim'
-hook_add = '''
-  nnoremap <silent><leader>m :Denite mark <CR>
-  nnoremap <C-w> :<C-u>DeniteCursorWord grep <CR>
-  nnoremap <silent> <C-v>
-        \ :<C-u>Denite -buffer-name=register
-        \ register neoyank<CR>
-  xnoremap <silent> <C-v>
-        \ :<C-u>Denite -default-action=replace -buffer-name=register
-        \ register neoyank<CR>
-  nnoremap <silent> <c-Space>
-  \ :<C-u>Denite file/rec<CR>
-  nnoremap <silent><expr> M, wordcount().chars > 30000 ?
-  nnoremap <silent><expr> r. wordcount().chars > 30000 ?
-  \ ":\<C-u>Denite -buffer-name=search -start-filter
-  \  -search line/external\<CR>" :
-  \ ":\<C-u>Denite -buffer-name=search -start-filter -search line\<CR>"
-  nnoremap <silent><expr> m* wordcount().chars > 30000 ?
-  \ ":\<C-u>DeniteCursorWord -buffer-name=search -search line/external\<CR>" :
-  \ ":\<C-u>DeniteCursorWord -buffer-name=search -search line\<CR>"
-  xnoremap <silent> *
-  \ "qy:Denite -input=`@q` -buffer-name=search -search line<CR>
-  nnoremap <silent><expr> gq finddir('.git', ';') != '' ?
-  nnoremap <silent><expr> <leader>j finddir('.git', ';') != '' ?
-  \ ":\<C-u>Denite -sorters=sorter/rank -unique
-  \  file/point file/old file/dirty file/git file file:new\<CR>" :
-  \ ":\<C-u>Denite -sorters=sorter/rank -unique
-  \  file/point file/old file file:new\<CR>"
-  nnoremap <silent> <C-j>    " 
-  \ :<C-u>Denite -buffer-name=search -resume<CR>
-  nnoremap <silent><expr> gt  &filetype == 'help' ?  "g\<C-]>" :
-  nnoremap <silent> <C-j>
-  \ :<C-u>Denite -buffer-name=search -resume grep<CR>
-  nnoremap <silent><expr> mt  &filetype == 'help' ?  "g\<C-]>" :
-  \ ":\<C-u>DeniteCursorWord -buffer-name=tag -immediately tag:include\<CR>"
-  nnoremap <silent><expr> gM  &filetype == 'help' ?
-  \ ":\<C-u>pop\<CR>" : ":\<C-u>Denite jump\<CR>"
-  nnoremap <silent> <Leader>g :<C-u>Denite dein<CR>
-  nnoremap <silent> go :<C-u>Denite change jump<CR>
-  nnoremap <silent> <C-q> :<C-u>Denite change -start-filter<CR>
-  nnoremap <silent> bb :<C-u>DeniteCursorWord help<CR>
-  nnoremap <silent> <Leader>J :<C-u>Denite dein<CR>
-  nnoremap <silent> jg :<C-u>Denite -buffer-name=search grep<CR>
-  nnoremap <silent> <leader>z :<C-u>Denite change jump<CR>
-  nnoremap <silent> <C-q> :<C-u>Denite change -start-filter<CR>
-  nnoremap <silent> <C-b> :<C-u>DeniteCursorWord help<CR>
-  nnoremap <silent> <leader>b :<C-u>Denite -split=vertical help -start-filter<CR>
-  nnoremap <silent> <C-;> :<C-u>Denite command command_history<CR>
-  nnoremap <silent> <leader>; :<C-u>Denite file/old -start-filter<CR>
-'''
-# nnoremap <silent> je :<C-u>Denite junkfile:new junkfile<CR>
+# deoplete {{{
+# [[plugins]]
+# repo = 'Shougo/deoplete.nvim'
+# on_i = 1
+# on_if = "matchstr(expand('%:p'),'jp.md') !=# ''"
+# hook_source = '''
+# source ~/.vim/rc/plugins/deoplete.rc.vim
+# call deoplete#enable()
+# '''
 
-[plugins.ftplugin]
-denite = '''
-  " Define mappings
-  nnoremap <silent><buffer><expr> <CR>
-  \ denite#do_map('do_action')
-  nnoremap <silent><buffer><expr> a
-  \ denite#do_map('choose_action')
-  nnoremap <silent><buffer><expr> d
-  \ denite#do_map('do_action', 'delete')
-  nnoremap <silent><buffer><expr> i
-  \ denite#do_map('do_action', 'edit')
-  nnoremap <silent><buffer><expr> p
-  \ denite#do_map('do_action', 'preview')
-  nnoremap <silent><buffer><expr> N
-  \ denite#do_map('do_action', 'new')
-  nnoremap <silent><buffer><expr> q
-  \ denite#do_map('quit')
-  nnoremap <silent><buffer><expr> '
-  \ denite#do_map('quick_move')
-  nnoremap <silent><buffer><expr> s
-  \ denite#do_map('open_filter_buffer')
-  nnoremap <silent><buffer><expr> <Leader>
-  \ denite#do_map('toggle_select').'j'
-  nnoremap <silent><buffer><expr> r
-  \ denite#do_map('do_action', 'quickfix')
-  nnoremap <silent><buffer><expr> <C-r>
-  \ denite#do_map('restore_sources')
-  nnoremap <silent><buffer><expr> <C-l>
-  \ denite#do_map('redraw')
-'''
-# denite }}}
+# [[plugins]]
+# repo = 'ncm2/float-preview.nvim'
+# on_source = 'deoplete.nvim'
+# on_i = 1
+# on_if = "matchstr(expand('%:p'),'jp.md') !=# ''"
+# if = 'has("nvim")'
+# hook_source = '''
+#   let g:float_preview#docked = 0
+#   let g:float_preview#max_width = 60
+#   let g:float_preview#max_height = 20
+# '''
 
-# ALE {{{
-[[plugins]]
-repo = 'w0rp/ale'
-on_event = ['BufWritePre', 'FileWritePre', 'FileAppendPre']
-hook_source = 'source ~/.vim/rc/plugins/ale.rc.vim'
-hook_add = '''
-nmap <C-f> <Plug>(ale_next)
-nmap <C-p> <Plug>(ale_previous)
-'''
+# [[plugins]]
+# repo = 'tbodt/deoplete-tabnine'
+# on_source = 'deoplete.nvim'
+# on_if = "matchstr(expand('%:p'),'jp.md') !=# ''"
+# build = './install.sh'
+
+# [[plugins]]
+# repo = 'Shougo/deoplete-nextword'
+# on_source = 'deoplete.nvim'
+# on_if = "matchstr(expand('%:p'),'jp.md') !=# ''"
+
+# [[plugins]]
+# repo = 'zchee/deoplete-jedi'
+# on_source = 'deoplete.nvim'
+# on_if = "matchstr(expand('%:p'),'jp.md') !=# ''"
+# on_ft = 'python'
+
+# [[plugins]]
+# repo = 'deoplete-plugins/deoplete-docker'
+# on_source = 'deoplete.nvim'
+# on_if = "matchstr(expand('%:p'),'jp.md') !=# ''"
+# on_ft = 'Dockerfile'
+
+# # {{{ SKK
+# [[plugins]]
+# repo = 'tyru/eskk.vim'
+# on_map = {ic = '<Plug>'}
+# hook_add = '''
+#   imap <C-j>     <Plug>(eskk:toggle)
+#   cmap <C-j>     <Plug>(eskk:toggle)
+# '''
+# hook_source = '''
+#   let g:eskk#no_default_mappings = 1
+#   let g:eskk#keep_state = 1
+#   let g:eskk#debug = 0
+#   let g:eskk#statusline_mode_strings = {
+#   \	'hira': 'あ',
+#   \	'kata': 'ア',
+#   \	'ascii': 'aA',
+#   \	'zenei': 'ａ',
+#   \	'hankata': 'ｧｱ',
+#   \  'abbrev': 'aあ'
+# \}
+#   let g:eskk#show_annotation = 1
+#   let g:eskk#rom_input_style = 'msime'
+#   let g:eskk#egg_like_newline = 1
+#   let g:eskk#egg_like_newline_completion = 1
+#   let g:eskk#tab_select_completion = 1
+#   let g:eskk#start_completion_length = 2
+#     autocmd MyAutoCmd User eskk-initialize-pre call s:eskk_initial_pre()
+#   function! s:eskk_initial_pre()
+#     let g:skk_keep_state = 1
+#     let t = eskk#table#new('rom_to_hira*', 'rom_to_hira')
+#     call t.add_map('~', '～')
+#     call t.add_map('zc', '©')
+#     call t.add_map('zr', '®')
+#     call t.add_map('tm', '™')
+#     call t.add_map('z ', '　')
+#     call t.add_map('z1', '①')
+#     call t.add_map('z2', '②')
+#     call t.add_map('z3', '③')
+#     call t.add_map('z4', '④')
+#     call t.add_map('z5', '⑤')
+#     call t.add_map('z6', '⑥')
+#     call t.add_map('z7', '⑦')
+#     call t.add_map('z8', '⑧')
+#     call t.add_map('z9', '⑨')
+#     for n in range(10)
+#       call t.add_map(n . '.', n . '.')
+#     endfor
+#     call eskk#register_mode_table('hira', t)
+#   endfunction
+
+#   let &g:statusline = "%{winnr('$')>1?'['.winnr().'/'.winnr('$')"
+#         \ . ".(winnr('#')==#winnr()?'#':'').']':''}\ "
+#         \ . "%{(&previewwindow?'[preview] ':'')."
+#         \ . ".expand('%:t')==#''?expand('%'):expand('%:t')}"
+#         \ . "\ %=%{(winnr('$')==1 || winnr('#')!=winnr()) ?
+#         \ '['.(&filetype!=#''?&filetype.',':'')"
+#         \ . ".(&fenc!=''?&fenc:&enc).','.&ff.']' : ''}"
+#         \ . "%{eskk#statusline('[%s]')}"
+#         \ . "%m%{printf('%'.(len(line('$'))+2).'d/%d',line('.'),line('$'))}"
+#   let g:eskk#cursor_color = {
+#   \   'ascii': ['#8b8b83', '#bebebe'],
+#   \   'hira': ['#8b3e2f', '#ffc0cb'],
+#   \   'kata': ['#228b22', '#00ff00'],
+#   \   'abbrev': '#4169e1',
+#   \   'zenei': '#ffd700',
+#   \}
+# '''
 # }}}
 
-[[plugins]]
-repo = 'thinca/vim-template'
-on_event = 'BufNewFile'
+# # }}}
 
-[[plugins]]
-repo = 'sjl/gundo.vim'
-on_map = {n = '<Plug>'}
-hook_add = '''
-let g:gundo_map_move_older = 'n'
-let g:gundo_map_move_newer = 'e'
-let g:gundo_prefer_python3 = 1
-nnoremap mz :<C-u>GundoToggle<CR>
-'''
-
-[[plugins]]
-repo = 'Shougo/context_filetype.vim'
-
-# deol {{{
+# Deol {{{
 [[plugins]]
 repo = 'Shougo/deol.nvim'
 depends = 'denite.nvim'
 on_source = ['defx.nvim', 'denite.nvim']
 hook_add = '''
-  if g:os ==? 'Windows'
+  if has('win32') || has('win64')
     nnoremap <silent> <Leader>f :<C-u>Deol powershell -no-start-insert<CR>
   else
     nnoremap <silent> <Leader>f :<C-u>Deol fish -no-start-insert<CR>
-  end
+    let g:deol#shell_history_path = '~/.local/share/fish/fish_history'
+  endif
   nnoremap <silent> <Leader>D  :<C-u>call deol#kill_editor()<CR>
 '''
 hook_source = '''
-  let g:deol#prompt_pattern = '\w*% '
-  let g:deol#shell_history_path = '~/.local/share/fish/fish_history'
-  let g:deol#extra_options = {
+    let g:deol#prompt_pattern = '\w*% '
+    let g:deol#extra_options = {
       \ 'term_kill': 'kill',
       \ }
 '''
@@ -315,7 +391,69 @@ fish = '''
   inoreabbrev <buffer><expr> p deol#abbrev('git p', 'p', 'push')
   inoreabbrev <buffer><expr> s deol#abbrev('git s', 's', 'status')
 '''
-# deol }}}
+# Deol }}}
+
+[[plugins]]
+repo = 'Shougo/echodoc.vim'
+on_event = 'CompleteDone'
+hook_source = '''
+  let g:echodoc#type = 'virtual'
+  call echodoc#enable()
+'''
+# }}}
+
+# QuickRun {{{
+[[plugins]]
+repo = 'kannokanno/previm'
+on_cmd = 'PrevimOpen'
+depends = 'open-browser.vim'
+
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+on_cmd = 'QuickRun'
+depends = 'previm'
+hook_add = '''
+let g:quickrun_no_default_key_mappings = 1
+nnoremap <silent> <Leader>r :QuickRun -mode n<CR>
+vnoremap <silent> <Leader>r :QuickRun -mode v<CR>
+'''
+hook_source = 'source ~/.vim/rc/plugins/quickrun.rc.vim'
+# }}}
+
+# ALE {{{
+[[plugins]]
+repo = 'w0rp/ale'
+on_event = ['BufWritePre', 'FileWritePre', 'FileAppendPre']
+hook_source = 'source ~/.vim/rc/plugins/ale.rc.vim'
+hook_add = '''
+nmap <C-f> <Plug>(ale_next)
+nmap <C-p> <Plug>(ale_previous)
+'''
+# }}}
+
+# Editor {{{
+[[plugins]]
+repo = 'thinca/vim-template'
+on_event = 'BufNewFile'
+
+[[plugins]]
+repo = 'Shougo/context_filetype.vim'
+# }}}
+
+# small command {{{
+# [[plugins]]
+# repo = 'junegunn/vim-easy-align'
+# on_map = {nx = '<Plug>'}
+
+[[plugins]]
+repo = 'sjl/gundo.vim'
+on_map = {n = '<Plug>'}
+hook_add = '''
+let g:gundo_map_move_older = 'n'
+let g:gundo_map_move_newer = 'e'
+let g:gundo_prefer_python3 = 1
+nnoremap mz :<C-u>GundoToggle<CR>
+'''
 
 [[plugins]]
 repo = 'thinca/vim-fontzoom'
@@ -325,126 +463,21 @@ let g:fontzoom_no_default_key_mappings = 1
 nmap + <Plug>(fontzoom-larger)
 nmap - <Plug>(fontzoom-smaller)
 '''
-
-# deoplete {{{
+ 
 [[plugins]]
-repo = 'Shougo/deoplete.nvim'
-on_i = 1
-on_if = "matchstr(expand('%:p'),'jp.md') !=# ''"
-hook_source = '''
-source ~/.vim/rc/plugins/deoplete.rc.vim
-call deoplete#enable()
-'''
-
-[[plugins]]
-repo = 'ncm2/float-preview.nvim'
-on_source = 'deoplete.nvim'
-on_i = 1
-on_if = "matchstr(expand('%:p'),'jp.md') !=# ''"
-if = 'has("nvim")'
-hook_source = '''
-  let g:float_preview#docked = 0
-  let g:float_preview#max_width = 60
-  let g:float_preview#max_height = 20
-'''
-
-[[plugins]]
-repo = 'tbodt/deoplete-tabnine'
-on_source = 'deoplete.nvim'
-on_if = "matchstr(expand('%:p'),'jp.md') !=# ''"
-build = './install.sh'
-
-[[plugins]]
-repo = 'Shougo/deoplete-nextword'
-on_source = 'deoplete.nvim'
-on_if = "matchstr(expand('%:p'),'jp.md') !=# ''"
-
-[[plugins]]
-repo = 'zchee/deoplete-jedi'
-on_source = 'deoplete.nvim'
-on_if = "matchstr(expand('%:p'),'jp.md') !=# ''"
-on_ft = 'python'
-
-[[plugins]]
-repo = 'deoplete-plugins/deoplete-docker'
-on_source = 'deoplete.nvim'
-on_if = "matchstr(expand('%:p'),'jp.md') !=# ''"
-on_ft = 'Dockerfile'
-# }}}
-
-# {{{ SKK
-[[plugins]]
-repo = 'tyru/eskk.vim'
-on_map = {ic = '<Plug>'}
+repo = 'jacquesbh/vim-showmarks'
+on_map = {n = '<Plug>'}
 hook_add = '''
-  imap <C-j>     <Plug>(eskk:toggle)
-  cmap <C-j>     <Plug>(eskk:toggle)
+nnoremap <C-k> :ShowMarksOnce<cr>
 '''
-hook_source = '''
-  let g:eskk#no_default_mappings = 1
-  let g:eskk#keep_state = 1
-  let g:eskk#debug = 0
-  let g:eskk#statusline_mode_strings = {
-  \	'hira': 'あ',
-  \	'kata': 'ア',
-  \	'ascii': 'aA',
-  \	'zenei': 'ａ',
-  \	'hankata': 'ｧｱ',
-  \  'abbrev': 'aあ'
-\}
-  let g:eskk#show_annotation = 1
-  let g:eskk#rom_input_style = 'msime'
-  let g:eskk#egg_like_newline = 1
-  let g:eskk#egg_like_newline_completion = 1
-  let g:eskk#tab_select_completion = 1
-  let g:eskk#start_completion_length = 2
-    autocmd MyAutoCmd User eskk-initialize-pre call s:eskk_initial_pre()
-  function! s:eskk_initial_pre()
-    let g:skk_keep_state = 1
-    let t = eskk#table#new('rom_to_hira*', 'rom_to_hira')
-    call t.add_map('~', '～')
-    call t.add_map('zc', '©')
-    call t.add_map('zr', '®')
-    call t.add_map('tm', '™')
-    call t.add_map('z ', '　')
-    call t.add_map('z1', '①')
-    call t.add_map('z2', '②')
-    call t.add_map('z3', '③')
-    call t.add_map('z4', '④')
-    call t.add_map('z5', '⑤')
-    call t.add_map('z6', '⑥')
-    call t.add_map('z7', '⑦')
-    call t.add_map('z8', '⑧')
-    call t.add_map('z9', '⑨')
-    for n in range(10)
-      call t.add_map(n . '.', n . '.')
-    endfor
-    call eskk#register_mode_table('hira', t)
-  endfunction
 
-  let &g:statusline = "%{winnr('$')>1?'['.winnr().'/'.winnr('$')"
-        \ . ".(winnr('#')==#winnr()?'#':'').']':''}\ "
-        \ . "%{(&previewwindow?'[preview] ':'')."
-        \ . ".expand('%:t')==#''?expand('%'):expand('%:t')}"
-        \ . "\ %=%{(winnr('$')==1 || winnr('#')!=winnr()) ?
-        \ '['.(&filetype!=#''?&filetype.',':'')"
-        \ . ".(&fenc!=''?&fenc:&enc).','.&ff.']' : ''}"
-        \ . "%{eskk#statusline('[%s]')}"
-        \ . "%m%{printf('%'.(len(line('$'))+2).'d/%d',line('.'),line('$'))}"
-  let g:eskk#cursor_color = {
-  \   'ascii': ['#8b8b83', '#bebebe'],
-  \   'hira': ['#8b3e2f', '#ffc0cb'],
-  \   'kata': ['#228b22', '#00ff00'],
-  \   'abbrev': '#4169e1',
-  \   'zenei': '#ffd700',
-  \}
+[[plugins]]
+repo = 'beloglazov/vim-online-thesaurus'
+on_map = {n = '<Plug>'}
+hook_add = '''
+let g:online_thesaurus_map_keys = 0
+noremap <expr> bA :OnlineThesaurusCurrentWord<CR>
 '''
-# }}}
-
-# small command {{{
-# [[plugins]]
-# repo = 'junegunn/vim-easy-align'
-# on_map = {nx = '<Plug>'}
 
 [[plugins]]
 repo = 'kana/vim-niceblock'
@@ -474,25 +507,14 @@ on_event = 'BufRead'
 hook_add = '''
   let g:suda_smart_edit = 1
 '''
-[[plugins]]
-repo = 'thinca/vim-qfreplace'
-on_ft = ['qf']
-[plugins.ftplugin]
-qf = '''
-  nnoremap <buffer> r :<C-u>Qfreplace<CR>
-'''
 # small command }}}
+
 # Filetype {{{
 # JavaScript {{{
 [[plugins]]
-repo = 'othree/javascript-libraries-syntax.vim'
-of_ft = ['javascript', 'typescript']
-[[plugins]]
 repo = 'othree/yajs.vim'
-of_ft = 'javascript'
-[[plugins]]
-repo = 'othree/es.next.syntax.vim'
-of_ft = ['javascript', 'typescript']
+on_ft = 'javascript'
+
 [[plugins]]
 repo = 'jparise/vim-graphql'
 of_ft = ['javascript', 'typescript']
@@ -552,7 +574,13 @@ hook_add = 'map <silent> lo <Plug>(pydocstring)'
 [[plugins]]
 repo = 'tmhedberg/SimpylFold'
 on_ft = 'python'
+[[plugins]]
+repo = "lambdalisue/vim-django-support"
+on_ft = ["python", "djangohtml"]
 
+[[plugins]]
+repo = "lambdalisue/vim-pyenv"
+on_ft =  ["python", "djangohtml"]
 #  }}}
 # R {{{
 [[plugins]]
@@ -594,8 +622,6 @@ repo = 'koron/codic-vim'
 repo = 'msbmsb/porter-stem.vim'
 [[plugins]]
 repo = 'rhysd/unite-codic.vim'
-[[plugins]]
-repo = 'vim-jp/vimdoc-ja'
 
 # [[plugins]]
 # repo = 'deton/eblook.vim'
@@ -606,12 +632,6 @@ repo = 'vim-jp/vimdoc-ja'
 #     nmap <unique> <silent> <C-b> <Plug>EblookSearch
 #     vmap <unique> <silent> <C-b> <Plug>EblookSearch
 # '''
-[[plugins]]
-repo = 'vim-jp/autofmt'
-on_if = "matchstr(expand('%:p'),'jp.md') !=# ''"
-hook_source = '''
-set formatexpr=autofmt#japanese#formatexpr()
-'''
 # jasegment {{{
 [[plugins]]
 repo = 'deton/jasegment.vim'
@@ -637,7 +657,11 @@ noremap <silent> <C-h> F。
 '''
 # }}}
 # end filetype }}}
+
+[[plugins]]
+repo = 'lambdalisue/vim-findent'
 # filetype }}}
+
 # {{{ text object
 [[plugins]]
 repo = 'kana/vim-textobj-line'
@@ -833,6 +857,7 @@ vmap <Leader>B <Plug>(operator-openbrowser)
 '''
 on_map = {nv = '<Plug>'}
 # }}}
+
 # caw {{{
 [[plugins]]
 repo = 'anosillus/caw.vim'

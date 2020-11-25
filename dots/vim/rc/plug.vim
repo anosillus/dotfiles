@@ -1,30 +1,24 @@
-let $CACHE = expand('~/.cache')
-
-if !isdirectory(expand($CACHE))
-  call mkdir(expand($CACHE), 'p')
-endif
-
-if &compatible
-  set nocompatible
-endif
-
-let s:dein_dir = finddir('dein.vim', '.;')
-if s:dein_dir != '' || &runtimepath !~ '/dein.vim'
-  if s:dein_dir == '' && &runtimepath !~ '/dein.vim'
-    let s:dein_dir = expand('$CACHE/dein')
-          \. '/repos/github.com/Shougo/dein.vim'
-    if !isdirectory(s:dein_dir)
-      execute '!git clone https://github.com/Shougo/dein.vim' s:dein_dir
-    endif
-  endif
-  execute 'set runtimepath^=' . substitute(
-        \ fnamemodify(s:dein_dir, ':p') , '/$', '', '')
-endif
-
-" let g:dein#auto_recache = 1
-let g:dein#install_progress_type = 'tabline'
-let g:dein#enable_notification = 1
+let g:dein#auto_recache = v:true
+let g:dein#lazy_rplugins = v:true
+let g:dein#install_progress_type = 'title'
+let g:dein#enable_notification = v:true
 let g:dein#notification_icon = '~/.vim/signs/warn.png'
+
+let g:dein#inline_vimrcs = ['keymap.vim', 'basic.vim', 'filetype.vim']
+if has('nvim')
+  call add(g:dein#inline_vimrcs, 'neovim.vim')
+elseif has('gui_running')
+  call add(g:dein#inline_vimrcs, 'gui.vim')
+endif
+if IsLinux()
+  call add(g:dein#inline_vimrcs, 'unix.vim')
+elseif IsWindows()
+  call add(g:dein#inline_vimrcs, 'windows.vim')
+elseif IsMac()
+  call add(g:dein#inline_vimrcs, 'mac.vim')
+endif
+
+call map(g:dein#inline_vimrcs, "resolve(expand('~/.vim/rc/' . v:val))")
 
 let s:path = expand('$CACHE/dein')
 if !dein#load_state(s:path)
@@ -34,13 +28,11 @@ endif
 let s:dein_toml = '~/.vim/rc/dein.toml'
 let s:dein_lazy_toml = '~/.vim/rc/deinlazy.toml'
 let s:dein_ft_toml = '~/.vim/rc/deinft.toml'
-" call dein#begin(s:path, [
-     " \ expand('<sfile>'), s:dein_toml, s:dein_ft_toml
-     " \ ])
 
 call dein#begin(s:path, [
       \ expand('<sfile>'), s:dein_toml, s:dein_lazy_toml, s:dein_ft_toml
       \ ])
+
 call dein#load_toml(s:dein_toml, {'lazy': 0})
 call dein#load_toml(s:dein_lazy_toml, {'lazy' : 1})
 call dein#load_toml(s:dein_ft_toml)

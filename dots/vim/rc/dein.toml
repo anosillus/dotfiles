@@ -1,14 +1,12 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
-# complete {{{
-[[plugins]]
-repo = 'SirVer/ultisnips'
-# }}}
 # coc {{{
 [[plugins]]
 repo = 'neoclide/coc.nvim'
+depends = 'vim-snippets'
 rev = 'release'
+# on_i = 1 */
 on_if = "matchstr(expand('%:p'),'jp.md') ==# ''"
 merged = '0'
 hook_add = 'source ~/.vim/rc/plugins/coc.rc.vim'
@@ -16,22 +14,19 @@ hook_add = 'source ~/.vim/rc/plugins/coc.rc.vim'
 [[plugins]]
 repo = 'honza/vim-snippets'
 
-# filetype {{{
+# [[plugins]]
+# repo = 'SirVer/ultisnips'
+# }}}
+
+# Reference {{{
 [[plugins]]
-repo = 'sheerun/vim-polyglot'
-hook_add = '''
-let g:polyglot_disabled = ['markdown', 'tsx', 'typescript', 'csv', 'cpp']
-let g:loaded_sleuth = 1
-'''
-[[plugins]]
-repo = 'romainl/vim-devdocs'
+repo = 'vim-jp/vimdoc-ja'
 
 [[plugins]]
-repo = 'mmikeww/autohotkey.vim'
-# }}}
-# vim-ref {{{
-[[plugins]]
 repo = 'mojako/ref-sources.vim'
+hook_add = '''
+'''
+
 [[plugins]]
 repo = 'terlar/vim-ref-fish'
 on_ft = 'fish'
@@ -46,8 +41,9 @@ let g:ref_no_default_key_mappings = 1
 let g:ref_man_lang = 'ja'
 let g:ref_pydoc_cmd = 'python3 -m pydoc'
 let g:ref_cache_dir = expand($CONFIG) . '/vim-ref/cache'
-let g:ref_use_cache           = 1
-let g:ref_use_vimproc         = 1
+let g:ref_use_cache = 1
+let g:ref_use_vimproc = 1
+let g:ref_auto_resize = 1
 let g:ref_wikipedia_lang = ['ja', 'en']
 let g:ref_source_webdict_cmd = 'lynx -dump -nonumbers %s'
 let g:ref_source_webdict_sites = {
@@ -78,30 +74,24 @@ noremap <expr> bt ':Ref kotobankje ' . expand('<cword>') . '<CR>'
 noremap <expr> bT ':Ref kotobank ' . expand('<cword>') . '<CR>'
 noremap <expr> br ':Ref wikipedia_en ' . expand('<cword>') . '<CR>'
 noremap <expr> bR ':Ref wikipedia_ja ' . expand('<cword>') . '<CR>'
-noremap <expr> bA :OnlineThesaurusCurrentWord<CR>
 '''
-
-[[plugins]]
-repo = 'ryanoasis/vim-devicons'
-[[plugins]]
-repo = 'beloglazov/vim-online-thesaurus'
-hook_add = 'let g:online_thesaurus_map_keys = 0'
 # }}}
+
 # View {{{
 [[plugins]]
 repo = 'luochen1990/rainbow'
 hook_add = 'let g:rainbow_active = 1'
 
 [[plugins]]
+repo = 'ryanoasis/vim-devicons'
+
+[[plugins]]
 repo = 'ap/vim-css-color'
-# Lightline {{{
+
 [[plugins]]
-repo = 'itchyny/lightline.vim'
-hook_add = 'source ~/.vim/rc/plugins/lightline.rc.vim'
-depends = ['vista', 'vim-devicons','lightline-ale']
+repo = 'Yggdroot/indentLine'
 [[plugins]]
-repo = 'maximbaz/lightline-ale'
-# }}}
+repo = 'markonm/traces.vim'
 
 # vista {{{
 [[plugins]]
@@ -157,16 +147,18 @@ on_source = 'denite.nvim'
 hook_add = '''
 '''
 # }}}
+
+# Lightline {{{
 [[plugins]]
-repo = 'Yggdroot/indentLine'
+repo = 'itchyny/lightline.vim'
+depends = ['vista', 'vim-devicons','lightline-ale']
+hook_add = 'source ~/.vim/rc/plugins/lightline.rc.vim'
+
 [[plugins]]
-repo = 'markonm/traces.vim'
-[[plugins]]
-repo = 'wakatime/vim-wakatime'
-# hook_source = '''
-# let g:wakatime_PythonBinary = g:python3_host_prog
-# '''
+repo = 'maximbaz/lightline-ale'
 # }}}
+# }}}
+
 # dependent {{{
 [[plugins]]
 repo = 'nixprime/cpsm'
@@ -178,11 +170,15 @@ repo = 'kana/vim-operator-user'
 [[plugins]]
 repo = 'kana/vim-textobj-user'
 # }}}
-# Configs {{{
+
+# Editor_Configs {{{
 [[plugins]]
 repo ='editorconfig/editorconfig-vim'
 [[plugins]]
 repo = 'vim-scripts/autodate.vim'
+# config }}}
+
+# Fold/indent {{{
 [[plugins]]
 repo = 'thinca/vim-ft-help_fold'
 [[plugins]]
@@ -206,16 +202,11 @@ let g:r_syntax_folding = 1
 let g:rust_fold = 1
 let g:php_folding = 1
 '''
-[[plugin]]
-repo = 'skanehira/gh.vim'
-# config }}}
 
-[[plugins]]
-repo = 'jacquesbh/vim-showmarks'
-hook_add = '''
-nnoremap M :ShowMarksOnce<cr>
-"nnoremap <C-m> :<c-u>ShowMarksOnce<cr>
-'''
+
+# }}}
+
+# uniqe{{{
 # [[plugins]]
 # repo = 'lambdalisue/gina.vim'
 # hook_add = '''
@@ -224,12 +215,14 @@ nnoremap M :ShowMarksOnce<cr>
 # nnoremap <UP> :<C-u>Gina status<CR>
 # nnoremap <Down> :<C-u>Gina push<CR>
 # '''
+
 [[plugins]]
 repo = 'junegunn/vim-easy-align'
 hook_add = '''
 xmap <CR> <Plug>(EasyAlign)
-nmap mg <Plug>(EasyAlign)
+nmap <S-CR> <Plug>(EasyAlign)
 '''
+# }}}
 
 # sub-mode {{{
 [[plugins]]
@@ -263,43 +256,6 @@ call submode#map('bufmove', 'n', '', 'U', ':call comfortable_motion#flick(g:comf
 call submode#map('bufmove', 'n', '', 'Y', ':call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -4)<CR>')
 '''
 # }}}
-
-# smart word {{{
-# [[plugins]]
-# repo = 'kana/vim-smartword'
-# on_map = {nxo = '<Plug>'}
-# hook_add = '''
-# map <C-i> <Plug>(smartword-w)
-# map <C-h> <Plug>(smartword-b)
-#" map <M-i> <Plug>(smartword-e)
-#" map <M-h> <Plug>(smartword-ge)
-# '''
-[[plugins]]
-repo = 'chaoren/vim-wordmotion'
-hook_add = '''
-let g:wordmotion_nomap = 1
-map i <Plug>WordMotion_w
-noremap I W
-map h <Plug>WordMotion_b
-noremap H B
-map <C-h> <Plug>WordMotion_ge
-map <C-i> <Plug>WordMotion_e
-'''
-
-# [[plugins]]
-# repo = 'lambdalisue/gina.vim'
-[[plugins]]
-repo = 'cohama/lexima.vim'
-
-[[plugins]]
-repo = 'yuttie/comfortable-motion.vim'
-hook_add = '''
-let g:comfortable_motion_no_default_key_mappings = 1
-noremap <silent> <ScrollWheelDown> :<c-u>call comfortable_motion#flick(40)<CR>
-noremap <silent> <ScrollWheelUp>   :<c-u>call comfortable_motion#flick(-40)<CR>
-'''
-[[plugins]]
-repo = 'arthurxavierx/vim-unicoder'
 
 # sandwitch {{{
 [[plugins]]
@@ -352,6 +308,33 @@ xmap tW <Plug>(textobj-sandwich-query-a)
 xmap tw <Plug>(textobj-sandwich-query-a)
 '''
 # }}}
+
+# smart_motion  {{{
+[[plugins]]
+repo = 'chaoren/vim-wordmotion'
+hook_add = '''
+let g:wordmotion_nomap = 1
+map i <Plug>WordMotion_w
+noremap I W
+map h <Plug>WordMotion_b
+noremap H B
+map <C-h> <Plug>WordMotion_ge
+nmap <C-i> <Plug>WordMotion_e
+'''
+
+
+[[plugins]]
+repo = 'yuttie/comfortable-motion.vim'
+hook_add = '''
+let g:comfortable_motion_no_default_key_mappings = 1
+noremap <silent> <ScrollWheelDown> :<c-u>call comfortable_motion#flick(40)<CR>
+noremap <silent> <ScrollWheelUp>   :<c-u>call comfortable_motion#flick(-40)<CR>
+'''
+[[plugins]]
+repo = 'arthurxavierx/vim-unicoder'
+
+# }}}
+
 # action {{{
 # emment {{{
 [[plugins]]
@@ -363,12 +346,16 @@ let g:user_emmet_leader_key='<C-.>'
 '''
 [[plugins]]
 repo = 'pbrisbin/vim-mkdir'
+
 [[plugins]]
 repo = 'junegunn/fzf'
+
 [[plugins]]
-repo = 'azadkuh/vim-cmus'
+repo = 'cohama/lexima.vim'
+
 # }}}
 # command }}}
+
 # nvim_setting {{{
 [[plugins]]
 repo = 'roxma/vim-hug-neovim-rpc'
@@ -383,6 +370,53 @@ build = 'make'
 
 [[plugins]]
 repo = 'osyo-manga/vital-migemo'
+# }}}
+
+# FileType{{{
+[[plugins]]
+repo = 'Shirk/vim-gas'
+
+[[plugins]]
+repo = 'mmikeww/autohotkey.vim'
+
+[[plugins]]
+repo = 'vim-jp/autofmt'
+
+[[plugins]]
+repo = 'vim-jp/syntax-vim-ex'
+
+[[plugins]]
+repo = 'othree/javascript-libraries-syntax.vim'
+
+[[plugins]]
+repo = 'othree/es.next.syntax.vim'
+# }}}
+
+# Unused {{{
+# [[plugins]]
+# repo = 'wakatime/vim-wakatime'
+# hook_source = '''
+# let g:wakatime_PythonBinary = g:python3_host_prog
+# '''
+
+# [[plugins]]
+# repo = 'azadkuh/vim-cmus'
+
+# [[plugins]]
+# repo = 'sheerun/vim-polyglot'
+# hook_add = '''
+# let g:polyglot_disabled = ['markdown', 'tsx', 'typescript', 'csv', 'cpp']
+# let g:loaded_sleuth = 1
+# '''
+
+# [[plugins]]
+# repo = 'thinca/vim-qfreplace'
+# on_ft = ['qf']
+# [plugins.ftplugin]
+# qf = '''
+#   nnoremap <buffer> r :<C-u>Qfreplace<CR>
+# '''
+
 # }}}
 
 # vim: ts=2 et sw=2 fdm=marker

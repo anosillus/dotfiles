@@ -3,6 +3,7 @@ let g:lightline = {
 \   'mode_map': {'c': 'NORMAL'},
 \   'active': {
 \     'left': [ ['mode', 'paste'],
+\               ['pyenv'],
 \               ['ale', 'anzu', 'currentfunction',  'readonly', 'filename', 'qfstatusline', 'modified'],
 \               ['method']],
 \     'right':[ ['lineinfo'],[ 'percent'],
@@ -21,9 +22,9 @@ let g:lightline = {
 \     'mode':            'LightlineMode',
 \     'modified':        'LightlineModified',
 \     'readonly':        'LightlineReadonly',
-\     'component_function': {
 \     'toggl_task': 'toggl#task',
-\     'toggl_time': 'toggl#time'
+\     'toggl_time': 'toggl#time',
+\     'pyenv': 'pyenv#statusline#component'
 \   },
 \   'component_expand': {
 \     'linter_checking': 'lightline#ale#checking',
@@ -37,16 +38,14 @@ let g:lightline = {
 \     'linter_warnings': 'warning',
 \     'linter_errors':   'error',
 \     'linter_ok':       'left',
-\   }
+\   },
 \ }
-\}
 
 "\     'gitbranch': 'gina#component#repo#branch',
 "\     'gitstage':  'gina#component#status#staged',
 "\               ['gitbranch', 'gitstage'],
 
 let g:Qfstatusline#UpdateCmd = function('lightline#update')
-
 let g:lightline#ale#indicator_checking = '...'
 let g:lightline#ale#indicator_warnings = 'W'
 let g:lightline#ale#indicator_errors = 'E'
