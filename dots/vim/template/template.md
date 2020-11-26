@@ -2,10 +2,12 @@
 > File name: <+FILE NAME+>
 > First Edit: <+DATE+>
 > Last Change: <%= strftime('%Y-%m-%d') %>
-> Author: <+AUTHOR+>
-> Email: <+MAIL+>
+> license: CC-BY-SA-4.0
+> copyright: anosillus - https://github.com/anosillus
+> Email: anosillus@gmail.com
+
 ---
 
 <+CURSOR+>
 
-<i class="cc cc-by-sa"></i>
+<i class="cc cc-by-sa-4.0"></i>

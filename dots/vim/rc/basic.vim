@@ -10,6 +10,10 @@ setlocal list
 setlocal listchars=tab:>-,trail:-,nbsp:%,extends:>,precedes:<
 set formatoptions+=mM
 set foldmethod=marker
+if exists('*FoldCCtext')
+  " Use FoldCCtext().
+  set foldtext=FoldCCtext()
+endif
 " set foldtext
 " ---------- Command/Status Line ----------
 setlocal ruler
@@ -58,7 +62,14 @@ endif
 set keywordprg=:help
 set helplang& helplang=en,ja
 " ---------- OS/JP setting ----------
-setlocal shellslash
+let directory = expand('~/.cache/vim/undo')
+let &g:undodir = &directory
+set undofile
+set nowritebackup
+set nobackup
+set noswapfile
+set backupdir-=.
+
 set virtualedit& virtualedit+=block
 " ---------- Enocode ----------
 setlocal fileformats=unix,dos,mac
@@ -66,7 +77,7 @@ setlocal fileencodings=utf-8,iso-2022-jp,cp932,euc-jp
 language message en_US.utf8
 set shortmess+=c
 " ---------- Bell Off ----------
-setlocal visualbell
+setlocal novisualbell
 setlocal noerrorbells
 " ---------- Tab/Indent ----------
 setl expandtab

@@ -1,8 +1,10 @@
 > -_- coding: utf-8 -_-
 > First Edit: <+DATE+>
 > Last Change: <%= strftime('%Y-%m-%d') %>
-> Author: <+AUTHOR+>
----
+> license: CC-BY-SA-4.0
+> copyright: anosillus - https://github.com/anosillus
+> Email: anosillus@gmail.com
+--
 title: <+FILE NAME+>
 emoji: "😸" # アイキャッチとして使われる絵文字（1文字だけ）
 type: "tech" # tech: 技術記事 / idea: アイデア記事
@@ -77,4 +79,5 @@ $$
 :::
 
 
-This article is written by anosillus@gmail.com <i class="cc cc-by-sa"></i>
+This article is written by anosillus@gmail.com 
+<i class="cc cc-by-sa-4.0"></i>

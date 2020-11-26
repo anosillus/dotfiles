@@ -2,7 +2,7 @@
 # File name: <+FILE NAME+>
 # First Edit: <+DATE+>
 # Last Change: <%= strftime('%Y-%m-%d') %>
-# License: The MIT License (MIT) Copyright (c) <<%= strftime('%Y') %>> <copyright @anosillus>
+# Author: iida
 """
 Description
 <+CURSOR+>

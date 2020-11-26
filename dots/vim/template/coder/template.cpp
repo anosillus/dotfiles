@@ -1,10 +1,7 @@
 // -*- coding: utf-8 -*-
-// vim:fenc=utf-8
 // File name: <+FILE NAME+>
-// Author: <+AUTHOR+>
 // First Edit: <+DATE+>
 // Last Change: <%= strftime('%Y-%m-%d') %>
-
 
 #include <cstdlib>
 #include <bits/stdc++.h>
