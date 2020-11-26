@@ -16,6 +16,10 @@ highlight HighlightedyankRegion cterm=reverse gui=reverse
 '''
 # }}}
 
+[[plugins]]
+repo = 'mattn/vim-lexiv'
+on_i = 1
+
 # Denite {{{
 [[plugins]]
 repo = 'Shougo/denite.nvim'
