@@ -13,6 +13,4 @@ set NEXTWORD_DATA_PATH = c:\tools\nextword-data-large
 set GIT_SSH = c:\tools\msys64\usr\bin\ssh.exe
 set PATH=%SLOCALAPPDATA%\Packages\PythonSoftwareFoundation.Python.3.8_qbz5n2kfra8p0\LocalCache\local-packages\Python38\Scripts;%SystemDrive%\Python38\Scripts;%LOCALAPPDATA%\Python\Python38\scripts;%ProgramFiles%\Git\cmd;%APPDATA%\npm;%USERPROFILE%\go\bin;%SystemDrive%\Go\bin;%ProgramFiles%\nodejs;%PATH%
 
-
-
 :: vim: ts=2 et sw=2 fdm=marker ft=dosbatch

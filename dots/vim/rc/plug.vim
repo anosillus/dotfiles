@@ -5,17 +5,18 @@ let g:dein#enable_notification = v:true
 let g:dein#notification_icon = '~/.vim/signs/warn.png'
 
 let g:dein#inline_vimrcs = ['keymap.vim', 'basic.vim', 'filetype.vim']
-if has('nvim')
-  call add(g:dein#inline_vimrcs, 'neovim.vim')
-elseif has('gui_running')
-  call add(g:dein#inline_vimrcs, 'gui.vim')
-endif
 if IsLinux()
   call add(g:dein#inline_vimrcs, 'unix.vim')
 elseif IsWindows()
   call add(g:dein#inline_vimrcs, 'windows.vim')
 elseif IsMac()
   call add(g:dein#inline_vimrcs, 'mac.vim')
+endif
+
+if has('nvim')
+  call add(g:dein#inline_vimrcs, 'neovim.vim')
+elseif has('gui_running')
+  call add(g:dein#inline_vimrcs, 'gui.vim')
 endif
 
 call map(g:dein#inline_vimrcs, "resolve(expand('~/.vim/rc/' . v:val))")

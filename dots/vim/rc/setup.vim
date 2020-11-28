@@ -46,9 +46,6 @@ if !isdirectory(expand('$CACHE/vim/yank'))
     call mkdir(expand('$CACHE/vim/yank'), 'p')
 endif
 
-
-
-
 " Load dein.
 if &runtimepath !~# '/dein.vim'
   let s:dein_dir = fnamemodify('dein.vim', ':p')
