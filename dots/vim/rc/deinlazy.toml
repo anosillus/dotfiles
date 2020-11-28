@@ -609,6 +609,11 @@ repo = 'bfrg/vim-cpp-modern'
 hook_source = 'let g:cpp_named_requirements_highlight = 1'
 on_ft = 'cpp'
 # }}}
+# CS {{{
+[[plugins]]
+repo = 'OrangeT/vim-csharp'
+on_ft = 'cs'
+# }}}
 # Golang {{{
 [[plugins]]
 repo = 'mattn/vim-goimports'

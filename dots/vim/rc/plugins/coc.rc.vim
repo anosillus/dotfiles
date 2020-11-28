@@ -16,7 +16,7 @@ let g:coc_global_extensions = [
   \ 'coc-html',
   \ 'coc-json',
   \ 'coc-marketplace',
-  \ 'coc-omni',
+  \ 'coc-omnisharp',
   \ 'coc-pyright',
   \ 'coc-python',
   \ 'coc-rls',
@@ -27,12 +27,26 @@ let g:coc_global_extensions = [
   \ 'coc-word'
   \ ]
 
-
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gD <Plug>(coc-type-definition)
 " nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gb <Plug>(coc-references)
+
+" Use <C-l> for trigger snippet expand.
+imap <C-o> <Plug>(coc-snippets-expand)
+
+" Use <C-j> for select text for visual placeholder of snippet.
+vmap <C-n> <Plug>(coc-snippets-select)
+
+" Use <C-j> for jump to next placeholder, it's default of coc.nvim
+" let g:coc_snippet_next = '<c-n>'
+
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+" let g:coc_snippet_prev = '<c-e>'
+
+" Use <C-j> for both expand and jump (make expand higher priority.)
+imap <C-n> <Plug>(coc-snippets-expand-jump)
 
 inoremap <silent><expr> <C-i>  coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
       \ <SID>check_back_space() ? "<Right>" :
@@ -85,10 +99,10 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Map function and class text objects
 " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
-" xmap tf <Plug>(coc-funcobj-i)
-" omap tf <Plug>(coc-funcobj-i)
-" xmap sf <Plug>(coc-funcobj-a)
-" omap sf <Plug>(coc-funcobj-a)
+xmap tf <Plug>(coc-funcobj-i)
+omap tf <Plug>(coc-funcobj-i)
+xmap sf <Plug>(coc-funcobj-a)
+omap sf <Plug>(coc-funcobj-a)
 xmap tc <Plug>(coc-classobj-i)
 omap tc <Plug>(coc-classobj-i)
 xmap sc <Plug>(coc-classobj-a)
@@ -97,8 +111,8 @@ omap sc <Plug>(coc-classobj-a)
 " Use CTRL-S for selections ranges.
 " Requires 'textDocument/selectionRange' support of language server.
 " Use <C-j> for select text for visual placeholder of snippet.
-nmap <silent> <leader>a <Plug>(coc-range-select)
-xmap <silent> a <Plug>(coc-range-select)
+" nmap <silent> <C-s> <Plug>(coc-range-select)
+" xmap <silent> <C-s> <Plug>(coc-range-select)
 
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
