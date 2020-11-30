@@ -228,7 +228,6 @@ noremap mD zD
 " But <leader>L and gl is not used.
 " }}}
 
-
 " j is 5 %
 " j is denite/unite {{{
 nmap j  <Nop>
@@ -242,7 +241,6 @@ xmap j  <Nop>
 " imap <C-j> is eskk.vim
 
 " }}}
-
 
 " K is 30% used.
 " <k/K> is Search 'Up/Down'. {{{

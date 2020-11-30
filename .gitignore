@@ -9,3 +9,6 @@ keys/
 .ccls-cache/
 sessions/
 private.*
+*history.json
+memos.json
+aa.*

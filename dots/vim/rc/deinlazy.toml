@@ -412,12 +412,12 @@ depends = 'open-browser.vim'
 repo = 'thinca/vim-quickrun'
 on_cmd = 'QuickRun'
 depends = 'previm'
+hook_source = 'source ~/.vim/rc/plugins/quickrun.rc.vim'
 hook_add = '''
 let g:quickrun_no_default_key_mappings = 1
-nnoremap <silent> <Leader>r :QuickRun -mode n<CR>
-vnoremap <silent> <Leader>r :QuickRun -mode v<CR>
+nnoremap <silent> <Space>r :<C-u>QuickRun -mode n<CR>
+vnoremap <silent> <Space>r :<C-u>QuickRun -mode v<CR>
 '''
-hook_source = 'source ~/.vim/rc/plugins/quickrun.rc.vim'
 # }}}
 
 # ALE {{{
