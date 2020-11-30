@@ -9,3 +9,5 @@ endfunction
 
 nnoremap <buffer><silent>b :<C-u>call <SID>search_under_cursor(expand('<cword>'))<CR>
 vnoremap <buffer><silent>b "gy:call <SID>search_under_cursor(getreg('g'))<CR>
+
+" vim:et:sw=2:sts=2

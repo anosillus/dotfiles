@@ -62,13 +62,20 @@ endif
 set keywordprg=:help
 set helplang& helplang=en,ja
 " ---------- OS/JP setting ----------
-let directory = expand('~/.cache/vim/undo')
-let &g:undodir = &directory
-set undofile
-set nowritebackup
+set directory=+~/.cache/vim/
+set undodir=~/.cache/vim/undo
+set backupdir=~/.cache/vim/backup
+if !has('nvim')
+  set viminfo+=n~/.cache/vim/viminfo
+else
+  set viminfo+=n~/.cache/vim/nviminfo
+endif
 set nobackup
+set nowritebackup
 set noswapfile
-set backupdir-=.
+set undofile
+set history=100
+set undolevels=100
 
 set virtualedit& virtualedit+=block
 " ---------- Enocode ----------

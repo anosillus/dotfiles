@@ -350,9 +350,6 @@ repo = 'pbrisbin/vim-mkdir'
 [[plugins]]
 repo = 'junegunn/fzf'
 
-[[plugins]]
-repo = 'cohama/lexima.vim'
-
 # }}}
 # command }}}
 

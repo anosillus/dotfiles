@@ -16,6 +16,10 @@ highlight HighlightedyankRegion cterm=reverse gui=reverse
 '''
 # }}}
 
+[[plugins]]
+repo = 'mattn/vim-lexiv'
+on_i = 1
+
 # Denite {{{
 [[plugins]]
 repo = 'Shougo/denite.nvim'
@@ -604,6 +608,11 @@ on_ft = 'csv'
 repo = 'bfrg/vim-cpp-modern'
 hook_source = 'let g:cpp_named_requirements_highlight = 1'
 on_ft = 'cpp'
+# }}}
+# CS {{{
+[[plugins]]
+repo = 'OrangeT/vim-csharp'
+on_ft = 'cs'
 # }}}
 # Golang {{{
 [[plugins]]

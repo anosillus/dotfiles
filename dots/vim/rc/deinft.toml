@@ -130,6 +130,10 @@ setlocal omnifunc=
 setlocal shiftwidth=2 softtabstop=2 tabstop=2
 '''
 
+cs = '''
+setlocal shiftwidth=4 softtabstop=4 tabstop=4
+'''
+
 terminal = '''
 if has('nvim')
   startinsert 

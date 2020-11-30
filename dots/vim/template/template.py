@@ -17,4 +17,4 @@ if __name__ == "__main__":
     main()
 
 
-# vim:tw=88 ff=unix ft=python ts=4 sw=4 sts=4 si et:
+# vim:tw=88 ft=python ts=4 sw=4 sts=4 si et:

@@ -2,6 +2,7 @@
 # $env:Path += ";${Env:APPDATA}\Python\Python38\Scripts"
 $env:Path += ";${Env:APPDATA}\npm"
 $env:Path += ";${Env:LOCALAPPDATA}\Packages\PythonSoftwareFoundation.Python.3.8_qbz5n2kfra8p0\LocalCache\local-packages\Python38\Scripts"
+$env:Path += ";${Env:USERPROFILE}\.pyenv\pyenv-win\"
 $env:Path += ";${Env:ProgramData}\chocolatey\bin"
 $env:Path += ";${Env:ProgramFiles}\Git\cmd"
 $env:Path += ";${Env:ProgramFiles}\nodejs"
@@ -11,6 +12,7 @@ $env:Path += ";${Env:SystemDrive}\tools\ffmpeg\bin"
 $env:Path += ";${Env:SystemDrive}\tools\llvm-project\Release\bin"
 $env:Path += ";${Env:USERPROFILE}\.cargo\bin"
 $env:Path += ";${Env:USERPROFILE}\go\bin"
+
 # last, mingw is too strong.
 # $env:Path += ";${Env:SystemDrive}\tools\msys64\mingw64\bin"
 # $env:Path += ";${Env:SystemDrive}\tools\msys64\usr\bin"
