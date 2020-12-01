@@ -11,6 +11,7 @@ set -x -U GOPATH $HOME/go
 
 set PATH /usr/local/bin /usr/sbin $GOPATH/bin $HOME/.local/bin  $PATH
 
+set -Ux fish_user_paths $HOME/.anyenv/bin $fish_user_paths
 set -U fith_user_path $HOME/.cargo/env $fish_user_paths
 set -U fith_user_path $HOME/.rbenv/bin $fish_user_paths
 

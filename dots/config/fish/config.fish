@@ -31,14 +31,14 @@ if functions -q aws-cli
     complete --command aws --no-files --arguments '(begin; set --local --export COMP_SHELL fish; set --local --export COMP_LINE (commandline); aws_completer | sed \'s/ $//\'; end)'
 end
 
-# if functions -q anyenv
-  # set -x PATH ~/.anyenv/bin $PATH
-  # anyenv init - fish | source
-# end
+if functions -q anyenv
+  set -x PATH ~/.anyenv/bin $PATH
+  anyenv init - fish | source
+end
 
-source (pyenv init - | psub)
-status --is-interactive; and pyenv init - | source
-status --is-interactive; and pyenv virtualenv-init - | source
+# source (pyenv init - | psub)
+# status --is-interactive; and pyenv init - | source
+# status --is-interactive; and pyenv virtualenv-init - | source
 
 set -U FZF_LEGACY_KEYBINDINGS 0
 set -U FZF_REVERSE_ISEARCH_OPTS "--reverse --height=100%"
