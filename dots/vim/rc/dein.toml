@@ -30,12 +30,6 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'terlar/vim-ref-fish'
-on_ft = 'fish'
-hook_add = '''
-setlocal keywordprg=:Ref\ fish
-'''
-[[plugins]]
 repo = 'thinca/vim-ref'
 depends = 'ref-sources.vim'
 hook_add = '''
@@ -206,6 +200,18 @@ let g:php_folding = 1
 '''
 
 
+# }}}
+
+# ALE {{{
+[[plugins]]
+repo = 'w0rp/ale'
+# on_event = ['BufWritePre', 'FileWritePre', 'FileAppendPre']
+# hook_source = 'source ~/.vim/rc/plugins/ale.rc.vim'
+hook_add = '''
+source ~/.vim/rc/plugins/ale.rc.vim
+nmap <C-f> <Plug>(ale_next)
+nmap <C-p> <Plug>(ale_previous)
+'''
 # }}}
 
 # uniqe{{{

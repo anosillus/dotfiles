@@ -424,17 +424,6 @@ vnoremap <silent> <Space>r :<C-u>QuickRun -mode v<CR>
 '''
 # }}}
 
-# ALE {{{
-[[plugins]]
-repo = 'w0rp/ale'
-on_event = ['BufWritePre', 'FileWritePre', 'FileAppendPre']
-hook_source = 'source ~/.vim/rc/plugins/ale.rc.vim'
-hook_add = '''
-noremap <C-f> <Plug>(ale_next)
-noremap <C-p> <Plug>(ale_previous)
-'''
-# }}}
-
 # Editor {{{
 [[plugins]]
 repo = 'thinca/vim-template'
@@ -596,6 +585,18 @@ on_ft = 'R'
 repo = 'rhysd/rust-doc.vim'
 hook_source = 'let g:rustfmt_autosave = 0'
 on_ft = 'rust'
+# }}}
+# fish {{{
+[[plugins]]
+repo = 'terlar/vim-ref-fish'
+on_ft = 'fish'
+hook_add = '''
+setlocal keywordprg=:Ref\ fish
+'''
+
+[[plugins]]
+repo = 'dag/vim-fish'
+on_ft = 'fish'
 # }}}
 # CSV {{{
 [[plugins]]

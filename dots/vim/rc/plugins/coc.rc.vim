@@ -12,6 +12,7 @@ endif
 let g:coc_global_extensions = [
   \ 'coc-cmake',
   \ 'coc-emoji',
+  \ 'coc-git',
   \ 'coc-go',
   \ 'coc-html',
   \ 'coc-json',
@@ -39,6 +40,9 @@ imap <C-o> <Plug>(coc-snippets-expand)
 " Use <C-j> for select text for visual placeholder of snippet.
 vmap <C-n> <Plug>(coc-snippets-select)
 
+nmap <Space>f <Plug>(coc-git-nextchunk)
+nmap <Space>p <Plug>(coc-git-prevchunk)
+
 " Use <C-j> for jump to next placeholder, it's default of coc.nvim
 " let g:coc_snippet_next = '<c-n>'
 
@@ -65,7 +69,7 @@ inoremap <silent><expr> <C-e> pumvisible() ? "\<C-p>" : "<Up>"
 inoremap <silent><expr> <c-k> coc#refresh()
 
 " Use <C-j> for both expand and jump (make expand higher priority.)
-nmap <leader>R <Plug>(coc-rename)
+nmap <Space>R <Plug>(coc-rename)
 nmap <silent> gr <Plug>(coc-references)
 
 nnoremap <silent> B :call <SID>show_documentation()<CR>

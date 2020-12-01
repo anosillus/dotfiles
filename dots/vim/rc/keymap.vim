@@ -323,8 +323,6 @@ inoremap <C-d> <C-u>
 " 10 %
 
 " < f/p > is 'Forward/Previous'. {{{
-" map <leader>f <Plug>(coc-git-nextchunk)
-" map <leader>p <Plug>(coc-git-prevchunk)
 " n <C-f><C-p> is ale
 inoremap <C-p> [Nop]
 inoremap <C-f> <C-e>

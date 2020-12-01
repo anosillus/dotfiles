@@ -47,6 +47,10 @@ alias xz='tar Jxfv'
 alias rar='unrar e -r'
 abbr pandoc --from=markdown --to=latex
 abbr youtube-dl -f best -x --audio-format mp3  -o "~/Music/%(title)s.%(ext)s"
+abbr tmux kill-server
+alias tm='tmux'
+abbr yaskkserv2 --config-filename ~/.skk/linux_yaskkserv2.conf
+
 
 alias cd.. 'cd ..'
 alias .. 'cd ..'

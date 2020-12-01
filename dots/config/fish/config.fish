@@ -35,20 +35,21 @@ if not test -d ~/.anyenv
   anyenv init - fish | source
   anyenv install pyenv
   anyenv install nodenv
+else
+  # set -x PATH $HOME/.anyenv/bin $PATH
+  set PATH $PATH $HOME/.anyenv/bin
+  anyenv init - fish | source
+  # status --is-interactive; and source (anyenv init -|psub)
+  # anyenv init
+  eval (direnv hook fish)
 end
-# set -Ux fish_user_paths $HOME/.anyenv/bin $fish_user_paths
-set -x PATH $HOME/.anyenv/bin $PATH
-anyenv init - fish | source
-
-eval (direnv hook fish)
 
 if functions -q aws-cli
     complete --command aws --no-files --arguments '(begin; set --local --export COMP_SHELL fish; set --local --export COMP_LINE (commandline); aws_completer | sed \'s/ $//\'; end)'
 end
 
-
 # set fish_plugins theme peco
-set -U async_prompt_inherit_variables all
+# set -U async_prompt_inherit_variables all
 # set -U async_prompt_functions fish_right_prompt
 
 set -U FZF_LEGACY_KEYBINDINGS 0

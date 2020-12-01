@@ -1,5 +1,3 @@
-# echo Hi Free-OS!
-
 set -Ux EDITOR gvim
 set -Ux Browser chromium
 
