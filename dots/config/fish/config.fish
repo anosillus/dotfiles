@@ -32,24 +32,19 @@ if not test -d ~/.anyenv
   mkdir -p ~/.anyenv/plugins
   git clone https://github.com/znz/anyenv-update.git ~/.anyenv/plugins/anyenv-update
   exec $SHELL -l
+  anyenv init - fish | source
+  anyenv install pyenv
+  anyenv install nodenv
 end
 set -Ux fish_user_paths $HOME/.anyenv/bin $fish_user_paths
-# set -x PATH $HOME/.anyenv/bin $PATH
 anyenv init - fish | source
-# eval (anyenv init - | source)
 
 eval (direnv hook fish)
-
-
 
 if functions -q aws-cli
     complete --command aws --no-files --arguments '(begin; set --local --export COMP_SHELL fish; set --local --export COMP_LINE (commandline); aws_completer | sed \'s/ $//\'; end)'
 end
 
-
-# source (pyenv init - | psub)
-# status --is-interactive; and pyenv init - | source
-# status --is-interactive; and pyenv virtualenv-init - | source
 
 # set fish_plugins theme peco
 set -U async_prompt_inherit_variables all

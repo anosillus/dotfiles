@@ -175,7 +175,7 @@ repo = 'kana/vim-textobj-user'
 
 # Editor_Configs {{{
 [[plugins]]
-repo ='editorconfig/editorconfig-vim'
+repo ='sgur/vim-editorconfig'
 [[plugins]]
 repo = 'vim-scripts/autodate.vim'
 # config }}}

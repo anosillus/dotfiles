@@ -32,8 +32,8 @@ alias D='eval $EDITOR ~/dev'
 
 alias v='eval $EDITOR'
 alias V='eval $EDITOR --remote-tab-silent'
-alias vv='eval $EDITOR ~/.vim/rc/'
-alias vf='eval $EDITOR ~/.config/fish/'
+alias vv='eval $EDITOR ~/.vim/rc/dein.toml'
+alias vf='eval $EDITOR ~/.config/fish/config.fish'
 
 alias shodo='eval $Browser -app="https://app.shodo.ink/"'
 alias gmail='eval $Browser -app="https://mail.google.com/mail/u/0/#inbox"'
