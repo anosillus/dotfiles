@@ -47,9 +47,9 @@ if has('win32') || has('win64')
   " Height of window.
    set lines=55
 else
-  if &columns < 170
+  if &columns < 150
     " Width of window.
-     set columns=170
+     set columns=150
   endif
   if &lines < 40
     " Height of window.

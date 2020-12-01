@@ -14,6 +14,18 @@ let g:python_host_prog  = '/usr/local/bin/python2'
 let g:python3_host_prog = '/usr/local/bin/python3'
 let g:pydocstring_doq_path = $HOME.'/.local/bin/doq'
 
+let g:eskk#dictionary = {
+\   'path': expand('$CACHE/skk-jisyo'),
+\   'sorted': 0,
+\   'encoding': 'utf-8'
+\}
+let g:eskk#large_dictionary = {
+\   'path': '~/Library/Application\ Support/AquaSKK/SKK-JISYO.L',
+\   'sorted': 1,
+\   'encoding': 'euc-jp'
+\}
+
+
 if has('gui_running')
   finish
 endif

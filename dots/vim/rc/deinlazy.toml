@@ -618,11 +618,11 @@ on_ft = 'cs'
 [[plugins]]
 repo = 'mattn/vim-goimports'
 on_ft = 'go'
-[[plugins]]
-repo = 'fatih/vim-go'
-hook_source = 'let g:rustfmt_autosave = 0'
-on_ft = 'golang'
-build = ':GoInstallBinaries'
+# [[plugins]]
+# repo = 'fatih/vim-go'
+# hook_source = 'let g:rustfmt_autosave = 0'
+# on_ft = 'golang'
+# build = ':GoInstallBinaries'
 # }}}
 # Japanese {{{
 [[plugins]]

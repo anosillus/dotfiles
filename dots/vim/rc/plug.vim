@@ -6,16 +6,18 @@ let g:dein#notification_icon = '~/.vim/signs/warn.png'
 
 let g:dein#inline_vimrcs = ['keymap.vim', 'basic.vim', 'filetype.vim']
 if IsLinux()
-  call add(g:dein#inline_vimrcs, 'unix.vim')
+ call add(g:dein#inline_vimrcs, 'unix.vim')
+ echo 55
 elseif IsWindows()
-  call add(g:dein#inline_vimrcs, 'windows.vim')
+ call add(g:dein#inline_vimrcs, 'windows.vim')
 elseif IsMac()
-  call add(g:dein#inline_vimrcs, 'mac.vim')
+ call add(g:dein#inline_vimrcs, 'mac.vim')
 endif
 
 if has('nvim')
   call add(g:dein#inline_vimrcs, 'neovim.vim')
-elseif has('gui_running')
+endif
+if has('gui_running')
   call add(g:dein#inline_vimrcs, 'gui.vim')
 endif
 

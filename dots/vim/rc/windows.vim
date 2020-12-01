@@ -24,6 +24,21 @@ let g:python3_host_prog = expand('C:\Users\anosillus\AppData\Local\Microsoft\Win
 let g:jasegment#mecab#cmd='"C:/Program Files (x86)/MeCab/bin/mecab.exe"'
 let g:jasegment#cabocha#cmd = '"C:/Program Files (x86)/CaboCha/bin/cabocha.exe"'
 let g:jasegment#model = 'cabocha'
+let g:eskk#dictionary = {
+\   'path': expand('$CACHE/skk-jisyo'),
+\   'sorted': 0,
+\   'encoding': 'utf-8'
+\}
+let g:eskk#large_dictionary = {
+\   'path': '$HOME/.skk/SKK-JISYO.L',
+\   'sorted': 1,
+\   'encoding': 'euc-jp'
+\}
+let g:eskk#server = {
+\   'host': 'localhost',
+\   'port':  1178,
+\   'type': 'notfound'
+\}
 
 if !exists('g:colors_name') && !has('gui_running')
   colorscheme jellybeans

@@ -1,5 +1,7 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
+[[plugins]]
+repo = 'wsdjeg/dein-ui.vim'
 
 # coc {{{
 [[plugins]]
@@ -160,9 +162,9 @@ repo = 'maximbaz/lightline-ale'
 # }}}
 
 # dependent {{{
-[[plugins]]
-repo = 'nixprime/cpsm'
-build = 'sh -c "PY3=ON ./install.sh"'
+# [[plugins]] */
+# repo = 'nixprime/cpsm'
+# build = 'sh -c "PY3=ON ./install.sh"'
 [[plugins]]
 repo = 'tyru/open-browser.vim'
 [[plugins]]
@@ -319,7 +321,7 @@ noremap I W
 map h <Plug>WordMotion_b
 noremap H B
 map <C-h> <Plug>WordMotion_ge
-nmap <C-i> <Plug>WordMotion_e
+map <C-i> <Plug>WordMotion_e
 '''
 
 
