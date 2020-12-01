@@ -36,7 +36,8 @@ if not test -d ~/.anyenv
   anyenv install pyenv
   anyenv install nodenv
 end
-set -Ux fish_user_paths $HOME/.anyenv/bin $fish_user_paths
+# set -Ux fish_user_paths $HOME/.anyenv/bin $fish_user_paths
+set -x PATH $HOME/.anyenv/bin $PATH
 anyenv init - fish | source
 
 eval (direnv hook fish)
