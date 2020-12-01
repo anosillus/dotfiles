@@ -23,8 +23,8 @@ alias skkserv='yaskkserv2 --config-filename ~/.skk/linux_yaskkserv2.conf'
 #alias pip='pip3'
 #alias pip2='pip2'
 
-alias l ls\ -AFG
-alias ll ls\ -AFGl
+# alias l ls\ -AFG
+# alias ll ls\ -AFGl
 
 alias W='eval $EDITOR ~/Work'
 alias vW='eval $EDITOR ~/Work'
@@ -35,8 +35,8 @@ alias xz='tar Jxfv'
 alias rar='unrar e -r'
 alias pantex='pandoc --from=markdown --to=latex'
 alias um='youtube-dl -f best -x --audio-format mp3  -o "~/Music/%(title)s.%(ext)s"'
-alias jn='docker-compose -f $HOME/docker/jupyter_setup/docker-compose.yml -up -d'
-alias rs='docker-compose -f  ~/docker/docker-rstudio-server/docker-compose.yml up -d'
+abbr docker run -i -t -p 8888:8888 -v (pwd):/opt/playground continuumio/anaconda3 /bin/bash -c "/opt/conda/bin/conda install jupyter -y --quiet && mkdir /opt/notebooks && /opt/conda/bin/jupyter notebook --notebook-dir=/opt/playground --ip='*' --allow-root --NotebookApp.token='' --NotebookApp.password='' --port=8888 --no-browser"
+abbr docker run -d -p 8787:8787 -v (pwd):/home/rstudio rocker/rstudio
 
 alias cd.. 'cd ..'
 alias .. 'cd ..'

@@ -1,6 +1,6 @@
 function fish_user_key_bindings
         bind \cr peco_select_history
-        bind \c] peco_select_ghq_repository
+        bind \ct peco_select_ghq_repository
 
         # gh-open
         bind \cx\cl peco_open_gh_repository
@@ -19,6 +19,7 @@ function fish_user_key_bindings
         bind \eD '__fzf_cd_with_hidden'
 end
 # }}}
+
 
 # cd のあとに ls -a
 # function cd
