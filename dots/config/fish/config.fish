@@ -33,7 +33,8 @@ if not test -d ~/.anyenv
   git clone https://github.com/znz/anyenv-update.git ~/.anyenv/plugins/anyenv-update
   exec $SHELL -l
 end
-set -x PATH $HOME/.anyenv/bin $PATH
+set -Ux fish_user_paths $HOME/.anyenv/bin $fish_user_paths
+# set -x PATH $HOME/.anyenv/bin $PATH
 anyenv init - fish | source
 # eval (anyenv init - | source)
 

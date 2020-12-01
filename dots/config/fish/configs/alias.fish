@@ -29,14 +29,24 @@ alias skkserv='yaskkserv2 --config-filename ~/.skk/linux_yaskkserv2.conf'
 alias W='eval $EDITOR ~/Work'
 alias vW='eval $EDITOR ~/Work'
 alias D='eval $EDITOR ~/dev'
+
+alias v='eval $EDITOR'
+alias V='eval $EDITOR --remote-tab-silent'
+alias vv='eval $EDITOR ~/.vim/rc/'
+alias vf='eval $EDITOR ~/.config/fish/'
+
+alias shodo='eval $Browser -app="https://app.shodo.ink/"'
+alias gmail='eval $Browser -app="https://mail.google.com/mail/u/0/#inbox"'
+alias gmail='eval $Browser -app="https://mail.google.com/mail/u/0/#inbox"'
+alias gcp='eval $Browser -app="https://console.cloud.google.com/"'
+alias domain='eval $Browser -app="https://njal.la/domains/"'
+
 alias tar='tar -xvzf'
 alias 7z='7z x'
 alias xz='tar Jxfv'
 alias rar='unrar e -r'
-alias pantex='pandoc --from=markdown --to=latex'
-alias um='youtube-dl -f best -x --audio-format mp3  -o "~/Music/%(title)s.%(ext)s"'
-abbr docker run -i -t -p 8888:8888 -v (pwd):/opt/playground continuumio/anaconda3 /bin/bash -c "/opt/conda/bin/conda install jupyter -y --quiet && mkdir /opt/notebooks && /opt/conda/bin/jupyter notebook --notebook-dir=/opt/playground --ip='*' --allow-root --NotebookApp.token='' --NotebookApp.password='' --port=8888 --no-browser"
-abbr docker run -d -p 8787:8787 -v (pwd):/home/rstudio rocker/rstudio
+abbr pandoc --from=markdown --to=latex
+abbr youtube-dl -f best -x --audio-format mp3  -o "~/Music/%(title)s.%(ext)s"
 
 alias cd.. 'cd ..'
 alias .. 'cd ..'
@@ -49,6 +59,10 @@ alias fault= 'sudo shutdown -P now'
 alias md 'mkdir -p'
 alias cx 'chmod +x'
 alias 'c-x' 'chmod -x'
+
+abbr docker run -i -t -p 8888:8888 -v (pwd):/opt/playground continuumio/anaconda3 /bin/bash -c "/opt/conda/bin/conda install jupyter -y --quiet && mkdir /opt/notebooks && /opt/conda/bin/jupyter notebook --notebook-dir=/opt/playground --ip='*' --allow-root --NotebookApp.token='' --NotebookApp.password='' --port=8888 --no-browser"
+abbr docker run -d -p 8787:8787 -v (pwd):/home/rstudio rocker/rstudio
+abbr ssh-keygen -t rsa -b 4096 -C "anosillus@gmail.com"
 
 # Git {{{
 alias gd='vim +Gapply'
