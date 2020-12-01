@@ -430,8 +430,8 @@ repo = 'w0rp/ale'
 on_event = ['BufWritePre', 'FileWritePre', 'FileAppendPre']
 hook_source = 'source ~/.vim/rc/plugins/ale.rc.vim'
 hook_add = '''
-nmap <C-f> <Plug>(ale_next)
-nmap <C-p> <Plug>(ale_previous)
+noremap <C-f> <Plug>(ale_next)
+noremap <C-p> <Plug>(ale_previous)
 '''
 # }}}
 
@@ -1023,25 +1023,18 @@ return extend(copy({
 \ }), get(a:, 1, {}))
 endfunction
 
-if matchstr(expand('%:p'),'jp.md') !=# ''
-  noremap <silent><expr>  , incsearch#go(<SID>config_migemo())
-  noremap <silent><expr>  ? incsearch#go(<SID>config_migemo({'command': '?'}))
-else
-  noremap  <silent><expr> ,  incsearch#go(<SID>incsearch_config())
-  noremap  <silent><expr> ? incsearch#go(<SID>incsearch_config({'command': '?'}))
-endif
+
+omap ,  <Plug>(incsearch-forward)
+omap ?  <Plug>(incsearch-backward)
+
+noremap  <silent><expr> ,  incsearch#go(<SID>incsearch_config())
+noremap  <silent><expr> ? incsearch#go(<SID>incsearch_config({'command': '?'}))
 noremap <silent><expr>  g, incsearch#go(<SID>incsearch_config({'is_stay': 1}))
 noremap <silent><expr>  m, incsearch#go(<SID>config_migemo())
 noremap <silent><expr>  m? incsearch#go(<SID>config_migemo({'command': '?'}))
 noremap <silent><expr>  gm incsearch#go(<SID>config_migemo({'is_stay': 1}))
 noremap <silent><expr>  / incsearch#go(<SID>config_easyfuzzymotion())
 nnoremap g/ <Plug>(incsearch-stay)
-if !has('patch-8.0.1238')
-  noremap <silent><expr> ,  incsearch#go(<SID>incsearch_config())
-  noremap <silent><expr> ?  incsearch#go(<SID>incsearch_config({'command': '?'}))
-  omap ,  <Plug>(incsearch-forward)
-  omap ?  <Plug>(incsearch-backward)
-endif
 '''
 on_map = '<Plug>'
 # }}}

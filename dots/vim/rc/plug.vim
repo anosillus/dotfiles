@@ -4,10 +4,13 @@ let g:dein#install_progress_type = 'title'
 let g:dein#enable_notification = v:true
 let g:dein#notification_icon = '~/.vim/signs/warn.png'
 
-let g:dein#inline_vimrcs = ['keymap.vim', 'basic.vim', 'filetype.vim']
+let g:dein#inline_vimrcs = ['keymap.vim', 'basic.vim', 'filetype.vim', 'gui.vim']
+" if has('gui_running')
+  " call add(g:dein#inline_vimrcs, 'gui.vim')
+" endif
+
 if IsLinux()
  call add(g:dein#inline_vimrcs, 'unix.vim')
- echo 55
 elseif IsWindows()
  call add(g:dein#inline_vimrcs, 'windows.vim')
 elseif IsMac()
@@ -16,9 +19,6 @@ endif
 
 if has('nvim')
   call add(g:dein#inline_vimrcs, 'neovim.vim')
-endif
-if has('gui_running')
-  call add(g:dein#inline_vimrcs, 'gui.vim')
 endif
 
 call map(g:dein#inline_vimrcs, "resolve(expand('~/.vim/rc/' . v:val))")

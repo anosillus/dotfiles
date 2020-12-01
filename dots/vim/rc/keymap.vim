@@ -15,9 +15,9 @@ nmap <Leader><Leader> :<C-u>w<CR>
 " }}}
 
 " <Enter> is 'Page Scroll'. {{{
-nmap  <CR> <C-f>
-nmap     <S-CR>  <C-b>
-noremap  <C-CR>  <C-d>
+noremap     <CR>   <C-f>
+noremap     <S-CR> <C-b>
+noremap  <C-CR> <C-d>
 inoremap <C-CR> <ESC>+i
 
 "<Todo>
@@ -39,7 +39,7 @@ noremap :  ;
 " }}}
 
 " Change histry mover
-map , /
+" map , /
 " nnoremap g. g;
 " nnoremap g: g,
 " <C-,/.> didn't work on ubuntu.

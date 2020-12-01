@@ -29,7 +29,6 @@ elseif has('mac')
   set guifont=Osaka－等幅:h14
 else
   set guifont=Cica\ 18
-
   " For Linux.
    " set guifontwide=VL\ Gothic\ 13
    " set guifont=Courier\ 10\ Pitch\ 14
