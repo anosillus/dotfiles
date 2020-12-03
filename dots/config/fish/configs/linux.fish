@@ -1,6 +1,7 @@
 # echo Hi Free-OS!
 
-set -Ux EDITOR gvim
+# set -Ux EDITOR gvim
+set -Ux EDITOR goneovim
 set -Ux Browser chromium
 
 set -x -U GOPATH $HOME/go
