@@ -35,6 +35,7 @@ if not test -d ~/.anyenv
   anyenv init - fish | source
   anyenv install pyenv
   anyenv install nodenv
+  git clone https://github.com/pyenv/pyenv-virtualenv.git (pyenv root)/plugins/pyenv-virtualenv
 else
   # set -x PATH $HOME/.anyenv/bin $PATH
   set PATH $PATH $HOME/.anyenv/bin
@@ -54,6 +55,8 @@ end
 
 set -U FZF_LEGACY_KEYBINDINGS 0
 set -U FZF_REVERSE_ISEARCH_OPTS "--reverse --height=100%"
+# set VIRTUAL_ENV_DISABLE_PROMPT disable
+# set VIRTUAL_ENV
 
 set -g theme_display_git yes
 set -g theme_display_git_dirty no
@@ -76,11 +79,11 @@ set -g theme_display_nvm yes
 set -g theme_display_user ssh
 set -g theme_display_hostname ssh
 set -g theme_display_vi yes
-set -g theme_display_date no
+set -g theme_display_date yes
 set -g theme_display_cmd_duration yes
 set -g theme_title_display_process yes
 set -g theme_title_display_path no
-set -g theme_title_display_user yes
+set -g theme_title_display_user no
 set -g theme_title_use_abbreviated_path no
 set -g theme_date_format "+%a %H:%M"
 set -g theme_date_timezone Japan/Tokyo
@@ -95,4 +98,6 @@ set -g fish_prompt_pwd_dir_length 0
 set -g theme_project_dir_length 1
 set -g theme_newline_cursor yes
 set -g theme_newline_prompt '$ '
-# # direnv hook fish | source
+
+direnv hook fish | source
+eval (direnv hook fish)

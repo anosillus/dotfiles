@@ -54,6 +54,7 @@ setlocal t_Co=256
 setlocal imdisable
 setlocal autoread
 setlocal splitright
+set autochdir
 if &diff
     let &diffexpr='EnhancedDiff#Diff("git diff", "--diff-algorithm=patience")'
 endif
@@ -84,20 +85,30 @@ setlocal fileencodings=utf-8,iso-2022-jp,cp932,euc-jp
 language message en_US.utf8
 set shortmess+=c
 " ---------- Bell Off ----------
-setlocal novisualbell
-setlocal noerrorbells
+set novisualbell
+set noerrorbells
+set vb t_vb=
+set belloff=all
+set mouse=
+set mousemodel=
+
+" Don't focus the window when the mouse pointer is moved.
+set nomousefocus
+" Hide mouse pointer on insert mode.
+set mousehide
+
 " ---------- Tab/Indent ----------
-setl expandtab
-setl tabstop=2
-setl shiftwidth=2
-setl softtabstop=2
-setl autoindent
-setl smartindent
-setl smarttab
-setl laststatus=2
+setlocal expandtab
+setlocal tabstop=2
+setlocal shiftwidth=2
+setlocal softtabstop=2
+setlocal autoindent
+setlocal smartindent
+setlocal smarttab
+setlocal laststatus=2
 
 if exists('&ambiwidth')
-  setl ambiwidth=double
+  setlocal ambiwidth=double
 endif
 " ---------- Japanese Input ----------
 let g:hi_insert = 'highlight StatusLine guifg=darkblue guibg=darkyellow gui=none ctermfg=blue ctermbg=yellow cterm=none'

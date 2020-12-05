@@ -64,16 +64,6 @@ endif
 
 "---------------------------------------------------------------------------
 " Options:
-set mouse=
-set mousemodel=
-
-" Don't focus the window when the mouse pointer is moved.
-set nomousefocus
-" Hide mouse pointer on insert mode.
-set mousehide
-
-" Hide toolbar and menus.
-set t_vb=
 set guioptions-=Tt
 set guioptions-=m
 " Scrollbar is always off.
