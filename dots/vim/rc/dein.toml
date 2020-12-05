@@ -2,6 +2,8 @@
 repo = 'Shougo/dein.vim'
 [[plugins]]
 repo = 'wsdjeg/dein-ui.vim'
+[[plugins]]
+repo = 'haya14busa/dein-command.vim'
 
 # coc {{{
 [[plugins]]
@@ -349,8 +351,39 @@ repo = 'arthurxavierx/vim-unicoder'
 repo = 'mattn/emmet-vim'
 hook_add = '''
 let g:user_emmet_install_global = 1
-let g:user_emmet_mode='vn'
-let g:user_emmet_leader_key='<C-.>'
+let g:user_emmet_mode='vin'
+" let g:user_emmet_leader_key='<C-;>'
+imap   <C-;>;   <plug>(emmet-expand-abbr)
+imap   <C-;>.   <plug>(emmet-expand-word)
+" imap   <C-;>u   <plug>(emmet-update-tag)
+" imap   <C-;>d   <plug>(emmet-balance-tag-inward)
+" imap   <C-;>D   <plug>(emmet-balance-tag-outward)
+" imap   <C-;>n   <plug>(emmet-move-next)
+" imap   <C-;>N   <plug>(emmet-move-prev)
+" imap   <C-;>i   <plug>(emmet-image-size)
+" imap   <C-;>/   <plug>(emmet-toggle-comment)
+" imap   <C-;>j   <plug>(emmet-split-join-tag)
+" imap   <C-;>k   <plug>(emmet-remove-tag)
+" imap   <C-;>a   <plug>(emmet-anchorize-url)
+" imap   <C-;>A   <plug>(emmet-anchorize-summary)
+" imap   <C-;>m   <plug>(emmet-merge-lines)
+" imap   <C-;>c   <plug>(emmet-code-pretty)
+ 
+" let g:user_emmet_expandabbr_key = '<<C-,>>,'
+" let g:user_emmet_expandword_key = '<<C-.>>;'
+" let g:user_emmet_update_tag = '<<C-.>>u'
+" let g:user_emmet_balancetaginward_key = '<<C-.>>d'
+" let g:user_emmet_balancetagoutward_key = '<<C-.>>D'
+" let g:user_emmet_next_key = '<<C-.>>n'
+" let g:user_emmet_prev_key = '<<C-.>>N'
+" let g:user_emmet_imagesize_key = '<<C-.>>i'
+" let g:user_emmet_togglecomment_key = '<<C-.>>/'
+" let g:user_emmet_splitjointag_key = '<<C-.>>j'
+" let g:user_emmet_removetag_key = '<<C-.>>k'
+" let g:user_emmet_anchorizeurl_key = '<<C-.>>a'
+" let g:user_emmet_anchorizesummary_key = '<<C-.>>A'
+" let g:user_emmet_mergelines_key = '<<C-.>>m'
+" let g:user_emmet_codepretty_key = '<<C-.>>c'
 '''
 [[plugins]]
 repo = 'pbrisbin/vim-mkdir'

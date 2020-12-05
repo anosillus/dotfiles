@@ -8,6 +8,7 @@ set ambiwidth=double
 
 if has('win32') || has('win64')
   " For Windows.
+  set runtimepath+=$HOME\.vim
   set guifont=Cica:h12:cSHIFTJIS:qDRAFT
   set renderoptions=type:directx
   " set guifont=Cica:h12

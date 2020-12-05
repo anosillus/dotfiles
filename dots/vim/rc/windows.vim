@@ -7,8 +7,6 @@ if $PATH !~? '\(^\|;\)' . escape($VIM, '\\') . '\(;\|$\)'
   let $PATH = $VIM . ';' . $PATH
 endif
 
-set runtimepath+=~\.vim
-
 let g:vimproc#download_windows_dll = 1
 set runtimepath+=C:\Users\anosillus\AppData\Local\Microsoft\WindowsApps\python.exe
 set pythonthreedll+=C:\Users\anosillus\AppData\Local\Programs\Python\Python38\python38.dll
@@ -29,15 +27,14 @@ let g:eskk#dictionary = {
 \   'sorted': 0,
 \   'encoding': 'utf-8'
 \}
-let g:eskk#large_dictionary = {
-\   'path': '$HOME/.skk/SKK-JISYO.L',
-\   'sorted': 1,
-\   'encoding': 'euc-jp'
-\}
+" let g:eskk#large_dictionary = {
+"\   'path': '$HOME/.skk/SKK-JISYO.L',
+"\   'sorted': 1,
+"\   'encoding': 'euc-jp'
+"\}
 let g:eskk#server = {
 \   'host': 'localhost',
 \   'port':  1178,
-\   'type': 'notfound'
 \}
 
 if !exists('g:colors_name') && !has('gui_running')

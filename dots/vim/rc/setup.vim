@@ -60,7 +60,6 @@ if &runtimepath !~# '/dein.vim'
         \ fnamemodify(s:dein_dir, ':p') , '/$', '', '')
 endif
 
-
 "---------------------------------------------------------------------------
 " Disable default plugins
 
