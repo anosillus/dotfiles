@@ -11,4 +11,6 @@ sessions/
 private.*
 *history.json
 memos.json
-aa.*
+configstore/
+*.um.swap
+*.swap
