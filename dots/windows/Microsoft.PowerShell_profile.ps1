@@ -1,7 +1,8 @@
 # Path {{{
+$env:Path += ";${Env:LOCALAPPDATA}\yarn\bin"
+$env:Path += ";${Env:LOCALAPPDATA}\Packages\PythonSoftwareFoundation.Python.3.8_qbz5n2kfra8p0\LocalCache\local-packages\Python38\Scripts"
 # $env:Path += ";${Env:APPDATA}\Python\Python38\Scripts"
 $env:Path += ";${Env:APPDATA}\npm"
-$env:Path += ";${Env:LOCALAPPDATA}\Packages\PythonSoftwareFoundation.Python.3.8_qbz5n2kfra8p0\LocalCache\local-packages\Python38\Scripts"
 $env:Path += ";${Env:USERPROFILE}\.pyenv\pyenv-win\"
 $env:Path += ";${Env:ProgramData}\chocolatey\bin"
 $env:Path += ";${Env:ProgramFiles}\Git\cmd"
