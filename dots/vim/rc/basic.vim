@@ -167,3 +167,8 @@ function! s:hl_zenkaku_space()
   highlight! link ZenkakuSpace Error
   syntax match ZenkakuSpace containedin=ALL /　/
 endfunction
+
+silent! filetype plugin indent on
+syntax enable
+filetype detect
+setlocal laststatus=2
