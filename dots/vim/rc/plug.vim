@@ -1,10 +1,10 @@
 let g:dein#auto_recache = v:true
 let g:dein#lazy_rplugins = v:true
 let g:dein#install_progress_type = 'title'
-let g:dein#enable_notification = v:true
+let g:dein#enable_notification = v:false
 let g:dein#notification_icon = '~/.vim/signs/warn.png'
 
-let g:dein#inline_vimrcs = ['keymap.vim', 'basic.vim', 'filetype.vim']
+let g:dein#inline_vimrcs = ['keymap.vim', 'basic.vim', 'filetype.vim', 'gui.vim']
 
 if IsLinux()
  call add(g:dein#inline_vimrcs, 'unix.vim')
@@ -14,8 +14,9 @@ elseif IsMac()
  call add(g:dein#inline_vimrcs, 'mac.vim')
 endif
 
-" elseif has('gui_running')
-call add(g:dein#inline_vimrcs, 'gui.vim')
+" if has('gui_running')
+"  call add(g:dein#inline_vimrcs, 'gui.vim')
+" endif
 
 if has('nvim')
   call add(g:dein#inline_vimrcs, 'neovim.vim')
@@ -42,6 +43,9 @@ call dein#load_toml(s:dein_ft_toml)
 
 call dein#end()
 call dein#save_state()
+
+filetype plugin indent on
+syntax enable
 
 if !has('vim_starting') && dein#check_install()
   " Installation check.

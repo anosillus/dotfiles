@@ -109,7 +109,8 @@ setlocal iskeyword+=-
 '''
 
 json = '''
-setlocal expandtab foldmarker=syntax
+setlocal expandtab
+setlocal foldmethod=syntax
 '''
 
 javascript = '''

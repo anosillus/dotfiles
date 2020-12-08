@@ -362,12 +362,12 @@ depends = 'denite.nvim'
 on_source = ['defx.nvim', 'denite.nvim']
 hook_add = '''
   if has('win32') || has('win64')
-    nnoremap <silent> <Leader>f :<C-u>Deol powershell -no-start-insert<CR>
+    nnoremap <silent> <Space>f :<C-u>Deol powershell -no-start-insert<CR>
   else
-    nnoremap <silent> <Leader>f :<C-u>Deol fish -no-start-insert<CR>
+    nnoremap <silent> <Space>f :<C-u>Deol fish -no-start-insert<CR>
     let g:deol#shell_history_path = '~/.local/share/fish/fish_history'
   endif
-  nnoremap <silent> <Leader>D  :<C-u>call deol#kill_editor()<CR>
+  nnoremap <silent> <Space>D  :<C-u>call deol#kill_editor()<CR>
 '''
 hook_source = '''
     let g:deol#prompt_pattern = '\w*% '
@@ -377,11 +377,11 @@ hook_source = '''
 '''
 [plugins.ftplugin]
 deol = '''
-  nnoremap <buffer><silent> <Leader>gc
+  nnoremap <buffer><silent> <Space>gc
   \ :<C-u>call deol#send('git commit')<CR>
-  nnoremap <buffer><silent> <Leader>gs
+  nnoremap <buffer><silent> <Space>gs
   \ :<C-u>call deol#send('git status')<CR>
-  nnoremap <buffer><silent> <Leader>gA
+  nnoremap <buffer><silent> <Space>gA
   \ :<C-u>call deol#send('git commit --amend')<CR>
   nmap <buffer> i <Plug>(deol_edit)
   nmap <buffer> e <Plug>(deol_edit)
@@ -507,7 +507,6 @@ hook_add = '''
 [[plugins]]
 repo = 'othree/yajs.vim'
 on_ft = 'javascript'
-
 [[plugins]]
 repo = 'jparise/vim-graphql'
 of_ft = ['javascript', 'typescript']
@@ -524,7 +523,7 @@ of_ft = ['javascript', 'typescript']
 # markdown {{{
 [[plugins]]
 repo = 'rhysd/vim-gfm-syntax'
-on_ft = 'markdown.gfm'
+on_ft = 'markdown'
 [[plugins]]
 repo = 'osyo-manga/vim-precious'
 depends = 'context_filetype.vim'
@@ -535,7 +534,7 @@ on_ft = 'markdown'
 [[plugins]]
 repo = 'rcmdnk/vim-markdown'
 on_ft = 'markdown'
-hook_source = '''
+source_add = '''
 let g:markdown_enable_mappings = 0
 let g:markdown_enable_spell_checking = 0
 let g:vim_markdown_no_extensions_in_markdown = 1
@@ -567,7 +566,7 @@ on_ft = 'python'
 repo = 'heavenshell/vim-pydocstring'
 build = 'make install'
 on_ft = 'python'
-hook_add = 'map <silent> lo <Plug>(pydocstring)'
+hook_source = 'map <silent> lo <Plug>(pydocstring)'
 [[plugins]]
 repo = 'tmhedberg/SimpylFold'
 on_ft = 'python'
@@ -670,11 +669,14 @@ noremap <silent> <C-i> f。
 noremap <silent> <C-h> F。
 '''
 # }}}
-# end filetype }}}
-
+# }}}
+# configs{{{
+[[plugins]]
+repo = 'mboughaba/i3config.vim'
 [[plugins]]
 repo = 'lambdalisue/vim-findent'
-# filetype }}}
+# }}}
+# end filetype }}}
 
 # {{{ text object
 [[plugins]]
@@ -866,8 +868,8 @@ on_map = {nxo = '<Plug>'}
 repo = "sgur/vim-operator-openbrowser"
 depends = ['vim-operator-user', 'open-browser.vim']
 hook_add = '''
-nmap <Leader>B <Plug>(operator-openbrowser)
-vmap <Leader>B <Plug>(operator-openbrowser)
+nmap <Space>B <Plug>(operator-openbrowser)
+vmap <Space>B <Plug>(operator-openbrowser)
 '''
 on_map = {nv = '<Plug>'}
 # }}}
@@ -959,8 +961,8 @@ let g:EasyMotion_space_jump_first = 1
 let g:EasyMotion_prompt = '{n}> '
 '''
 hook_add = '''
-nmap <leader>s <Plug>(easymotion-overwin-f2)
-xmap <leader>s <Plug>(easymotion-bd-f2)
+nmap <Space>s <Plug>(easymotion-overwin-f2)
+xmap <Space>s <Plug>(easymotion-bd-f2)
 " smart f & F
 map f <Plug>(easymotion-bd-fl)
 map F <Plug>(easymotion-Fl)

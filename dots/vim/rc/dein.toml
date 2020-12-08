@@ -329,13 +329,12 @@ repo = 'chaoren/vim-wordmotion'
 hook_add = '''
 let g:wordmotion_nomap = 1
 map i <Plug>WordMotion_w
-noremap I W
+noremap <C-i> W
 map h <Plug>WordMotion_b
-noremap H B
-map <C-h> <Plug>WordMotion_ge
-map <C-i> <Plug>WordMotion_e
+noremap <C-h> B
+map H <Plug>WordMotion_ge
+map I <Plug>WordMotion_e
 '''
-
 
 [[plugins]]
 repo = 'yuttie/comfortable-motion.vim'

@@ -7,5 +7,6 @@ decors/fish-ghq
 jethrokuan/z
 patrickf1/colored_man_pages.fish
 gazorby/fish-exa
-oh-my-fish/plugin-direnv
 oh-my-fish/theme-bobthefish
+jorgebucaran/powerline.fish
+ryoppippi/fish-poetry

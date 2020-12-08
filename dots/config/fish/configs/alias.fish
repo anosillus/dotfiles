@@ -3,21 +3,22 @@
 # alias ad='sudo apt update'
 # alias q='nvim-qt'
 
-alias p='python3'
-alias python='python3'
-alias python2='python2'
-alias ipython='ipython3'
-alias p2='python2'
-alias pi='pip3 install'
-alias pip='pip3'
-alias pu='pip3 install --upgrade'
-alias pi2='pip2 install'
-alias pu2='pip2 install --upgrade'
-alias gi='gem install'
-alias ni='npm install'
-alias ng='npm install -g'
-alias html='google-chrome'
-alias skkserv='yaskkserv2 --config-filename ~/.skk/linux_yaskkserv2.conf'
+abbr p python3
+abbr python python3
+abbr python2 python2
+abbr ipython ipython3
+abbr p2 python2
+abbr pi pip3 install
+abbr pr pip3 remove
+abbr pip pip3
+abbr pu pip3 install --upgrade
+abbr pi2 pip2 install
+abbr pu2 pip2 install --upgrade
+abbr gi gem install
+abbr ni npm install
+abbr ng npm install -g
+abbr html google-chrome
+abbr skk yaskkserv2 --config-filename ~/.skk/linux_yaskkserv2.conf
 
 #alias jn='jupyter-notebook'
 #alias pip='pip3'
@@ -30,10 +31,11 @@ alias W='eval $EDITOR ~/Work'
 alias vW='eval $EDITOR ~/Work'
 alias D='eval $EDITOR ~/dev'
 
-alias v='eval $EDITOR'
-alias V='eval $EDITOR --remote-tab-silent'
-alias vv='eval $EDITOR ~/.vim/rc/dein.toml'
-alias vf='eval $EDITOR ~/.config/fish/config.fish'
+abbr v $EDITOR
+abbr V $EDITOR --remote-tab-silent
+abbr vv $EDITOR ~/.vim/rc/dein.toml
+abbr vf $EDITOR ~/.config/fish/config.fish
+abbr va $EDITOR ~/.config/fish/configs/alias.fish
 
 alias shodo='eval $Browser -app="https://app.shodo.ink/"'
 alias gmail='eval $Browser -app="https://mail.google.com/mail/u/0/#inbox"'
@@ -45,11 +47,18 @@ alias tar='tar -xvzf'
 alias 7z='7z x'
 alias xz='tar Jxfv'
 alias rar='unrar e -r'
-abbr pandoc --from=markdown --to=latex
-abbr youtube-dl -f best -x --audio-format mp3  -o "~/Music/%(title)s.%(ext)s"
+abbr pandoc pandoc --from=markdown --to=latex
+abbr ai sudo apt-get install -y
+abbr aud sudo apt-get update -y
+abbr aug sudo apt-get upgrade -y
+
+
+abbr ydlm youtube-dl -f best -x --audio-format mp3  -o "~/Music/%(title)s.%(ext)s"
 abbr tmux kill-server
+abbr v $EDITOR
+
 alias tm='tmux'
-abbr yaskkserv2 --config-filename ~/.skk/linux_yaskkserv2.conf
+abbr skkserv yaskkserv2 --config-filename ~/.skk/linux_yaskkserv2.conf
 
 
 alias cd.. 'cd ..'

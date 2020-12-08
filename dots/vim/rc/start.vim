@@ -18,20 +18,6 @@ function! s:source_rc(path) abort
   execute 'source' fnameescape(abspath)
 endfunction
 
-augroup MyAutoCmd
-  autocmd!
-  autocmd FileType,Syntax,BufNewFile,BufNew,BufRead *?
-    if execute('filetype') =~# 'OFF'
-    " Lazy loading
-      silent! filetype plugin indent on
-      syntax enable
-      filetype detect
-    endif
-  autocmd CursorHold *.toml syntax sync minlines=300
-augroup END
-augroup filetypedetect
-augroup END
-
 if has('vim_starting')
   call s:source_rc('setup.vim')
 endif

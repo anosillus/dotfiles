@@ -25,4 +25,5 @@ autocmd MyAutoCmd TermClose * buffer #
 
 let g:terminal_scrollback_buffer_size = 3000
 
+set runtimepath+=~/.vim
 colorscheme jellybeans

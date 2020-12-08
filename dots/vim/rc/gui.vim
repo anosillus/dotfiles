@@ -28,7 +28,7 @@ elseif has('mac')
   " For Mac.
   set guifont=Osaka－等幅:h14
 else
-  set guifont=Cica\ 18
+  set guifont=Cica\ 20
   " For Linux.
    " set guifontwide=VL\ Gothic\ 13
    " set guifont=Courier\ 10\ Pitch\ 14
@@ -63,17 +63,17 @@ endif
 
 "---------------------------------------------------------------------------
 " Options:
-set guioptions-=Tt
-set guioptions-=m
-" Scrollbar is always off.
-set guioptions-=rL
-" Not guitablabel.
-set guioptions-=e
-" Confirm without window.
-set guioptions+=c
-" set guioptions+=!
-" Use dark mode.
-set guioptions+=d
+" set guioptions-=Tt
+" set guioptions-=m
+" " Scrollbar is always off.
+" set guioptions-=rL
+" " Not guitablabel.
+" set guioptions-=e
+" " Confirm without window.
+" set guioptions+=c
+" " set guioptions+=!
+" " Use dark mode.
+" set guioptions+=d
 
 " Don't flick cursor.
 set guicursor&
