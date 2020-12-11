@@ -38,18 +38,10 @@ let g:xml_syntax_folding = 1
 let g:php_folding = 1
 let g:perl_fold = 1
 
-" Update filetype.
-autocmd MyAutoCmd BufWritePost * nested
-\ if &l:filetype ==# '' || exists('b:ftdetect')
-\ |   unlet! b:ftdetect
-\ |   filetype detect
-\ | endif
-
-" Auto reload VimScript.
-autocmd MyAutoCmd BufWritePost,FileWritePost *.vim nested
-\ if &l:autoread > 0 | source <afile> |
-\   echo 'source ' . bufname('%') |
-\ endif
+augroup MyAutoCmd
+    autocmd!
+    autocmd MyAutoCmd BufWritePost $MYVIMRC nested source $MYVIMRC
+augroup END
 '''
 
 [ftplugin]

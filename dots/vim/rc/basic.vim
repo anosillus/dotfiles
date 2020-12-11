@@ -82,7 +82,7 @@ set virtualedit& virtualedit+=block
 " ---------- Enocode ----------
 setlocal fileformats=unix,dos,mac
 setlocal fileencodings=utf-8,iso-2022-jp,cp932,euc-jp
-language message en_US.utf8
+" language message en_US.utf8
 set shortmess+=c
 " ---------- Bell Off ----------
 set novisualbell
