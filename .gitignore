@@ -1,6 +1,7 @@
 dots/vim/plugged/
 extensions/
 conf.d/
+fundle/
 functions/
 completions/
 fish_variables

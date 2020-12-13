@@ -1,0 +1,21 @@
+configuration {
+sidebar-mode:    true;
+hide-scrollbar:  true;
+show-icons:      true ;
+show-match:      true ;
+matching:        regex ;
+}
+rof.kb-row-down:         Control+n,Down;
+rofi.kb-row-up:           Control+e,Up,Shift+Tab,Shift+ISO_Left_Tab;
+rofi.kb-accept-entry:     Control+m,Return,KP_Enter;
+rofi.kb-secondary-paste:  Control+v,Insert;
+rofi.kb-clear-line:       Control+w;
+rofi.kb-move-front:       Control+a;
+rofi.kb-move-end:         Control+Shift+i;
+rofi.terminal:            alacritty;
+rofi.kb-remove-to-eol:    Control+o;
+rofi.kb-mode-next:        Shift+Right,Control+Tab,Control+l ;
+rofi.kb-mode-previous:    Shift+Left,Control+Shift+Tab,Control+h ;
+rofi.kb-remove-char-back: BackSpace ;
+rofi.kb-cancel:           Escape,Control+k ;
+

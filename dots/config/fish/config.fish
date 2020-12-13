@@ -3,46 +3,233 @@
 # set -x -g LS_COLORS "di=38;5;27:fi=38;5;7:ln=38;5;51:pi=40;38;5;11:so=38;5;13:or=38;5;197:mi=38;5;161:ex=38;5;9:"
 # set -x -g TERM "xterm-256color"
 
+# OS Detect {{{
 switch (uname)
-  case Linux
-    if uname -r | grep 'microsoft' > /dev/null
-      . ~/.config/fish/configs/wsl.fish
-    else
-      . ~/.config/fish/configs/linux.fish
-    end
-  case Darwin
-    . ~/.config/fish/configs/mac.fish
-  case FreeBSD NetBSD DragonFly
-    echo Hi Beastie!
-  case '*'
-    echo Who are you?
-end
+    case Linux
+        # WSL {{{
+        if uname -r | grep 'microsoft' > /dev/null
+            set -g -x EDITOR  vim
+            set -g -x MYVIM   vim
+            set -g -x MYNVIM  nvim
 
-. ~/.config/fish/configs/alias.fish
-. ~/.config/fish/configs/func.fish
+            set -Ux BROWSER chromium
+            # add coreutils gnubin if installed
+            set -U fish_user_paths $HOME/.cargo/bin $fish_user_paths
+            set -U fish_user_paths $HOME/.local/bin $fish_user_paths
 
-if not functions -q fisher
-  set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
-  curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
-  fish -c fisher
+            set -x -U GOPATH $HOME/go
+            set -U fish_user_paths /usr/local/bin /usr/sbin $GOPATH/bin $HOME/.local/bin  $fish_user_paths
+            set -U fith_user_paths $HOME/.cargo/env $fish_user_paths
+        # }}}
+        else
+        # Linux Common {{{
+            set -g -x EDITOR  gvim
+            set -g -x MYVIM   vim
+            set -g -x MYNVIM  gonvim
+
+            set -g -x BROWSER chromium
+            set -x -U GOPATH $HOME/go
+            # set -U fish_user_paths  $fish_user_paths
+            switch (lsb_release -is)
+        # }}}
+                # Arch {{{
+                case ManjaroLinux
+                    # set PATH $PATH /usr/local/bin /usr/sbin $GOPATH/bin $HOME/.local/bin $HOME/.cargo/env $HOME/.cargo/bin
+                    abbr -a ai sudo pacman -S
+                    abbr -a aud sudo pacman -Syy
+                    abbr -a aug sudo pacman -Syyu
+
+                    # export GTK_IM_MODULE=ibus
+                    # export XMODFIERS=@im=ibus
+                    # export AT_IM_MODULE=ibus
+                    # }}}
+                # Ubuntu {{{
+                case Ubuntu
+                    set PATH $PATH /usr/local/bin /usr/sbin $GOPATH/bin $HOME/.local/bin $HOME/.cargo/env $HOME/.cargo/bin
+                    abbr -a ai sudo apt-get install -y
+                    abbr -a aud sudo apt-get update -y
+                    abbr -a aug sudo apt-get upgrade -y
+            end
+        end
+    # }}}
+    # Mac {{{
+    case Darwin
+        set -g -x EDITOR  gvim
+        set -g -x MYVIM   vim
+        set -g -x MYNVIM  nvim
+
+        if [ -d /Applications/Postgres.app/Contents/Versions/latest/bin ]
+                set -x PATH $PATH "/Applications/Postgres.app/Contents/Versions/latest/bin"
+        end
+        if [ -e '/Applications/Launchbar.app' ]
+            alias launchbar "open -a launchbar"
+        end
+
+        set -x PATH $HOME/.rbenv/bin $PATH
+        status --is-interactive; and source (rbenv init -|psub)
+        # add coreutils gnubin if installed
+        set -l gnubin "/usr/local/opt/coreutils/libexec/gnubin"
+        set -l gnuman "/usr/local/opt/coreutils/libexec/gnuman"
+        set -U fish_user_paths $HOME/.cargo/bin $fish_user_paths
+        set -U fish_user_paths $HOME/Library/Python/3.7/bin $fish_user_paths
+        set -gx RUST_SRC_PATH "$HOME/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src"
+        set -U QT5PATH /usr/local/Cellar/qt/5.11.2_1
+
+        set -U fish_user_paths /usr/local/opt/gnu-getopt/bin $fish_user_paths
+        set -U fish_user_paths /usr/local/opt/binutils/bin $fish_user_paths
+        set -g -x CPPFLAGS "$CPPFLAGS -I /usr/local/opt/binutils/include"
+        set -g -x LDFLAGS "$LDFLAGS -L /usr/local/opt/binutils/lib"
+
+        if test -d $gnubin
+            set -x PATH $gnubin $PATH
+            set -x MANPATH $gnuman $MANPATH
+        end
+
+        # User bin folder
+        set -xg PATH $PATH /usr/bin
+        set -xg PATH /usr/local/bin $PATH
+        set -xg PATH /usr/local/sbin $PATH
+        set -xg PATH $HOME/.local/bin $PATH
+        set -xg PATH $HOME/go/bin $PATH
+        set -x -U GOPATH $HOME/go
+
+        alias reboot='systemctl reboot -i now'
+        alias deb='sudo dpkg -i'
+
+      # oh-my-fish/plugin-brew case FreeBSD NetBSD DragonFly
+    # Mac }}}
+    case '*'
+        echo Who are you?
 end
+# OS Detect }}}
+
+# Alias {{{
+abbr v  $EDITOR
+abbr vi $MYVIM
+abbr n  $MYNVIM
+abbr -a V $EDITOR --remote-tab-silent
+abbr -a vv $EDITOR ~/.vim/rc/dein.toml
+abbr -a vf $EDITOR ~/.config/fish/config.fish
+abbr -a va $EDITOR ~/.config/fish/configs/alias.fish
+abbr -a vf $EDITOR ~/.config/fish/config.fish
+abbr -a vv $EDITOR ~/dotfiles/rc/vim/.
+abbr -a vs $EDITOR ~/dotfiles/init/
+
+abbr p python3
+abbr python python3
+abbr python2 python2
+abbr ipython ipython3
+abbr p2 python2
+abbr -a pi pip3 install
+abbr -a pr pip3 remove
+abbr -a pip pip3
+abbr -a pu pip3 install --upgrade
+abbr -a pi2 pip2 install
+abbr -a pu2 pip2 install --upgrade
+abbr -a gi gem install
+abbr -a ni npm install
+abbr -a ng npm install -g
+abbr -a html google-chrome
+abbr -a skk yaskkserv2 --config-filename ~/.skk/linux_yaskkserv2.conf
+
+abbr -a ydlm youtube-dl -f best -x --audio-format mp3  -o "~/Music/%(title)s.%(ext)s"
+abbr -a tmux kill-server
+
+alias tm='tmux'
+
+alias cd.. 'cd ..'
+alias .. 'cd ..'
+alias ... 'cd ../..'
+alias .... 'cd ../../..'
+alias ..... 'cd ../../../..'
+
+alias md 'mkdir -p'
+alias cx 'chmod +x'
+alias 'c-x' 'chmod -x'
+
+abbr -a docker run -i -t -p 8888:8888 -v (pwd):/opt/playground continuumio/anaconda3 /bin/bash -c "/opt/conda/bin/conda install jupyter -y --quiet && mkdir /opt/notebooks && /opt/conda/bin/jupyter notebook --notebook-dir=/opt/playground --ip='*' --allow-root --NotebookApp.token='' --NotebookApp.password='' --port=8888 --no-browser"
+abbr -a docker run -d -p 8787:8787 -v (pwd):/home/rstudio rocker/rstudio
+abbr -a ssh-keygen -t rsa -b 4096 -C "anosillus@gmail.com"
+
+alias shodo='eval $BROWSER -app="https://app.shodo.ink/"'
+alias gmail='eval $BROWSER -app="https://mail.google.com/mail/u/0/#inbox"'
+alias gmail='eval $BROWSER -app="https://mail.google.com/mail/u/0/#inbox"'
+alias gcp='eval $BROWSER -app="https://console.cloud.google.com/"'
+alias domain='eval $BROWSER -app="https://njal.la/domains/"'
+
+alias tar='tar -xvzf'
+alias 7z='7z x'
+alias xz='tar Jxfv'
+alias rar='unrar e -r'
+
+alias W='eval $EDITOR ~/Work'
+alias vW='eval $EDITOR ~/Work'
+alias D='eval $EDITOR ~/dev'
+
+abbr -a pandoc pandoc --from=markdown --to=latex
+
+# Git {{{
+alias gd='vim +Gapply'
+alias gs='git status'
+alias gc='git clone '
+alias ga='git add '
+alias gaa='git add .'
+alias gc='git commit -m '
+alias gp='git push'
+#}}}
+
+alias fault= 'sudo shutdown -P now'
+
+# alias ap='sudo apt install -y'
+# alias au='sudo apt remove -y'
+# alias ad='sudo apt update'
+# alias q='nvim-qt'
+
+#alias jn='jupyter-notebook'
+#alias pip='pip3'
+#alias pip2='pip2'
+
+# alias l ls\ -AFG
+# alias ll ls\ -AFGl
+# }}}
+
+# fundle {{{
+if not functions -q fundle; eval (curl -sfL https://git.io/fundle-install); end
+
+fundle plugin 'edc/bass'
+fundle plugin 'danhper/fish-fastdir'
+fundle plugin 'lowne/fish-prompt-metro'
+fundle plugin 'oh-my-fish/plugin-peco'
+fundle plugin 'demartini/plugin-docker-compose'
+fundle plugin 'Gazorby/fish-git-emojis'
+fundle plugin 'eth-p/fish-plugin-sudo'
+fundle plugin 'decors/fish-ghq'
+fundle plugin 'jethrokuan/z'
+fundle plugin 'patrickf1/colored_man_pages.fish'
+fundle plugin 'gazorby/fish-exa'
+fundle plugin 'oh-my-fish/theme-bobthefish'
+fundle plugin 'jorgebucaran/powerline.fish'
+fundle plugin 'ryoppippi/fish-poetry'
+fundle plugin 'gazorby/fish-exa'
+fundle init
+# }}}
 
 if not test -d ~/.anyenv
-  git clone https://github.com/riywo/anyenv ~/.anyenv
-  mkdir -p ~/.anyenv/plugins
-  git clone https://github.com/znz/anyenv-update.git ~/.anyenv/plugins/anyenv-update
-  exec $SHELL -l
-  anyenv init - fish | source
-  anyenv install pyenv
-  anyenv install nodenv
-  git clone https://github.com/pyenv/pyenv-virtualenv.git (pyenv root)/plugins/pyenv-virtualenv
+    git clone https://github.com/riywo/anyenv ~/.anyenv
+    mkdir -p ~/.anyenv/plugins
+    git clone https://github.com/znz/anyenv-update.git ~/.anyenv/plugins/anyenv-update
+    exec $SHELL -l
+    anyenv init - fish | source
+    anyenv install pyenv
+    anyenv install nodenv
+    git clone https://github.com/pyenv/pyenv-virtualenv.git (pyenv root)/plugins/pyenv-virtualenv
 else
-  # set -x PATH $HOME/.anyenv/bin $PATH
-  set PATH $PATH $HOME/.anyenv/bin
-  anyenv init - fish | source
-  # status --is-interactive; and source (anyenv init -|psub)
-  # anyenv init
-  eval (direnv hook fish)
+    # set -x PATH $HOME/.anyenv/bin $PATH
+    set PATH $PATH $HOME/.anyenv/bin
+    anyenv init - fish | source
+    # status --is-interactive; and source (anyenv init -|psub)
+    # anyenv init
+    eval (direnv hook fish)
 end
 
 if functions -q aws-cli
@@ -55,6 +242,8 @@ end
 
 set -U FZF_LEGACY_KEYBINDINGS 0
 set -U FZF_REVERSE_ISEARCH_OPTS "--reverse --height=100%"
+
+# Prompt Settings {{{
 # set VIRTUAL_ENV_DISABLE_PROMPT disable
 # set VIRTUAL_ENV
 
@@ -99,6 +288,9 @@ set -U FZF_REVERSE_ISEARCH_OPTS "--reverse --height=100%"
 # set -g theme_project_dir_length 1
 # set -g theme_newline_cursor yes
 # set -g theme_newline_prompt '$ '
+# Prompt Settings }}}}
 
 direnv hook fish | source
 eval (direnv hook fish)
+
+# vim:tw=88 ft=fish ts=4 sw=4 sts=4 fdm=marker si et:

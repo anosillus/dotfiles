@@ -6,6 +6,7 @@ let g:dein#notification_icon = '~/.vim/signs/warn.png'
 
 let g:dein#inline_vimrcs = ['keymap.vim', 'basic.vim', 'filetype.vim', 'gui.vim']
 
+
 if IsLinux()
  call add(g:dein#inline_vimrcs, 'unix.vim')
 elseif IsWindows()
