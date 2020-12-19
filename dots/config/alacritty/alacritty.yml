@@ -63,10 +63,10 @@ window:
   startup_mode: Windowed
 
   # Window title
-  #title: Alacritty
+  title: Alacritty
 
   # Window class (Linux only):
-  #class: Alacritty
+  class: Alacritty
 
 scrolling:
   # Maximum number of lines in the scrollback buffer.
@@ -85,6 +85,8 @@ scrolling:
   #
   # Specifying `0` will disable faux scrolling.
   # faux_multiplier: 3
+
+  faux_scrollback_lines: 1
 
   # Scroll to the bottom when new text is written to the terminal.
   # auto_scroll: false
@@ -312,7 +314,7 @@ mouse:
   triple_click: { threshold: 300 }
 
   # If this is `true`, the cursor is temporarily hidden when typing.
-  hide_when_typing: false
+  hide_when_typing: true
 
   url:
     # URL launcher
