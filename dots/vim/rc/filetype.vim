@@ -55,6 +55,7 @@ augroup MyAutoCmd
   autocmd BufNewFile,BufRead init.macros set filetype=dosbatch
   autocmd BufNewFile,BufRead workflows set filetype=yaml
   autocmd BufNewFile,BufRead .vue set filetype=javascript
+  autocmd BufRead,BufNewFile *.scala  set filetype=scala
   autocmd FileType help,git-status,git-log nnoremap <buffer> q <C-w>c
   autocmd User plugin-template-loaded call s:template_keywords()
   autocmd WinEnter * if (winnr('$') == 1) && (getbufvar(winbufnr(0), '&buftype')) == 'quickfix' | quit | endif

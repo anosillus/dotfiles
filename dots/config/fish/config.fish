@@ -38,7 +38,8 @@ switch (uname)
                     abbr -a ai sudo pacman -S
                     abbr -a aud sudo pacman -Syy
                     abbr -a aug sudo pacman -Syyu
-
+                    set PATH $PATH $HOME/.config/rofi/bin
+                    abbr -a va $EDITOR $HOME/.config/rofi/bin
                     # export GTK_IM_MODULE=ibus
                     # export XMODFIERS=@im=ibus
                     # export AT_IM_MODULE=ibus
@@ -109,8 +110,6 @@ abbr vi $MYVIM
 abbr n  $MYNVIM
 abbr -a V $EDITOR --remote-tab-silent
 abbr -a vv $EDITOR ~/.vim/rc/dein.toml
-abbr -a vf $EDITOR ~/.config/fish/config.fish
-abbr -a va $EDITOR ~/.config/fish/configs/alias.fish
 abbr -a vf $EDITOR ~/.config/fish/config.fish
 abbr -a vv $EDITOR ~/dotfiles/rc/vim/.
 abbr -a vs $EDITOR ~/dotfiles/init/
@@ -208,7 +207,7 @@ fundle plugin 'jethrokuan/z'
 fundle plugin 'patrickf1/colored_man_pages.fish'
 fundle plugin 'gazorby/fish-exa'
 fundle plugin 'oh-my-fish/theme-bobthefish'
-fundle plugin 'jorgebucaran/powerline.fish'
+# sundle plugin 'jorgebucaran/powerline.fish'
 fundle plugin 'ryoppippi/fish-poetry'
 fundle plugin 'gazorby/fish-exa'
 fundle init

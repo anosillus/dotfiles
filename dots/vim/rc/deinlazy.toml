@@ -494,6 +494,11 @@ hook_add = '''
 # small command }}}
 
 # Filetype {{{
+# Scala {{{
+[[plugins]]
+repo = 'derekwyatt/vim-scala'
+on-ft = 'scala'
+# }}}
 # JavaScript {{{
 [[plugins]]
 repo = 'othree/yajs.vim'
@@ -552,7 +557,6 @@ on_ft = 'sql'
 [[plugins]]
 repo = 'vim-python/python-syntax'
 on_ft = 'python'
-
 [[plugins]]
 repo = 'heavenshell/vim-pydocstring'
 build = 'make install'

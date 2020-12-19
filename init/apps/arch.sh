@@ -5,14 +5,14 @@ yay -Syu
 sudo pacman -S base base-devel linux linux-firmware gvim git wget fish tmux
 # browser
 sudo pacman -S firefox vivaldi alacritty
-yay google-chrome
+yay -S google-chrome
 # JP and fonts
 yay -S ibus ibus-qt ibus-skk
 sudo pacman -S noto-fonts noto-fonts-emoji noto-fonts-cjk noto-fonts-extra adobe-source-han-sans-jp-fonts adobe-source-han-serif-jp-fonts otf-ipafont otf-ipaexfont ttf-dejavu
 yay -S ttf-cica
 # security
 sudo pacman -S ufw gufw
-sudo pacman -S clamav clamtk
+sudo pacman -S clamav clamtk mpd rofi direnv anyenv
 
 sudo ufw default deny
 sudo ufw enable

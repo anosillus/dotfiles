@@ -9,6 +9,8 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -43,6 +45,7 @@ bindsym $mod+q kill
 # installed.
 # bindsym $mod+p exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+p exec "rofi -modi window,drun,run -show drun -sidebar-mode -terminal termite -color-window '#000000, #000000, #000000' -color-normal '#000000, #b3e774, #000000, #b3e774, #000000' -color-active '#000000, #b3e774, #000000, #b3e774, #000000' -color-urgent '#000000, #b3e774, #000000, #b3e774, #000000'"
+# bindsym $mod+g 
 
 # change focus
 bindsym $mod+h focus left
@@ -164,7 +167,7 @@ bindsym $mod+o mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+        status_command polybar
 }
 
 # Multimedia keys
@@ -205,10 +208,14 @@ exec --no-startup-id compton -cbm 0.75
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 
+for_window [class="alacritty"] floating enable; border none
+for_window [class="spotify"] floating enable; border none
+for_window [class="vivaldi"] floating disable; border none
+for_window [class="google-chrome"] floating disable; border none
 for_window [class="yakuake"] floating enable
 for_window [class="systemsettings"] floating enable
-for_window [class="plasmashell"] floating enable;
-for_window [class="Plasma"] floating enable; border none
+for_window [class="plasmashell"] floating enable
+for_window [class="Plasma"] floating enable; 
 for_window [title="plasma-desktop"] floating enable; border none
 for_window [title="win7"] floating enable; border none
 for_window [class="krunner"] floating enable; border none
@@ -217,6 +224,6 @@ for_window [class="Klipper"] floating enable; border none
 for_window [class="Plasmoidviewer"] floating enable; border none
 for_window [class="(?i)*nextcloud*"] floating disable
 for_window [class="plasmashell" window_type="notification"] border none, move right 700px, move down 450px
-no_focus [class="plasmashell" window_type="notification"]
+# no_focus [class="plasmashell" window_type="notification"]
 
 for_window [title="Desktop — Plasma"] kill; floating enable; border none
