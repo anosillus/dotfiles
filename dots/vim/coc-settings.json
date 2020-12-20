@@ -4,7 +4,7 @@
   "diagnostic.displayByAle": true,
   "git.addGBlameToVirtualText": true,
   "signature.target": "echo",
-  "coc.githubUsers.githubAccessToken": "b69507175125548309ec2e0cf2fc4b26189fe54e",
+  "  coc.githubUsers.githubAccessToken": "b69507175125548309ec2e0cf2fc4b26189fe54e",
   "list.source.files.args": ["--hidden", "--files"],
   "suggest.snippetIndicator": "►",
   "snippets.extends": {
@@ -20,7 +20,6 @@
   "languageserver": {
     "metals": {
       "command": "metals-vim",
-      "rootPatterns": ["build.sbt"],
       "filetypes": ["scala", "sbt"]
     },
     "gopls": {

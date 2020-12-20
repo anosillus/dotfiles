@@ -25,7 +25,8 @@ let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-syntax',
   \ 'coc-tsserver',
-  \ 'coc-word'
+  \ 'coc-word',
+  \ 'coc-metals'
   \ ]
 
 " GoTo code navigation.

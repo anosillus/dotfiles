@@ -80,6 +80,7 @@ let g:ale_fixers = {
 \   'python':     ['remove_trailing_lines', 'trim_whitespace', 'add_blank_lines_for_python_control_statements', 'black', 'reorder-python-imports'],
 \   'r':          ['remove_trailing_lines', 'trim_whitespace', 'styler'],
 \   'rust':       ['remove_trailing_lines', 'trim_whitespace', 'rustfmt'],
+\   'scala':      ['remove_trailing_lines', 'trim_whitespace', 'metals'],
 \   'sh':         ['remove_trailing_lines', 'trim_whitespace', 'shfmt'],
 \   'sql':        ['remove_trailing_lines', 'trim_whitespace', 'sqlfmt',],
 \   'text':       ['remove_trailing_lines', 'prettier', 'textlint'],
