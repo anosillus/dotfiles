@@ -493,6 +493,185 @@ hook_add = '''
 '''
 # small command }}}
 
+# Filetype {{{
+# Scala {{{
+[[plugins]]
+repo = 'derekwyatt/vim-scala'
+on-ft = 'scala'
+# }}}
+# JavaScript {{{
+[[plugins]]
+repo = 'othree/yajs.vim'
+on_ft = 'javascript'
+[[plugins]]
+repo = 'jparise/vim-graphql'
+of_ft = ['javascript', 'typescript']
+[[plugins]]
+repo = 'peitalin/vim-jsx-typescript'
+of_ft = ['javascript', 'typescript']
+[[plugins]]
+repo = 'HerringtonDarkholme/yats.vim'
+of_ft = 'typescript'
+[[plugins]]
+repo = 'styled-components/vim-styled-components'
+of_ft = ['javascript', 'typescript']
+# }}}
+# markdown {{{
+[[plugins]]
+repo = 'rhysd/vim-gfm-syntax'
+on_ft = 'markdown'
+[[plugins]]
+repo = 'osyo-manga/vim-precious'
+depends = 'context_filetype.vim'
+of_ft = ['toml','markdown', 'text']
+[[plugins]]
+repo = 'mzlogin/vim-markdown-toc'
+on_ft = 'markdown'
+[[plugins]]
+repo = 'rcmdnk/vim-markdown'
+on_ft = 'markdown'
+source_add = '''
+let g:markdown_enable_mappings = 0
+let g:markdown_enable_spell_checking = 0
+let g:vim_markdown_no_extensions_in_markdown = 1
+map <Space>n <Plug>Markdown_MoveToNextHeader
+map <Space>e <Plug>Markdown_MoveToPreviousHeader
+map N <Plug>Markdown_MoveToNextSiblingHeader
+map E  <Plug>Markdown_MoveToPreviousSiblingHeader
+map <Space>E <Plug>Markdown_MoveToCurHeader
+map <Space>E <Plug>Markdown_MoveToParentHeader
+'''
+[[plugins]]
+repo = 'junegunn/goyo.vim'
+on_ft = 'markdown'
+[[plugins]]
+repo = 'mattn/vim-maketable'
+on_ft = 'markdown'
+# }}}
+# SQL {{{
+[[plugins]]
+repo = 'lifepillar/pgsql.vim'
+on_ft = 'sql'
+# }}}
+# Python {{{
+[[plugins]]
+repo = 'vim-python/python-syntax'
+on_ft = 'python'
+[[plugins]]
+repo = 'heavenshell/vim-pydocstring'
+build = 'make install'
+on_ft = 'python'
+hook_source = 'nmap <silent> lo <Plug>(pydocstring)'
+[[plugins]]
+repo = 'tmhedberg/SimpylFold'
+on_ft = 'python'
+[[plugins]]
+repo = "lambdalisue/vim-django-support"
+on_ft = ["python", "djangohtml"]
+[[plugins]]
+repo = "lambdalisue/vim-pyenv"
+on_ft =  ["python", "djangohtml"]
+#  }}}
+# R {{{
+[[plugins]]
+repo = 'jalvesaq/Nvim-R'
+on_ft = 'R'
+# }}}
+# Rust {{{
+[[plugins]]
+repo = 'rhysd/rust-doc.vim'
+hook_source = 'let g:rustfmt_autosave = 0'
+on_ft = 'rust'
+# }}}
+# fish {{{
+[[plugins]]
+repo = 'terlar/vim-ref-fish'
+on_ft = 'fish'
+hook_add = '''
+setlocal keywordprg=:Ref\ fish
+'''
+
+[[plugins]]
+repo = 'dag/vim-fish'
+on_ft = 'fish'
+# }}}
+# CSV {{{
+[[plugins]]
+repo = 'chrisbra/csv.vim'
+hook_source = 'let g:csv_nomap_cr = 1'
+on_ft = 'csv'
+# }}}
+# C++ {{{
+[[plugins]]
+repo = 'bfrg/vim-cpp-modern'
+hook_source = 'let g:cpp_named_requirements_highlight = 1'
+on_ft = 'cpp'
+# }}}
+# CS {{{
+[[plugins]]
+repo = 'OrangeT/vim-csharp'
+on_ft = 'cs'
+# }}}
+# Golang {{{
+[[plugins]]
+repo = 'mattn/vim-goimports'
+on_ft = 'go'
+# [[plugins]]
+# repo = 'fatih/vim-go'
+# hook_source = 'let g:rustfmt_autosave = 0'
+# on_ft = 'golang'
+# build = ':GoInstallBinaries'
+# }}}
+# Japanese {{{
+[[plugins]]
+repo = 'koron/codic-vim'
+[[plugins]]
+repo = 'msbmsb/porter-stem.vim'
+[[plugins]]
+repo = 'rhysd/unite-codic.vim'
+
+# [[plugins]]
+# repo = 'deton/eblook.vim'
+# on_if = "matchstr(expand('%:p'),'jp.md') !=# ''"
+# hook_source = 'source ~/.vim/rc/plugins/eblook.rc.vim'
+# hook_add = '''
+#     map <unique> <silent> <Leader><C-b> <Plug>EblookInput
+#     nmap <unique> <silent> <C-b> <Plug>EblookSearch
+#     vmap <unique> <silent> <C-b> <Plug>EblookSearch
+# '''
+# jasegment {{{
+[[plugins]]
+repo = 'deton/jasegment.vim'
+on_if = "matchstr(expand('%:p'),'jp.md') !=# ''"
+hook_source = '''
+let g:jasegment#highlight = 2
+let g:jasegment_no_default_key_mappings = 1
+nmap <silent> I <Plug>JaSegmentMoveNE
+nmap <silent> i <Plug>JaSegmentMoveNW
+nmap <silent> h <Plug>JaSegmentMoveNB
+omap <silent> I <Plug>JaSegmentMoveOE
+omap <silent> i <Plug>JaSegmentMoveOW
+omap <silent> h <Plug>JaSegmentMoveOB
+xmap <silent> I <Plug>JaSegmentMoveVE
+xmap <silent> i <Plug>JaSegmentMoveVW
+xmap <silent> h <Plug>JaSegmentMoveVB
+omap <silent> sj <Plug>JaSegmentTextObjA
+omap <silent> tj <Plug>JaSegmentTextObjI
+xmap <silent> sj <Plug>JaSegmentTextObjVA
+xmap <silent> tj <Plug>JaSegmentTextObjVI
+noremap <silent> <C-i> f。
+noremap <silent> <C-h> F。
+'''
+# }}}
+# }}}
+# configs{{{
+[[plugins]]
+repo = 'mboughaba/i3config.vim'
+[[plugins]]
+repo = 'lambdalisue/vim-findent'
+# }}}
+# end filetype }}}
+
 # {{{ text object
 [[plugins]]
 repo = 'kana/vim-textobj-line'
