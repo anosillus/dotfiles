@@ -7,10 +7,19 @@
 Description
 <+CURSOR+>
 """
+import itertools
+from collections import Counter
+from dataclasses import dataclass
+from typing import Callable
+from typing import Final
+from typing import NamedTuple
+from typing import TypedDict
+from typing import Union
 
 
 def main():
     pass
+    <+CURSOR+>
 
 
 if __name__ == "__main__":

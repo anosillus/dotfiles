@@ -12,4 +12,3 @@ def S(): return sys.stdin.readline().rstrip()
 def LS(): return list(sys.stdin.readline().rstrip().split())
 N = I()
 A = [LI() for _ in range(N)]
-

@@ -25,4 +25,4 @@ if __name__ == "__main__":
     main()
 
 
-# vim: ft=python ts=4 sw=4 sts=4 tw=88 fenc='utf-8' ff='unix' si et:
+# vim: ft=python ts=4 sw=4 sts=4 tw=88 fenc=utf-8 ff=unix si et:
