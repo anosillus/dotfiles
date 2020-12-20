@@ -146,8 +146,8 @@ alias md 'mkdir -p'
 alias cx 'chmod +x'
 alias 'c-x' 'chmod -x'
 
-abbr -a docker run -i -t -p 8888:8888 -v (pwd):/opt/playground continuumio/anaconda3 /bin/bash -c "/opt/conda/bin/conda install jupyter -y --quiet && mkdir /opt/notebooks && /opt/conda/bin/jupyter notebook --notebook-dir=/opt/playground --ip='*' --allow-root --NotebookApp.token='' --NotebookApp.password='' --port=8888 --no-browser"
-abbr -a docker run -d -p 8787:8787 -v (pwd):/home/rstudio rocker/rstudio
+abbr -a dsnote docker run -i -t -p 8888:8888 -v (pwd):/opt/playground continuumio/anaconda3 /bin/bash -c "/opt/conda/bin/conda install jupyter -y --quiet && mkdir /opt/notebooks && /opt/conda/bin/jupyter notebook --notebook-dir=/opt/playground --ip='*' --allow-root --NotebookApp.token='' --NotebookApp.password='' --port=8888 --no-browser"
+abbr -a rocker docker run -d -p 8787:8787 -v (pwd):/home/rstudio rocker/rstudio
 abbr -a ssh-keygen -t rsa -b 4096 -C "anosillus@gmail.com"
 
 alias shodo='eval $BROWSER -app="https://app.shodo.ink/"'
@@ -231,6 +231,8 @@ else
     eval (direnv hook fish)
 end
 
+
+
 if functions -q aws-cli
     complete --command aws --no-files --arguments '(begin; set --local --export COMP_SHELL fish; set --local --export COMP_LINE (commandline); aws_completer | sed \'s/ $//\'; end)'
 end
@@ -238,6 +240,9 @@ end
 # set fish_plugins theme peco
 # set -U async_prompt_inherit_variables all
 # set -U async_prompt_functions fish_right_prompt
+
+# set -xg JAVA_HOME "/usr/lib/jvm/default/bin"
+set -xg JAVA_HOME "/usr/lib/jvm/java-11-adoptopenjdk"
 
 set -U FZF_LEGACY_KEYBINDINGS 0
 set -U FZF_REVERSE_ISEARCH_OPTS "--reverse --height=100%"
