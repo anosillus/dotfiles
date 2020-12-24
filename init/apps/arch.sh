@@ -9,6 +9,7 @@ yay -S google-chrome
 # JP and fonts
 yay -S ibus ibus-qt ibus-skk
 sudo pacman -S noto-fonts noto-fonts-emoji noto-fonts-cjk noto-fonts-extra adobe-source-han-sans-jp-fonts adobe-source-han-serif-jp-fonts otf-ipafont otf-ipaexfont ttf-dejavu
+yay -S ttf-fantasque-sans-mono nerd-fonts-iosevka
 yay -S ttf-cica
 # security
 sudo pacman -S ufw gufw
@@ -33,4 +34,5 @@ rm yaskkserv2
 # sudo ln -s /home/anosillus/dotfiles/dots/skk/ /usr/share/skk
 
 sudo pacman -S i3 i3-gaps feh morc_menu wmctrl
-yay -S dmenu
+# yay -S dmenu
+bash -c "bash <(curl -sL https://git.io/Jv0e4)"
