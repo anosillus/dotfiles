@@ -396,6 +396,9 @@ repo = 'pbrisbin/vim-mkdir'
 [[plugins]]
 repo = 'junegunn/fzf'
 
+[[plugins]]
+repo = 'lambdalisue/suda.vim'
+
 # }}}
 # command }}}
 

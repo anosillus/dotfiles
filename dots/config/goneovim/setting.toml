@@ -8,7 +8,7 @@
 # StartMaximizedWindow = false
 
 # # Start fullscreen
-# StartFullscreen = false
+StartFullscreen = true
 
 # # Editor font-family, font-size, linespace.
 # # FontFamily = "Monospace"
@@ -78,7 +78,7 @@
 # # width of `menu` column
 # MenuWidth = 400
 # # width of `info` column
-# InfoWidth = 1
+InfoWidth = 1
 # # width of `detail` column
 # DetailWidth = 250
 

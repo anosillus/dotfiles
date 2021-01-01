@@ -25,7 +25,7 @@ switch (uname)
         # Linux Common {{{
             set -g -x EDITOR  gvim
             set -g -x MYVIM   vim
-            set -g -x MYNVIM  gonvim
+            set -g -x MYNVIM  goneovim
 
             set -g -x BROWSER chromium
             set -x -U GOPATH $HOME/go
@@ -134,7 +134,17 @@ abbr -a skk yaskkserv2 --config-filename ~/.skk/linux_yaskkserv2.conf
 abbr -a ydlm youtube-dl -f best -x --audio-format mp3  -o "~/Music/%(title)s.%(ext)s"
 abbr tm tmux
 abbr kill tmux kill-server
+abbr killall docker kill (docker ps -q)
+abbr dockerkill docker kill (docker ps -q)
+abbr stopdocker docker kill (docker ps -q)
+abbr removeimage docker rmi (docker images -q)
+abbr removecontainer docker rm (docker ps -a -q)
 
+alias ps procs
+alias cat bat
+alias find fd
+alias top ytop
+alias wc tokei
 
 alias cd.. 'cd ..'
 alias .. 'cd ..'
@@ -207,7 +217,7 @@ fundle plugin 'jethrokuan/z'
 fundle plugin 'patrickf1/colored_man_pages.fish'
 fundle plugin 'gazorby/fish-exa'
 fundle plugin 'oh-my-fish/theme-bobthefish'
-# sundle plugin 'jorgebucaran/powerline.fish'
+# fundle plugin 'jorgebucaran/powerline.fish'
 fundle plugin 'ryoppippi/fish-poetry'
 fundle plugin 'gazorby/fish-exa'
 fundle init
@@ -248,8 +258,8 @@ set -U FZF_LEGACY_KEYBINDINGS 0
 set -U FZF_REVERSE_ISEARCH_OPTS "--reverse --height=100%"
 
 # Prompt Settings {{{
-# set VIRTUAL_ENV_DISABLE_PROMPT disable
-# set VIRTUAL_ENV
+set VIRTUAL_ENV_DISABLE_PROMPT disable
+set VIRTUAL_ENV
 
 # set -g theme_display_git yes
 # set -g theme_display_git_dirty yes

@@ -571,6 +571,9 @@ on_ft = ["python", "djangohtml"]
 [[plugins]]
 repo = "lambdalisue/vim-pyenv"
 on_ft =  ["python", "djangohtml"]
+[[plugins]]
+repo = 'anosillus/vim-ipynb'
+on_ft =  ["ipynb"]
 #  }}}
 # R {{{
 [[plugins]]

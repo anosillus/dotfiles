@@ -6,7 +6,80 @@
   "coc-python|global": {
     "INTERPRETERS_CACHE_v3_CondaEnvFileService": [],
     "INTERPRETERS_CACHE_v3_CondaEnvService": [],
-    "INTERPRETERS_CACHE_v3_VirtualEnvService": [],
+    "INTERPRETERS_CACHE_v3_VirtualEnvService": [
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.anyenv/envs/pyenv/versions/3.9.1/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.9.1-final",
+          "major": 3,
+          "minor": 9,
+          "patch": 1,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.9.1-final"
+        },
+        "sysPrefix": "/home/anosillus/.anyenv/envs/pyenv/versions/3.9.1",
+        "fileHash": "946d92bb6d98cb9d45681161f2917133b61e7ca4b1da4bacd29e99f7aca2639ecf93fd3b48895d31c4d313bcbcf59aa19c939c929ad11822e9f1089c1ab29cfe",
+        "envName": "3.9.1",
+        "type": "Pyenv"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.anyenv/envs/pyenv/versions/3.9.1/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.9.1-final",
+          "major": 3,
+          "minor": 9,
+          "patch": 1,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.9.1-final"
+        },
+        "sysPrefix": "/home/anosillus/.anyenv/envs/pyenv/versions/3.9.1",
+        "fileHash": "62faa98b91147e516bf5f9f71e47604dbcb44d241bb97d212d67fa9ab6668f5d8058c7ba3120a5175de8b9095a3fec6b5f8e0d1343cce1cfec1c3fc3c364b4d2",
+        "envName": "3.9.1",
+        "type": "Pyenv"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.anyenv/envs/pyenv/versions/3.9.1/bin/python3.9",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.9.1-final",
+          "major": 3,
+          "minor": 9,
+          "patch": 1,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.9.1-final"
+        },
+        "sysPrefix": "/home/anosillus/.anyenv/envs/pyenv/versions/3.9.1",
+        "fileHash": "2d200ff1f7be5c69d18278234360e85ae64f574295c9fc77f83db5bdf282ae3d7fc7df46b2c8f027ddce2d69eff3aa1d7dfd881107cbb3bf50e07ee85bf2f521",
+        "envName": "3.9.1",
+        "type": "Pyenv"
+      }
+    ],
     "/bin/python2.7.v3": {
       "data": {
         "architecture": 3,
@@ -30,7 +103,7 @@
         "sysPrefix": "/usr",
         "fileHash": "cb028bca6bf261b22b3d4c1442262f0246399891f6cf3d8051460ad1c55e6c459370b8ab5363de3b478131088b93031d5d79c6d2742757055d0c5b983d3212bf"
       },
-      "expiry": 1608572049354
+      "expiry": 1609522339664
     },
     "/bin/python2.v3": {
       "data": {
@@ -55,7 +128,7 @@
         "sysPrefix": "/usr",
         "fileHash": "cb028bca6bf261b22b3d4c1442262f0246399891f6cf3d8051460ad1c55e6c459370b8ab5363de3b478131088b93031d5d79c6d2742757055d0c5b983d3212bf"
       },
-      "expiry": 1608572049356
+      "expiry": 1609522339665
     },
     "/usr/bin/python3.8.v3": {
       "data": {
@@ -80,7 +153,7 @@
         "sysPrefix": "/usr",
         "fileHash": "08d23480576493fb9ffbfe24ed446dfc5262ae9a076856f12d7478819e0bc250f75216506372deabd0c51b919d603b67e13244556cc8ed74da0f73b3502473a7"
       },
-      "expiry": 1608572049363
+      "expiry": 1609522339675
     },
     "/usr/bin/python3.v3": {
       "data": {
@@ -105,7 +178,7 @@
         "sysPrefix": "/usr",
         "fileHash": "8c67539444399846508d4f6ec6c62b2cd6bf3b105933b5a8e002e7c282ff62982187320b267cab38de2c54f619f19f4eb97366e43070f5a4efd0ecb4c3032fcc"
       },
-      "expiry": 1608572049364
+      "expiry": 1609522339677
     },
     "/usr/bin/python2.7.v3": {
       "data": {
@@ -130,7 +203,7 @@
         "sysPrefix": "/usr",
         "fileHash": "cb028bca6bf261b22b3d4c1442262f0246399891f6cf3d8051460ad1c55e6c459370b8ab5363de3b478131088b93031d5d79c6d2742757055d0c5b983d3212bf"
       },
-      "expiry": 1608572049365
+      "expiry": 1609522339678
     },
     "/usr/bin/python2.v3": {
       "data": {
@@ -155,7 +228,7 @@
         "sysPrefix": "/usr",
         "fileHash": "cb028bca6bf261b22b3d4c1442262f0246399891f6cf3d8051460ad1c55e6c459370b8ab5363de3b478131088b93031d5d79c6d2742757055d0c5b983d3212bf"
       },
-      "expiry": 1608572049367
+      "expiry": 1609522339680
     },
     "/bin/python3.8.v3": {
       "data": {
@@ -180,7 +253,7 @@
         "sysPrefix": "/usr",
         "fileHash": "08d23480576493fb9ffbfe24ed446dfc5262ae9a076856f12d7478819e0bc250f75216506372deabd0c51b919d603b67e13244556cc8ed74da0f73b3502473a7"
       },
-      "expiry": 1608572049352
+      "expiry": 1609522339658
     },
     "/bin/python3.v3": {
       "data": {
@@ -205,9 +278,147 @@
         "sysPrefix": "/usr",
         "fileHash": "8c67539444399846508d4f6ec6c62b2cd6bf3b105933b5a8e002e7c282ff62982187320b267cab38de2c54f619f19f4eb97366e43070f5a4efd0ecb4c3032fcc"
       },
-      "expiry": 1608572049353
+      "expiry": 1609522339662
     },
     "INTERPRETERS_CACHE_v3_KnownPathsService": [
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.anyenv/envs/pyenv/shims/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/usr",
+        "fileHash": "f16309c08da0c2a2d8aa1fbea378a294f02d70c51af4f5ef28376569702a47897a6f39ab1e120d6ae65b811edbcdd52bc0965ec9eaaa806bf26c7b93d7753d81",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.anyenv/envs/pyenv/shims/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/usr",
+        "fileHash": "f16309c08da0c2a2d8aa1fbea378a294f02d70c51af4f5ef28376569702a47897a6f39ab1e120d6ae65b811edbcdd52bc0965ec9eaaa806bf26c7b93d7753d81",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.anyenv/envs/pyenv/shims/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/usr",
+        "fileHash": "f16309c08da0c2a2d8aa1fbea378a294f02d70c51af4f5ef28376569702a47897a6f39ab1e120d6ae65b811edbcdd52bc0965ec9eaaa806bf26c7b93d7753d81",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.anyenv/envs/pyenv/shims/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/usr",
+        "fileHash": "f16309c08da0c2a2d8aa1fbea378a294f02d70c51af4f5ef28376569702a47897a6f39ab1e120d6ae65b811edbcdd52bc0965ec9eaaa806bf26c7b93d7753d81",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.anyenv/envs/pyenv/shims/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/usr",
+        "fileHash": "f16309c08da0c2a2d8aa1fbea378a294f02d70c51af4f5ef28376569702a47897a6f39ab1e120d6ae65b811edbcdd52bc0965ec9eaaa806bf26c7b93d7753d81",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/home/anosillus/.anyenv/envs/pyenv/shims/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/usr",
+        "fileHash": "f16309c08da0c2a2d8aa1fbea378a294f02d70c51af4f5ef28376569702a47897a6f39ab1e120d6ae65b811edbcdd52bc0965ec9eaaa806bf26c7b93d7753d81",
+        "type": "Unknown"
+      },
       {
         "architecture": 3,
         "path": "/usr/bin/python",
@@ -884,7 +1095,7 @@
         "displayName": "Python 2.7.18 64-bit",
         "hash": "cb028bca6bf261b22b3d4c1442262f0246399891f6cf3d8051460ad1c55e6c459370b8ab5363de3b478131088b93031d5d79c6d2742757055d0c5b983d3212bf-9484d7c3d1cd833ccc922b29d22ad50a"
       },
-      "expiry": 1608572049469
+      "expiry": 1609522339856
     },
     "/usr/bin/python3.interpreter.displayName.v7": {
       "data": {
@@ -898,7 +1109,7 @@
         "displayName": "Python 2.7.18 64-bit",
         "hash": "cb028bca6bf261b22b3d4c1442262f0246399891f6cf3d8051460ad1c55e6c459370b8ab5363de3b478131088b93031d5d79c6d2742757055d0c5b983d3212bf-4763d38ac625e6dec0c0256a19568024"
       },
-      "expiry": 1608572049472
+      "expiry": 1609522339860
     },
     "/bin/python3.interpreter.displayName.v7": {
       "data": {
@@ -935,7 +1146,7 @@
           "displayName": "Python 2.7.18 64-bit"
         }
       },
-      "expiry": 1608572049538
+      "expiry": 1609522339926
     },
     "/usr/bin/python3.interpreter.Details.v7": {
       "data": {
@@ -971,7 +1182,7 @@
           "displayName": "Python 2.7.18 64-bit"
         }
       },
-      "expiry": 1608572049546
+      "expiry": 1609522339937
     },
     "/bin/python3.interpreter.Details.v7": {
       "data": {
@@ -1027,7 +1238,7 @@
         "sysPrefix": "/usr",
         "fileHash": "8c67539444399846508d4f6ec6c62b2cd6bf3b105933b5a8e002e7c282ff62982187320b267cab38de2c54f619f19f4eb97366e43070f5a4efd0ecb4c3032fcc"
       },
-      "expiry": 1608572049357
+      "expiry": 1609522339667
     },
     "/usr/bin/python.v3": {
       "data": {
@@ -1052,21 +1263,21 @@
         "sysPrefix": "/usr",
         "fileHash": "8c67539444399846508d4f6ec6c62b2cd6bf3b105933b5a8e002e7c282ff62982187320b267cab38de2c54f619f19f4eb97366e43070f5a4efd0ecb4c3032fcc"
       },
-      "expiry": 1608572049368
+      "expiry": 1609522339681
     },
     "/usr/bin/python.interpreter.displayName.v7": {
       "data": {
         "displayName": "Python 3.8.6 64-bit",
         "hash": "8c67539444399846508d4f6ec6c62b2cd6bf3b105933b5a8e002e7c282ff62982187320b267cab38de2c54f619f19f4eb97366e43070f5a4efd0ecb4c3032fcc-854dcca89f36c228fcff7d04fb3d7bf0"
       },
-      "expiry": 1608572049467
+      "expiry": 1609522339854
     },
     "/bin/python.interpreter.displayName.v7": {
       "data": {
         "displayName": "Python 3.8.6 64-bit",
         "hash": "8c67539444399846508d4f6ec6c62b2cd6bf3b105933b5a8e002e7c282ff62982187320b267cab38de2c54f619f19f4eb97366e43070f5a4efd0ecb4c3032fcc-e923192d8c0b06ef3313bb5d1b1fee5b"
       },
-      "expiry": 1608572049470
+      "expiry": 1609522339858
     },
     "/usr/bin/python.interpreter.Details.v7": {
       "data": {
@@ -1096,7 +1307,7 @@
           "displayName": "Python 3.8.6 64-bit"
         }
       },
-      "expiry": 1608572049535
+      "expiry": 1609522339921
     },
     "/bin/python.interpreter.Details.v7": {
       "data": {
@@ -1126,7 +1337,7 @@
           "displayName": "Python 3.8.6 64-bit"
         }
       },
-      "expiry": 1608572049542
+      "expiry": 1609522339932
     },
     "/home/anosillus/.pyenv/shims/python3.8.v3": {
       "data": {
@@ -1767,9 +1978,9 @@
           "version": "3.8.6-final"
         },
         "sysPrefix": "/usr",
-        "fileHash": "1fd676b4405f3a506547228b42e958344c36be918689745ae3807f3e93da05d6cadda36fd6c5c9454e10f582ca0e4a2a5557bcbda8cba47db358c8cf439f3806"
+        "fileHash": "f16309c08da0c2a2d8aa1fbea378a294f02d70c51af4f5ef28376569702a47897a6f39ab1e120d6ae65b811edbcdd52bc0965ec9eaaa806bf26c7b93d7753d81"
       },
-      "expiry": 1607487969475
+      "expiry": 1609522339689
     },
     "/home/anosillus/.anyenv/envs/pyenv/shims/python.v3": {
       "data": {
@@ -1792,9 +2003,9 @@
           "version": "3.8.6-final"
         },
         "sysPrefix": "/usr",
-        "fileHash": "1fd676b4405f3a506547228b42e958344c36be918689745ae3807f3e93da05d6cadda36fd6c5c9454e10f582ca0e4a2a5557bcbda8cba47db358c8cf439f3806"
+        "fileHash": "f16309c08da0c2a2d8aa1fbea378a294f02d70c51af4f5ef28376569702a47897a6f39ab1e120d6ae65b811edbcdd52bc0965ec9eaaa806bf26c7b93d7753d81"
       },
-      "expiry": 1607487969477
+      "expiry": 1609522339691
     },
     "/home/anosillus/.anyenv/envs/pyenv/versions/anaconda3-2020.07/bin/python3.8.v3": {
       "data": {
@@ -1963,9 +2174,9 @@
     "/home/anosillus/.anyenv/envs/pyenv/shims/python.interpreter.displayName.v7": {
       "data": {
         "displayName": "Python 3.8.6 64-bit",
-        "hash": "1fd676b4405f3a506547228b42e958344c36be918689745ae3807f3e93da05d6cadda36fd6c5c9454e10f582ca0e4a2a5557bcbda8cba47db358c8cf439f3806-057a082e74e747ab6aebe876a443cba1"
+        "hash": "f16309c08da0c2a2d8aa1fbea378a294f02d70c51af4f5ef28376569702a47897a6f39ab1e120d6ae65b811edbcdd52bc0965ec9eaaa806bf26c7b93d7753d81-300da96af847235eb8c6e652c3ca6e54"
       },
-      "expiry": 1607487969632
+      "expiry": 1609522339851
     },
     "/home/anosillus/.anyenv/envs/pyenv/versions/3.8.6/bin/python.interpreter.Details.v7": {
       "data": {
@@ -2033,7 +2244,7 @@
     },
     "/home/anosillus/.anyenv/envs/pyenv/shims/python.interpreter.Details.v7": {
       "data": {
-        "fileHash": "1fd676b4405f3a506547228b42e958344c36be918689745ae3807f3e93da05d6cadda36fd6c5c9454e10f582ca0e4a2a5557bcbda8cba47db358c8cf439f3806",
+        "fileHash": "f16309c08da0c2a2d8aa1fbea378a294f02d70c51af4f5ef28376569702a47897a6f39ab1e120d6ae65b811edbcdd52bc0965ec9eaaa806bf26c7b93d7753d81",
         "info": {
           "architecture": 3,
           "path": "/home/anosillus/.anyenv/envs/pyenv/shims/python",
@@ -2054,12 +2265,12 @@
             "version": "3.8.6-final"
           },
           "sysPrefix": "/usr",
-          "fileHash": "1fd676b4405f3a506547228b42e958344c36be918689745ae3807f3e93da05d6cadda36fd6c5c9454e10f582ca0e4a2a5557bcbda8cba47db358c8cf439f3806",
+          "fileHash": "f16309c08da0c2a2d8aa1fbea378a294f02d70c51af4f5ef28376569702a47897a6f39ab1e120d6ae65b811edbcdd52bc0965ec9eaaa806bf26c7b93d7753d81",
           "type": "Unknown",
           "displayName": "Python 3.8.6 64-bit"
         }
       },
-      "expiry": 1607487969673
+      "expiry": 1609522339916
     },
     "/home/anosillus/miniconda3/bin/python.interpreter.displayName.v7": {
       "data": {
@@ -2624,7 +2835,7 @@
         "sysPrefix": "/usr",
         "fileHash": "cb028bca6bf261b22b3d4c1442262f0246399891f6cf3d8051460ad1c55e6c459370b8ab5363de3b478131088b93031d5d79c6d2742757055d0c5b983d3212bf"
       },
-      "expiry": 1608572049342
+      "expiry": 1609522339644
     },
     "/sbin/python2.v3": {
       "data": {
@@ -2649,7 +2860,7 @@
         "sysPrefix": "/usr",
         "fileHash": "cb028bca6bf261b22b3d4c1442262f0246399891f6cf3d8051460ad1c55e6c459370b8ab5363de3b478131088b93031d5d79c6d2742757055d0c5b983d3212bf"
       },
-      "expiry": 1608572049343
+      "expiry": 1609522339646
     },
     "/sbin/python.v3": {
       "data": {
@@ -2674,7 +2885,7 @@
         "sysPrefix": "/usr",
         "fileHash": "8c67539444399846508d4f6ec6c62b2cd6bf3b105933b5a8e002e7c282ff62982187320b267cab38de2c54f619f19f4eb97366e43070f5a4efd0ecb4c3032fcc"
       },
-      "expiry": 1608572049344
+      "expiry": 1609522339648
     },
     "/usr/sbin/python3.8.v3": {
       "data": {
@@ -2699,7 +2910,7 @@
         "sysPrefix": "/usr",
         "fileHash": "08d23480576493fb9ffbfe24ed446dfc5262ae9a076856f12d7478819e0bc250f75216506372deabd0c51b919d603b67e13244556cc8ed74da0f73b3502473a7"
       },
-      "expiry": 1608572049345
+      "expiry": 1609522339649
     },
     "/usr/sbin/python3.v3": {
       "data": {
@@ -2724,7 +2935,7 @@
         "sysPrefix": "/usr",
         "fileHash": "8c67539444399846508d4f6ec6c62b2cd6bf3b105933b5a8e002e7c282ff62982187320b267cab38de2c54f619f19f4eb97366e43070f5a4efd0ecb4c3032fcc"
       },
-      "expiry": 1608572049347
+      "expiry": 1609522339651
     },
     "/usr/sbin/python2.7.v3": {
       "data": {
@@ -2749,7 +2960,7 @@
         "sysPrefix": "/usr",
         "fileHash": "cb028bca6bf261b22b3d4c1442262f0246399891f6cf3d8051460ad1c55e6c459370b8ab5363de3b478131088b93031d5d79c6d2742757055d0c5b983d3212bf"
       },
-      "expiry": 1608572049349
+      "expiry": 1609522339655
     },
     "/usr/sbin/python2.v3": {
       "data": {
@@ -2774,7 +2985,7 @@
         "sysPrefix": "/usr",
         "fileHash": "cb028bca6bf261b22b3d4c1442262f0246399891f6cf3d8051460ad1c55e6c459370b8ab5363de3b478131088b93031d5d79c6d2742757055d0c5b983d3212bf"
       },
-      "expiry": 1608572049350
+      "expiry": 1609522339657
     },
     "/usr/sbin/python.v3": {
       "data": {
@@ -2799,7 +3010,7 @@
         "sysPrefix": "/usr",
         "fileHash": "8c67539444399846508d4f6ec6c62b2cd6bf3b105933b5a8e002e7c282ff62982187320b267cab38de2c54f619f19f4eb97366e43070f5a4efd0ecb4c3032fcc"
       },
-      "expiry": 1608572049351
+      "expiry": 1609522339660
     },
     "/sbin/python3.8.v3": {
       "data": {
@@ -2824,7 +3035,7 @@
         "sysPrefix": "/usr",
         "fileHash": "08d23480576493fb9ffbfe24ed446dfc5262ae9a076856f12d7478819e0bc250f75216506372deabd0c51b919d603b67e13244556cc8ed74da0f73b3502473a7"
       },
-      "expiry": 1608572049382
+      "expiry": 1609522339721
     },
     "/sbin/python3.v3": {
       "data": {
@@ -2849,59 +3060,60 @@
         "sysPrefix": "/usr",
         "fileHash": "8c67539444399846508d4f6ec6c62b2cd6bf3b105933b5a8e002e7c282ff62982187320b267cab38de2c54f619f19f4eb97366e43070f5a4efd0ecb4c3032fcc"
       },
-      "expiry": 1608572049341
+      "expiry": 1609522339722
     },
     "/usr/sbin/python.interpreter.displayName.v7": {
       "data": {
         "displayName": "Python 3.8.6 64-bit",
         "hash": "8c67539444399846508d4f6ec6c62b2cd6bf3b105933b5a8e002e7c282ff62982187320b267cab38de2c54f619f19f4eb97366e43070f5a4efd0ecb4c3032fcc-dd71b7b333af0fd1e80f871b7d1847f0"
       },
-      "expiry": 1608572049474
+      "expiry": 1609522339863
     },
     "/usr/sbin/python2.interpreter.displayName.v7": {
       "data": {
         "displayName": "Python 2.7.18 64-bit",
         "hash": "cb028bca6bf261b22b3d4c1442262f0246399891f6cf3d8051460ad1c55e6c459370b8ab5363de3b478131088b93031d5d79c6d2742757055d0c5b983d3212bf-8e92e013e06d785bd26d4cf5bfc03a27"
       },
-      "expiry": 1608572049475
+      "expiry": 1609522339865
     },
     "/sbin/python.interpreter.displayName.v7": {
       "data": {
         "displayName": "Python 3.8.6 64-bit",
         "hash": "8c67539444399846508d4f6ec6c62b2cd6bf3b105933b5a8e002e7c282ff62982187320b267cab38de2c54f619f19f4eb97366e43070f5a4efd0ecb4c3032fcc-2632a01b50c7af87a206511d465886de"
       },
-      "expiry": 1608572049714
+      "expiry": 1609522340094
     },
     "/sbin/python2.interpreter.displayName.v7": {
       "data": {
         "displayName": "Python 2.7.18 64-bit",
         "hash": "cb028bca6bf261b22b3d4c1442262f0246399891f6cf3d8051460ad1c55e6c459370b8ab5363de3b478131088b93031d5d79c6d2742757055d0c5b983d3212bf-89ccdf2203be7fc4b9f9a7883e0cb8ff"
       },
-      "expiry": 1608572049479
+      "expiry": 1609522339869
     },
     "InterpreterAutoSeletionRule-system": {
       "architecture": 3,
-      "path": "/sbin/python",
+      "path": "/home/anosillus/.anyenv/envs/pyenv/versions/3.9.1/bin/python",
       "version": {
         "options": {
           "loose": false,
           "includePrerelease": false
         },
         "loose": false,
-        "raw": "3.8.6-final",
+        "raw": "3.9.1-final",
         "major": 3,
-        "minor": 8,
-        "patch": 6,
+        "minor": 9,
+        "patch": 1,
         "prerelease": [
           "final"
         ],
         "build": [],
-        "version": "3.8.6-final"
+        "version": "3.9.1-final"
       },
-      "sysPrefix": "/usr",
-      "fileHash": "8c67539444399846508d4f6ec6c62b2cd6bf3b105933b5a8e002e7c282ff62982187320b267cab38de2c54f619f19f4eb97366e43070f5a4efd0ecb4c3032fcc",
-      "type": "Unknown",
-      "displayName": "Python 3.8.6 64-bit"
+      "sysPrefix": "/home/anosillus/.anyenv/envs/pyenv/versions/3.9.1",
+      "fileHash": "946d92bb6d98cb9d45681161f2917133b61e7ca4b1da4bacd29e99f7aca2639ecf93fd3b48895d31c4d313bcbcf59aa19c939c929ad11822e9f1089c1ab29cfe",
+      "envName": "3.9.1",
+      "type": "Pyenv",
+      "displayName": "Python 3.9.1 64-bit ('3.9.1': pyenv)"
     },
     "/usr/sbin/python.interpreter.Details.v7": {
       "data": {
@@ -2931,7 +3143,7 @@
           "displayName": "Python 3.8.6 64-bit"
         }
       },
-      "expiry": 1608572049550
+      "expiry": 1609522339942
     },
     "/usr/sbin/python2.interpreter.Details.v7": {
       "data": {
@@ -2961,7 +3173,7 @@
           "displayName": "Python 2.7.18 64-bit"
         }
       },
-      "expiry": 1608572049554
+      "expiry": 1609522339947
     },
     "/sbin/python.interpreter.Details.v7": {
       "data": {
@@ -2991,7 +3203,7 @@
           "displayName": "Python 3.8.6 64-bit"
         }
       },
-      "expiry": 1608572217035
+      "expiry": 1609522364601
     },
     "/sbin/python2.interpreter.Details.v7": {
       "data": {
@@ -3021,55 +3233,57 @@
           "displayName": "Python 2.7.18 64-bit"
         }
       },
-      "expiry": 1608572049562
+      "expiry": 1609522339957
     },
     "InterpreterAutoSeletionRule-cachedInterpreters": {
       "architecture": 3,
-      "path": "/sbin/python",
+      "path": "/home/anosillus/.anyenv/envs/pyenv/versions/3.9.1/bin/python",
       "version": {
         "options": {
           "loose": false,
           "includePrerelease": false
         },
         "loose": false,
-        "raw": "3.8.6-final",
+        "raw": "3.9.1-final",
         "major": 3,
-        "minor": 8,
-        "patch": 6,
+        "minor": 9,
+        "patch": 1,
         "prerelease": [
           "final"
         ],
         "build": [],
-        "version": "3.8.6-final"
+        "version": "3.9.1-final"
       },
-      "sysPrefix": "/usr",
-      "fileHash": "8c67539444399846508d4f6ec6c62b2cd6bf3b105933b5a8e002e7c282ff62982187320b267cab38de2c54f619f19f4eb97366e43070f5a4efd0ecb4c3032fcc",
-      "type": "Unknown",
-      "displayName": "Python 3.8.6 64-bit"
+      "sysPrefix": "/home/anosillus/.anyenv/envs/pyenv/versions/3.9.1",
+      "fileHash": "946d92bb6d98cb9d45681161f2917133b61e7ca4b1da4bacd29e99f7aca2639ecf93fd3b48895d31c4d313bcbcf59aa19c939c929ad11822e9f1089c1ab29cfe",
+      "envName": "3.9.1",
+      "type": "Pyenv",
+      "displayName": "Python 3.9.1 64-bit ('3.9.1': pyenv)"
     },
     "preferredGlobalPyInterpreter": {
       "architecture": 3,
-      "path": "/sbin/python",
+      "path": "/home/anosillus/.anyenv/envs/pyenv/versions/3.9.1/bin/python",
       "version": {
         "options": {
           "loose": false,
           "includePrerelease": false
         },
         "loose": false,
-        "raw": "3.8.6-final",
+        "raw": "3.9.1-final",
         "major": 3,
-        "minor": 8,
-        "patch": 6,
+        "minor": 9,
+        "patch": 1,
         "prerelease": [
           "final"
         ],
         "build": [],
-        "version": "3.8.6-final"
+        "version": "3.9.1-final"
       },
-      "sysPrefix": "/usr",
-      "fileHash": "a54a478fceef8811afae6af9009273d509e546e11108c2da2e58cf4077e0f20e5efb8da7abe13379aea2a70ab2beedb84a0c6c6565370879440cea2af4b3fc91",
-      "type": "Unknown",
-      "displayName": "Python 3.8.6 64-bit"
+      "sysPrefix": "/home/anosillus/.anyenv/envs/pyenv/versions/3.9.1",
+      "fileHash": "946d92bb6d98cb9d45681161f2917133b61e7ca4b1da4bacd29e99f7aca2639ecf93fd3b48895d31c4d313bcbcf59aa19c939c929ad11822e9f1089c1ab29cfe",
+      "envName": "3.9.1",
+      "type": "Pyenv",
+      "displayName": "Python 3.9.1 64-bit ('3.9.1': pyenv)"
     },
     "/home/anosillus/.cache/pypoetry/virtualenvs/bus-mapping-ugB4Av-z-py3.8/bin/python3.v3": {
       "data": {
@@ -3094,7 +3308,7 @@
         "sysPrefix": "/home/anosillus/.cache/pypoetry/virtualenvs/bus-mapping-ugB4Av-z-py3.8",
         "fileHash": "25431e083489dfb636d463989fe1c3c25cfdd8641d542b6f1ef36768ab0ffee22173ad890a30b9fde7b00ae74a23dfdf29189888505eaf0bf61563a6bd039e62"
       },
-      "expiry": 1608572049369
+      "expiry": 1608976913715
     },
     "/home/anosillus/.cache/pypoetry/virtualenvs/bus-mapping-ugB4Av-z-py3.8/bin/python.v3": {
       "data": {
@@ -3119,14 +3333,14 @@
         "sysPrefix": "/home/anosillus/.cache/pypoetry/virtualenvs/bus-mapping-ugB4Av-z-py3.8",
         "fileHash": "25431e083489dfb636d463989fe1c3c25cfdd8641d542b6f1ef36768ab0ffee22173ad890a30b9fde7b00ae74a23dfdf29189888505eaf0bf61563a6bd039e62"
       },
-      "expiry": 1608572049370
+      "expiry": 1608976913717
     },
     "/home/anosillus/.cache/pypoetry/virtualenvs/bus-mapping-ugB4Av-z-py3.8/bin/python.interpreter.displayName.v7": {
       "data": {
         "displayName": "Python 3.8.6 64-bit",
         "hash": "25431e083489dfb636d463989fe1c3c25cfdd8641d542b6f1ef36768ab0ffee22173ad890a30b9fde7b00ae74a23dfdf29189888505eaf0bf61563a6bd039e62-6d3ddecccaee8a3be856af134f752fea"
       },
-      "expiry": 1608572049465
+      "expiry": 1608976913852
     },
     "/home/anosillus/.cache/pypoetry/virtualenvs/bus-mapping-ugB4Av-z-py3.8/bin/python.interpreter.Details.v7": {
       "data": {
@@ -3156,7 +3370,294 @@
           "displayName": "Python 3.8.6 64-bit"
         }
       },
-      "expiry": 1608572049531
+      "expiry": 1608976913905
+    },
+    "/home/anosillus/.cache/pypoetry/virtualenvs/kepler.gl-uwwqLeSU-py3.8/bin/python.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/home/anosillus/.cache/pypoetry/virtualenvs/kepler.gl-uwwqLeSU-py3.8/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/home/anosillus/.cache/pypoetry/virtualenvs/kepler.gl-uwwqLeSU-py3.8",
+        "fileHash": "219b14cc4099f8030af3aeb25de5c681777929fbe1ec7c364889f0196ac533bd9d3d2bda11fa503bc3559eea37fd4ed1e740e4d9662469b1ea463996c80ee505"
+      },
+      "expiry": 1608624962590
+    },
+    "/home/anosillus/.cache/pypoetry/virtualenvs/kepler.gl-uwwqLeSU-py3.8/bin/python3.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/home/anosillus/.cache/pypoetry/virtualenvs/kepler.gl-uwwqLeSU-py3.8/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/home/anosillus/.cache/pypoetry/virtualenvs/kepler.gl-uwwqLeSU-py3.8",
+        "fileHash": "219b14cc4099f8030af3aeb25de5c681777929fbe1ec7c364889f0196ac533bd9d3d2bda11fa503bc3559eea37fd4ed1e740e4d9662469b1ea463996c80ee505"
+      },
+      "expiry": 1608624962582
+    },
+    "/home/anosillus/.cache/pypoetry/virtualenvs/kepler.gl-uwwqLeSU-py3.8/bin/python.interpreter.displayName.v7": {
+      "data": {
+        "displayName": "Python 3.8.6 64-bit",
+        "hash": "219b14cc4099f8030af3aeb25de5c681777929fbe1ec7c364889f0196ac533bd9d3d2bda11fa503bc3559eea37fd4ed1e740e4d9662469b1ea463996c80ee505-ea5135184a420c4e88399b392de10848"
+      },
+      "expiry": 1608624962717
+    },
+    "/home/anosillus/.cache/pypoetry/virtualenvs/kepler.gl-uwwqLeSU-py3.8/bin/python.interpreter.Details.v7": {
+      "data": {
+        "fileHash": "219b14cc4099f8030af3aeb25de5c681777929fbe1ec7c364889f0196ac533bd9d3d2bda11fa503bc3559eea37fd4ed1e740e4d9662469b1ea463996c80ee505",
+        "info": {
+          "architecture": 3,
+          "path": "/home/anosillus/.cache/pypoetry/virtualenvs/kepler.gl-uwwqLeSU-py3.8/bin/python",
+          "version": {
+            "options": {
+              "loose": false,
+              "includePrerelease": false
+            },
+            "loose": false,
+            "raw": "3.8.6-final",
+            "major": 3,
+            "minor": 8,
+            "patch": 6,
+            "prerelease": [
+              "final"
+            ],
+            "build": [],
+            "version": "3.8.6-final"
+          },
+          "sysPrefix": "/home/anosillus/.cache/pypoetry/virtualenvs/kepler.gl-uwwqLeSU-py3.8",
+          "fileHash": "219b14cc4099f8030af3aeb25de5c681777929fbe1ec7c364889f0196ac533bd9d3d2bda11fa503bc3559eea37fd4ed1e740e4d9662469b1ea463996c80ee505",
+          "type": "Unknown",
+          "displayName": "Python 3.8.6 64-bit"
+        }
+      },
+      "expiry": 1608624962759
+    },
+    "/home/anosillus/.cache/pypoetry/virtualenvs/401-estate-price-AdO3hicn-py3.8/bin/python3.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/home/anosillus/.cache/pypoetry/virtualenvs/401-estate-price-AdO3hicn-py3.8/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/home/anosillus/.cache/pypoetry/virtualenvs/401-estate-price-AdO3hicn-py3.8",
+        "fileHash": "d0f654177fdc8360256d94d4efc40f76684a3e9099ad1c205bc7cbf3ef3b33feee57bb03ae61f9acbf0f843fe194752d2e411f3e84cce2b61a22fd45ec432358"
+      },
+      "expiry": 1609191591308
+    },
+    "/home/anosillus/.cache/pypoetry/virtualenvs/401-estate-price-AdO3hicn-py3.8/bin/python.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/home/anosillus/.cache/pypoetry/virtualenvs/401-estate-price-AdO3hicn-py3.8/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.6-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.6-final"
+        },
+        "sysPrefix": "/home/anosillus/.cache/pypoetry/virtualenvs/401-estate-price-AdO3hicn-py3.8",
+        "fileHash": "d0f654177fdc8360256d94d4efc40f76684a3e9099ad1c205bc7cbf3ef3b33feee57bb03ae61f9acbf0f843fe194752d2e411f3e84cce2b61a22fd45ec432358"
+      },
+      "expiry": 1609191591306
+    },
+    "/home/anosillus/.cache/pypoetry/virtualenvs/401-estate-price-AdO3hicn-py3.8/bin/python.interpreter.displayName.v7": {
+      "data": {
+        "displayName": "Python 3.8.6 64-bit",
+        "hash": "d0f654177fdc8360256d94d4efc40f76684a3e9099ad1c205bc7cbf3ef3b33feee57bb03ae61f9acbf0f843fe194752d2e411f3e84cce2b61a22fd45ec432358-07a2c354b37daeabce8eefcfc0c0e1bf"
+      },
+      "expiry": 1609191591405
+    },
+    "/home/anosillus/.cache/pypoetry/virtualenvs/401-estate-price-AdO3hicn-py3.8/bin/python.interpreter.Details.v7": {
+      "data": {
+        "fileHash": "d0f654177fdc8360256d94d4efc40f76684a3e9099ad1c205bc7cbf3ef3b33feee57bb03ae61f9acbf0f843fe194752d2e411f3e84cce2b61a22fd45ec432358",
+        "info": {
+          "architecture": 3,
+          "path": "/home/anosillus/.cache/pypoetry/virtualenvs/401-estate-price-AdO3hicn-py3.8/bin/python",
+          "version": {
+            "options": {
+              "loose": false,
+              "includePrerelease": false
+            },
+            "loose": false,
+            "raw": "3.8.6-final",
+            "major": 3,
+            "minor": 8,
+            "patch": 6,
+            "prerelease": [
+              "final"
+            ],
+            "build": [],
+            "version": "3.8.6-final"
+          },
+          "sysPrefix": "/home/anosillus/.cache/pypoetry/virtualenvs/401-estate-price-AdO3hicn-py3.8",
+          "fileHash": "d0f654177fdc8360256d94d4efc40f76684a3e9099ad1c205bc7cbf3ef3b33feee57bb03ae61f9acbf0f843fe194752d2e411f3e84cce2b61a22fd45ec432358",
+          "type": "Unknown",
+          "displayName": "Python 3.8.6 64-bit"
+        }
+      },
+      "expiry": 1609191591463
+    },
+    "/home/anosillus/.anyenv/envs/pyenv/versions/3.9.1/bin/python.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/home/anosillus/.anyenv/envs/pyenv/versions/3.9.1/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.9.1-final",
+          "major": 3,
+          "minor": 9,
+          "patch": 1,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.9.1-final"
+        },
+        "sysPrefix": "/home/anosillus/.anyenv/envs/pyenv/versions/3.9.1",
+        "fileHash": "946d92bb6d98cb9d45681161f2917133b61e7ca4b1da4bacd29e99f7aca2639ecf93fd3b48895d31c4d313bcbcf59aa19c939c929ad11822e9f1089c1ab29cfe"
+      },
+      "expiry": 1609522339718
+    },
+    "/home/anosillus/.anyenv/envs/pyenv/versions/3.9.1/bin/python3.9.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/home/anosillus/.anyenv/envs/pyenv/versions/3.9.1/bin/python3.9",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.9.1-final",
+          "major": 3,
+          "minor": 9,
+          "patch": 1,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.9.1-final"
+        },
+        "sysPrefix": "/home/anosillus/.anyenv/envs/pyenv/versions/3.9.1",
+        "fileHash": "2d200ff1f7be5c69d18278234360e85ae64f574295c9fc77f83db5bdf282ae3d7fc7df46b2c8f027ddce2d69eff3aa1d7dfd881107cbb3bf50e07ee85bf2f521"
+      },
+      "expiry": 1609522339715
+    },
+    "/home/anosillus/.anyenv/envs/pyenv/versions/3.9.1/bin/python3.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/home/anosillus/.anyenv/envs/pyenv/versions/3.9.1/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.9.1-final",
+          "major": 3,
+          "minor": 9,
+          "patch": 1,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.9.1-final"
+        },
+        "sysPrefix": "/home/anosillus/.anyenv/envs/pyenv/versions/3.9.1",
+        "fileHash": "62faa98b91147e516bf5f9f71e47604dbcb44d241bb97d212d67fa9ab6668f5d8058c7ba3120a5175de8b9095a3fec6b5f8e0d1343cce1cfec1c3fc3c364b4d2"
+      },
+      "expiry": 1609522339716
+    },
+    "/home/anosillus/.anyenv/envs/pyenv/versions/3.9.1/bin/python.interpreter.displayName.v7": {
+      "data": {
+        "displayName": "Python 3.9.1 64-bit ('3.9.1': pyenv)",
+        "hash": "946d92bb6d98cb9d45681161f2917133b61e7ca4b1da4bacd29e99f7aca2639ecf93fd3b48895d31c4d313bcbcf59aa19c939c929ad11822e9f1089c1ab29cfe-fae26c488b5b0e1fca2bb1078bbfc0ea"
+      },
+      "expiry": 1609522339849
+    },
+    "/home/anosillus/.anyenv/envs/pyenv/versions/3.9.1/bin/python.interpreter.Details.v7": {
+      "data": {
+        "fileHash": "946d92bb6d98cb9d45681161f2917133b61e7ca4b1da4bacd29e99f7aca2639ecf93fd3b48895d31c4d313bcbcf59aa19c939c929ad11822e9f1089c1ab29cfe",
+        "info": {
+          "architecture": 3,
+          "path": "/home/anosillus/.anyenv/envs/pyenv/versions/3.9.1/bin/python",
+          "version": {
+            "options": {
+              "loose": false,
+              "includePrerelease": false
+            },
+            "loose": false,
+            "raw": "3.9.1-final",
+            "major": 3,
+            "minor": 9,
+            "patch": 1,
+            "prerelease": [
+              "final"
+            ],
+            "build": [],
+            "version": "3.9.1-final"
+          },
+          "sysPrefix": "/home/anosillus/.anyenv/envs/pyenv/versions/3.9.1",
+          "fileHash": "946d92bb6d98cb9d45681161f2917133b61e7ca4b1da4bacd29e99f7aca2639ecf93fd3b48895d31c4d313bcbcf59aa19c939c929ad11822e9f1089c1ab29cfe",
+          "envName": "3.9.1",
+          "type": "Pyenv",
+          "displayName": "Python 3.9.1 64-bit ('3.9.1': pyenv)"
+        }
+      },
+      "expiry": 1609522339911
     }
   },
   "coc-python|/home/anosillus/blog/hatena/hatenablog_post": {
@@ -3409,6 +3910,163 @@
       "displayName": "Python 3.8.6 64-bit"
     },
     "INTERPRETERS_CACHE_v3_PipEnvService": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": [],
+    "INTERPRETERS_CACHE_v3_PipEnvService:2da5ce129b71df0878fbbd7d46471abd": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService:2da5ce129b71df0878fbbd7d46471abd": []
+  },
+  "coc-python|/home/anosillus/dev/kepler.gl": {
+    "INTERPRETERS_CACHE_v3_PipEnvService:097ce44a45ec2d0045ad1b41d26c5603": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService:097ce44a45ec2d0045ad1b41d26c5603": [],
+    "autoSelectedWorkspacePythonInterpreter-/home/anosillus/dev/kepler.gl": {
+      "architecture": 3,
+      "path": "/sbin/python",
+      "version": {
+        "options": {
+          "loose": false,
+          "includePrerelease": false
+        },
+        "loose": false,
+        "raw": "3.8.6-final",
+        "major": 3,
+        "minor": 8,
+        "patch": 6,
+        "prerelease": [
+          "final"
+        ],
+        "build": [],
+        "version": "3.8.6-final"
+      },
+      "sysPrefix": "/usr",
+      "fileHash": "a54a478fceef8811afae6af9009273d509e546e11108c2da2e58cf4077e0f20e5efb8da7abe13379aea2a70ab2beedb84a0c6c6565370879440cea2af4b3fc91",
+      "type": "Unknown",
+      "displayName": "Python 3.8.6 64-bit"
+    },
+    "INTERPRETERS_CACHE_v3_PipEnvService": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": [],
+    "INTERPRETERS_CACHE_v3_PipEnvService:3678c460098de9491b6ee40770b2fc71": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService:3678c460098de9491b6ee40770b2fc71": []
+  },
+  "coc-python|/home/anosillus/competition": {
+    "INTERPRETERS_CACHE_v3_PipEnvService:25ab86e234843a173063ff861f3a1c66": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService:25ab86e234843a173063ff861f3a1c66": [],
+    "autoSelectedWorkspacePythonInterpreter-/home/anosillus/competition": {
+      "architecture": 3,
+      "path": "/sbin/python",
+      "version": {
+        "options": {
+          "loose": false,
+          "includePrerelease": false
+        },
+        "loose": false,
+        "raw": "3.8.6-final",
+        "major": 3,
+        "minor": 8,
+        "patch": 6,
+        "prerelease": [
+          "final"
+        ],
+        "build": [],
+        "version": "3.8.6-final"
+      },
+      "sysPrefix": "/usr",
+      "fileHash": "a54a478fceef8811afae6af9009273d509e546e11108c2da2e58cf4077e0f20e5efb8da7abe13379aea2a70ab2beedb84a0c6c6565370879440cea2af4b3fc91",
+      "type": "Unknown",
+      "displayName": "Python 3.8.6 64-bit"
+    },
+    "INTERPRETERS_CACHE_v3_PipEnvService": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": [],
+    "INTERPRETERS_CACHE_v3_PipEnvService:031c398e01696b0f8039904fe551f813": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService:031c398e01696b0f8039904fe551f813": []
+  },
+  "coc-python|/home/anosillus/dev/ds_template": {
+    "INTERPRETERS_CACHE_v3_PipEnvService:36a336785f3a3c5185705f79dcfc797d": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService:36a336785f3a3c5185705f79dcfc797d": [],
+    "autoSelectedWorkspacePythonInterpreter-/home/anosillus/dev/ds_template": {
+      "architecture": 3,
+      "path": "/sbin/python",
+      "version": {
+        "options": {
+          "loose": false,
+          "includePrerelease": false
+        },
+        "loose": false,
+        "raw": "3.8.6-final",
+        "major": 3,
+        "minor": 8,
+        "patch": 6,
+        "prerelease": [
+          "final"
+        ],
+        "build": [],
+        "version": "3.8.6-final"
+      },
+      "sysPrefix": "/usr",
+      "fileHash": "a54a478fceef8811afae6af9009273d509e546e11108c2da2e58cf4077e0f20e5efb8da7abe13379aea2a70ab2beedb84a0c6c6565370879440cea2af4b3fc91",
+      "type": "Unknown",
+      "displayName": "Python 3.8.6 64-bit"
+    },
+    "INTERPRETERS_CACHE_v3_PipEnvService": [],
     "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": []
+  },
+  "coc-python|/home/anosillus/.jupyter": {
+    "INTERPRETERS_CACHE_v3_PipEnvService:d155a35160b5f6b912fabd38cd156190": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService:d155a35160b5f6b912fabd38cd156190": [],
+    "INTERPRETERS_CACHE_v3_PipEnvService": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": [],
+    "autoSelectedWorkspacePythonInterpreter-/home/anosillus/.jupyter": {
+      "architecture": 3,
+      "path": "/home/anosillus/.anyenv/envs/pyenv/versions/3.9.1/bin/python",
+      "version": {
+        "options": {
+          "loose": false,
+          "includePrerelease": false
+        },
+        "loose": false,
+        "raw": "3.9.1-final",
+        "major": 3,
+        "minor": 9,
+        "patch": 1,
+        "prerelease": [
+          "final"
+        ],
+        "build": [],
+        "version": "3.9.1-final"
+      },
+      "sysPrefix": "/home/anosillus/.anyenv/envs/pyenv/versions/3.9.1",
+      "fileHash": "946d92bb6d98cb9d45681161f2917133b61e7ca4b1da4bacd29e99f7aca2639ecf93fd3b48895d31c4d313bcbcf59aa19c939c929ad11822e9f1089c1ab29cfe",
+      "envName": "3.9.1",
+      "type": "Pyenv",
+      "displayName": "Python 3.9.1 64-bit ('3.9.1': pyenv)"
+    }
+  },
+  "coc-python|/home/anosillus/dev/vim-ipynb_test": {
+    "INTERPRETERS_CACHE_v3_PipEnvService": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": [],
+    "INTERPRETERS_CACHE_v3_PipEnvService:14557cafda0a61c0f1e05c49996a6270": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService:14557cafda0a61c0f1e05c49996a6270": [],
+    "autoSelectedWorkspacePythonInterpreter-/home/anosillus/dev/vim-ipynb_test": {
+      "architecture": 3,
+      "path": "/sbin/python",
+      "version": {
+        "options": {
+          "loose": false,
+          "includePrerelease": false
+        },
+        "loose": false,
+        "raw": "3.8.6-final",
+        "major": 3,
+        "minor": 8,
+        "patch": 6,
+        "prerelease": [
+          "final"
+        ],
+        "build": [],
+        "version": "3.8.6-final"
+      },
+      "sysPrefix": "/usr",
+      "fileHash": "a54a478fceef8811afae6af9009273d509e546e11108c2da2e58cf4077e0f20e5efb8da7abe13379aea2a70ab2beedb84a0c6c6565370879440cea2af4b3fc91",
+      "type": "Unknown",
+      "displayName": "Python 3.8.6 64-bit"
+    }
   }
 }
