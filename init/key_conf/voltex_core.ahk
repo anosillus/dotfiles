@@ -40,5 +40,64 @@ if not (A_IsAdmin or RegExMatch(full_command_line, " /restart(?!\S)"))
 <!e::Sendraw (
 <!i::Sendraw )
 <!o::Sendraw _
+<!b::Sendraw "
+<!k::Sendraw ?
+<!m::Sendraw {
+<!,::Sendraw }
+<!.::Sendraw |
+^<!::Sendraw !
 <!Enter::Sendraw +
 <!q::Sendraw ~
+
+ #InstallKeybdHook
+
+  $*Space::                           ;スペース押下時
+      ;tooltip,"%SandS_mod%" "%SandS_key%" %SandS_guard%  ;debug
+
+      if SandS_guard = True           ;スペースキーガード
+          Return
+      SandS_guard = True              ;スペースキーにガードをかける
+
+      Send,{Shift Down}               ;シフトキーを仮想的に押し下げる
+
+      SandS_mod=                      ;装飾キー退避
+      GetKeyState, state, Shift,P
+      if state=D
+          SandS_mod=%SandS_mod%+
+      GetKeyState, state, Ctrl,P
+      if state=D
+          SandS_mod=%SandS_mod%^
+      GetKeyState, state, Alt,P
+      if state=D
+          SandS_mod=%SandS_mod%!
+
+      GetKeyState, state, LWin,P
+      if state=D
+          SandS_mod=%SandS_mod%#
+      GetKeyState, state, RWin,P
+      if state=D
+          SandS_mod=%SandS_mod%#
+
+      ifNotEqual SandS_key            ;文字入力済みの場合は終わり
+          return
+      SandS_key=
+      Input,SandS_key,L1 V            ;1文字入力を受け付け（入力有無判定用）
+
+      Return
+
+
+  $*Space up::                        ;スペース解放時
+      ;tooltip,"%SandS_mod%" "%SandS_key%" %SandS_guard%  ;debug
+
+      input                           ;既存のInputコマンドの終了
+      SandS_guard = False             ;スペースキーガードを外す
+      Send,{Shift Up}                 ;シフトキー解放
+
+      ifNotEqual SandS_mod            ;修飾キーありの場合
+          Send,%SandS_mod%{Space}     ;自前で修飾しながらスペースを発射！
+      else                            ;修飾キー同時押しではなかった場合
+          ifEqual SandS_key           ;SandS文字入力なし
+              Send,{Space}            ;単打のスペースを発射
+
+      SandS_key=
+      Return
