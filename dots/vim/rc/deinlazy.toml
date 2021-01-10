@@ -27,7 +27,7 @@ on_cmd = 'Denite'
 hook_source = 'source ~/.vim/rc/plugins/denite.rc.vim'
 # keymap {{{
 hook_add = '''
-  nnoremap <silent><leader>m :Denite mark <CR>
+  nnoremap <silent><Space>m :Denite mark <CR>
   nnoremap <C-w> :<C-u>DeniteCursorWord grep <CR>
   nnoremap <silent> <C-v>
         \ :<C-u>Denite -buffer-name=register
@@ -37,7 +37,7 @@ hook_add = '''
         \ register neoyank<CR>
   nnoremap <silent> <c-Space>
   \ :<C-u>Denite file/rec<CR>
-  nnoremap <silent><expr> M, wordcount().chars > 30000 ?
+  "nnoremap <silent><expr> M, wordcount().chars > 30000 ?"
   nnoremap <silent><expr> r. wordcount().chars > 30000 ?
   \ ":\<C-u>Denite -buffer-name=search -start-filter
   \  -search line/external\<CR>" :
@@ -48,7 +48,7 @@ hook_add = '''
   xnoremap <silent> *
   \ "qy:Denite -input=`@q` -buffer-name=search -search line<CR>
   nnoremap <silent><expr> gq finddir('.git', ';') != '' ?
-  nnoremap <silent><expr> <leader>j finddir('.git', ';') != '' ?
+  nnoremap <silent><expr> <Space>j finddir('.git', ';') != '' ?
   \ ":\<C-u>Denite -sorters=sorter/rank -unique
   \  file/point file/old file/dirty file/git file file:new\<CR>" :
   \ ":\<C-u>Denite -sorters=sorter/rank -unique
@@ -62,18 +62,18 @@ hook_add = '''
   \ ":\<C-u>DeniteCursorWord -buffer-name=tag -immediately tag:include\<CR>"
   nnoremap <silent><expr> gM  &filetype == 'help' ?
   \ ":\<C-u>pop\<CR>" : ":\<C-u>Denite jump\<CR>"
-  nnoremap <silent> <Leader>g :<C-u>Denite dein<CR>
+  nnoremap <silent> <Space>g :<C-u>Denite dein<CR>
   nnoremap <silent> go :<C-u>Denite change jump<CR>
   nnoremap <silent> <C-q> :<C-u>Denite change -start-filter<CR>
-  nnoremap <silent> bb :<C-u>DeniteCursorWord help<CR>
-  nnoremap <silent> <Leader>J :<C-u>Denite dein<CR>
+  nnoremap <silent> <Space>b :<C-u>DeniteCursorWord help<CR>
+  nnoremap <silent> <Space>J :<C-u>Denite dein<CR>
   nnoremap <silent> jg :<C-u>Denite -buffer-name=search grep<CR>
-  nnoremap <silent> <leader>z :<C-u>Denite change jump<CR>
+  nnoremap <silent> <Space>z :<C-u>Denite change jump<CR>
   nnoremap <silent> <C-q> :<C-u>Denite change -start-filter<CR>
   nnoremap <silent> <C-b> :<C-u>DeniteCursorWord help<CR>
-  nnoremap <silent> <leader>b :<C-u>Denite -split=vertical help -start-filter<CR>
+  nnoremap <silent> <Space>B :<C-u>Denite -split=vertical help -start-filter<CR>
   nnoremap <silent> <C-;> :<C-u>Denite command command_history<CR>
-  nnoremap <silent> <leader>; :<C-u>Denite file/old -start-filter<CR>
+  nnoremap <silent> <Space>; :<C-u>Denite file/old -start-filter<CR>
 '''
 # nnoremap <silent> je :<C-u>Denite junkfile:new junkfile<CR>
 # }}}
@@ -571,9 +571,6 @@ on_ft = ["python", "djangohtml"]
 [[plugins]]
 repo = "lambdalisue/vim-pyenv"
 on_ft =  ["python", "djangohtml"]
-[[plugins]]
-repo = 'anosillus/vim-ipynb'
-on_ft =  ["ipynb"]
 #  }}}
 # R {{{
 [[plugins]]

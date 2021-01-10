@@ -115,6 +115,7 @@ abbr -a vv $EDITOR ~/dotfiles/rc/vim/.
 abbr -a vs $EDITOR ~/dotfiles/init/
 
 abbr p python3
+abbr s scala
 abbr python python3
 abbr python2 python2
 abbr ipython ipython3

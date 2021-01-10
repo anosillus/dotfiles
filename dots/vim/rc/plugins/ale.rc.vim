@@ -37,26 +37,29 @@ let g:ale_python_flake8_options = '-m flake8 --select=C,E,F,W,B901'
 
 let g:ale_linter_aliases = {'gitcommit': ['gitcommit', 'text']}
 
+let g:ale_scala_metals_executable = '/usr/bin/metals-vim'
+
 let g:ale_linters = {
+\   'Dockerfile': ['hadolint'],
 \   'c':          ['clang'],
 \   'cmake':      ['cmake'],
 \   'cpp':        ['clang-format', 'clangtidy', 'g++', 'ccls'],
 \   'cs':         ['mcsc'],
 \   'css':        ['prettier', 'stylelint'],
-\   'Dockerfile': ['hadolint'],
 \   'fish':       ['fish'],
 \   'gitcommit':  ['gitlint', 'textlint', 'write-good'],
 \   'html':       ['prettier', 'htmlint', 'write-good', 'stylelint'],
 \   'java':       ['checkstyle'],
-\   'typescript': ['eslint'],
 \   'json':       ['eslint','prettier', 'jsonlint'],
 \   'latex':      ['vale', 'textlint'],
 \   'markdown':   ['markdownlint', 'prettier', 'textlint'],
 \   'python':     ['pylama', 'black', 'flake8','mypy'],
 \   'r':          ['lintr'],
 \   'rust':       ['rustfmt'],
+\   'scala':      ['metals'],
 \   'sql':        ['sqlfmt'],
 \   'text':       ['textlint', 'proselint', 'writegood'],
+\   'typescript': ['eslint'],
 \   'vim':        ['vint'],
 \   'yaml':       ['yamlint']
 \ }
@@ -80,7 +83,7 @@ let g:ale_fixers = {
 \   'python':     ['remove_trailing_lines', 'trim_whitespace', 'add_blank_lines_for_python_control_statements', 'black', 'reorder-python-imports'],
 \   'r':          ['remove_trailing_lines', 'trim_whitespace', 'styler'],
 \   'rust':       ['remove_trailing_lines', 'trim_whitespace', 'rustfmt'],
-\   'scala':      ['remove_trailing_lines', 'trim_whitespace', 'metals'],
+\   'scala':      ['remove_trailing_lines', 'trim_whitespace', 'scalafmt'],
 \   'sh':         ['remove_trailing_lines', 'trim_whitespace', 'shfmt'],
 \   'sql':        ['remove_trailing_lines', 'trim_whitespace', 'sqlfmt',],
 \   'text':       ['remove_trailing_lines', 'prettier', 'textlint'],

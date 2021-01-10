@@ -3,6 +3,14 @@
   "diagnostic.checkCurrentLine": true,
   "diagnostic.displayByAle": true,
   "git.addGBlameToVirtualText": true,
+  "translator.toLang": {
+    "type": "string",
+    "description": "ja"
+  },
+  "translator.engines": {
+    "type": "array",
+    "default": ["bing", "google", "youdao", "haici"]
+  },
   "signature.target": "echo",
   "  coc.githubUsers.githubAccessToken": "b69507175125548309ec2e0cf2fc4b26189fe54e",
   "list.source.files.args": ["--hidden", "--files"],

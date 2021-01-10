@@ -34,8 +34,8 @@ repo = 'vim-jp/vimdoc-ja'
 
 [[plugins]]
 repo = 'mojako/ref-sources.vim'
-hook_add = '''
-'''
+# hook_add = '''
+# '''
 
 [[plugins]]
 repo = 'thinca/vim-ref'
@@ -180,6 +180,18 @@ repo = 'kana/vim-textobj-user'
 repo ='sgur/vim-editorconfig'
 [[plugins]]
 repo = 'vim-scripts/autodate.vim'
+[[plugins]]
+repo = 'glidenote/memolist.vim'
+hook_add = '''
+let g:memolist_memo_suffix = "jp.md"
+let g:memolist_path = "~/memo/"
+let g:memolist_denite = 1
+nmap <Leader>M [memo]
+nnoremap [memo]n  :MemoNew<CR>
+nnoremap [memo]l :MemoList<CR>
+nnoremap [memo]g  :MemoGrep<CR>
+let g:memolist_template_dir_path = "~/dotfiles/dots/vim/template/template_memo.md"
+'''
 # config }}}
 
 # Fold/indent {{{
@@ -395,10 +407,6 @@ repo = 'pbrisbin/vim-mkdir'
 
 [[plugins]]
 repo = 'junegunn/fzf'
-
-[[plugins]]
-repo = 'lambdalisue/suda.vim'
-
 # }}}
 # command }}}
 

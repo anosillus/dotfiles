@@ -11,6 +11,8 @@ yay -S ibus ibus-qt ibus-skk
 sudo pacman -S noto-fonts noto-fonts-emoji noto-fonts-cjk noto-fonts-extra adobe-source-han-sans-jp-fonts adobe-source-han-serif-jp-fonts otf-ipafont otf-ipaexfont ttf-dejavu
 yay -S ttf-fantasque-sans-mono nerd-fonts-iosevka
 yay -S ttf-cica
+yay -S crfpp mecab-ipadic-neologd-git cabocha
+sudo pacman -S rigprep
 # security
 sudo pacman -S ufw gufw
 sudo pacman -S clamav clamtk mpd rofi direnv anyenv
