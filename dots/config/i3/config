@@ -9,9 +9,10 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 set $mod Mod4
+set $alt Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -45,7 +46,11 @@ bindsym $mod+q kill
 # installed.
 # bindsym $mod+p exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+p exec "rofi -modi window,drun,run -show drun -sidebar-mode -terminal termite -color-window '#000000, #000000, #000000' -color-normal '#000000, #b3e774, #000000, #b3e774, #000000' -color-active '#000000, #b3e774, #000000, #b3e774, #000000' -color-urgent '#000000, #b3e774, #000000, #b3e774, #000000'"
-# bindsym $mod+g 
+bindsym $mod+m exec "/home/anosillus/.config/rofi/bin/menu_powermenu"
+bindsym $mod+g exec "/home/anosillus/.config/rofi/bin/menu_mpd"
+bindsym $mod+Shift+g exec "/home/anosillus/.config/rofi/bin/menu_volume"
+bindsym $mod+Shift+s exec "/home/anosillus/.config/rofi/bin/menu_screenshot"
+bindsym $mod+Shift+t exec "/home/anosillus/.config/rofi/bin/menu_time"
 
 # change focus
 bindsym $mod+h focus left
@@ -89,7 +94,7 @@ bindsym $mod+d layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+# bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 # bindsym $mod+, focus parent
@@ -104,7 +109,6 @@ bindsym $mod+c workspace 3
 bindsym $mod+v workspace 4
 bindsym $mod+b workspace 5
 bindsym $mod+k workspace 6
-bindsym $mod+m workspace 7
 
 # PageUp & PageDown
 bindsym $mod+u workspace prev
@@ -117,15 +121,14 @@ bindsym $mod+Shift+c move container to workspace 3
 bindsym $mod+Shift+v move container to workspace 4
 bindsym $mod+Shift+b move container to workspace 5
 bindsym $mod+Shift+k move container to workspace 6
-bindsym $mod+Shift+m move container to workspace 7
 
 # reload the configuration file
 bindsym $mod++r reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+o exec --no-startup-id \
-	"i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Shutdown' 'systemctl poweroff' -b 'Reboot' 'systemctl reboot' -b 'Logout' 'i3-msg exit'"
+# bindsym $mod+Shift+o exec --no-startup-id \
+# 	"i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Shutdown' 'systemctl poweroff' -b 'Reboot' 'systemctl reboot' -b 'Logout' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -166,9 +169,13 @@ bindsym $mod+o mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        status_command polybar
-}
+exec_always --no-startup-id ~/.config/polybar/launch.sh &
+# bar {
+    # exec_always --no-startup-id ~/.i3/polybar.sh &
+    # i3bar_command $HOME/.config/polybar/launch.sh
+ 
+#status_command i3status
+# }
 
 # Multimedia keys
 # Pulse Audio controls
@@ -207,10 +214,9 @@ exec --no-startup-id compton -cbm 0.75
 # Plasma compatibility improvements
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
-
 for_window [class="alacritty"] floating enable; border none
 for_window [class="spotify"] floating enable; border none
-for_window [class="vivaldi"] floating disable; border none
+for_window [class="vivaldi"] floating disable;
 for_window [class="google-chrome"] floating disable; border none
 for_window [class="yakuake"] floating enable
 for_window [class="systemsettings"] floating enable

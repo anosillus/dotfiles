@@ -1,23 +1,35 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 # File name: <+FILE NAME+>
 # First Edit: <+DATE+>
 # Last Change: <%= strftime('%Y-%m-%d') %>
-# License: The MIT License (MIT) Copyright (c) <<%= strftime('%Y') %>> <copyright @anosillus>
 
-"""
-Description
-"""
-from dataclasses import dataclass
+__description__ = ""
+__author__ = "@anosillus"
+__license__ = "MIT"
+__email__ = "anosillus@gmail.com"
+__status__ = "Production"
+
+import logging
 import itertools
+import os
 from collections import Counter
+from dataclasses import dataclass
 from typing import Callable
 from typing import Final
 from typing import NamedTuple
 from typing import TypedDict
 from typing import Union
+from logzero import logger
+import logzero
+
+
+logzero.logfile("./logfile.log", loglevel=logging.ERROR, backupCount=3)
+logzero.loglevel(logging.INFO)
 
 
 def main():
-    pass
+    logger.debug("hello")
     <+CURSOR+>
 
 

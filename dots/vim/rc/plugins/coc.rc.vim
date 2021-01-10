@@ -8,7 +8,6 @@ if exists('*complete_info')
 else
   inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
-
 let g:coc_global_extensions = [
   \ 'coc-cmake',
   \ 'coc-emoji',
@@ -17,6 +16,7 @@ let g:coc_global_extensions = [
   \ 'coc-html',
   \ 'coc-json',
   \ 'coc-marketplace',
+  \ 'coc-metals',
   \ 'coc-omnisharp',
   \ 'coc-pyright',
   \ 'coc-python',
@@ -24,9 +24,9 @@ let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-snippets',
   \ 'coc-syntax',
+  \ 'coc-translator',
   \ 'coc-tsserver',
-  \ 'coc-word',
-  \ 'coc-metals'
+  \ 'coc-word'
   \ ]
 
 " GoTo code navigation.
@@ -43,6 +43,10 @@ vmap <C-n> <Plug>(coc-snippets-select)
 
 nmap <Space>f <Plug>(coc-git-nextchunk)
 nmap <Space>p <Plug>(coc-git-prevchunk)
+
+" echo
+nmap bb <Plug>(coc-translator-e)
+vmap bb <Plug>(coc-translator-ev)
 
 " Use <C-j> for jump to next placeholder, it's default of coc.nvim
 " let g:coc_snippet_next = '<c-n>'
