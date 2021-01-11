@@ -5,6 +5,7 @@
     autocrlf = input                 # CRLFを自動変換
     editor =  gvim
     quotepath = false
+	longpaths = true
 
 
 [color]
@@ -166,7 +167,7 @@
     default = matching
 
 [user]
-	name = anosillus
+	name = windows_anosillus
 	email = anosillus@gmail.com
 
  # [url "github:"]
