@@ -173,6 +173,8 @@ repo = 'tyru/open-browser.vim'
 repo = 'kana/vim-operator-user'
 [[plugins]]
 repo = 'kana/vim-textobj-user'
+[[plugins]]
+repo = 'vim-jp/vital.vim'
 # }}}
 
 # Editor_Configs {{{
@@ -285,7 +287,7 @@ call submode#map('bufmove', 'n', '', 'Y', ':call comfortable_motion#flick(g:comf
 '''
 # }}}
 
-# sandwitch {{{
+# sandwitch 
 [[plugins]]
 repo = 'machakann/vim-sandwich'
 hook_post_update = '''
@@ -308,15 +310,15 @@ hook_add = '''
 let g:operator_sandwich_no_default_key_mappings = 1
 let g:textobj_sandwich_no_default_key_mappings = 1
 let g:sandwich_no_default_key_mappings = 1
-" nmap w <Nop>
-" xmap w <Nop>
-" omap w <Nop>
-" nmap W <Nop>
-" xmap W <Nop>
-" omap W <Nop>
+nmap w <Nop>
+xmap w <Nop>
+omap w <Nop>
+nmap W <Nop>
+xmap W <Nop>
+omap W <Nop>
 nmap w  <Plug>(operator-sandwich-add)
 nmap W  <Plug>(operator-sandwich-add)<Plug>(operator-sandwich-synchro-count)
-map  Wd <Plug>(operator-sandwich-delete)<Plug>(textobj-sandwich-query-a)
+map  Wd <Plug>operator-sandwich-delete<Plug>(textobj-sandwich-query-a)
 map  wd <Plug>(operator-sandwich-delete)<Plug>(textobj-sandwich-auto-a)
 map  Wr <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-query-a)
 map  wr <Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-auto-a)
@@ -324,18 +326,13 @@ map  mw <Plug>(operator-sandwich-delete)<Plug>(textobj-sandwich-auto-a)s
 map  mW <Plug>(operator-sandwich-delete)<Plug>(textobj-sandwich-query-a)s
 omap W  <Plug>(textobj-sandwich-query-i)
 omap w  <Plug>(textobj-sandwich-auto-i)
-omap sW <Plug>(textobj-sandwich-query-i)
-omap sw <Plug>(textobj-sandwich-auto-i)
+omap sW <Plug>(textobj-sandwich-query-a)
+omap sw <Plug>(textobj-sandwich-auto-a)
 omap tW <Plug>(textobj-sandwich-query-a)
-omap tw <Plug>(textobj-sandwich-query-a)
-xmap w  <Plug>(textobj-sandwich-auto-i)
-xmap W  <Plug>(textobj-sandwich-query-i)
-xmap sW <Plug>(textobj-sandwich-query-i)
-xmap sw <Plug>(textobj-sandwich-auto-i)
-xmap tW <Plug>(textobj-sandwich-query-a)
-xmap tw <Plug>(textobj-sandwich-query-a)
+omap tw <Plug>(textobj-sandwich-auto-a)
+xmap w <Plug>(operator-sandwich-add)
 '''
-# }}}
+
 
 # smart_motion  {{{
 [[plugins]]
