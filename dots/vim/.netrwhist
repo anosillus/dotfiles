@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =2
+let g:netrw_dirhist_2='C:/Users/anosillus/dev/inda_suiron/docker'
+let g:netrw_dirhist_1='C:/Users/anosillus/dev/cookiecutter-docker-science/{{ cookiecutter.project_slug }}/docker'
+let g:netrw_dirhist_0='C:/Users/anosillus/dev/cookiecutter-docker-science/{{ cookiecutter.project_slug }}'
+let g:netrw_dirhist_9='C:/Users/anosillus/dev/cookiecutter-docker-science'
+let g:netrw_dirhist_8='C:/Users/anosillus/dev/cookiecutter-docker-science/{{ cookiecutter.project_slug }}/docker'
+let g:netrw_dirhist_7='C:/Users/anosillus/dev/cookiecutter-docker-science/{{ cookiecutter.project_slug }}'
+let g:netrw_dirhist_6='C:/Users/anosillus/dev/cookiecutter-docker-science'
+let g:netrw_dirhist_5='C:/Users/anosillus/dev/cookiecutter-docker-science/{{ cookiecutter.project_slug }}/docker'
+let g:netrw_dirhist_4='C:/Users/anosillus/dev/cookiecutter-docker-science/{{ cookiecutter.project_slug }}'
+let g:netrw_dirhist_3='C:/Users/anosillus/dev/cookiecutter-docker-science'

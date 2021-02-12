@@ -1,0 +1,11 @@
+2020/10/18 12:52:42.743 Info   Starting JoyToKey v6.5
+2020/10/18 12:52:42.743 Info   ExeFile = C:\Program Files (x86)\JoyToKey\JoyToKey.exe
+2020/10/18 12:52:42.744 Info   Args = C:\Program Files (x86)\JoyToKey\JoyToKey.exe
+2020/10/18 12:52:42.744 Info   Args = C:\Users\anosillus\dotfiles\init\key_conf\pdf.cfg
+2020/10/18 12:52:42.744 Info   DataDirectory = C:\Users\anosillus\dotfiles\init\key_conf\
+2020/10/18 12:52:42.744 Info   Profile = pdf
+2020/10/18 12:52:42.744 Info   IniFile = C:\Users\anosillus\dotfiles\init\key_conf\JoyToKey.ini
+2020/10/18 12:52:42.744 Info   Windows Version = 6.2
+2020/10/18 12:52:42.744 Info   Loaded VistaAPI.dll - using advanced API (Utils\Utils.cpp#322)
+2020/10/18 12:52:42.744 Info   Loading ini file: C:\Users\anosillus\dotfiles\init\key_conf\JoyToKey.ini (AppInfo.cpp#229)
+2020/10/18 12:52:42.744 Info   Application terminated (Utils\LogFile.cpp#20)

@@ -199,3 +199,9 @@ Set-Theme Paradox
 # }}}
 
 # vim: ts=2 et sw=2 fdm=marker ft=ps1
+
+# Chocolatey profile
+$ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
+if (Test-Path($ChocolateyProfile)) {
+  Import-Module "$ChocolateyProfile"
+}
