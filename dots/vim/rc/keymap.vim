@@ -347,7 +347,7 @@ noremap Q @
 " map q is q
 nnoremap Q @
 nmap qq :bd<CR>
-xmap q <Plug>(coc-codeaction-selected)
+" xmap q <Plug>(coc-codeaction-selected)
 imap <C-q> <C-]>
 " nnoremap <-q> is denite history
 nnoremap <Leader>q :<C-u>q<CR>
@@ -431,99 +431,82 @@ tmap  <M-q>  !
 
 " a
 map  á @
-map! á @
 lmap á @
 tmap á @
 
 " r
 map  ò #
-map! ò #
 lmap ò #
 tmap ò #
 
 " s
 map  ó $
-map! ó $
 lmap ó $
 tmap ó $
 
 " t
 map  ô %
-map! ô %
 lmap ô %
 tmap ô %
 
 " d
 map  ä ^
-map! ä ^
 lmap ä ^
 tmap ä ^
 
 " h
 map  è &
-map! è &
 lmap è &
 tmap è &
 
 " n
 map  î *
-map! î *
 lmap î *
 tmap î *
 
 " e
 map  å (
-map! å (
 lmap å (
 tmap å (
 
 " i
 map  é )
-map! é )
 lmap é )
 tmap é )
 
 " o
 map  ï _
-map! ï _
 lmap ï _
 tmap ï _
 
 " <CR>
 " Note : <M-CR> isn't work, I use <M-;>)
 map  <M-;> <kPlus>
-map! <M-;> <kPlus>
 lmap <M-;> <kPlus>
 tmap <M-;> <kPlus>
 
 " b
 map  â "
-map! â "
 lmap â "
 tmap â "
 
 " k
 map  ë ?
-map! ë ?
 lmap ë ?
 tmap ë ?
 
 " m
 map  í {
-map! í {
 lmap í {
 tmap í {
 
 " ,
 map  ¬ }
-map! ¬ }
 lmap ¬ }
 tmap ¬ }
 
 " .
 map  ® <bar>
-map! ® <bar>
-map! ® <bar>
 lmap ® <bar>
 tmap ® <bar>
 " }}}

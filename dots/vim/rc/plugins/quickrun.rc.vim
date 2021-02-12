@@ -144,7 +144,7 @@ let g:quickrun#config= {
 \ },
 \ 'perl6': {'hook/eval/template': '{%s}().perl.print'},
 \ 'python': {
-\   'type:  executable('/usr/bin/env/python') ? 'python/env':
+\   'type': executable('/usr/bin/env/python') ? 'python/env':
 \           executable('/usr/bin/python') ? 'python/base':
 \           executable('/usr/bin/python') ? 'python/base':
 \           executable('C:/Users/anosillus/AppData/Local/Microsoft/WindowsApps/python.exe') ? 'python/windows':
