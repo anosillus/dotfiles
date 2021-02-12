@@ -19,7 +19,6 @@ let g:coc_global_extensions = [
   \ 'coc-metals',
   \ 'coc-omnisharp',
   \ 'coc-pyright',
-  \ 'coc-python',
   \ 'coc-rls',
   \ 'coc-snippets',
   \ 'coc-snippets',
