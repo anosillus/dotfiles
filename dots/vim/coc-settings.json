@@ -3,6 +3,10 @@
   "diagnostic.checkCurrentLine": true,
   "diagnostic.displayByAle": true,
   "git.addGBlameToVirtualText": true,
+  "python.analysis.diagnosticEnabled": false,
+  "python.analysis.diagnosticMode": false,
+  "python.linting.enabled": false,
+  "coc.preferences.diagnostic.locationlist": false,
   "translator.toLang": {
     "type": "string",
     "description": "ja"
