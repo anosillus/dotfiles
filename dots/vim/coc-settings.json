@@ -6,6 +6,7 @@
   "python.analysis.diagnosticEnabled": false,
   "python.analysis.diagnosticMode": false,
   "python.linting.enabled": false,
+  "diagnostic.enable": false,
   "coc.preferences.diagnostic.locationlist": false,
   "translator.toLang": {
     "type": "string",

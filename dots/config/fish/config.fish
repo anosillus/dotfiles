@@ -39,6 +39,7 @@ switch (uname)
                     abbr -a aud sudo pacman -Syy
                     abbr -a aug sudo pacman -Syyu
                     set PATH $PATH $HOME/.config/rofi/bin
+                    set -xg JAVA_HOME "/usr/lib/jvm/java-11-adoptopenjdk"
                     abbr -a va $EDITOR $HOME/.config/rofi/bin
                     # export GTK_IM_MODULE=ibus
                     # export XMODFIERS=@im=ibus
@@ -243,7 +244,6 @@ else
 end
 
 
-
 if functions -q aws-cli
     complete --command aws --no-files --arguments '(begin; set --local --export COMP_SHELL fish; set --local --export COMP_LINE (commandline); aws_completer | sed \'s/ $//\'; end)'
 end
@@ -253,7 +253,6 @@ end
 # set -U async_prompt_functions fish_right_prompt
 
 # set -xg JAVA_HOME "/usr/lib/jvm/default/bin"
-set -xg JAVA_HOME "/usr/lib/jvm/java-11-adoptopenjdk"
 
 set -U FZF_LEGACY_KEYBINDINGS 0
 set -U FZF_REVERSE_ISEARCH_OPTS "--reverse --height=100%"
@@ -262,7 +261,7 @@ set -U FZF_REVERSE_ISEARCH_OPTS "--reverse --height=100%"
 set VIRTUAL_ENV_DISABLE_PROMPT disable
 set VIRTUAL_ENV
 
-# set -g theme_display_git yes
+set -g theme_display_git yes
 # set -g theme_display_git_dirty yes
 # set -g theme_display_git_untracked no
 # set -g theme_display_git_ahead_verbose yes
@@ -273,7 +272,7 @@ set VIRTUAL_ENV
 # set -g theme_git_worktree_support yes
 # set -g theme_use_abbreviated_branch_name yes
 # set -g theme_display_vagrant yes
-# set -g theme_display_docker_machine yes
+set -g theme_display_docker_machine yes
 # set -g theme_display_k8s_context yes
 # set -g theme_display_hg yes
 # set -g theme_display_virtualenv yes
@@ -284,14 +283,14 @@ set VIRTUAL_ENV
 # set -g theme_display_user ssh
 # set -g theme_display_hostname ssh
 # set -g theme_display_vi yes
-# set -g theme_display_date yes
+set -g theme_display_date no
 # set -g theme_display_cmd_duration yes
 # set -g theme_title_display_process yes
 # set -g theme_title_display_path no
 # set -g theme_title_display_user no
 # set -g theme_title_use_abbreviated_path no
-# set -g theme_date_format "+%a %H:%M"
-# set -g theme_date_timezone Japan/Tokyo
+set -g theme_date_format "+%a %H:%M"
+set -g theme_date_timezone Japan/Tokyo
 # set -g theme_avoid_ambiguous_glyphs yes
 # set -g theme_powerline_fonts yes
 # set -g theme_nerd_fonts yes
