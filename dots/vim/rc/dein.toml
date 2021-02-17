@@ -237,14 +237,14 @@ nmap <C-p> <Plug>(ale_previous)
 # }}}
 
 # uniqe{{{
-# [[plugins]]
-# repo = 'lambdalisue/gina.vim'
-# hook_add = '''
-# nnoremap <Right> :<C-u>Gina diff<CR>
-# nnoremap <Left> :<C-u>Gina commit<CR>
-# nnoremap <UP> :<C-u>Gina status<CR>
-# nnoremap <Down> :<C-u>Gina push<CR>
-# '''
+[[plugins]]
+repo = 'lambdalisue/gina.vim'
+hook_add = '''
+nnoremap <Right> :<C-u>Gina diff<CR>
+nnoremap <Left> :<C-u>Gina commit<CR>
+nnoremap <UP> :<C-u>Gina status<CR>
+nnoremap <Down> :<C-u>Gina push<CR>
+'''
 
 [[plugins]]
 repo = 'junegunn/vim-easy-align'
