@@ -10,29 +10,19 @@ __status__ = "Production"
 __email__ = "kenji.iida@maas.co.jp"
 
 from collections import Counter
+from collections import namedtuple
 from dataclasses import dataclass
-from logzero import logger
 from typing import Callable
 from typing import Final
 from typing import NamedTuple
 from typing import TypedDict
 from typing import Union
+from typing import Optional
+from typing import Literal
 import itertools
-import logging
-import logzero
-
-import os
-import sys
-
-path = os.path.join(os.path.dirname(__file__), "../scripts")
-sys.path.append(path)
-
-logzero.logfile("./logfile.log", loglevel=logging.ERROR, backupCount=3)
-logzero.loglevel(logging.INFO)
 
 
 def main():
-    logger.debug("hello")
     <+CURSOR+>
 
 
