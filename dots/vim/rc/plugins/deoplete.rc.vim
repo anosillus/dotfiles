@@ -1,4 +1,4 @@
-let g:deoplete#auto_complete_delay = 0
+" let g:deoplete#auto_complete_delay = 0
 
 " <TAB>: completion.
 inoremap <silent><expr> <C-n>

@@ -132,7 +132,6 @@ abbr -a ni npm install
 abbr -a ng npm install -g
 abbr -a html google-chrome
 abbr -a skk yaskkserv2 --config-filename ~/.skk/linux_yaskkserv2.conf
-
 abbr -a ydlm youtube-dl -f best -x --audio-format mp3  -o "~/Music/%(title)s.%(ext)s"
 abbr tm tmux
 abbr kill tmux kill-server

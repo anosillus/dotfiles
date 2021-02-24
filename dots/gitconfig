@@ -1,11 +1,10 @@
 [core]
     pager = less -q -R
-    excludesfile = ~/.gitignore
     preloadindex = true
     autocrlf = input                 # CRLFを自動変換
     editor =  gvim
     quotepath = false
-	longpaths = true
+    longpaths = true
 
 
 [color]

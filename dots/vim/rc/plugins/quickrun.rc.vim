@@ -143,7 +143,7 @@ let g:quickrun#config= {
 \     'print Dumper eval{%s}'], ';')
 \ },
 \ 'perl6': {'hook/eval/template': '{%s}().perl.print'},
-\ 'python': {
+ \ 'python': {
 \   'type': executable('/usr/bin/env/python') ? 'python/env':
 \           executable('/usr/bin/python') ? 'python/base':
 \           executable('/usr/bin/python') ? 'python/base':
