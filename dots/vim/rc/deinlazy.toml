@@ -321,7 +321,6 @@ hook_source = '''
     endfor
     call eskk#register_mode_table('hira', t)
   endfunction
-
   let &g:statusline = "%{winnr('$')>1?'['.winnr().'/'.winnr('$')"
         \ . ".(winnr('#')==#winnr()?'#':'').']':''}\ "
         \ . "%{(&previewwindow?'[preview] ':'')."
@@ -732,7 +731,6 @@ let g:swap#keymappings = {
 \   "\<Down>": ['move_next'],
 \   "\<Esc>": ['Esc'],
 \ }
-
 omap g< <Plug>(swap-prev)
 xmap g< <Plug>(swap-prev)
 omap g> <Plug>(swap-next)

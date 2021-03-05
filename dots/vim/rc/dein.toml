@@ -15,8 +15,7 @@ repo = 'whatyouhide/vim-gotham'
 [[plugins]]
 repo = 'neoclide/coc.nvim'
 depends = 'vim-snippets'
-rev = 'release'
-# on_i = 1 */
+# on_i = 1
 on_if = "matchstr(expand('%:p'),'jp.md') ==# ''"
 merged = '0'
 hook_add = 'source ~/.vim/rc/plugins/coc.rc.vim'
@@ -227,8 +226,8 @@ let g:php_folding = 1
 # ALE {{{
 [[plugins]]
 repo = 'w0rp/ale'
-# on_event = ['BufWritePre', 'FileWritePre', 'FileAppendPre']
-# hook_source = 'source ~/.vim/rc/plugins/ale.rc.vim'
+on_event = ['BufWritePre', 'FileWritePre', 'FileAppendPre']
+hook_source = 'source ~/.vim/rc/plugins/ale.rc.vim'
 hook_add = '''
 source ~/.vim/rc/plugins/ale.rc.vim
 nmap <C-f> <Plug>(ale_next)
@@ -332,7 +331,6 @@ omap tW <Plug>(textobj-sandwich-query-a)
 omap tw <Plug>(textobj-sandwich-auto-a)
 xmap w <Plug>(operator-sandwich-add)
 '''
-
 
 # smart_motion  {{{
 [[plugins]]

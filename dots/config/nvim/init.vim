@@ -1,1 +1,1 @@
-source $HOME/.vim/rc/start.vim
+" source $HOME/.vim/rc/start.vim

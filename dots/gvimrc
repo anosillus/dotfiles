@@ -22,7 +22,7 @@ if has('win32') || has('win64')
 
   if has('kaoriya')
     " For Kaoriya only.
-     set ambiwidth=auto
+    set ambiwidth=auto
   colorscheme jellybeans
   endif
 elseif has('mac')

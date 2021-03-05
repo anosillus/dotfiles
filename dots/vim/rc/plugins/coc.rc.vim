@@ -8,26 +8,26 @@ if exists('*complete_info')
 else
   inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
+let g:coc_global_config="$HOME/.vim/coc-settings.json"
 let g:coc_global_extensions = [
-  \ 'coc-cmake',
-  \ 'coc-emoji',
-  \ 'coc-git',
-  \ 'coc-go',
-  \ 'coc-html',
-  \ 'coc-json',
-  \ 'coc-marketplace',
-  \ 'coc-metals',
-  \ 'coc-omnisharp',
-  \ 'coc-pyright',
-  \ 'coc-rls',
-  \ 'coc-snippets',
-  \ 'coc-snippets',
-  \ 'coc-syntax',
-  \ 'coc-translator',
-  \ 'coc-tsserver',
-  \ 'coc-word'
-  \ ]
+ \ 'coc-cmake',
+ \ 'coc-emoji',
+ \ 'coc-go',
+ \ 'coc-html',
+ \ 'coc-json',
+ \ 'coc-marketplace',
+ \ 'coc-metals',
+ \ 'coc-omnisharp',
+ \ 'coc-rls',
+ \ 'coc-snippets',
+ \ 'coc-syntax',
+ \ 'coc-translator',
+ \ 'coc-tsserver',
+ \ 'coc-word'
+ \ ]
 
+ "\ 'coc-git',
+ "\ 'coc-pyright',
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gD <Plug>(coc-type-definition)
