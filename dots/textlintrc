@@ -100,14 +100,25 @@
       "appropriate_use_of_minus_sign": true,
       "max_arabic_numeral_digits": false
     }
-  },
-  "filters": {
-    "comments": true,
-    "allowlist": {
-      "allow": [
-        "/\\$\\$[\\s\\S]*?\\$\\$/m"
-      ]
+    "preset-ja-spacing": {
+      "ja-nakaguro-or-halfwidth-space-between-katakana": true,
+      "ja-no-space-around-parentheses": true,
+      "ja-no-space-between-full-width": true,
+      "ja-space-between-half-and-full-width": {
+          "space": "never"
+      },
+      "ja-space-after-exclamation": true,
+      "ja-space-after-question": true,
+      "ja-space-around-code": {
+        "before": true,
+        "after": true
+      }
+    },
+    "filters": {
+      "comments": true,
+      "allowlist": {
+        "allow": ["/\\$\\$[\\s\\S]*?\\$\\$/m"]
+        }
     }
   }
 }
-

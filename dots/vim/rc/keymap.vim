@@ -427,25 +427,32 @@ noremap <C-z> <C-a>
 " map! ú ! "This broke vim"
 map   <M-q>  !
 lmap  <M-q>  !
+map!  <M-q>  !
 tmap  <M-q>  !
+
 
 " a
 map  á @
 lmap á @
+map!  á @
 tmap á @
 
 " r
 map  ò #
 lmap ò #
+map!  ò #
 tmap ò #
 
 " s
 map  ó $
 lmap ó $
+map! ó $
 tmap ó $
 
+
 " t
-map  ô %
+map ô %
+map! ô %
 lmap ô %
 tmap ô %
 
@@ -453,60 +460,73 @@ tmap ô %
 map  ä ^
 lmap ä ^
 tmap ä ^
+omap ä ^
+
 
 " h
 map  è &
 lmap è &
 tmap è &
 
+
 " n
 map  î *
+map! î *
 lmap î *
 tmap î *
 
 " e
 map  å (
+map! å (
 lmap å (
 tmap å (
 
 " i
 map  é )
+map! é )
 lmap é )
 tmap é )
 
 " o
 map  ï _
+map! ï _
 lmap ï _
 tmap ï _
 
 " <CR>
 " Note : <M-CR> isn't work, I use <M-;>)
 map  <M-;> <kPlus>
+map! <M-;> <kPlus>
 lmap <M-;> <kPlus>
 tmap <M-;> <kPlus>
 
 " b
 map  â "
+map! â "
 lmap â "
 tmap â "
 
 " k
 map  ë ?
+map! ë ?
 lmap ë ?
 tmap ë ?
 
 " m
 map  í {
+map! í {
 lmap í {
 tmap í {
 
 " ,
 map  ¬ }
+map! ¬ }
 lmap ¬ }
 tmap ¬ }
 
 " .
 map  ® <bar>
+map! ® <bar>
 lmap ® <bar>
 tmap ® <bar>
 " }}}

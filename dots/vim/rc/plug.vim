@@ -4,7 +4,7 @@ let g:dein#install_progress_type = 'title'
 let g:dein#enable_notification = v:false
 let g:dein#notification_icon = '~/.vim/signs/warn.png'
 
-let g:dein#inline_vimrcs = ['keymap.vim', 'basic.vim', 'filetype.vim', 'gui.vim']
+let g:dein#inline_vimrcs = ['keymap.vim', 'basic.vim', 'filetype.vim', 'gui.vim', 'private.vim']
 
 
 if IsLinux()

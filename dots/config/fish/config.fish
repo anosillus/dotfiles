@@ -111,12 +111,14 @@ abbr vi $MYVIM
 abbr n  $MYNVIM
 abbr -a V $EDITOR --remote-tab-silent
 abbr -a vv $EDITOR ~/.vim/rc/dein.toml
-abbr -a vf $EDITOR ~/.config/fish/config.fish
+abbr -a vF $EDITOR ~/.config/fish/config.fish
+# abbr -a vF vf 
 abbr -a vv $EDITOR ~/dotfiles/rc/vim/.
 abbr -a vs $EDITOR ~/dotfiles/init/
 
 abbr p python3
 abbr s scala
+abbr py python3
 abbr python python3
 abbr python2 python2
 abbr ipython ipython3

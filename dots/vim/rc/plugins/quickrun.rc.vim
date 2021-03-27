@@ -1,3 +1,5 @@
+let g:quickrun_no_default_key_mappings = 1
+
 let g:quickrun#config= {
 \ '_': {
 \   'runner': 'vimproc',

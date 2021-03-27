@@ -78,6 +78,11 @@
       "command": "efm-langserver",
       "filetypes": ["vim", "eruby", "markdown"]
     },
+    "nim": {
+      "command": "nimlsp",
+      "filetypes": ["nim"],
+      "trace.server": "verbose"
+    }
     "python": {
       "command": "python3",
       "args": ["-mpyls", "-vv", "--log-file", "/tmp/lsp_python.log"],

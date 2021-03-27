@@ -41,7 +41,7 @@ augroup MyAutoCmd
   autocmd BufNewFile,BufRead *.ipynb set filetype=jupyter
   " autocmd FileType gina-commit set filetype=gitcommit
   " autocmd FileType gitcommit setlocal spell
-  autocmd BufNewFile,BufRead textlintrc, .textlinrc set filetype=json
+  autocmd BufNewFile,BufRead *textlintrc set filetype=json
   autocmd BufNewFile,BufRead .ahk set filetype=autohotkey
   autocmd BufNewFile,BufRead ~/.config/i3/config set filetype=i3config
     "https://vim-jp.org/vimdoc-ja/indent.html
