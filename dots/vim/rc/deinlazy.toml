@@ -321,7 +321,6 @@ hook_source = '''
     endfor
     call eskk#register_mode_table('hira', t)
   endfunction
-
   let &g:statusline = "%{winnr('$')>1?'['.winnr().'/'.winnr('$')"
         \ . ".(winnr('#')==#winnr()?'#':'').']':''}\ "
         \ . "%{(&previewwindow?'[preview] ':'')."

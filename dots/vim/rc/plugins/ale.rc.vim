@@ -36,7 +36,7 @@ let g:ale_python_flake8_options = '-m flake8 --select=C,E,F,W,B901 -max-line-len
 " let g:ale_python_flake8_options = '-m flake8'
 
 let g:ale_linter_aliases = {'gitcommit': ['gitcommit', 'text']}
-let g:ale_scala_metals_executable = '/usr/bin/metals-vim'
+" let g:ale_scala_metals_executable = '/usr/bin/metals-vim'
 
 let g:ale_linters = {
 \   'Dockerfile': ['hadolint'],

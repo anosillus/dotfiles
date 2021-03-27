@@ -1,12 +1,12 @@
 # Path {{{
 $env:Path += ";${Env:LOCALAPPDATA}\yarn\bin"
-$env:Path += ";${Env:LOCALAPPDATA}\Packages\PythonSoftwareFoundation.Python.3.8_qbz5n2kfra8p0\LocalCache\local-packages\Python38\Scripts"
-# $env:Path += ";${Env:APPDATA}\Python\Python38\Scripts"
+$env:Path += ";${Env:APPDATA}\Python\Python39\Scripts"
 $env:Path += ";${Env:APPDATA}\npm"
-$env:Path += ";${Env:USERPROFILE}\.pyenv\pyenv-win\"
+$env:Path += ";${Env:USERPROFILE}\.pyenv\pyenv-win\bin"
 $env:Path += ";${Env:ProgramData}\chocolatey\bin"
 $env:Path += ";${Env:ProgramFiles}\Git\cmd"
 $env:Path += ";${Env:ProgramFiles}\nodejs"
+$env:Path += ";${Env:ProgramFiles}\Go\bin"
 $env:Path += ";${Env:SystemDrive}\Go\bin"
 $env:Path += ";${Env:SystemDrive}\Ruby27-x64\bin"
 $env:Path += ";${Env:SystemDrive}\tools\ffmpeg\bin"
@@ -37,7 +37,7 @@ $DESKTOP = $(resolve-path "$ENV:USERPROFILE\Desktop")
 # }}}
 
 # Program Alias {{{
-Set-Alias make_dict ${Env:SystemDrive}\tools\yaskkserv2\target\release\yaskkserv2_make_dictionary.exe
+Set-Alias make_dict ${Env:SystemDrive}\tools\yaskkserv2\yaskkserv2_make_dictionary.exe
 Set-Alias 7z ${Env:ProgramFiles}\7-Zip\7z.exe
 Set-Alias aws ${Env:ProgramFiles}\Amazon\AWSCLIV2\aws.exe
 Set-Alias capture ${Env:ProgramFiles}\ShareX.exe
@@ -59,9 +59,7 @@ Set-Alias nvim ${Env:SystemDrive}\tools\neovim\bin\nvim.exe
 Set-Alias open Explorer
 Set-Alias pdf ${Env:LOCALAPPDATA}\SumatraPDF\sumatrapdf.exe
 Set-Alias perl ${Env:SystemDrive}\Strawberry\perl\bin\perl.exe
-Set-Alias pic ${ENV:ProgramFiles(x86)}\QuickPictureViewer\quick-picture-viewer.exe
-Set-Alias picture ${ENV:ProgramFiles(x86)}\QuickPictureViewer\quick-picture-viewer.exe
-Set-Alias quick-picture-viwer ${ENV:ProgramFiles(x86)}\QuickPictureViewer\quick-picture-viewer.exe
+Set-Alias pic ${ENV:ProgramFiles}\ImageGlass\imageplass.exe
 Set-Alias rg ${Env:SystemDrive}\tools\ripgrep\rg.exe
 Set-Alias ssh ${Env:SystemDrive}\tools\msys64\usr\bin\ssh.exe
 Set-Alias sumatrapdf ${Env:LOCALAPPDATA}\SumatraPDF\sumatrapdf.exe
@@ -72,12 +70,11 @@ Set-Alias vcpkg ${Env:SystemDrive}\tools\vcpkg\vcpkg.exe
 Set-Alias vim ${Env:SystemDrive}\tools\vim82-kaoriya-win64\vim.exe
 Set-Alias vlc ${ENV:ProgramFiles(x86)}\VideoLAN\VLC\vlc.exe
 # Set-Alias curl ${Env:SystemDrive}\tools\msys64\usr\bin\curl.exe
+# Set-Alias curl D:\tools\msys64\usr\bin\curl.exe
 Set-Alias grep ${Env:SystemDrive}\tools\msys64\usr\bin\grep.exe
-# Set-Alias python ${Env:LOCALAPPDATA}\Programs\Python\Python38\python.exe
-# Set-Alias python3 ${Env:LOCALAPPDATA}\Programs\Python\Python38\python.exe
-# Set-Alias captura ${ENV:ProgramFiles(x86)}\Captura\captura.exe
-Set-Alias code ${Env:LOCALAPPDATA}\Programs\'Microsoft VS Code'\bin\code.cmd
-# Set-Alias ffmpeg ${Env:SystemDrive}\Tools\ffmpeg\bin\ffmpeg.exe
+Set-Alias captura ${ENV:ProgramFiles(x86)}\Captura\captura.exe
+Set-Alias code ${ENV:ProgramFiles}\'Microsoft VS Code'\bin\code.cmd
+Set-Alias ffmpeg ${Env:SystemDrive}\Tools\ffmpeg\bin\ffmpeg.exe
 # }}}
 
 # short-cut alias {{{
@@ -91,7 +88,7 @@ Set-Alias la Get-ChildItem
 function mcd { mkdir @args; cd @args }
 function rmd { Remove-Item -recurse -force @args }
 function path { ($env:Path).Replace(';',"`n") }
-function skkserv {C:\tools\yaskkserv2\target\release\yaskkserv2.exe --config-filename $HOME\.skk\win_yaskkserv2.conf}
+function skkserv {C:\tools\yaskkserv2\yaskkserv2.exe --config-filename $HOME\.skk\win_yaskkserv2.conf}
 
 function DEV() {cd $DEV }
 function DOC() {cd $DOC }
@@ -119,6 +116,10 @@ function Get-DirectorySize() {
       measure-object -sum -property Length
   }
 Set-Alias size Get-DirectorySize
+function Run-Ubuntu {Start-VM -Name "Ubuntu 20.10"}
+Set-Alias vm Run-Ubuntu
+function End-Ubuntu {Stop-VM -Name "Ubuntu 20.10"}
+Set-Alias halt End-Ubuntu
 function Edit-Vimrc {gvim ${Env:USERPROFILE}\dotfiles\dots\vim}
 Set-Alias vv Edit-Vimrc
 function Edit-Powershell {gvim ${Env:USERPROFILE}\dotfiles\dots\windows\Microsoft.PowerShell_profile.ps1 }
@@ -198,10 +199,10 @@ Import-Module oh-my-posh
 Set-Theme Paradox
 # }}}
 
-# vim: ts=2 et sw=2 fdm=marker ft=ps1
-
 # Chocolatey profile
 $ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
 if (Test-Path($ChocolateyProfile)) {
   Import-Module "$ChocolateyProfile"
 }
+
+# vim: ts=2 et sw=2 fdm=marker ft=ps1

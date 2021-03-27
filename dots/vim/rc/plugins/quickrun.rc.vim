@@ -149,7 +149,7 @@ let g:quickrun#config= {
 \   'type': executable('/usr/bin/env/python') ? 'python/env':
 \           executable('/usr/bin/python') ? 'python/base':
 \           executable('/usr/bin/python') ? 'python/base':
-\           executable('C:/Users/anosillus/AppData/Local/Microsoft/WindowsApps/python.exe') ? 'python/windows':
+\           executable('C:/Python39/python.exe') ? 'python/windows':
 \           executable('C:/Users/anosillus/Anaconda3/python.exe') ? 'python/conda': ''
 \ },
 \  'python/test': {
@@ -165,7 +165,7 @@ let g:quickrun#config= {
 \    'command': 'python'
 \ },
 \  'python/windows': {
-\   'command': 'python',
+\   'command': 'C:/Python39/python.exe',
 \ },
 \  'python/conda': {
 \   'command': 'C:\Users\anosillus\Anaconda3\python.exe',
@@ -177,7 +177,7 @@ let g:quickrun#config= {
 \ },
 \ 'ruby': {'hook/eval/template': " p proc {\n%s\n}.call"},
 \ 'scala': {
-\   'cmdopt': '-Dfile.encoding=' . &termencoding,
+\   'cmdopt': '-Dfile.encoding=' . '&termencoding',
 \   'hook/output_encode/encoding': '&termencoding',
 \ },
 \ 'typescript': {
