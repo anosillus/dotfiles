@@ -26,7 +26,8 @@ switch (uname)
             set -g -x EDITOR  gvim
             set -g -x MYVIM   vim
             set -g -x MYNVIM  goneovim
-
+            set PATH $PATH $HOME/.config/rofi/bin
+            set PATH $PATH $HOME/.serverless/bin/serverless
             set -g -x BROWSER chromium
             set -x -U GOPATH $HOME/go
             # set -U fish_user_paths  $fish_user_paths
@@ -112,7 +113,7 @@ abbr n  $MYNVIM
 abbr -a V $EDITOR --remote-tab-silent
 abbr -a vv $EDITOR ~/.vim/rc/dein.toml
 abbr -a vF $EDITOR ~/.config/fish/config.fish
-# abbr -a vF vf 
+# abbr -a vF vf
 abbr -a vv $EDITOR ~/dotfiles/rc/vim/.
 abbr -a vs $EDITOR ~/dotfiles/init/
 

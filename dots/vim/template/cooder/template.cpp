@@ -1,8 +1,3 @@
-// -*- coding: utf-8 -*-
-// File name: <+FILE NAME+>
-// First Edit: <+DATE+>
-// Last Change: <%= strftime('%Y-%m-%d') %>
-
 #include <cstdlib>
 #include <bits/stdc++.h>
 using namespace std;
@@ -21,7 +16,28 @@ using VB = vector<bool>; using VS = vector<string>; using VP = vector<PII>;
 #define REP(i, n)    FOR(i, 0, n)
 #define $(x)         {cout << #x << " = " << (x) << endl;}
 
+{% if mod %}
+const long long MOD = {{ mod }};
+{% endif %}
+{% if yes_str %}
+const string YES = "{{ yes_str }}";
+{% endif %}
+{% if no_str %}
+const string NO = "{{ no_str }}";
+{% endif %}
+
+{% if prediction_success %}
+void solve({{ formal_arguments }}){
+  <+CURSOR+>
+}
+{% endif %}
 
 int main(){
-	<+CURSOR+>
+    {% if prediction_success %}
+    {{input_part}}
+    solve({{ actual_arguments }});
+    {% else %}
+    // Failed to predict input format
+    {% endif %}
+    return 0;
 }
