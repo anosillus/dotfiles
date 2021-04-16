@@ -11,21 +11,11 @@ repo = 'chriskempson/base16-vim'
 [[plugins]]
 repo = 'whatyouhide/vim-gotham'
 
-# coc {{{
-[[plugins]]
-repo = 'neoclide/coc.nvim'
-depends = 'vim-snippets'
-# on_i = 1
-on_if = "matchstr(expand('%:p'),'jp.md') ==# ''"
-merged = '0'
-hook_add = 'source ~/.vim/rc/plugins/coc.rc.vim'
-
 [[plugins]]
 repo = 'honza/vim-snippets'
 
 # [[plugins]]
 # repo = 'SirVer/ultisnips'
-# }}}
 
 # Reference {{{
 [[plugins]]
