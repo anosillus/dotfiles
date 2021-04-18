@@ -1,1 +1,1 @@
-/home/anosillus/.vim
+C:/home/anosillus/.vim

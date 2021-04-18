@@ -13,7 +13,7 @@ $env:Path += ";${Env:SystemDrive}\tools\ffmpeg\bin"
 $env:Path += ";${Env:SystemDrive}\tools\llvm-project\Release\bin"
 $env:Path += ";${Env:USERPROFILE}\.cargo\bin"
 $env:Path += ";${Env:USERPROFILE}\go\bin"
-
+$env:Path += ";${Env:ProgramFiles(x86)}\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Roslyn"
 # last, mingw is too strong.
 # $env:Path += ";${Env:SystemDrive}\tools\msys64\mingw64\bin"
 # $env:Path += ";${Env:SystemDrive}\tools\msys64\usr\bin"
