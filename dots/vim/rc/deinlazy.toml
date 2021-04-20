@@ -801,7 +801,8 @@ on_map = {ox = '<Plug>'}
 repo = 'kana/vim-textobj-function'
 depends = 'vim-textobj-user'
 on_ft = ['vim', 'c', 'java']
-hook_source =  '''
+on_map = {ox = '<Plug>'}
+hook_source = '''
 let g:textobj_function_no_default_key_mappings = 1'
 xmap tf <Plug>(textobj-function-i)
 omap tf <Plug>(textobj-function-i)
@@ -814,7 +815,6 @@ omap tF <Plug>(textobj-function-I)
 xmap sF <Plug>(textobj-function-A)
 omap sF <Plug>(textobj-function-A)
 '''
-on_map = {ox = '<Plug>'}
 
 [[plugins]]
 repo = 'bps/vim-textobj-python' 
