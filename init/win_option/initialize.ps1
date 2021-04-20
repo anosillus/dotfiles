@@ -1,23 +1,13 @@
-﻿## prepare
-##   Set-ExecutionPolicy RemoteSigned
-
-#Requires -RunAsAdministrator
+﻿#Requires -RunAsAdministrator
 
 Write-Host "STEP 1: Windowsの設定 をセットアップしています……"
-## Time Zone の設定
 tzutil.exe /s "Tokyo Standard Time"
 
-Write-Host "STEP 2: chocolatey をセットアップしています……"
-if (Test-Path "C:\ProgramData\chocolatey")
-{
-    Write-Host "すでにインストールされています。"
-}
-else
-{
-    Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-## Get-PackageProvider -Name "Chocolatey" -ForceBootstrap
-    Write-Host "インストールが完了しました。"
-}
+Write-Host "STEP 2: Scoope をセットアップしています……"
+. \soope_setup.ps1
+
+Write-Host "STEP 3: chocolatey をセットアップしています……"
+. \chocolatey_setup.ps1
 
 ## Write-Host "STEP 3: GitHubから設定ファイルを導入している……"
 ## Install Git by Chocolatey
