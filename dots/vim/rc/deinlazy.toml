@@ -397,10 +397,10 @@ hook_source = '''
 [[plugins]]
 repo = 'neoclide/coc.nvim'
 depends = 'vim-snippets'
-# on_i = 1
 on_if = "matchstr(expand('%:p'),'jp.md') ==# ''"
+hook_source = 'source ~/.vim/rc/plugins/coc.rc.vim'
+# on_i = 1
 merged = '0'
-hook_add = 'source ~/.vim/rc/plugins/coc.rc.vim'
 # }}}
 
 # QuickRun {{{
@@ -464,19 +464,23 @@ of_ft = ['toml','markdown', 'text']
 repo = 'mzlogin/vim-markdown-toc'
 on_ft = 'markdown'
 [[plugins]]
-repo = 'rcmdnk/vim-markdown'
+repo = 'godlygeek/tabular'
+on_ft = 'markdown'
+[[plugins]]
+repo = 'plasticboy/vim-markdown'
 on_ft = 'markdown'
 hook_source = '''
 map <Leader>n <Plug>Markdown_MoveToNextHeader
 map <Leader>e <Plug>Markdown_MoveToPreviousHeader
 map N <Plug>Markdown_MoveToNextSiblingHeader
-map E  <Plug>Markdown_MoveToPreviousSiblingHeader
+map E <Plug>Markdown_MoveToPreviousSiblingHeader
 map <Leader>N <Plug>Markdown_MoveToCurHeader
 map <Leader>E <Plug>Markdown_MoveToParentHeader
 let g:markdown_enable_mappings = 0
 let g:markdown_enable_spell_checking = 0
 let g:vim_markdown_no_extensions_in_markdown = 1
 let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_toc_autofit = 1
 '''
 [[plugins]]
 repo = 'junegunn/goyo.vim'
@@ -484,7 +488,7 @@ on_ft = 'markdown'
 [[plugins]]
 repo = 'mattn/vim-maketable'
 on_ft = 'markdown'
-[[plugins]]
+# [[plugins]]
 repo = 'joker1007/vim-markdown-quote-syntax'
 on_ft = 'markdown'
 # }}}
@@ -508,9 +512,9 @@ on_ft = 'python'
 [[plugins]]
 repo = "lambdalisue/vim-django-support"
 on_ft = ["python", "djangohtml"]
-[[plugins]]
-repo = "lambdalisue/vim-pyenv"
-on_ft =  ["python", "djangohtml"]
+# [[plugins]]
+# repo = "lambdalisue/vim-pyenv"
+# on_ft =  ["python", "djangohtml"]
 [[plugins]]
 repo = 'tpope/vim-dispatch'
 on_source = ['vim-test.nvim']
@@ -585,7 +589,12 @@ vnoremap <buffer> <silent>sf :<C-U>call util#SelectNimProc(1)<cr><Esc>gv
 '''
 
 # }}}
-# Japanese {{{
+# Powershpll {{{
+[[plugins]]
+repo = 'PProvost/vim-ps1'
+on_ft = 'ps1'
+# }}}
+# Japanpse {{{
 [[plugins]]
 repo = 'koron/codic-vim'
 [[plugins]]
@@ -803,7 +812,7 @@ depends = 'vim-textobj-user'
 on_ft = ['vim', 'c', 'java']
 on_map = {ox = '<Plug>'}
 hook_source = '''
-let g:textobj_function_no_default_key_mappings = 1'
+let g:textobj_function_no_default_key_mappings = 1
 xmap tf <Plug>(textobj-function-i)
 omap tf <Plug>(textobj-function-i)
 xmap tf <Plug>(textobj-function-i) 

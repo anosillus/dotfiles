@@ -1,28 +1,14 @@
 # Path {{{
 $env:Path += ";${Env:LOCALAPPDATA}\yarn\bin"
-$env:Path += ";${Env:APPDATA}\Python\Python39\Scripts"
-$env:Path += ";${Env:APPDATA}\npm"
 $env:Path += ";${Env:USERPROFILE}\.pyenv\pyenv-win\bin"
-$env:Path += ";${Env:ProgramData}\chocolatey\bin"
-$env:Path += ";${Env:ProgramFiles}\Git\cmd"
-$env:Path += ";${Env:ProgramFiles}\nodejs"
-$env:Path += ";${Env:ProgramFiles}\Go\bin"
-$env:Path += ";${Env:SystemDrive}\Go\bin"
-$env:Path += ";${Env:SystemDrive}\Ruby27-x64\bin"
-$env:Path += ";${Env:SystemDrive}\tools\ffmpeg\bin"
-$env:Path += ";${Env:SystemDrive}\tools\llvm-project\Release\bin"
-$env:Path += ";${Env:USERPROFILE}\.cargo\bin"
-$env:Path += ";${Env:USERPROFILE}\scoop\shims"
-$env:Path += ";${Env:USERPROFILE}\go\bin"
 $env:Path += ";${Env:ProgramFiles(x86)}\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Roslyn"
-# last, mingw is too strong.
-# $env:Path += ";${Env:SystemDrive}\tools\msys64\mingw64\bin"
-# $env:Path += ";${Env:SystemDrive}\tools\msys64\usr\bin"
+$env:Path += ";${Env:ProgramFiles(x86)}\Mecab\bin"
+$env:Path += ";${ENV:ProgramFiles(x86)}\CaboCha\bin"
 # }}}}
 
-$NEXTWORD_DATA_PATH="${Env:SystemDrive}\tools\nextword-data-large"
-$GIT_SSH="${Env:SystemDrive}\tools\msys64\usr\bin\ssh.exe"
-$EDITOR="${Env:SystemDrive}\tools\vim82-kaoriya-win64\gvim.exe"
+# $NEXTWORD_DATA_PATH="${Env:SystemDrive}\tools\nextword-data-large"
+$GIT_SSH="{$ENV:USERPROFILE}\scoop\shims\ssh.exe"
+$EDITOR="{$ENV:USERPROFILE}\scoop\shims\gvim.exe"
 $XDG_CONFIG_HOME="{$ENV:USERPROFILE}\.config"
 
 # Issue with VisualStudio {{{
@@ -39,50 +25,25 @@ $DESKTOP = $(resolve-path "$ENV:USERPROFILE\Desktop")
 
 # Program Alias {{{
 Set-Alias make_dict ${Env:SystemDrive}\tools\yaskkserv2\yaskkserv2_make_dictionary.exe
-Set-Alias 7z ${Env:ProgramFiles}\7-Zip\7z.exe
-Set-Alias aws ${Env:ProgramFiles}\Amazon\AWSCLIV2\aws.exe
-Set-Alias capture ${Env:ProgramFiles}\ShareX.exe
+# Set-Alias capture ${Env:ProgramFiles}\ShareX.exe
 Set-Alias chrome ${ENV:ProgramFiles(x86)}\Google\Chrome\Application\chrome.exe
-Set-Alias cabocha ${ENV:ProgramFiles(x86)}\CaboCha\bin\cabocha.exe
-Set-Alias cmigemo ${Env:SystemDrive}\tools\cmigemo-default-win64\cmigemo.exe
+Set-Alias cmigemo ${Env:SystemDrive}\tools\cmigemo\cmigemo.exe
 Set-Alias eblook ${Env:SystemDrive}\tools\eblook\bin\eblook.exe
-Set-Alias docker ${Env:ProgramData}\Docker\Docker\resources\docker.exe
-Set-Alias docker-compose ${Env:ProgramFiles}\Docker\Docker\resources\bin\docker-compose.exe
-Set-Alias mecab ${Env:ProgramFiles(x86)}\Mecab\bin\mecab.exe
-Set-Alias gcloud ${Env:ProgramFiles(x86)}\Google\'Cloud SDK'\google-cloud-sdk\bin\gcloud-ps.ps1
-Set-Alias gh ${Env:ProgramFiles(x86)}\'GitHub CLI'\gh.exe
-Set-Alias gvim ${Env:SystemDrive}\tools\vim82-kaoriya-win64\gvim.exe
-Set-Alias java ${Env:ProgramFiles(x86)}\'Common Files'\Oracle\Java\javapath\java.exe
-Set-Alias n ${Env:SystemDrive}\tools\neovim\bin\nvim.exe
-Set-Alias neovim ${Env:SystemDrive}\tools\neovim\bin\nvim.exe
-Set-Alias ngrok ${Env:SystemDrive}\tools\ngrok-stable-windows-amd64\ngrok.exe
-Set-Alias nvim ${Env:SystemDrive}\tools\neovim\bin\nvim.exe
 Set-Alias open Explorer
 Set-Alias pdf ${Env:LOCALAPPDATA}\SumatraPDF\sumatrapdf.exe
-Set-Alias perl ${Env:SystemDrive}\Strawberry\perl\bin\perl.exe
 Set-Alias pic ${ENV:ProgramFiles}\ImageGlass\imageplass.exe
-Set-Alias rg ${Env:SystemDrive}\tools\ripgrep\rg.exe
-Set-Alias ssh ${Env:SystemDrive}\tools\msys64\usr\bin\ssh.exe
 Set-Alias sumatrapdf ${Env:LOCALAPPDATA}\SumatraPDF\sumatrapdf.exe
-Set-Alias v ${Env:SystemDrive}\tools\vim82-kaoriya-win64\gvim.exe
-Set-Alias vagrant ${Env:SystemDrive}\HashiCorp\Vagrant\bin\vagrant.exe
+Set-Alias v gvim.exe
 Set-Alias vbox ${Env:ProgramFiles}\Oracle\VirtualBox\virtualbox.exe
 Set-Alias vcpkg ${Env:SystemDrive}\tools\vcpkg\vcpkg.exe
-Set-Alias vim ${Env:SystemDrive}\tools\vim82-kaoriya-win64\vim.exe
-Set-Alias vlc ${ENV:ProgramFiles(x86)}\VideoLAN\VLC\vlc.exe
-# Set-Alias curl ${Env:SystemDrive}\tools\msys64\usr\bin\curl.exe
-# Set-Alias curl D:\tools\msys64\usr\bin\curl.exe
-Set-Alias grep ${Env:SystemDrive}\tools\msys64\usr\bin\grep.exe
-Set-Alias captura ${ENV:ProgramFiles(x86)}\Captura\captura.exe
-Set-Alias code ${ENV:ProgramFiles}\'Microsoft VS Code'\bin\code.cmd
-Set-Alias ffmpeg ${Env:SystemDrive}\Tools\ffmpeg\bin\ffmpeg.exe
+Set-Alias vlc ${ENV:ProgramFiles}\VideoLAN\VLC\vlc.exe
+# Set-Alias captura ${ENV:ProgramFiles(x86)}\Captura\captura.exe
 # }}}
 
 # short-cut alias {{{
 Set-Alias which Get-Command
 Set-Alias ll Get-ChildItem
 Set-Alias la Get-ChildItem
-
 # }}}
 
 # User Command {{{
@@ -197,7 +158,7 @@ Import-Module posh-git
 Import-Module 'C:\tools\vcpkg\scripts\posh-vcpkg'
 # vcpkg   install boost:x86-windows pthreads:x86-windows
 Import-Module oh-my-posh
-Set-Theme Paradox
+Set-PoshPrompt -Theme Paradox
 # }}}
 
 # Chocolatey profile

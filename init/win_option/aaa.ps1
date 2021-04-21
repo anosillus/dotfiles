@@ -19,3 +19,4 @@ New-SymLink C:\Users\anosillus\Pictures\ D:\Pictures
 New-SymLink C:\Users\anosillus\Favorites\ D:\Favorites
 New-SymLink C:\Users\anosillus\Desktop\ D:\Desktop
 New-SymLink C:\Users\anosillus\Music\ D:\Music
+New-SymLink C:\Users\anosillus\tools\ C:\tools

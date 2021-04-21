@@ -135,6 +135,9 @@ function! s:StatusLine(mode)
   endif
 endfunction
 
+" set iminsert=0
+" set imsearch=-1
+" set imdisable
 if has('multi_byte_ime')
   highlight Cursor guifg=NONE guibg=Green
   highlight CursorIM guifg=NONE guibg=Purple

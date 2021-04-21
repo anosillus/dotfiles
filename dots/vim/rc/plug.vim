@@ -1,11 +1,11 @@
 let g:dein#auto_recache = v:false
 let g:dein#lazy_rplugins = v:true
-let g:dein#install_progress_type = 'title'
+let g:dein#install_progress_type = 'tabline'
 let g:dein#enable_notification = v:false
 let g:dein#notification_icon = '~/.vim/signs/warn.png'
-
+let g:dein#install_max_processes = 8
+let g:dein#install_process_timeout = 240
 let g:dein#inline_vimrcs = ['keymap.vim', 'basic.vim', 'filetype.vim', 'gui.vim', 'private.vim']
-
 
 if IsLinux()
  call add(g:dein#inline_vimrcs, 'unix.vim')
