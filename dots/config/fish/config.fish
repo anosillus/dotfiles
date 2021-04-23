@@ -27,7 +27,7 @@ switch (uname)
             set -g -x MYVIM   vim
             set -g -x MYNVIM  goneovim
             set PATH $PATH $HOME/.config/rofi/bin
-            set PATH $PATH $HOME/.serverless/bin/serverless
+            # set PATH $PATH $HOME/.serverless/bin/serverless
             set -g -x BROWSER chromium
             set -x -U GOPATH $HOME/go
             # set -U fish_user_paths  $fish_user_paths
@@ -193,6 +193,25 @@ alias gp='git push'
 
 alias fault= 'sudo shutdown -P now'
 
+
+if functions -q exa;
+    abbr l 'exa --group-directories-first --icons --long -- sort Name'
+    abbr la 'exa --group-directories-first --icons --long --all --sort Name'
+    abbr las 'exa --group-directories-first --icons --long --all --sort Size'
+    abbr ls 'exa --group-directories-first --icons --long --sort Size'
+
+    abbr ll 'ls -l --git'        # Long format, git status
+    abbr l  'll -a'              # Long format, all files
+    abbr lr 'll -T'              # Long format, recursive as a tree
+    abbr lx 'll -sextension'     # Long format, sort by extension
+    abbr lk 'll -ssize'          # Long format, largest file size last
+    abbr lt 'll -smodified'      # Long format, newest modification time last
+    abbr lc 'll -schanged'       # Long format, newest status change (ctime) last
+    abbr ld 'exa --only_dirs'       # Long format, newest status change (ctime) last
+    abbr l2 'exa --level=2'       # Long format, newest status change (ctime) last
+end
+
+
 # alias ap='sudo apt install -y'
 # alias au='sudo apt remove -y'
 # alias ad='sudo apt update'
@@ -219,11 +238,11 @@ fundle plugin 'eth-p/fish-plugin-sudo'
 fundle plugin 'decors/fish-ghq'
 fundle plugin 'jethrokuan/z'
 fundle plugin 'patrickf1/colored_man_pages.fish'
-fundle plugin 'gazorby/fish-exa'
+# fundle plugin 'gazorby/fish-exa'
 fundle plugin 'oh-my-fish/theme-bobthefish'
 # fundle plugin 'jorgebucaran/powerline.fish'
 fundle plugin 'ryoppippi/fish-poetry'
-fundle plugin 'gazorby/fish-exa'
+# fundle plugin 'gazorby/fish-exa'
 fundle init
 # }}}
 
@@ -294,14 +313,14 @@ set -g theme_display_date no
 set -g theme_date_format "+%a %H:%M"
 set -g theme_date_timezone Japan/Tokyo
 # set -g theme_avoid_ambiguous_glyphs yes
-# set -g theme_powerline_fonts yes
-# set -g theme_nerd_fonts yes
+set -g theme_powerline_fonts yes
+set -g theme_nerd_fonts yes
 # set -g theme_show_exit_status yes
 # set -g theme_display_jobs_verbose yes
 # set -g default_user your_normal_user
 # set -g theme_color_scheme solarized-light
 # set -g fish_prompt_pwd_dir_length 0
-# set -g theme_project_dir_length 1
+set -g theme_project_dir_length 1
 # set -g theme_newline_cursor yes
 # set -g theme_newline_prompt '$ '
 # Prompt Settings }}}}
