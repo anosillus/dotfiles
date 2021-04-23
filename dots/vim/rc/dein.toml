@@ -64,7 +64,7 @@ noremap <expr> bs ':Ref webdict ej ' . expand('<cword>') . '<CR>'
 noremap <expr> bS ':Ref webdict je ' . expand('<cword>') . '<CR>'
 noremap <expr> ba ':Ref webdict alc ' . expand('<cword>') . '<CR>'
 noremap <expr> bt ':Ref kotobankje ' . expand('<cword>') . '<CR>'
-noremap <expr> bT ':Ref kotobank ' . expand('<cword>') . '<CR>'
+noremap <expr> bT ':Ref kotobank '   . expand('<cword>') . '<CR>'
 noremap <expr> br ':Ref wikipedia_en ' . expand('<cword>') . '<CR>'
 noremap <expr> bR ':Ref wikipedia_ja ' . expand('<cword>') . '<CR>'
 '''
@@ -77,10 +77,8 @@ hook_add = 'let g:rainbow_active = 1'
 
 [[plugins]]
 repo = 'ryanoasis/vim-devicons'
-
 [[plugins]]
 repo = 'ap/vim-css-color'
-
 [[plugins]]
 repo = 'Yggdroot/indentLine'
 [[plugins]]
@@ -174,7 +172,7 @@ repo = 'vim-scripts/autodate.vim'
 [[plugins]]
 repo = 'glidenote/memolist.vim'
 hook_add = '''
-let g:memolist_memo_suffix = "jp.md"
+let g:memolist_memo_suffix = "_jp.md"
 let g:memolist_path = "~/memo/"
 let g:memolist_denite = 1
 nmap <Leader>M [memo]
@@ -209,8 +207,6 @@ let g:r_syntax_folding = 1
 let g:rust_fold = 1
 let g:php_folding = 1
 '''
-
-
 # }}}
 
 # uniqe{{{
@@ -271,9 +267,6 @@ call submode#map('bufmove', 'n', '', 'Y', ':call comfortable_motion#flick(g:comf
 [[plugins]]
 repo = 'machakann/vim-sandwich'
 hook_post_update = '''
-let g:operator_sandwich_no_default_key_mappings = 1
-let g:textobj_sandwich_no_default_key_mappings = 1
-let g:sandwich_no_default_key_mappings = 1
 let g:sandwich#recipes = deepcopy(g:sandwich#default_recipes)
 let g:sandwich#recipes += [
 \    {'buns': ['（', '）']},
@@ -290,6 +283,10 @@ let g:sandwich#recipes += [
 \ ]
 '''
 hook_add = '''
+let g:operator_sandwich_no_default_key_mappings = 1
+let g:textobj_sandwich_no_default_key_mappings = 1
+let g:sandwich_no_default_key_mappings = 1
+
 nmap w <Nop>
 xmap w <Nop>
 omap w <Nop>
