@@ -14,7 +14,9 @@ let g:python_host_prog='/usr/bin/python2'
 let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
 let g:pydocstring_doq_path = '/home/anosillus/.local/bin/doq'
 let g:jasegment#model = 'cabocha'
-let g:jasegment#mecab#args = '-Owakati -d /usr/lib/x86_64-linux-gnu/mecab/dic/mecab-ipadic-neologd/'
+" let g:jasegment#mecab#args = '-Owakati -d /usr/lib/x86_64-linux-gnu/mecab/dic/mecab-ipadic-neologd/'
+let g:jasegment#mecab#args = '-Owakati -d /usr/lib/mecab/dic/mecab-ipadic-neologd/'
+
 " Use yaskkserv
 let g:eskk#dictionary = {
 \   'path': expand('$CACHE/skk-jisyo'),

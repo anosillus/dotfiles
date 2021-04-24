@@ -38,10 +38,10 @@ let g:ref_use_cache = 1
 let g:ref_use_vimproc = 1
 let g:ref_auto_resize = 1
 let g:ref_wikipedia_lang = ['ja', 'en']
-let g:ref_source_webdict_cmd = 'lynx -dump -nonumbers %s'
+let g:ref_source_webdict_cmd = 'lynx -dump -nonumbers %s -display_charset=utf-8'
 let g:ref_source_webdict_sites = {
 \   'alc' : {
-\     'url' : 'http://eow.alc.co.jp/%s/UTF-8/'
+\     'url' : 'https://eow.alc.co.jp/search?q=%s'
 \   },
 \   'je': {
 \     'url': 'http://dictionary.infoseek.ne.jp/jeword/%s',
