@@ -136,19 +136,24 @@ abbr -a png npm install -g
 abbr -a phtml google-chrome
 abbr -a skk yaskkserv2 --config-filename ~/.skk/linux_yaskkserv2.conf
 abbr -a pydlm youtube-dl -f best -x --audio-format mp3  -o "~/Music/%(title)s.%(ext)s"
-abbr ptm tmux
+abbr tm tmux
+abbr -a tk tmux kill-server
 abbr -a kill tmux kill-server
-abbr -a killall docker kill (docker ps -q)
-abbr -a dockerkill docker kill (docker ps -q)
-abbr -a stopdocker docker kill (docker ps -q)
-abbr -a removeimage docker rmi (docker images -q)
-abbr -a removecontainer docker rm (docker ps -a -q)
+abbr -a dk docker kill (docker ps -q)
+abbr -a dkill docker kill (docker ps -q)
+abbr -a rmi docker rmi (docker images -q)
+abbr -a rmc docker rm (docker ps -a -q)
 
-abbr ps procs
-abbr cat bat
-abbr find fd
-abbr top ytop
-abbr wc tokei
+alias ps='procs'
+alias psr='procs |rg '
+abbr ct cat
+alias cat='bat'
+alias catr='bat | rg '
+abbr fd find
+alias find='fd'
+alias top='ytop'
+abbr tp ytop
+alias wc='tokei'
 
 abbr cd.. cd ..
 abbr .. cd ..
@@ -170,6 +175,8 @@ alias gmail='eval $BROWSER -app="https://mail.google.com/mail/u/0/#inbox"'
 alias gcp='eval $BROWSER -app="https://console.cloud.google.com/"'
 alias domain='eval $BROWSER -app="https://njal.la/domains/"'
 
+alias c='clear'
+
 alias tar='tar -xvzf'
 alias 7z='7z x'
 alias xz='tar Jxfv'
@@ -182,24 +189,28 @@ abbr -a D eval $EDITOR ~/dev
 abbr -a pandoc pandoc --from=markdown --to=latex
 
 # Git {{{
-# abbr -a gd vim +Gapply
-# abbr -a gs git status
-# abbr -a gc git clone
-# abbr -a ga git add
-# abbr -a g. git add .
-# abbr -a gc git commit -m
-# abbr -a gp git push
+abbr -a gd vim +Gapply
+abbr -a gs git status
+abbr -a gl git clone
+abbr -a ga git add
+abbr -a g. git add .
+abbr -a gc git commit -m
+
+abbr -a gp git push
 #}}}
 
 abbr fault 'sudo shutdown -P now'
 
-
-# if not functions -q exa;
+if not functions -q exa;
     alias l='exa --icons --all --sort name --extended'
+    alias lf='exa --icons --all --sort extension --extended'
+
     alias la='exa --icons --sort name --blocks --extended'
 
     # alias la='exa --group-directories-first --icons --long --all --sort Name --no-user --no-permissions --no-time --no-filesize'
     alias ls='exa --icons --all --blocks --extended'
+    alias lr='exa --icons --all --extended --sort extension |rg '
+
     alias las='exa --group-directories-first --icons --long --all --sort size'
     alias lsa='exa --group-directories-first --icons --long --all --sort size'
 
@@ -219,7 +230,9 @@ abbr fault 'sudo shutdown -P now'
     # abbr lc 'll -schanged'       # Long format, newest status change (ctime) last
     alias ld='exa --only-dirs --blocks'       # Long format, newest status change (ctime) last
     alias l2='exa --tree --level=2'       # Long format, newest status change (ctime) last
+    alias l3='exa --tree --level=3'       # Long format, newest status change (ctime) last
     alias lt='exa --tree'
+end
 
 
 # alias ap='sudo apt install -y'

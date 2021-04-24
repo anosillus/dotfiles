@@ -32,9 +32,8 @@ let g:ale_python_auto_pipenv = 1
 " let g:ale_python_black_options = '--line-length 79'
 let g:ale_python_pylama_options = '--linters pycodestyle pydocstyle Mccabe Pylint --ignore=E:501'
 let g:ale_python_flake8_executable = 'python3'
-let g:ale_python_flake8_options = '-m flake8 --select=C,E,F,W,B901 -max-line-length=88'
-" let g:ale_python_flake8_options = '-m flake8'
-
+" let g:ale_python_flake8_options = '-m flake8 --select=C,E,F,W,B901 -max-line-length=88'
+let g:ale_python_flake8_options = '-m flake8 -max-line-length=88'
 let g:ale_linter_aliases = {'gitcommit': ['gitcommit', 'text']}
 " let g:ale_scala_metals_executable = '/usr/bin/metals-vim'
 
@@ -53,7 +52,7 @@ let g:ale_linters = {
 \   'latex':      ['vale', 'textlint'],
 \   'markdown':   ['markdownlint', 'prettier', 'textlint'],
 \   'nim':        ['nimcheck', 'nimlsp'],
-\   'python':     ['pylama', 'black', 'flake8', 'pyright'],
+\   'python':     ['pylama', 'flake8', 'pyright'],
 \   'r':          ['lintr'],
 \   'rust':       ['rustfmt'],
 \   'scala':      ['metals'],

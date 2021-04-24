@@ -398,7 +398,7 @@ hook_source = '''
 repo = 'neoclide/coc.nvim'
 depends = 'vim-snippets'
 on_if = "matchstr(expand('%:p'),'jp.md') ==# ''"
-hook_source = 'source ~/.vim/rc/plugins/coc.rc.vim'
+hook_add = 'source ~/.vim/rc/plugins/coc.rc.vim'
 # on_i = 1
 merged = '0'
 # }}}
@@ -1079,7 +1079,6 @@ return extend(copy({
 \   'is_stay': 1
 \ }), get(a:, 1, {}))
 endfunction
-
 
 omap ,  <Plug>(incsearch-forward)
 omap ?  <Plug>(incsearch-backward)
