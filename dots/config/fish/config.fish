@@ -27,7 +27,7 @@ switch (uname)
             set -g -x MYVIM   vim
             set -g -x MYNVIM  goneovim
             set PATH $PATH $HOME/.config/rofi/bin
-            set PATH $PATH $HOME/.serverless/bin/serverless
+            # set PATH $PATH $HOME/.serverless/bin/serverless
             set -g -x BROWSER chromium
             set -x -U GOPATH $HOME/go
             # set -U fish_user_paths  $fish_user_paths
@@ -41,7 +41,7 @@ switch (uname)
                     abbr -a aug sudo pacman -Syyu
                     set PATH $PATH $HOME/.config/rofi/bin
                     set -xg JAVA_HOME "/usr/lib/jvm/java-11-adoptopenjdk"
-                    abbr -a va $EDITOR $HOME/.config/rofi/bin
+                    abbr va $EDITOR $HOME/.config/rofi/bin
                     # export GTK_IM_MODULE=ibus
                     # export XMODFIERS=@im=ibus
                     # export AT_IM_MODULE=ibus
@@ -124,45 +124,50 @@ abbr python python3
 abbr python2 python2
 abbr ipython ipython3
 abbr p2 python2
-abbr -a pi pip3 install
-abbr -a pr pip3 remove
-abbr -a pip pip3
-abbr -a pu pip3 install --upgrade
-abbr -a pi2 pip2 install
-abbr -a pu2 pip2 install --upgrade
-abbr -a gi gem install
-abbr -a ni npm install
-abbr -a ng npm install -g
-abbr -a html google-chrome
+abbr -a ppi pip3 install
+abbr -a ppr pip3 remove
+abbr -a ppip pip3
+abbr -a ppu pip3 install --upgrade
+abbr -a ppi2 pip2 install
+abbr -a ppu2 pip2 install --upgrade
+abbr -a pgi gem install
+abbr -a pni npm install
+abbr -a png npm install -g
+abbr -a phtml google-chrome
 abbr -a skk yaskkserv2 --config-filename ~/.skk/linux_yaskkserv2.conf
-abbr -a ydlm youtube-dl -f best -x --audio-format mp3  -o "~/Music/%(title)s.%(ext)s"
+abbr -a pydlm youtube-dl -f best -x --audio-format mp3  -o "~/Music/%(title)s.%(ext)s"
 abbr tm tmux
-abbr kill tmux kill-server
-abbr killall docker kill (docker ps -q)
-abbr dockerkill docker kill (docker ps -q)
-abbr stopdocker docker kill (docker ps -q)
-abbr removeimage docker rmi (docker images -q)
-abbr removecontainer docker rm (docker ps -a -q)
+abbr -a tk tmux kill-server
+abbr -a kill tmux kill-server
+abbr -a dk docker kill (docker ps -q)
+abbr -a dkill docker kill (docker ps -q)
+abbr -a rmi docker rmi (docker images -q)
+abbr -a rmc docker rm (docker ps -a -q)
 
-alias ps procs
-alias cat bat
-alias find fd
-alias top ytop
-alias wc tokei
+alias ps='procs'
+alias psr='procs |rg '
+abbr ct cat
+alias cat='bat'
+alias catr='bat | rg '
+abbr fd find
+alias find='fd'
+alias top='ytop'
+abbr tp ytop
+alias wc='tokei'
 
-alias cd.. 'cd ..'
-alias .. 'cd ..'
-alias ... 'cd ../..'
-alias .... 'cd ../../..'
-alias ..... 'cd ../../../..'
+abbr cd.. cd ..
+abbr .. cd ..
+abbr ... cd ../..
+abbr .... cd ../../..
+abbr ..... cd ../../../..
 
-alias md 'mkdir -p'
-alias cx 'chmod +x'
-alias 'c-x' 'chmod -x'
+abbr -a pmd mkdir -p
+abbr -a pcx chmod +x
+abbr -a c-x chmod -x
 
-abbr -a dsnote docker run -i -t -p 8888:8888 -v (pwd):/opt/playground continuumio/anaconda3 /bin/bash -c "/opt/conda/bin/conda install jupyter -y --quiet && mkdir /opt/notebooks && /opt/conda/bin/jupyter notebook --notebook-dir=/opt/playground --ip='*' --allow-root --NotebookApp.token='' --NotebookApp.password='' --port=8888 --no-browser"
-abbr -a rocker docker run -d -p 8787:8787 -v (pwd):/home/rstudio rocker/rstudio
-abbr -a ssh-keygen -t rsa -b 4096 -C "anosillus@gmail.com"
+abbr dsnote docker run -i -t -p 8888:8888 -v (pwd):/opt/playground continuumio/anaconda3 /bin/bash -c "/opt/conda/bin/conda install jupyter -y --quiet && mkdir /opt/notebooks && /opt/conda/bin/jupyter notebook --notebook-dir=/opt/playground --ip='*' --allow-root --NotebookApp.token='' --NotebookApp.password='' --port=8888 --no-browser"
+abbr rocker docker run -d -p 8787:8787 -v (pwd):/home/rstudio rocker/rstudio
+abbr ssh-keygen -t rsa -b 4096 -C "anosillus@gmail.com"
 
 alias shodo='eval $BROWSER -app="https://app.shodo.ink/"'
 alias gmail='eval $BROWSER -app="https://mail.google.com/mail/u/0/#inbox"'
@@ -170,28 +175,65 @@ alias gmail='eval $BROWSER -app="https://mail.google.com/mail/u/0/#inbox"'
 alias gcp='eval $BROWSER -app="https://console.cloud.google.com/"'
 alias domain='eval $BROWSER -app="https://njal.la/domains/"'
 
+alias c='clear'
+
 alias tar='tar -xvzf'
 alias 7z='7z x'
 alias xz='tar Jxfv'
 alias rar='unrar e -r'
 
-alias W='eval $EDITOR ~/Work'
-alias vW='eval $EDITOR ~/Work'
-alias D='eval $EDITOR ~/dev'
+abbr -a W eval $EDITOR ~/Work
+abbr -a vW eval $EDITOR ~/Work
+abbr -a D eval $EDITOR ~/dev
 
 abbr -a pandoc pandoc --from=markdown --to=latex
 
 # Git {{{
-alias gd='vim +Gapply'
-alias gs='git status'
-alias gc='git clone '
-alias ga='git add '
-alias gaa='git add .'
-alias gc='git commit -m '
-alias gp='git push'
+abbr -a gd vim +Gapply
+abbr -a gs git status
+abbr -a gl git clone
+abbr -a ga git add
+abbr -a g. git add .
+abbr -a gc git commit -m
+
+abbr -a gp git push
 #}}}
 
-alias fault= 'sudo shutdown -P now'
+abbr fault 'sudo shutdown -P now'
+
+if not functions -q exa;
+    alias l='exa --icons --all --sort name --extended'
+    alias lf='exa --icons --all --sort extension --extended'
+
+    alias la='exa --icons --sort name --blocks --extended'
+
+    # alias la='exa --group-directories-first --icons --long --all --sort Name --no-user --no-permissions --no-time --no-filesize'
+    alias ls='exa --icons --all --blocks --extended'
+    alias lr='exa --icons --all --extended --sort extension |rg '
+
+    alias las='exa --group-directories-first --icons --long --all --sort size'
+    alias lsa='exa --group-directories-first --icons --long --all --sort size'
+
+    # alias ls='exa --group-directories-first --icons --long --sort Size'
+    alias ll='exa --all --long --sort name --icons'
+    alias lla='exa --long --sort name --icons'
+
+    # alias lla='exa --icons --all --sort name --blocks --extended'
+    alias g='exa --long --all --git-ignore --group-directories-first --sort modified --changed  --reverse --icons --git --no-user --no-permissions'
+
+    # abbr ll 'ls -l --git'        # Long format, git status
+    # abbr l  'll -a'              # Long format, all files
+    # abbr lr 'll -T'              # Long format, recursive as a tree
+    # abbr lx 'll -sextension'     # Long format, sort by extension
+    # abbr lk 'll -ssize'          # Long format, largest file size last
+    # abbr lt 'll -smodified'      # Long format, newest modification time last
+    # abbr lc 'll -schanged'       # Long format, newest status change (ctime) last
+    alias ld='exa --only-dirs --blocks'       # Long format, newest status change (ctime) last
+    alias l2='exa --tree --level=2'       # Long format, newest status change (ctime) last
+    alias l3='exa --tree --level=3'       # Long format, newest status change (ctime) last
+    alias lt='exa --tree'
+end
+
 
 # alias ap='sudo apt install -y'
 # alias au='sudo apt remove -y'
@@ -219,11 +261,11 @@ fundle plugin 'eth-p/fish-plugin-sudo'
 fundle plugin 'decors/fish-ghq'
 fundle plugin 'jethrokuan/z'
 fundle plugin 'patrickf1/colored_man_pages.fish'
-fundle plugin 'gazorby/fish-exa'
+# fundle plugin 'gazorby/fish-exa'
 fundle plugin 'oh-my-fish/theme-bobthefish'
 # fundle plugin 'jorgebucaran/powerline.fish'
 fundle plugin 'ryoppippi/fish-poetry'
-fundle plugin 'gazorby/fish-exa'
+# fundle plugin 'gazorby/fish-exa'
 fundle init
 # }}}
 
@@ -294,14 +336,14 @@ set -g theme_display_date no
 set -g theme_date_format "+%a %H:%M"
 set -g theme_date_timezone Japan/Tokyo
 # set -g theme_avoid_ambiguous_glyphs yes
-# set -g theme_powerline_fonts yes
-# set -g theme_nerd_fonts yes
+set -g theme_powerline_fonts yes
+set -g theme_nerd_fonts yes
 # set -g theme_show_exit_status yes
 # set -g theme_display_jobs_verbose yes
 # set -g default_user your_normal_user
 # set -g theme_color_scheme solarized-light
 # set -g fish_prompt_pwd_dir_length 0
-# set -g theme_project_dir_length 1
+set -g theme_project_dir_length 1
 # set -g theme_newline_cursor yes
 # set -g theme_newline_prompt '$ '
 # Prompt Settings }}}}

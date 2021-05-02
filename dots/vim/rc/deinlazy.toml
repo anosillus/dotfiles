@@ -1066,7 +1066,6 @@ return extend(copy({
 \ }), get(a:, 1, {}))
 endfunction
 
-
 omap ,  <Plug>(incsearch-forward)
 omap ?  <Plug>(incsearch-backward)
 
