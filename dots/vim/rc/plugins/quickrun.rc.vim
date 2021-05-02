@@ -145,12 +145,12 @@ let g:quickrun#config= {
 \     'print Dumper eval{%s}'], ';')
 \ },
 \ 'perl6': {'hook/eval/template': '{%s}().perl.print'},
- \ 'python': {
+\ 'python': {
 \   'type': executable('/usr/bin/env/python') ? 'python/env':
 \           executable('/usr/bin/python') ? 'python/base':
 \           executable('/usr/bin/python') ? 'python/base':
-\           executable('C:/Python39/python.exe') ? 'python/windows':
-\           executable('C:/Users/anosillus/Anaconda3/python.exe') ? 'python/conda': ''
+\           executable("C:\Users\anosillus\scoop\apps\python\current\python.exe") ? 'python/windows':
+\           executable("C:/Users/anosillus/Anaconda3/python.exe") ? 'python/conda': ''
 \ },
 \  'python/test': {
 \    'command': 'py.test',
@@ -165,10 +165,10 @@ let g:quickrun#config= {
 \    'command': 'python'
 \ },
 \  'python/windows': {
-\   'command': 'C:/Python39/python.exe',
+\  'command': "C:\Users\anosillus\scoop\apps\python\current\python.exe",
 \ },
 \  'python/conda': {
-\   'command': 'C:\Users\anosillus\Anaconda3\python.exe',
+\   'command': "C:\Users\anosillus\Anaconda3\python.exe",
 \ },
 \ 'php': {},
 \ 'r': {

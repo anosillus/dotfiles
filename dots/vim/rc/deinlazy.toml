@@ -393,16 +393,6 @@ hook_source = '''
 '''
 # }}}
 
-# coc {{{
-[[plugins]]
-repo = 'neoclide/coc.nvim'
-depends = 'vim-snippets'
-on_if = "matchstr(expand('%:p'),'jp.md') ==# ''"
-hook_source = 'source ~/.vim/rc/plugins/coc.rc.vim'
-# on_i = 1
-merged = '0'
-# }}}
-
 # QuickRun {{{
 [[plugins]]
 repo = 'kannokanno/previm'
@@ -462,9 +452,6 @@ depends = 'context_filetype.vim'
 of_ft = ['toml','markdown', 'text']
 [[plugins]]
 repo = 'mzlogin/vim-markdown-toc'
-on_ft = 'markdown'
-[[plugins]]
-repo = 'godlygeek/tabular'
 on_ft = 'markdown'
 [[plugins]]
 repo = 'plasticboy/vim-markdown'
@@ -933,7 +920,6 @@ let g:caw_hatpos_skip_blank_line = 1
 hook_add = '''
 let g:caw_no_default_keymappings = 1
 let g:caw_operator_keymappings = 0
-
 nmap l  <Nop>
 xmap l  <Nop>
 nmap <C-s> <Plug>(caw:hatpos:toggle)

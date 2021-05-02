@@ -14,6 +14,15 @@ repo = 'whatyouhide/vim-gotham'
 [[plugins]]
 repo = 'honza/vim-snippets'
 
+# coc {{{
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+depends = 'vim-snippets'
+# on_if = "matchstr(expand('%:p'),'jp.md') ==# ''"
+hook_add = 'source ~/.vim/rc/plugins/coc.rc.vim'
+# on_i = 1
+# }}}
+
 # [[plugins]]
 # repo = 'SirVer/ultisnips'
 
