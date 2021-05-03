@@ -79,7 +79,7 @@
       "filetypes": ["vim", "eruby", "markdown"]
     },
     "nim": {
-      "command": "nimlsp",
+      "command": "nimlsp.cmd",
       "filetypes": ["nim"],
       "trace.server": "verbose"
     },

@@ -1,0 +1,18 @@
+[codestyle]
+indent_type='space' # 'tab' or 'space'
+indent_width=2
+# template_file='~/my_template.cpp'
+workspace_dir='~/cooder/atcoder'
+lang='nim' # Check README.md for the supported languages.
+# code_generator_file="$HOME/custom_code_generator.py"
+[postprocess]
+exec_on_each_problem_dir='clang-format -i ./*.cpp'
+exec_on_contest_dir='touch CMakeLists.txt'
+
+[etc]
+download_without_login=false
+parallel_download=false
+save_no_session_cache=false
+skip_existing_problems=false
+in_example_format="in_{}.txt"
+out_example_format="out_{}.txt"

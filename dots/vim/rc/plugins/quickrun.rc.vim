@@ -23,13 +23,12 @@ let g:quickrun#config= {
 \ 'awk': {
 \   'exec': '%c %o -f %s %a',
 \ },
-\ 'bash': {},
 \ 'cs': {
 \   'type': executable('csc')  ? 'cs/csc'  :
 \           executable('dmcs') ? 'cs/dmcs' :
 \           executable('smcs') ? 'cs/smcs' :
 \           executable('gmcs') ? 'cs/gmcs' :
-\           executable('mcs')  ? 'cs/mcs' : ''
+\           executable('mcs')  ? 'cs/mcs' : '',
 \ },
 \ 'cs/csc': {
 \   'command': 'csc',
@@ -147,11 +146,9 @@ let g:quickrun#config= {
 \ 'perl6': {'hook/eval/template': '{%s}().perl.print'},
 \ 'python': {
 \   'type': executable('/usr/bin/env/python') ? 'python/env':
-\           executable('/usr/bin/python') ? 'python/base':
-\           executable('/usr/bin/python') ? 'python/base':
-\           executable("C:\Users\anosillus\scoop\apps\python\current\python.exe") ? 'python/windows':
-\           executable("C:/Users/anosillus/Anaconda3/python.exe") ? 'python/conda': ''
+\           executable('/usr/bin/python') ? 'python/base': ''
 \ },
+"\           executable('~/Anaconda3/python.exe') ? 'python/conda': 'python/windows'
 \  'python/test': {
 \    'command': 'py.test',
 \    'cmdopt': '-v',
@@ -165,10 +162,12 @@ let g:quickrun#config= {
 \    'command': 'python'
 \ },
 \  'python/windows': {
-\  'command': "C:\Users\anosillus\scoop\apps\python\current\python.exe",
+\    'command': 'python.exe',
+\    'hook/shebang/enable': 0,
+\    'exec': 'expand(%c) %s',
 \ },
 \  'python/conda': {
-\   'command': "C:\Users\anosillus\Anaconda3\python.exe",
+\    'command': '$HOME/Anaconda3/python.exe',
 \ },
 \ 'php': {},
 \ 'r': {

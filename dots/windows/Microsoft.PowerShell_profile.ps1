@@ -4,6 +4,8 @@ $env:Path += ";${Env:USERPROFILE}\.pyenv\pyenv-win\bin"
 $env:Path += ";${Env:ProgramFiles(x86)}\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Roslyn"
 $env:Path += ";${Env:ProgramFiles(x86)}\Mecab\bin"
 $env:Path += ";${ENV:ProgramFiles(x86)}\CaboCha\bin"
+$env:Path += ";${Env:SystemDrive}\tools\Nim\nim-1.4.6\bin"
+$env:Path += ";${Env:USERPROFILE}\.nimble\bin"
 # }}}}
 
 # $NEXTWORD_DATA_PATH="${Env:SystemDrive}\tools\nextword-data-large"
