@@ -22,7 +22,6 @@ inoremap <C-CR> <ESC>+i
 
 "<Todo>
 " I didn't wrote enough deol setting yet.
-nnoremap <silent><leader><CR> :<C-u>Deol -split=floating<CR>
 " }}}
 " Write Deol setting more !!
 

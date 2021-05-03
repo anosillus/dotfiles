@@ -35,7 +35,7 @@ switch (uname)
         # }}}
                 # Arch {{{
                 case ManjaroLinux
-                    # set PATH $PATH /usr/local/bin /usr/sbin $GOPATH/bin $HOME/.local/bin $HOME/.cargo/env $HOME/.cargo/bin
+                    set PATH $PATH /usr/local/bin /usr/sbin $GOPATH/bin $HOME/.local/bin $HOME/.cargo/env $HOME/.cargo/bin
                     abbr -a ai sudo pacman -S
                     abbr -a aud sudo pacman -Syy
                     abbr -a aug sudo pacman -Syyu
