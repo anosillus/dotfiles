@@ -393,16 +393,6 @@ hook_source = '''
 '''
 # }}}
 
-# coc {{{
-[[plugins]]
-repo = 'neoclide/coc.nvim'
-depends = 'vim-snippets'
-on_if = "matchstr(expand('%:p'),'jp.md') ==# ''"
-hook_add = 'source ~/.vim/rc/plugins/coc.rc.vim'
-# on_i = 1
-merged = '0'
-# }}}
-
 # QuickRun {{{
 [[plugins]]
 repo = 'kannokanno/previm'
@@ -468,9 +458,6 @@ of_ft = ['toml','markdown', 'text']
 repo = 'mzlogin/vim-markdown-toc'
 on_ft = 'markdown'
 [[plugins]]
-repo = 'godlygeek/tabular'
-on_ft = 'markdown'
-[[plugins]]
 repo = 'plasticboy/vim-markdown'
 on_ft = 'markdown'
 hook_source = '''
@@ -513,9 +500,9 @@ hook_source = 'nmap <silent> lo <Plug>(pydocstring)'
 [[plugins]]
 repo = 'tmhedberg/SimpylFold'
 on_ft = 'python'
-[[plugins]]
-repo = "lambdalisue/vim-django-support"
-on_ft = ["python", "djangohtml"]
+#[[plugins]]
+#repo = "lambdalisue/vim-django-support"
+#on_ft = ["python", "djangohtml"]
 # [[plugins]]
 # repo = "lambdalisue/vim-pyenv"
 # on_ft =  ["python", "djangohtml"]
@@ -927,38 +914,6 @@ nmap <C-p> <Plug>(ale_previous)
 '''
 # }}}
 
-# caw {{{
-[[plugins]]
-repo = 'anosillus/caw.vim'
-on_map = {nxo = '<Plug>'}
-hook_source = '''
-let g:caw_hatpos_skip_blank_line = 1
-'''
-hook_add = '''
-let g:caw_no_default_keymappings = 1
-let g:caw_operator_keymappings = 0
-
-nmap l  <Nop>
-xmap l  <Nop>
-nmap <C-s> <Plug>(caw:hatpos:toggle)
-xmap <C-s> <Plug>(caw:hatpos:toggle)
-omap <C-s> <Plug>(caw:hatpos:toggle)
-nmap l  <Plug>(caw:prefix)
-nmap lh <Plug>(caw:zeropos:toggle)
-nmap li <Plug>(caw:dollarpos:toggle)
-nmap ll <Plug>(caw:wrap:toggle)
-nmap ls <Plug>(caw:box:comment)
-nmap ln <Plug>(caw:jump:comment-next)
-nmap le <Plug>(caw:jump:comment-prev)
-xmap l  <Plug>(caw:prefix)
-xmap lh <Plug>(caw:zeropos:toggle)
-xmap li <Plug>(caw:dollarpos:toggle)
-xmap ll <Plug>(caw:wrap:toggle)
-xmap ls <Plug>(caw:box:comment)
-xmap ln <Plug>(caw:jump:comment-next)
-xmap le <Plug>(caw:jump:comment-prev)
-'''
-# }}}
 # end Operator }}}
 
 # Motion  {{{
@@ -980,8 +935,8 @@ nmap *  <Plug>(asterisk-z*)<Plug>(is-nohl-1)
 nmap g* <Plug>(asterisk-gz*)<Plug>(is-nohl-1)
 nmap #  <Plug>(asterisk-z#)<Plug>(is-nohl-1)
 nmap g# <Plug>(asterisk-gz#)<Plug>(is-nohl-1)
-nmap k <Plug>(is-nohl)<Plug>(anzu-n-with-echo)
-nmap K <Plug>(is-nohl)<Plug>(anzu-N-with-echo)
+nmap k <Plug>(anzu-n-with-echo)<Plug>(is-nohl)
+nmap K <Plug>(anzu-N-with-echo)<Plug>(is-nohl)
 noremap  <silent> <Esc><Esc> :<C-u>nohlsearch<CR><bar><Plug>(anzu-clear-search-status)
 '''
 on_map = {nx = '<Plug>'}

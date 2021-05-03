@@ -79,10 +79,54 @@
       "filetypes": ["vim", "eruby", "markdown"]
     },
     "nim": {
-      "command": "nimlsp",
+      "command": "nimlsp.cmd",
       "filetypes": ["nim"],
       "trace.server": "verbose"
+    },
+    "python": {
+      "command": "python3",
+      "args": ["-mpyls", "-vv", "--log-file", "/tmp/lsp_python.log"],
+      "trace.server": "verbose",
+      "filetypes": ["python"],
+      "settings": {
+        "pyls": {
+          "enable": true,
+          "trace": {
+            "server": "verbose"
+          },
+          "commandPath": "",
+          "configurationSources": ["pycodestyle"],
+          "plugins": {
+            "jedi_completion": {
+              "enabled": true
+            },
+            "jedi_hover": {
+              "enabled": true
+            },
+            "jedi_references": {
+              "enabled": true
+            },
+            "jedi_signature_help": {
+              "enabled": true
+            },
+            "jedi_symbols": {
+              "enabled": true,
+              "all_scopes": true
+            },
+            "mccabe": {
+              "enabled": true,
+              "threshold": 15
+            },
+            "preload": {
+              "enabled": true
+            },
+            "rope_completion": {
+              "enabled": true
+            }
+          }
+        }
+      }
     }
   },
-  "python.pythonPath": "C:\\Users\\anosillus\\AppData\\Local\\pypoetry\\Cache\\virtualenvs\\auto-uma-Y5n6xulq-py3.9\\Scripts\\python.exe"
+  "python.pythonPath": "C:\\Users\\anosillus\\AppData\\Local\\pypoetry\\Cache\\virtualenvs\\nurse-scedule-solve-58E8emD2-py3.9\\Scripts\\python.exe"
 }
