@@ -19,8 +19,58 @@ repo = 'honza/vim-snippets'
 repo = 'neoclide/coc.nvim'
 depends = 'vim-snippets'
 hook_add = 'source ~/.vim/rc/plugins/coc.rc.vim'
-# on_i = 1
 # on_if = "matchstr(expand('%:p'),'jp.md') ==# ''"
+# }}}
+
+# {{{ SKK
+[[plugins]]
+repo = 'tyru/eskk.vim'
+on_map = {ic = '<Plug>'}
+hook_add = '''
+  imap <C-j>     <Plug>(eskk:toggle)
+  cmap <C-j>     <Plug>(eskk:toggle)
+  let g:eskk#keep_state = 1
+  let g:eskk#show_annotation = 1
+  let g:eskk#rom_input_style = 'msime'
+  let g:eskk#egg_like_newline = 1
+  let g:eskk#egg_like_newline_completion = 1
+  let g:eskk#tab_select_completion = 1
+  let g:eskk#start_completion_length = 2
+  let g:eskk#cursor_color = {
+  \   'ascii': ['#8b8b83', '#bebebe'],
+  \   'hira': ['#8b3e2f', '#ffc0cb'],
+  \   'kata': ['#228b22', '#00ff00'],
+  \   'abbrev': '#4169e1',
+  \   'zenei': '#ffd700',
+  \}
+  let g:eskk#dictionary = {
+  \   'path': expand('$CACHE/skk-jisyo'),
+  \   'sorted': 0,
+  \   'encoding': 'utf-8',
+  \}
+  let g:eskk#server = {
+  \   'host': 'localhost',
+  \   'port':  1178,
+  \}
+  let g:eskk#large_dictionary = {
+  \   'path': '~/.skk/SKK-JISYO.L',
+  \   'sorted': 1,
+  \   'encoding': 'euc-jp'
+  \}
+  let g:eskk#statusline_mode_strings = {
+  \	'hira': 'あ',
+  \	'kata': 'ア',
+  \	'ascii': 'aA',
+  \	'zenei': 'ａ',
+  \	'hankata': 'ｧｱ',
+  \  'abbrev': 'aあ'
+\}
+'''
+hook_post_update = '''
+  let g:eskk#keep_state = 1
+
+'''
+
 # }}}
 
 # caw {{{

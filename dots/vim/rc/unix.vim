@@ -18,20 +18,20 @@ let g:jasegment#model = 'cabocha'
 let g:jasegment#mecab#args = '-Owakati -d /usr/lib/mecab/dic/mecab-ipadic-neologd/'
 
 " Use yaskkserv
-let g:eskk#dictionary = {
-\   'path': expand('$CACHE/skk-jisyo'),
-\   'sorted': 0,
-\   'encoding': 'utf-8'
-\}
-let g:eskk#large_dictionary = {
-\   'path': '/home/anosillus/dotfiles/dots/skk/SKK-JISYO.L',
-\   'sorted': 1,
-\   'encoding': 'euc-jp'
-\}
-let g:eskk#server = {
-\   'host': 'localhost',
-\   'port':  1178
-\}
+" let g:eskk#dictionary = {
+"\   'path': expand('$CACHE/skk-jisyo'),
+"\   'sorted': 0,
+"\   'encoding': 'utf-8'
+"\}
+" let g:eskk#large_dictionary = {
+"\   'path': '/home/anosillus/dotfiles/dots/skk/SKK-JISYO.L',
+"\   'sorted': 1,
+"\   'encoding': 'euc-jp'
+"\}
+" let g:eskk#server = {
+"\   'host': 'localhost',
+"\   'port':  1178
+"\}
 
 colorscheme jellybeans
 

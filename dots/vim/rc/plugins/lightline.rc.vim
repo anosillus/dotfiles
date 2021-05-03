@@ -73,7 +73,7 @@ function! LightlineFiletype()
 endfunction
 
 function! LightlineMode()
-  return winwidth(0) > 60 ? lightline#mode() : ''
+  return winwidth(0) > 60 ? (lightline#mode() . (exists('g:loaded_eskk') && eskk#is_enabled() ? eskk#statusline('(%s)') : '')) : ''
 endfunction
 
 function! LightlineModified()

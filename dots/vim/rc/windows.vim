@@ -25,20 +25,20 @@ let g:jasegment#cabocha#cmd = '"C:/Program Files (x86)/CaboCha/bin/cabocha.exe"'
 " let g:jasegment#mecab#cmd = '"C:/Program Files/MeCab/bin/mecab.exe"'
 let g:jasegment#model = 'cabocha'
 " let g:jasegment#cabocha#enc = 'utf-8'
-let g:eskk#dictionary = {
-\   'path': expand('$CACHE/skk-jisyo'),
-\   'sorted': 0,
-\   'encoding': 'utf-8'
-\}
+" let g:eskk#dictionary = {
+"\   'path': expand('$CACHE/skk-jisyo'),
+"\   'sorted': 0,
+"\   'encoding': 'utf-8'
+"\}
 " let g:eskk#large_dictionary = {
 "\   'path': '$HOME/.skk/SKK-JISYO.L',
 "\   'sorted': 1,
 "\   'encoding': 'euc-jp'
 "\}
-let g:eskk#server = {
-\   'host': 'localhost',
-\   'port':  1178,
-\}
+" let g:eskk#server = {
+"\   'host': 'localhost',
+"\   'port':  1178,
+"\}
 
 if !exists('g:colors_name') && !has('gui_running')
   colorscheme jellybeans

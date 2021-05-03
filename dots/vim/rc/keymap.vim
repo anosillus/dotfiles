@@ -428,6 +428,8 @@ map   <M-q>  !
 lmap  <M-q>  !
 map!  <M-q>  !
 tmap  <M-q>  !
+omap  <M-q>  !
+
 
 
 " a
@@ -435,18 +437,24 @@ map  á @
 lmap á @
 map!  á @
 tmap á @
+omap á @
+
 
 " r
 map  ò #
 lmap ò #
 map!  ò #
 tmap ò #
+omap ò #
+
 
 " s
 map  ó $
 lmap ó $
 map! ó $
 tmap ó $
+omap ó $
+
 
 
 " t
@@ -454,9 +462,12 @@ map ô %
 map! ô %
 lmap ô %
 tmap ô %
+omap ô %
+
 
 " d
 map  ä ^
+map! ä ^
 lmap ä ^
 tmap ä ^
 omap ä ^
@@ -464,8 +475,11 @@ omap ä ^
 
 " h
 map  è &
+map! è &
 lmap è &
 tmap è &
+omap è &
+
 
 
 " n
@@ -473,24 +487,32 @@ map  î *
 map! î *
 lmap î *
 tmap î *
+omap î *
+
 
 " e
 map  å (
 map! å (
 lmap å (
 tmap å (
+omap å (
+
 
 " i
 map  é )
 map! é )
 lmap é )
 tmap é )
+omap é )
+
 
 " o
 map  ï _
 map! ï _
 lmap ï _
 tmap ï _
+omap ï _
+
 
 " <CR>
 " Note : <M-CR> isn't work, I use <M-;>)
@@ -498,36 +520,72 @@ map  <M-;> <kPlus>
 map! <M-;> <kPlus>
 lmap <M-;> <kPlus>
 tmap <M-;> <kPlus>
+omap <M-;> <kPlus>
+
 
 " b
 map  â "
 map! â "
 lmap â "
 tmap â "
+omap â "
+
 
 " k
 map  ë ?
 map! ë ?
 lmap ë ?
 tmap ë ?
+omap ë ?
+
 
 " m
 map  í {
 map! í {
 lmap í {
 tmap í {
+omap í {
 
 " ,
 map  ¬ }
 map! ¬ }
 lmap ¬ }
 tmap ¬ }
-
+omap ¬ }
 " .
 map  ® <bar>
 map! ® <bar>
 lmap ® <bar>
 tmap ® <bar>
+omap ® <bar>
+
+" v
+map  ö 、
+map! ö 、
+lmap ö 、
+tmap ö 、
+omap ö 、
+
+" c
+map  ã 。
+map! ã 。
+lmap ã 。
+tmap ã 。
+omap ã 。
+
+" x
+map  ø 「
+map! ø 「
+lmap ø 「
+tmap ø 「
+omap ø 「
+" x
+map  ú 」
+map! ú 」
+lmap ú 」
+tmap ú 」
+omap ú 」
+
 " }}}
 
 " terminal mode setting(not yet) {{{
@@ -535,6 +593,23 @@ tmap ® <bar>
 " set termkey=<C-l>
 tnoremap <Esc> <C-\><C-n>
 tnoremap <C-g> <C-\><C-n>:q!<CR>,
+" }}}
+
+" abbr {{{
+iabbrev z1 ①
+iabbrev z2 ②
+iabbrev z3 ③
+iabbrev z4 ④
+iabbrev z5 ⑤
+iabbrev z6 ⑥
+iabbrev z7 ⑦
+iabbrev z8 ⑧
+iabbrev z9 ⑨
+iabbrev zc ©
+iabbrev zr ®
+iabbrev zm ™
+iabbrev z, ・
+iabbrev z. …
 " }}}
 
 " vim: ts=2 et sw=2 fdm=marker

@@ -272,73 +272,6 @@ on_if = "matchstr(expand('%:p'),'jp.md') !=# ''"
 # on_if = "matchstr(expand('%:p'),'jp.md') !=# ''"
 # on_ft = 'Dockerfile'
 
-# {{{ SKK
-[[plugins]]
-repo = 'tyru/eskk.vim'
-on_map = {ic = '<Plug>'}
-hook_add = '''
-  imap <C-j>     <Plug>(eskk:toggle)
-  cmap <C-j>     <Plug>(eskk:toggle)
-'''
-hook_source = '''
-  let g:eskk#no_default_mappings = 1
-  let g:eskk#keep_state = 1
-  let g:eskk#debug = 0
-  let g:eskk#statusline_mode_strings = {
-  \	'hira': 'あ',
-  \	'kata': 'ア',
-  \	'ascii': 'aA',
-  \	'zenei': 'ａ',
-  \	'hankata': 'ｧｱ',
-  \  'abbrev': 'aあ'
-\}
-  let g:eskk#show_annotation = 1
-  let g:eskk#rom_input_style = 'msime'
-  let g:eskk#egg_like_newline = 1
-  let g:eskk#egg_like_newline_completion = 1
-  let g:eskk#tab_select_completion = 1
-  let g:eskk#start_completion_length = 2
-    autocmd MyAutoCmd User eskk-initialize-pre call s:eskk_initial_pre()
-  function! s:eskk_initial_pre()
-    let g:skk_keep_state = 1
-    let t = eskk#table#new('rom_to_hira*', 'rom_to_hira')
-    call t.add_map('~', '～')
-    call t.add_map('zc', '©')
-    call t.add_map('zr', '®')
-    call t.add_map('tm', '™')
-    call t.add_map('z ', '　')
-    call t.add_map('z1', '①')
-    call t.add_map('z2', '②')
-    call t.add_map('z3', '③')
-    call t.add_map('z4', '④')
-    call t.add_map('z5', '⑤')
-    call t.add_map('z6', '⑥')
-    call t.add_map('z7', '⑦')
-    call t.add_map('z8', '⑧')
-    call t.add_map('z9', '⑨')
-    for n in range(10)
-      call t.add_map(n . '.', n . '.')
-    endfor
-    call eskk#register_mode_table('hira', t)
-  endfunction
-  let &g:statusline = "%{winnr('$')>1?'['.winnr().'/'.winnr('$')"
-        \ . ".(winnr('#')==#winnr()?'#':'').']':''}\ "
-        \ . "%{(&previewwindow?'[preview] ':'')."
-        \ . ".expand('%:t')==#''?expand('%'):expand('%:t')}"
-        \ . "\ %=%{(winnr('$')==1 || winnr('#')!=winnr()) ?
-        \ '['.(&filetype!=#''?&filetype.',':'')"
-        \ . ".(&fenc!=''?&fenc:&enc).','.&ff.']' : ''}"
-        \ . "%{eskk#statusline('[%s]')}"
-        \ . "%m%{printf('%'.(len(line('$'))+2).'d/%d',line('.'),line('$'))}"
-  let g:eskk#cursor_color = {
-  \   'ascii': ['#8b8b83', '#bebebe'],
-  \   'hira': ['#8b3e2f', '#ffc0cb'],
-  \   'kata': ['#228b22', '#00ff00'],
-  \   'abbrev': '#4169e1',
-  \   'zenei': '#ffd700',
-  \}
-'''
-# }}}
 
 # # }}}
 
@@ -403,7 +336,7 @@ depends = 'open-browser.vim'
 repo = 'thinca/vim-quickrun'
 on_cmd = 'QuickRun'
 depends = 'previm'
-hook_source = 'source ~/.vim/rc/plugins/quickrun.rc.vim'
+# hook_source = 'source ~/.vim/rc/plugins/quickrun.rc.vim'
 hook_add = '''
 nnoremap <silent> <Space>r :<C-u>QuickRun -mode n<CR>
 vnoremap <silent> <Space>r :<C-u>QuickRun -mode v<CR>
@@ -570,13 +503,15 @@ on_ft = 'go'
 [[plugins]]
 repo = 'zah/nim.vim'
 on_ft = 'nim'
-hook_source = '''
-let g:nvim_nim_enable_custom_textobjects = 1
-let g:nvim_nim_enable_default_binds = 1
+hook_add = '''
 onoremap <buffer> <silent>tf :<C-U>call util#SelectNimProc(0)<cr>
 onoremap <buffer> <silent>sf :<C-U>call util#SelectNimProc(1)<cr>
 vnoremap <buffer> <silent>tf :<C-U>call util#SelectNimProc(0)<cr><Esc>gv
 vnoremap <buffer> <silent>sf :<C-U>call util#SelectNimProc(1)<cr><Esc>gv
+'''
+hook_source = '''
+let g:nvim_nim_enable_custom_textobjects = 1
+let g:nvim_nim_enable_default_binds = 1
 '''
 
 # }}}
@@ -913,6 +848,7 @@ nmap <C-f> <Plug>(ale_next)
 nmap <C-p> <Plug>(ale_previous)
 '''
 # }}}
+
 
 # end Operator }}}
 
