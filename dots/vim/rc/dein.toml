@@ -18,8 +18,8 @@ repo = 'honza/vim-snippets'
 [[plugins]]
 repo = 'neoclide/coc.nvim'
 depends = 'vim-snippets'
-# on_if = "matchstr(expand('%:p'),'jp.md') ==# ''"
 hook_add = 'source ~/.vim/rc/plugins/coc.rc.vim'
+# on_if = "matchstr(expand('%:p'),'jp.md') ==# ''"
 # on_i = 1
 # }}}
 
