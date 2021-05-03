@@ -1,7 +1,6 @@
 "---------------------------------------------------------------------------
 " GUI:
 "
-
 "---------------------------------------------------------------------------
 " Fonts:
 set ambiwidth=double
@@ -9,7 +8,7 @@ set ambiwidth=double
 if has('win32') || has('win64')
   " For Windows.
   set runtimepath+=$HOME\.vim
-  set guifont=Cica:h12:cSHIFTJIS:qDRAFT
+  set guifont=Cica:h16:cSHIFTJIS:qDRAFT
   set renderoptions=type:directx
   " set guifont=Cica:h12
   " set guifontwide=VL\ Gothic:h11
@@ -29,7 +28,7 @@ elseif has('mac')
   " For Mac.
   set guifont=Osaka－等幅:h14
 else
-  set guifont=Cica\ 20
+  set guifont=Cica\ 16
   " For Linux.
    " set guifontwide=VL\ Gothic\ 13
    " set guifont=Courier\ 10\ Pitch\ 14
