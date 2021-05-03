@@ -97,7 +97,7 @@ function! s:show_documentation()
   endif
 endfunction
 
-autocmd CursorHold * silent call CocActionAsync('highlight')
+" autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
 " nmap <leader>r <Plug>(coc-rename)

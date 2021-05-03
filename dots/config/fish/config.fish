@@ -26,7 +26,6 @@ switch (uname)
             set -g -x EDITOR  gvim
             set -g -x MYVIM   vim
             set -g -x MYNVIM  goneovim
-            set PATH $PATH $HOME/.config/rofi/bin
             # set PATH $PATH $HOME/.serverless/bin/serverless
             set -g -x BROWSER chromium
             set -x -U GOPATH $HOME/go
@@ -35,11 +34,12 @@ switch (uname)
         # }}}
                 # Arch {{{
                 case ManjaroLinux
-                    set PATH $PATH /usr/local/bin /usr/sbin $GOPATH/bin $HOME/.local/bin $HOME/.cargo/env $HOME/.cargo/bin
+                    set PATH $PATH /usr/local/bin /usr/sbin $GOPATH/bin $HOME/.local/bin $HOME/.cargo/env $HOME/.cargo/bin $HOME/.nimble/bin
                     abbr -a ai sudo pacman -S
                     abbr -a aud sudo pacman -Syy
                     abbr -a aug sudo pacman -Syyu
                     set PATH $PATH $HOME/.config/rofi/bin
+
                     set -xg JAVA_HOME "/usr/lib/jvm/java-11-adoptopenjdk"
                     abbr va $EDITOR $HOME/.config/rofi/bin
                     # export GTK_IM_MODULE=ibus
