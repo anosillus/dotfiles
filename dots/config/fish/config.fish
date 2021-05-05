@@ -114,8 +114,8 @@ abbr -a V $EDITOR --remote-tab-silent
 abbr -a vv $EDITOR ~/.vim/rc/dein.toml
 abbr -a vF $EDITOR ~/.config/fish/config.fish
 # abbr -a vF vf
-abbr -a vv $EDITOR ~/dotfiles/rc/vim/.
-abbr -a vs $EDITOR ~/dotfiles/init/
+abbr -a vv $EDITOR ~/dotfiles/dots/vim/rc/dein.toml
+abbr -a vs $EDITOR ~/dotfiles/init
 
 abbr p python3
 abbr s scala
@@ -264,8 +264,9 @@ fundle plugin 'patrickf1/colored_man_pages.fish'
 # fundle plugin 'gazorby/fish-exa'
 fundle plugin 'oh-my-fish/theme-bobthefish'
 # fundle plugin 'jorgebucaran/powerline.fish'
+fundle plugin 'jorgebucaran/spark.fish'
 fundle plugin 'ryoppippi/fish-poetry'
-# fundle plugin 'gazorby/fish-exa'
+# fundle plugin 'b4b4r07/enhancd'
 fundle init
 # }}}
 
@@ -292,7 +293,13 @@ if functions -q aws-cli
     complete --command aws --no-files --arguments '(begin; set --local --export COMP_SHELL fish; set --local --export COMP_LINE (commandline); aws_completer | sed \'s/ $//\'; end)'
 end
 
-# set fish_plugins theme peco
+function fish_user_key_bindings
+  bind \ch 'peco_select_history (commandline -b)'
+  bind \cc 'cdh | peco | read select'
+end
+
+set fish_plugins theme peco
+set GHQ_SELECTOR peco
 # set -U async_prompt_inherit_variables all
 # set -U async_prompt_functions fish_right_prompt
 
@@ -304,6 +311,7 @@ set -U FZF_REVERSE_ISEARCH_OPTS "--reverse --height=100%"
 # Prompt Settings {{{
 set VIRTUAL_ENV_DISABLE_PROMPT disable
 set VIRTUAL_ENV
+
 
 set -g theme_display_git yes
 # set -g theme_display_git_dirty yes
@@ -347,6 +355,26 @@ set -g theme_project_dir_length 1
 # set -g theme_newline_cursor yes
 # set -g theme_newline_prompt '$ '
 # Prompt Settings }}}}
+
+# fish enhancd is buggy {{{
+# set -g ENHANCD_ROOT
+# set -g ENHANCD_COMMAND
+# set -g ENHANCD_FILTER
+# set -g ENHANCD_DIR $HOME/.enhancd
+# set -g ENHANCD_DISABLE_DOT -0
+# set -g ENHANCD_DISABLE_HYPHEN -0
+# set -g ENHANCD_DOT_ARG -..
+# set -g ENHANCD_HYPHEN_ARG --
+# set -g ENHANCD_HYPHEN_NUM -10
+# set -g ENHANCD_HOME_ARG -
+# set -g ENHANCD_USE_FUZZY_MATCH -1
+# set -g ENHANCD_COMPLETION_DEFAULT
+# set -g ENHANCD_COMPLETION_KEYBIND -^I
+# set -g ENHANCD_COMPLETION_BEHAVIOR -default
+# set -g ENHANCD_DISABLE_HOME 1
+# set -g ENHANCD_FILTER peco
+# }}}
+
 
 direnv hook fish | source
 eval (direnv hook fish)

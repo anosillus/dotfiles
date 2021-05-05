@@ -509,6 +509,12 @@ repo = 'othree/es.next.syntax.vim'
 
 [[plugins]]
 repo = 'cespare/vim-toml'
+
+[[plugins]]
+repo = 'mattn/webapi-vim'
+
+[[plugins]]
+repo = 'simplenote-vim/simplenote.vim'
 # }}}
 
 # Unused {{{

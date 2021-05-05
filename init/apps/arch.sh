@@ -38,3 +38,5 @@ rm yaskkserv2
 sudo pacman -S i3 i3-gaps feh morc_menu wmctrl
 # yay -S dmenu
 bash -c "bash <(curl -sL https://git.io/Jv0e4)"
+
+yay -S riggrep-all slack-electron easywine gh winetricks tokei ytop fd procs cabocha mecab mecab-ipadic neologd-git libreoffice ctags fzf haskell simplescreenrecorder maya fzy percol  ghq gnome-shell-pomodoro openrazer-meta gitkraken exa rig-grep rg yaskkserv2 ipa-fonts ipa-gothic-fonts dmenu2 rofi nm-applet nerd-fonts bat

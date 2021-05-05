@@ -161,44 +161,44 @@
 
 
 [help]
-    autocorrect = 1
+  autocorrect = 1
 
 [push]
-    default = matching
+  default = matching
 
 [user]
-	name = anosillus
-	email = anosillus@gmail.com
+  name = anosillus
+  email = anosillus@gmail.com
 
  # [url "github:"]
   #   InsteadOf = https://github.com/
   #  InsteadOf = git@github.com:
 
 [pager]
-    log  = diff-highlight | less -RX
-    show = diff-highlight | less -RX
-    diff = diff-highlight | less -RX
+  log  = diff-highlight | less -RX
+  show = diff-highlight | less -RX
+  diff = diff-highlight | less -RX
 
 [diff]
-    tool      = vimdiff
-    algorithm = histogram
-    compactionHeuristic = true
+  tool      = vimdiff
+  algorithm = histogram
+  compactionHeuristic = true
 
 [ghq]
-    root = ~/src
+  root = ~/git
 
 [merge]
-	tool = gvimdiff
+  tool = gvimdiff
 
 [github]
-	user = anosillus
+  user = anosillus
 
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
 [http]
-	sslverify = false
+  sslverify = false
 [net]
-git-fetch-with-cli = true
+  git-fetch-with-cli = true
