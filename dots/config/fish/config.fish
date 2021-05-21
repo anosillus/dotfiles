@@ -261,6 +261,7 @@ fundle plugin 'eth-p/fish-plugin-sudo'
 fundle plugin 'decors/fish-ghq'
 fundle plugin 'jethrokuan/z'
 fundle plugin 'patrickf1/colored_man_pages.fish'
+fundle plugin 'h-matsuo/fish-color-scheme-switcher'
 # fundle plugin 'gazorby/fish-exa'
 fundle plugin 'oh-my-fish/theme-bobthefish'
 # fundle plugin 'jorgebucaran/powerline.fish'
@@ -270,6 +271,7 @@ fundle plugin 'ryoppippi/fish-poetry'
 fundle init
 # }}}
 
+# {{{ env install and path
 if not test -d ~/.anyenv
     git clone https://github.com/riywo/anyenv ~/.anyenv
     mkdir -p ~/.anyenv/plugins
@@ -288,10 +290,10 @@ else
     eval (direnv hook fish)
 end
 
-
 if functions -q aws-cli
     complete --command aws --no-files --arguments '(begin; set --local --export COMP_SHELL fish; set --local --export COMP_LINE (commandline); aws_completer | sed \'s/ $//\'; end)'
 end
+# }}}
 
 function fish_user_key_bindings
   bind \ch 'peco_select_history (commandline -b)'
