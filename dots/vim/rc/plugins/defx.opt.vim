@@ -1,9 +1,10 @@
-nnoremap <silent>   [Space]p
+nnoremap <silent>   <Space>p
 \ :<C-u>Defx -listed -resume -buffer-name=tab`tabpagenr()`<CR>
 nnoremap <silent><buffer><expr> <CR>
 \ defx#async_action('drop')
 nnoremap <silent><buffer><expr> c
-\ defx#do_action('copy')nnoremap <silent><buffer><expr> !
+\ defx#do_action('copy')
+nnoremap <silent><buffer><expr> !
 \ defx#do_action('execute_command')
 nnoremap <silent><buffer><expr> m
 \ defx#do_action('move')

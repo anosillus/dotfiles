@@ -113,19 +113,12 @@ denite = '''
 # Denite }}}
 # Denite_Plugins }}}
 
-# Defx_Plugins {{{
-[[plugins]]
-repo = 'kristijanhusak/defx-icons'
-  
-[[plugins]]
-repo ="kristijanhusak/defx-git"
-
 # Defx {{{
 [[plugins]]
 repo = 'Shougo/defx.nvim'
 hook_add = '''
   nnoremap <silent>  [Space].
-  \ :<C-u>Defx -listed -resume -buffer-name=win-`win_getid()`<CR>
+  \ :<C-u>Defx -split=vertical -winwidth=40 -direction=topleft -listed -resume -columns=icons:filename:type -buffer-name=win-`win_getid()`<CR>
 '''
 depends = ['defx-git', 'defx-icons']
 hook_source = '''
@@ -224,8 +217,14 @@ defx = '''
   \ defx#do_action('change_vim_cwd')
 '''
 # Defx_Commnds }}}
-# Defx }}}
+# Defx_Plugins {{{
+[[plugins]]
+repo = 'kristijanhusak/defx-icons'
+  
+[[plugins]]
+repo ="kristijanhusak/defx-git"
 # Defx_Plugins }}}
+# Defx }}}
 
 # deoplete {{{
 [[plugins]]
@@ -288,6 +287,7 @@ hook_add = '''
     let g:deol#shell_history_path = '~/.local/share/fish/fish_history'
   endif
   nnoremap <silent> <Space>D  :<C-u>call deol#kill_editor()<CR>
+  nnoremap <silent> <C-,> :<C-u>Deol fish -split=vertical -winwidth=50<CR>
 '''
 hook_source = '''
     let g:deol#prompt_pattern = '\w*% '
@@ -893,7 +893,7 @@ let g:EasyMotion_use_upper = 1
 let g:EasyMotion_smartcase = 1
 " Smartsign
 let g:EasyMotion_use_smartsign_us = 1
-" keep cursor column
+ keep cursor column
 let g:EasyMotion_startofline = 0
 " Don't skip folded line
 let g:EasyMotion_skipfoldedline = 0

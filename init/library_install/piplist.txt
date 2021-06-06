@@ -23,6 +23,7 @@ networkx
 pandas-vet
 pep8
 pep8-naming
+pyannotate
 pylama
 pynvim
 pytest

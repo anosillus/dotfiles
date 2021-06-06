@@ -6,6 +6,7 @@ nmap <Space>   [Space]
 nmap [Space]   <Nop>
 vnoremap <leader><Leader> <ESC>
 " cnoremap <silent> <Space><Space> <ESC>
+inoremap <silent> ;; <ESC>
 cnoremap <silent> <C-c> <ESC>
 " nnoremap <c-Space> :<C-u>w<CR>
 
