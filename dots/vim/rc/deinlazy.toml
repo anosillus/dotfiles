@@ -281,9 +281,9 @@ depends = 'denite.nvim'
 on_source = ['defx.nvim', 'denite.nvim']
 hook_add = '''
   if has('win32') || has('win64')
-    nnoremap <silent><leader><CR> :<C-u>Deol powershell -no-start-insert<CR>
+    nnoremap <silent><Space><CR> :<C-u>Deol powershell -no-start-insert<CR>
   else
-    nnoremap <silent><leader><CR> :<C-u>Deol  fish -split=floating<CR>
+    nnoremap <silent><Space><CR> :<C-u>Deol  fish -split=floating<CR>
     let g:deol#shell_history_path = '~/.local/share/fish/fish_history'
   endif
   nnoremap <silent> <Space>D  :<C-u>call deol#kill_editor()<CR>

@@ -295,6 +295,7 @@ if functions -q aws-cli
 end
 # }}}
 
+
 function fish_user_key_bindings
   bind \ch 'peco_select_history (commandline -b)'
   bind \cc 'cdh | peco | read select'
