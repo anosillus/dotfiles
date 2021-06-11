@@ -562,6 +562,7 @@ noremap <silent> <C-i> f。
 noremap <silent> <C-h> F。
 '''
 # }}}
+
 # }}}
 # configs{{{
 [[plugins]]
@@ -823,10 +824,10 @@ on_map = {ox = '<Plug>'}
 [[plugins]]
 repo = 'kana/vim-operator-replace'
 depends = 'vim-operator-user'
+on_map = {nxo = '<Plug>'}
 hook_add = '''
 map R <Plug>(operator-replace)
 '''
-on_map = {nxo = '<Plug>'}
 
 [[plugins]]
 repo = "sgur/vim-operator-openbrowser"

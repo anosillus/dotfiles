@@ -1,6 +1,6 @@
 # Path {{{
 $env:Path += ";${Env:LOCALAPPDATA}\yarn\bin"
-$env:Path += ";${Env:USERPROFILE}\.pyenv\pyenv-win\bin"
+# $env:Path += ";${Env:USERPROFILE}\.pyenv\pyenv-win\bin"
 $env:Path += ";${Env:ProgramFiles(x86)}\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Roslyn"
 $env:Path += ";${Env:ProgramFiles(x86)}\Mecab\bin"
 $env:Path += ";${ENV:ProgramFiles(x86)}\CaboCha\bin"
@@ -28,6 +28,7 @@ $DESKTOP = $(resolve-path "$ENV:USERPROFILE\Desktop")
 # Program Alias {{{
 Set-Alias make_dict ${Env:SystemDrive}\tools\yaskkserv2\yaskkserv2_make_dictionary.exe
 # Set-Alias capture ${Env:ProgramFiles}\ShareX.exe
+Set-Alias c clear
 Set-Alias chrome ${ENV:ProgramFiles(x86)}\Google\Chrome\Application\chrome.exe
 Set-Alias cmigemo ${Env:SystemDrive}\tools\cmigemo\cmigemo.exe
 Set-Alias eblook ${Env:SystemDrive}\tools\eblook\bin\eblook.exe
@@ -39,6 +40,12 @@ Set-Alias v gvim.exe
 Set-Alias vbox ${Env:ProgramFiles}\Oracle\VirtualBox\virtualbox.exe
 Set-Alias vcpkg ${Env:SystemDrive}\tools\vcpkg\vcpkg.exe
 Set-Alias vlc ${ENV:ProgramFiles}\VideoLAN\VLC\vlc.exe
+# Set-Alias python python3
+Set-Alias py python3
+Set-Alias p python3
+Set-Alias pip pip3
+
+
 # Set-Alias captura ${ENV:ProgramFiles(x86)}\Captura\captura.exe
 # }}}
 
@@ -50,6 +57,7 @@ Set-Alias la Get-ChildItem
 
 # User Command {{{
 function mcd { mkdir @args; cd @args }
+function g { ghq-peco}
 function rmd { Remove-Item -recurse -force @args }
 function path { ($env:Path).Replace(';',"`n") }
 function skkserv {C:\tools\yaskkserv2\yaskkserv2.exe --config-filename $HOME\.skk\win_yaskkserv2.conf}
@@ -71,6 +79,10 @@ function touch($file) {
 Function uptime() {
   [DateTime]::Now -  [Management.ManagementDateTimeConverter]::ToDateTime((Get-WmiObject Win32_OperatingSystem).LastBootUpTime) |
   Select-Object Days, Hours, Seconds, Milliseconds| Format-Table -AutoSize
+}
+
+function ghq-peco {
+    ghq.exe look $(ghq list | peco.exe)
 }
 
 function Get-DirectorySize() {
@@ -102,7 +114,7 @@ Function New-SymLink ($link, $target)
         $command = "cmd /c mklink"
     }
 
-    invoke-expression "$command $link $target"
+    # invoke-expression "$command $link $target"
 }
 Set-Alias ln New-SymLink
 Function Remove-SymLink ($link)
@@ -116,7 +128,7 @@ Function Remove-SymLink ($link)
         $command = "cmd /c del"
     }
 
-    invoke-expression "$command $link"
+    # invoke-expression "$command $link"
 }
 Set-Alias unlink Remove-SymLink
 
