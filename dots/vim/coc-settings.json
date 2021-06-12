@@ -128,5 +128,5 @@
       }
     }
   },
-  "python.pythonPath": "C:\\Users\\anosillus\\AppData\\Local\\pypoetry\\Cache\\virtualenvs\\auto-uma-YYQjlLBz-py3.9\\Scripts\\python.exe"
+  "python.pythonPath": "  at c:\\users\\anosillus\\scoop\\apps\\python\\3.9.5\\lib\\site-packages\\poetry\\utils\\env.py:1075 in _run\\Scripts\\python.exe"
 }
