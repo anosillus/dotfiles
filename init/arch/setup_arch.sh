@@ -18,7 +18,8 @@ ln -s /home/anosillus/dotfiles/dots/config/karabiner /home/anosillus/.config/kar
 ln -s /home/anosillus/dotfiles/dots/config/brewfile /home/anosillus/.config/brewfile
 ln -s /home/anosillus/dotfiles/dots/config/coc /home/anosillus/.config/coc
 ln -s /home/anosillus/dotfiles/dots/config/efm-langserver /home/anosillus/.config/efm-langserver
-ln -s /home/anosillus/dotfiles/dots/config/fish /home/anosillus/.config/fish
+ln -s /home/anosillus/dotfiles/dots/config/fish/config.fish /home/anosillus/.config/fish/config.fish
+ln -s /home/anosillus/dotfiles/dots/config/fish/configs /home/anosillus/.config/fish/configs
 ln -s /home/anosillus/dotfiles/dots/config/git /home/anosillus/.config/git
 ln -s /home/anosillus/dotfiles/dots/config/i3 /home/anosillus/.config/i3
 ln -s /home/anosillus/dotfiles/dots/config/nvim /home/anosillus/.config/nvim
