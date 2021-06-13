@@ -1,5 +1,5 @@
 ln -s /home/anosillus/dotfiles/dots/atcodertools.toml /home/anosillus/.atcodertools.toml
-ln -s /home/anosillus/dotfiles/dots/auto-start /home/anosillus/.auto-start
+ln -s /home/anosillus/dotfiles/dots/config/auto-start/yaskkserv2.desktop /home/anosillus/.config/autostart
 ln -s /home/anosillus/dotfiles/dots/bash_profile /home/anosillus/.bash_profile
 ln -s /home/anosillus/dotfiles/dots/gitconfig /home/anosillus/.gitconfig
 ln -s /home/anosillus/dotfiles/dots/gvimrc /home/anosillus/.gvimrc
