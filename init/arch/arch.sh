@@ -22,11 +22,11 @@ yay -S cabocha
 sudo ufw default deny
 sudo ufw enable
 
-yay -S slack-electron easywine winetricks libreoffice ctags fzf haskell simplescreenrecorder maya fzy percol ghq dmenu2 rofi nm-applet
+yay -S slack easywine winetricks libreoffice ctags fzf simplescreenrecorder maya fzy percol ghq dmenu2 rofi nm-applet discord skypeforlinux-stable-bin
 sudo pacman -S i3 i3-gaps feh morc_menu wmctrl
 
 # browser
-sudo pacman -S firefox vivaldi alacritty
+sudo pacman -S firefox vivaldi alacritty vivaldi-codecs-ffmpeg-extra-bin
 yay -S google-chrome
 # JP and fonts
 yay -S noto-fonts noto-fonts-emoji noto-fonts-cjk noto-fonts-extra adobe-source-han-sans-jp-fonts adobe-source-han-serif-jp-fonts otf-ipafont otf-ipaexfont ttf-dejavu ipa-fonts ipa-gothic-fonts
@@ -34,7 +34,7 @@ yay -S ttf-fantasque-sans-mono nerd-fonts-iosevka
 yay -S ttf-cica ttf-monapo
 
 yay -S ibus ibus-qt ibus-skk
-sudo sed -i 's/ja/en/g' /usr/share/ibus/component/skk.xml
+sudo sed -i 's/<layout>ja</layout>/<layout>us</layout>/g' /usr/share/ibus/component/skk.xml
 
 git clone https://github.com/wachikun/yaskkserv2.git
 cd yaskkserv2
