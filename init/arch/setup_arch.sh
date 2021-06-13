@@ -14,7 +14,7 @@ ln -s /home/anosillus/dotfiles/dots/skk /home/anosillus/.skk
 
 ln -s /home/anosillus/dotfiles/dots/config/alacritty /home/anosillus/.config/alacritty
 ln -s /home/anosillus/dotfiles/dots/config/albert /home/anosillus/.config/albert
-ln -s /home/anosillus/dotfiles/dots/config/barabiner /home/anosillus/.config/barabiner
+ln -s /home/anosillus/dotfiles/dots/config/karabiner /home/anosillus/.config/karabiner
 ln -s /home/anosillus/dotfiles/dots/config/brewfile /home/anosillus/.config/brewfile
 ln -s /home/anosillus/dotfiles/dots/config/coc /home/anosillus/.config/coc
 ln -s /home/anosillus/dotfiles/dots/config/efm-langserver /home/anosillus/.config/efm-langserver

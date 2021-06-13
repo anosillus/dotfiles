@@ -9,7 +9,10 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+# set $menu --no-startup-id qdbus org.kde.krunner /App display
+# bindsym $mod+g exec $menu
+
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 set $mod Mod4
 set $alt Mod1

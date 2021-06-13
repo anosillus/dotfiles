@@ -1,5 +1,5 @@
 if [ -f ~/.bashrc ]; then
-	source ~/.bashrc
+  source ~/.bashrc
 fi
 export PATH="/usr/local/bin:$HOME/bin:$PATH"
 
@@ -14,3 +14,6 @@ if [ -f '/Users/tyda/Downloads/google-cloud-sdk/completion.bash.inc' ]; then . '
 export PATH="$HOME/.cargo/bin:$PATH"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export GTK_IM_MODULE=ibus
+export XMODIFIRES=@im=ibus
+export QT_IM_MODULE=ibus
