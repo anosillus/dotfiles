@@ -55,3 +55,13 @@ DesktopNames=KDE
 Name=Plasma with i3
 Comment=Plasma with i3
 ' >/usr/share/xsessions/plasma-i3.desktop
+
+yay -S ntp
+sudo timedatectl set-ntp true
+
+sudo pacman -S pavucontrol
+sudo pacman -S pulseaudio
+
+# git clone git@github.com:vinceliuice/grub2-themes.git
+# cd grub-themes
+# sudo ./install -t
