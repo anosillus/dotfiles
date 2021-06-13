@@ -27,3 +27,6 @@ ln -s /home/anosillus/dotfiles/dots/config/pip /home/anosillus/.config/pip
 ln -s /home/anosillus/dotfiles/dots/config/polybar /home/anosillus/.config/polybar
 ln -s /home/anosillus/dotfiles/dots/config/rofi /home/anosillus/.config/rofi
 ln -s /home/anosillus/dotfiles/dots/config/scoop /home/anosillus/.config/scoop
+mkdir -p /home/anosillus/.config/fish
+ln -s /home/anosillus/dotfiles/dots/config/fish/config.fish /home/anosillus/.config/fish/config.fish
+ln -s /home/anosillus/dotfiles/dots/config/fish/configs /home/anosillus/.config/fish/configs
