@@ -4,7 +4,7 @@ let g:ale_completion_enabled = 1
 let g:ale_linters_explicit = 1
 let g:ale_dockerfile_hadolint_use_docker = 'yes'
 let g:ale_lint_on_enter = 1
-let g:ale_lint_on_text_changed = 'never'
+" let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_save = 1
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
@@ -28,15 +28,16 @@ let g:ale_c_clangformat_options = '-style=google'
 let g:ale_javascript_eslint_suppress_missing_config = 1
 let g:ale_javascript_eslint_options='-c google'
 let g:ale_lint_on_insert_leave = 1
-let g:ale_python_auto_pipenv = 1
-" let g:ale_python_black_options = '--line-length 79'
-let g:ale_python_pylama_options = '--linters pycodestyle pydocstyle Mccabe Pylint --ignore=E:501'
-let g:ale_python_flake8_executable = 'python3'
+" let g:ale_python_auto_pipenv = 1
+" " let g:ale_python_black_options = '--line-length 79'
+" let g:ale_python_pylama_options = '--linters pycodestyle pydocstyle Mccabe Pylint --ignore=E:501'
+" let g:ale_python_flake8_executable = 'python3'
 " let g:ale_python_flake8_options = '-m flake8 --select=C,E,F,W,B901 -max-line-length=88'
 let g:ale_python_flake8_options = '-m flake8 -max-line-length=88'
-let g:ale_linter_aliases = {'gitcommit': ['gitcommit', 'text']}
+" let g:ale_linter_aliases = {'gitcommit': ['gitcommit', 'text']}
 " let g:ale_scala_metals_executable = '/usr/bin/metals-vim'
 
+" let g:ale_linters = {'python':  ['pylama', 'flake8', 'pyright']}
 let g:ale_linters = {
 \   'Dockerfile': ['hadolint'],
 \   'c':          ['clang'],
@@ -91,5 +92,6 @@ let g:ale_fixers = {
 \   'xml':        ['remove_trailing_lines', 'trim_whitespace', 'xmllint'],
 \   'yaml':       ['remove_trailing_lines', 'trim_whitespace', 'prettier'],
 \ }
+
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
