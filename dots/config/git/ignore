@@ -9,6 +9,7 @@
 /knownhosts
 /.ccls-cache/
 kaggle.json
+neovide_backtraces.log
 
 ### data
 *.mp4

@@ -1,5 +1,12 @@
 ---@type MappingsConfig
 local M = {}
+
+M.disabled = {
+	n = {
+		["<C-s>"] = ""
+	}
+}
+
 M.colemak = { --{{{
 	n = { --{{{
 		-- h/n {{{

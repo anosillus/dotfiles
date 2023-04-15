@@ -1,6 +1,5 @@
 local overrides = require("custom.configs.overrides")
 
-
 ---@type NvPluginSpec[]
 local plugins = {
   -- Default plugin{{{
@@ -260,7 +259,7 @@ local plugins = {
       end,
   },
   --- }}}
-  --- cmp {{{
+  -- CMP {{{
   {
     "hrsh7th/cmp-path",
   },
@@ -469,7 +468,6 @@ local plugins = {
         { '.', cmd  'Telecwoc diagnosticsscope find_files' },
         { '.', cmd  'Telecwoc diagnosticsscope find_files' },
         { '.', cmd  'Telecwoc diagnosticsscope find_files' },
-          
         { 'f', cmd 'Telescope find_files' },
         { 'a', cmd 'Telescope find_files follow=true no_ignore=true hidden=true <CR>' },
         { 'g', cmd 'Telescope live_grep' },
@@ -575,7 +573,7 @@ local plugins = {
     end,
   },
   -- }}}
-  -- {{{ Japanese
+  -- Japanese {{{
   {
     "vim-jp/vimdoc-ja",
     event = "CmdLineEnter",
@@ -695,6 +693,7 @@ local plugins = {
       })
     end,
   },
+-- Operator {{{
   {
     "machakann/vim-sandwich",
     event = { "BufRead", "BufNewFile" },
@@ -832,9 +831,8 @@ local plugins = {
       })
     end,
   },
-  
 -- Operator }}}
--- {{{ View
+-- View {{{
 --
   {
     "rebelot/kanagawa.nvim",
@@ -864,7 +862,7 @@ local plugins = {
     cmd = { "StartupTime" },
   },
 -- View}}}
--- {{{ Filetype
+-- Filetype {{{
   {
     "jsborjesson/vim-uppercase-sql",
     ft = { "sql" },
@@ -967,6 +965,15 @@ local plugins = {
     "folke/noice.nvim",
     event = "VeryLazy",
     config = function()
+      require("notify").setup({
+          render = "simple",
+          stages = "fade_in_slide_out",
+          level = 3,
+          time_out = 3,
+          top_down = false,
+          background_colour = "#121212",
+          max_width = 50,
+      })
       require("noice").setup({
         notify = {
           enabled = true,

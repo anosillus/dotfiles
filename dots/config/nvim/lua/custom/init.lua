@@ -15,7 +15,7 @@ local options = {
 	termguicolors = true, -- truecolours for better experience
 	--neovide_hide_mouse_when_typing = true,
 	--neovide_cursor_animation_length = 0,
-	--number = true, -- Always show line number
+	number = false, -- Always show line number
 	--relativenumber = true, -- Always show relative numbers
 	--cursorline = true, -- Change current line background
 	showtabline = 1, -- Show tabline when more than 1 tab
@@ -64,7 +64,6 @@ local options = {
 	timeoutlen = 400, -- faster timeout wait time
 	updatetime = 100, -- set faster update time ]]}}}
 	wildmode = "list:longest,full",
-
 	scrolloff = 50,
 }
 
