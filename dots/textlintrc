@@ -1,0 +1,92 @@
+{
+  "rules": {
+    "max-number-of-lines": { "max": 300 },
+    "@textlint-ja/no-synonyms": true,
+    "@textlint-ja/textlint-rule-no-insert-dropping-sa": true,
+    "@textlint-rule/preset-google": true,
+    "abbr-within-parentheses": true,
+    "apostrophe": true,
+    "common-misspellings": true,
+    "date-weekday-mismatch": true,
+    "diacritics": true,
+    "en-capitalization": true,
+    "footnote-order": true,
+    "general-novel-style-ja": {
+      "chars_leading_paragraph": false,
+      "no_punctuation_at_closing_quote": true,
+      "space_after_marks": true,
+      "even_number_ellipsises": true,
+      "even_number_dashes": true,
+      "appropriate_use_of_punctuation": true,
+      "appropriate_use_of_interpunct": true,
+      "appropriate_use_of_choonpu": true,
+      "appropriate_use_of_minus_sign": true,
+      "max_arabic_numeral_digits": false
+    },
+    "preset-ja-spacing": {
+      "ja-nakaguro-or-halfwidth-space-between-katakana": true,
+      "ja-no-space-around-parentheses": true,
+      "ja-no-space-between-full-width": true,
+      "ja-space-between-half-and-full-width": { "space": "never" },
+      "ja-space-after-exclamation": true,
+      "ja-space-after-question": true,
+      "ja-space-around-code": { "before": true, "after": true }
+    },
+    "ginger": { "skipPatterns": ["/JavaScript/i"] },
+    "ja-hiragana-fukushi": true,
+    "ja-hiragana-hojodoushi": true,
+    "ja-hiragana-keishikimeishi": true,
+    "no-start-duplicated-conjunction": { "interval": 5 },
+    "no-zero-width-spaces": true,
+    "period-in-list-item": { "periodMark": "" },
+    "prefer-tari-tari": true,
+    "preset-jtf-style": {
+      "2.1.2.漢字": true,
+      "2.1.5.カタカナ": true,
+      "2.1.6.カタカナの長音": true,
+      "2.2.1.ひらがなと漢字の使い分け": true,
+      "4.3.1.丸かっこ（）": false
+    },
+    "preset-ja-technical-writing": {
+      "max-comma": { "max": 3 },
+      "max-ten": { "max": 3 },
+      "max-kanji-continuous-len": { "max": 6 },
+      "arabic-kanji-numbers": true,
+      "no-doubled-conjunctive-particle-ga": true,
+      "no-doubled-conjunction": true,
+      "no-double-negative-ja": true,
+      "no-doubled-joshi": { "min_interval": 1 },
+      "sentence-length": { "max": 99 },
+      "no-dropping-the-ra": true,
+      "no-nfd": true,
+      "no-mix-dearu-desumasu": {
+        "preferInHeader": "",
+        "preferInBody": "ですます",
+        "preferInList": "である",
+        "strict": true
+      },
+      "ja-no-mixed-period": { "periodMark": "。" },
+      "no-exclamation-question-mark": {
+        "allow": ["Yahoo!"],
+        "allowHalfWidthExclamation": false,
+        "allowFullWidthExclamation": false,
+        "allowHalfWidthQuestion": false,
+        "allowFullWidthQuestion": false
+      },
+      "no-hankaku-kana": true,
+      "ja-no-weak-phrase": true,
+      "ja-no-successive-word": true,
+      "ja-no-redundant-expression": true,
+      "ja-unnatural-alphabet": true,
+      "ja-no-abusage": true,
+      "no-unmatched-pair": true,
+      "no-invalid-control-character": true
+    },
+    "stop-words": {
+      "defaultWords": true,
+      "skip": ["Blockquote"],
+      "words": ["etc.", "you can"]
+    },
+    "web-plus-db": true
+  }
+}

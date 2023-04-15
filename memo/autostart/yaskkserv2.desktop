@@ -1,0 +1,5 @@
+[Desktop Entry]
+Exec=yaskkserv2 --config-filename /home/anosillus/.skk/linux_yaskkserv2.conf & /usr/bin/ibus-daemon -d
+Name=Yet Another SKK server 2
+Type=Application
+Version=1.0

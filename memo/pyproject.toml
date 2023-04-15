@@ -1,0 +1,163 @@
+[tool.poetry]
+name = "template"
+version = "0.1.0"
+description = ""
+authors = ["anosillus <anosillus@gmail.com>"]
+license = "private"
+readme = "README.rst"
+packages = [{include = "src"}]
+
+[tool.poetry.dependencies]
+python = ">=3.10.4,<3.11"
+nptyping = "^2.0.1"
+pandera = {extras = ["io", "mypy", "strategies"], version = "^0.11.0"}
+pytype = "^2022.4.26"
+typer = "^0.4.1"
+beautifier = "^0.5.5"
+
+[tool.poetry.dev-dependencies]
+flake8-SQL = "^0.4.1"
+flake8-annotations-complexity = "^0.0.7"
+flake8-bandit = "^3.0.0"
+flake8-black = "^0.3.3"
+flake8-broken-line = "^0.4.0"
+flake8-bugbear = "^22.4.25"
+flake8-builtins = "^1.5.3"
+flake8-class-attributes-order = "^0.1.3"
+flake8-cognitive-complexity = "^0.1.0"
+flake8-comprehensions = "^3.10.0"
+flake8-docstrings = "^1.6.0"
+flake8-executable = "^2.1.1"
+flake8-functions-names = "^0.3.0"
+flake8-isort = "^4.1.1"
+flake8-mock = "^0.3"
+flake8-pyprojecttoml = "^0.0.1"
+flake8-pytest = "^1.3"
+flake8-pytest-style = "^1.6.0"
+flake8-quotes = "^3.3.1"
+flake8-return = "^1.1.3"
+flake8-rst-docstrings = "^0.2.5"
+flake8-secure-coding-standard = "^1.2.2"
+flake8-simplify = "^0.19.2"
+flake8-spellcheck = "^0.28.0"
+flake8-string-format = "^0.3.0"
+flake8-test-name = "^0.1.5"
+flake8-todos = "^0.1.5"
+flake8-unused-arguments = "^0.0.10"
+flake8-use-fstring = "^1.3"
+flake8-use-pathlib = "^0.2.1"
+flake8-variables-names = "^0.0.5"
+isort = "^5.10.1"
+jupyterlab = "^3.4.2"
+mypy = "^0.960"
+pandas-vet = "^0.2.3"
+pep8 = "^1.7.1"
+pep8-naming = "^0.12.1"
+pre-commit = "^2.19.0"
+pytest = "^7.1.2"
+pytest-cov = "^3.0.0"
+pytest-datadir = "^1.3.1"
+pytest-mock = "^3.7.0"
+pytest-monkeytype = "^1.1.0"
+pytest-picked = "^0.4.6"
+pytest-sugar = "^0.9.4"
+setuptools = "^62.3.2"
+tox = "^3.25.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[virtualenvs]
+in-project = true
+
+[tool.isort]
+line_length = 80
+multi_line_output = 3
+include_trailing_comma = true
+
+[tool.flake8]
+max-line-length = 80
+max-complexity = 18
+ignore = "E203,E266,W503,"
+inline-quotes = "double"
+multiline-quotes = "'''"
+accept-encodings = "utf-8"
+docstring_style = "google"
+extend_exclude = ["venv"]
+enable-extensions="G"
+
+[tool.mypy]
+python_version = "3.10"
+check_untyped_defs = true
+ignore_errors = false
+ignore_missing_imports = true
+strict_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+disallow-untyped-defs = true
+disallow-untyped-calls = true
+namespace_packages = true
+
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = 'src'
+filterwarnings = ["ignore::DeprecationWarning",]
+addopts = [
+  "-v",
+  "--flake8",
+  "--mypy",
+  "--pylint",
+  "--yapf",
+  "--strict-config",
+  "--strict-markers",
+  "--picked",
+  "--cov=src",
+  "--cov-branch",
+  "--cov-report=html",
+  "--cov-report=term",
+  "--cov-report=xml",
+  "--no-cov-on-fail",
+  "--junitxml=report.xml",
+]
+
+[tool.pydocstyle]
+convention = "google"
+add_select = ["D204", "D400", "D401", "D404", "D413"]
+
+[tool.coverage.run]
+branch = true
+source = ["pynguin", "tests"]
+omit = ["tests/fixtures/*"]
+
+[tool.coverage.html]
+directory = "cov_html"
+
+[tool.yapf]
+based_on_style = "google"
+column_limit = 100
+allow_split_before_dict_value = false
+dedent_closing_brackets = true
+indent_dictionary_value = false
+
+[tool.black]
+line-length = 80
+target_version = ['py310']
+include = '\.pyi?$'
+exclude = '''
+(
+  /(
+      \.eggs          # exclude a few common directories in the
+    | \.git           # root of the project
+    | \.pytest_cache
+    | \.mypy_cache
+    | \.venv
+    | venv
+    | _build
+    | build
+    | dist
+    | pynguin.egg-info
+  )/
+)
+'''

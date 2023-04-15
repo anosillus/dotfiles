@@ -1,0 +1,6 @@
+[Desktop Entry]
+Exec=/usr/sbin/fcitx5
+Icon=application-x-shellscript
+Name=fcitx
+Type=Application
+Version=1.0

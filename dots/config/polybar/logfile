@@ -1,0 +1,2 @@
+polybar|notice:  Parsing config file: /home/anosillus/.config/polybar/config.ini
+polybar|error: Uncaught exception, shutting down: Undefined bar: yourbar. Available bars: statusbar

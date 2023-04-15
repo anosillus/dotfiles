@@ -1,0 +1,14 @@
+rg=c:\tools\ripgrep\rg.exe
+find=c:\tools\msys64\usr\bin\find.exe $*
+code="C:\Users\anosillus\AppData\Local\Programs\Microsoft VS Code\bin\code.cmd" $*
+ssh=c:\tools\msys64\usr\bin\ssh.exe $*
+grep=c:\tools\msys64\usr\bin\grep.exe
+curl=C:\Tools\msys64\usr\bin\curl.exe
+mecab=c:\Program Files\MeCab\bin\mecab.exe
+python3=C:\Users\anosillus\AppData\Local\Microsoft\WindowsApps\python.exe
+python=C:\Users\anosillus\AppData\Local\Microsoft\WindowsApps\python.exe
+cmigemo=c:\tools\cmigemo-default-win64\cmigemo.exe
+eblook=C:\tools\eblook\bin\eblook.exe
+
+
+

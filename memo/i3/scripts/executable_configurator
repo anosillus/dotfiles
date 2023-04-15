@@ -1,0 +1,110 @@
+#!/bin/bash
+
+# @DrSpeedy <Brian Wilson> - I3 Configurator
+# https://github.com/DrSpeedy/i3-config
+
+CONFIGD=$HOME/.config/i3
+
+CUSTOM="$HOME/.config/i3/themes"
+DEFAULT="/lib/node_modules/i3-style/themes"
+
+MENUTEXT="You can use the UP/DOWN arrow keys, the first \n\
+    letter of the choice as a hot key, or the \n\
+    number keys 1-9 to choose an option.\n\
+    Choose the THEME"
+
+# Draw theme selection menu and handle input
+
+draw_theme_menu () {
+
+    SOURCE=$2
+    THEMES=() # working array of themes
+    let i=0 # counter
+    while read -r line; do
+        let i=$i+1
+        THEMES+=($i "$line")
+    done < <(ls -1 "$SOURCE")
+    
+    OPTION=$(dialog --clear --backtitle "[ I3 CONFIGURATOR ]" \
+    --title "$1" \
+    --menu "$MENUTEXT" 20 75 8 \
+    "${THEMES[@]}" 3>&2 2>&1 1>&3)
+
+    if [ $? -eq 0 ]; then # Exit with OK
+        result=$(ls -1 $SOURCE | sed -n "`echo "$OPTION p" | sed 's/ //'`")
+        i3-style $SOURCE/$result -o $CONFIGD/config --reload > /dev/null
+    fi
+
+}
+
+
+draw_appearance_menu () {
+    OPTION=$(dialog --clear --backtitle "[ I3 CONFIGURATOR ]" \
+    --title "[ APPEARANCE - MENU ]" \
+    --menu "$MENUTEXT" 20 75 8 \
+    "Wallpaper >" "Select desktop wallpaper" \
+    "Default Themes >" "Open i3 theme manager with defaults" \
+    "Custom Themes >" "Open i3 theme manager with customs" \
+    3>&2 2>&1 1>&3)
+
+    if [ $? -eq 0 ]; then
+        case $OPTION in
+            "Wallpaper >") draw_wallpaper_menu;;
+            "Default Themes >") draw_theme_menu "[ DEFAULT - THEMES ]" $DEFAULT;;
+            "Custom Themes >") draw_theme_menu "[ CUSTOM - THEMES ]" $CUSTOM;;
+        esac
+        draw_appearance_menu
+    fi
+}
+
+##########
+# System #
+##########
+
+draw_system_menu () {
+    OPTION=$(dialog --clear --backtitle "[ I3 CONFIGURATOR ]" \
+        --title "[ SYSTEM - MENU ]" \
+        --menu "$MENUTEXT" 20 75 8 \
+        "Network >" "VPN/Bluetooth/Internet settings" \
+        "Updates >" "Update the system" \
+        "Task Manager" "Monitor the system processes" \
+        "Reboot" "Reboot the system" 3>&2 2>&1 1>&3)
+
+    if [ $? -eq 0 ]; then
+        case $OPTION in
+            "Network >") draw_network_menu;;
+            "Updates >") draw_updates_menu;;
+            "Task Manager") top;;
+            "Reboot") exec reboot;;
+        esac
+        draw_system_menu
+    fi
+}
+
+draw_main_menu () {
+    OPTION=$(dialog --clear --backtitle "[ I3 CONFIGURATOR ]" \
+    --title "[ MAIN - MENU ]" \
+    --menu "$MENUTEXT" 20 75 8 \
+    "i3 Configuration" "Open gVim in config directory" \
+    "i3 Appearance >" "Change appearance settings for i3" \
+    "System >" "View/change ArchLinux system settings" \
+    "Compile i3 Config" "Restart i3-wm" \
+    "Exit" "Exit dialog" 3>&2 2>&1 1>&3)
+
+    if [ $? -eq 0 ]; then
+        case $OPTION in
+            "i3 Configuration") $EDITOR "+:cd $CONFIGD/template" "+normal -";;
+            "i3 Appearance >") draw_appearance_menu;;
+            "System >") draw_system_menu;;
+            "Compile i3 Config") $CONFIGD/scripts/genconf;;
+            "Exit") exit 0;;
+        esac
+    else
+        # Cancel pressed
+        exit 1;
+    fi
+
+    draw_main_menu
+}
+
+draw_main_menu

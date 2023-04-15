@@ -1,0 +1,11 @@
+[Unit]
+Description=Yet Another SKK server 2
+
+[Service]
+User=anosillus
+ExecStart=yaskkserv2 --config-filename /home/anosillus/.skk/linux_yaskkserv2.conf
+Restart = always
+Type = simple
+
+[Install]
+WantedBy=multi-user.target

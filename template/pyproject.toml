@@ -1,0 +1,114 @@
+[tool.poetry]
+name = ""
+version = "0.1.0"
+description = ""
+authors = ["anosillus <anosillus@gmail.com>"]
+license = "private"
+readme = "README.rst"
+# packages = [{include = "src"}]
+
+[tool.poetry.dependencies]
+python = "3.11.*"
+better-exceptions = "^0.3.3"
+nptyping = "^2.3.1"
+pandera = {extras = ["io", "mypy", "strategies", "geopandas"], version = "^0.13.3"}
+pydantic = "^1.10.2"
+structlog = "^22.1.0"
+
+[tool.poetry.dev-dependencies]
+black = "^23.1.0"
+coverage = "^7.1.0"
+debugpy = "^1.6.6"
+isort = "^5.12.0"
+jupyterlab = "^3.4.2"
+mypy = "^0.960"
+pre-commit = "^2.19.0"
+pytest = "^7.1.2"
+pytest-clarity = "^1.0.1"
+pytest-cov = "^3.0.0"
+pytest-datadir = "^1.3.1"
+pytest-mock = "^3.7.0"
+pytest-picked = "^0.4.6"
+pytest-pretty = "^1.1.0"
+python-lsp-ruff = "^1.0.5"
+ruff = "^0.0.228"
+setuptools = "^62.3.2"
+tox = "^3.25.0"
+
+[tool.mypy]
+python_version = "3.11"
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+xfail_strict = true
+addopts = [
+  "-v",
+  "--strict-config",
+  "--strict-markers",
+  "--picked",
+  "--cov=src",
+  "--no-cov-on-fail",
+  ]
+
+[tool.coverage.paths]
+source = ["src", "*/site-packages"]
+
+[tool.coverage.run]
+branch = true
+source = ["src"]
+parallel = true
+omit = ["tests/*"]
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 100
+
+[tool.black]
+color = true
+target-version = ['py311']
+line-length = 95
+max-complexity = 8
+
+[tool.pyright]
+pythonVersion = "3.11"
+include = ["src"]
+exclude = ["**/node_modules",
+    "**/__pycache__",
+    "src/experimental",
+    "src/typestubs"
+]
+ignore = ["src/old*"]
+defineConstant = { DEBUG = true }
+strict = ["**"]
+
+[tool.ruff]
+line-length = 95
+select = ["ALL"]
+ignore = [
+  "D100", "D102", "D105", "D107", "D200", "D202", "D204", "D203", "D205", "D212", "D400", "D413", "D415",
+  "E501", "E741", "E743", "ANN"
+]
+fix = true
+unfixable = ["F401","D202"]
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+target-version = "py311"
+cache-dir = "~/.cache/ruff"
+src = ["src", "test"]
+
+[tool.ruff.pydocstyle]
+convention = "numpy"
+
+[tool.ruff.mccabe]
+max-complexity = 8
+
+[tool.ruff.per-file-ignores]
+"__init__.py" = ["E402","INP001"]
+"tests/*" = ["E402","INP001"]
+
+[tool.ruff.flake8-quotes]
+docstring-quotes = "double"

@@ -1,0 +1,308 @@
+# General {{{
+# Super (aka Windows) key
+set $mod Mod4
+set $alt Mod1
+
+# font pango:Noto Sans Mono 12
+floating_modifier $mod
+set $exec exec --no-startup-id
+font pango:Noto Sans 12
+# }}}
+
+# Shortcuts {{{
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# Terminal
+bindsym $mod+Return exec kitty
+bindsym $mod+Shift+Return exec konsole
+
+
+# Kill focused window
+bindsym $mod+q kill
+
+# Rofimenu
+# bindsym $mod+p $exec "rofi -show run"
+bindsym $mod+p exec "rofi -modi window,drun,run -show drun -sidebar-mode -terminal termite -color-window '#000000, #000000, #000000' -color-normal '#000000, #b3e774, #000000, #b3e774, #000000' -color-active '#000000, #b3e774, #000000, #b3e774, #000000' -color-urgent '#000000, #b3e774, #000000, #b3e774, #000000'"
+# bindsym $mod+m exec "/home/anosillus/.config/rofi/bin/menu_powermenu"
+# bindsym $mod+g exec "/home/anosillus/.config/rofi/bin/menu_mpd"
+# bindsym $mod+Shift+g exec "/home/anosillus/.config/rofi/bin/menu_volume"
+# bindsym $mod+Shift+s exec "/home/anosillus/.config/rofi/bin/menu_screenshot"
+# bindsym $mod+Shift+t exec "/home/anosillus/.config/rofi/bin/menu_time"
+
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle # mute sound
+# bindsym XF86AudioMute         exec --no-startup-id pamixer -t     && pkill -RTMIN+1 i3blocks
+# bindsym XF86AudioLowerVolume  exec --no-startup-id pamixer -d 3   && pkill -RTMIN+1 i3blocks
+# bindsym XF86AudioRaiseVolume  exec --no-startup-id pamixer -i 3   && pkill -RTMIN+1 i3blocks
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+#<==
+
+#==> Scratchpad
+# Make the currently focused window a scratchpad
+# bindsym $mod+Shift+minus move scratchpad
+
+# Show the first scratchpad window
+# bindsym $mod+minus scratchpad show
+#<==
+
+#==> Focus
+focus_follows_mouse no
+mouse_warping none
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+n focus down
+bindsym $mod+e focus up
+bindsym $mod+i focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left  focus left
+bindsym $mod+Down  focus down
+bindsym $mod+Up    focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+n move down
+bindsym $mod+Shift+e move up
+bindsym $mod+Shift+i move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left  move left
+bindsym $mod+Shift+Down  move down
+bindsym $mod+Shift+Up    move up
+bindsym $mod+Shift+Right move right
+
+# Vertical and horizontal are stupid, wtf
+# split in horizontal orientation
+bindsym $mod+u split v
+
+# split in vertical orientation
+bindsym $mod+y split h
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+# }}}
+
+#==> Layout
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+t layout tabbed
+bindsym $mod+d layout toggle split
+
+# toggle tiling / floating
+# bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+bindsym $mod+period exec rofimoji
+
+bindsym $mod+Shift+s exec flameshot gui
+
+# focus the child container
+# #bindsym $mod+d focus child
+
+# move workspace to next screen
+# bindsym $mod+p move workspace to output left
+#<==
+
+#==> Workspaces
+set $work0 "0"
+set $work1 "1"
+set $work2 "2"
+set $work3 "3"
+set $work4 "4"
+set $work5 "5"
+set $work6 "6"
+set $work7 "7"
+set $work8 "8"
+set $work9 "9"
+
+# switch to workspace
+bindsym $alt+q workspace $work0
+bindsym $alt+w workspace $work1
+bindsym $alt+f workspace $work2
+bindsym $alt+p workspace $work3
+bindsym $alt+g workspace $work4
+bindsym $alt+j workspace $work5
+bindsym $alt+l workspace $work6
+
+
+# move focused container to workspace
+bindsym $alt+Shift+q move container to workspace $work0; workspace $work0
+bindsym $alt+Shift+w move container to workspace $work1; workspace $work1
+bindsym $alt+Shift+f move container to workspace $work2; workspace $work2
+bindsym $alt+Shift+p move container to workspace $work3; workspace $work3
+bindsym $alt+Shift+g move container to workspace $work4; workspace $work4
+bindsym $alt+Shift+j move container to workspace $work5; workspace $work5
+bindsym $alt+Shift+l move container to workspace $work6; workspace $work6
+
+#==> Assigns
+# assign [class="Vivaldi"] $work2
+# assign [class="discord"] $work2
+#<==
+
+#==> Reload
+# Restart
+bindsym $mod+r restart
+bindsym $mod+Shift+r reload
+#<==
+
+#==> Resize
+# resize window (you can also use the mouse for that)
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+        bindsym h resize shrink width 1 px or 1 ppt
+        bindsym n resize grow height 1 px or 1 ppt
+        bindsym e resize shrink height 1 px or 1 ppt
+        bindsym i grow width 1 px or 1 ppt
+
+        bindsym H resize shrink width 3 px or 3 ppt
+        bindsym N resize grow height 3 px or 3 ppt
+        bindsym E resize shrink height 3 px or 3 ppt
+        bindsym I resize grow width 3 px or 3 ppt
+
+        bindsym $mod+h resize shrink width 10 px or 10 ppt
+        bindsym $mod+n resize grow height 10 px or 10 ppt
+        bindsym $mod+e resize shrink height 10 px or 10 ppt
+        bindsym $mod+i resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 3 px or 3 ppt
+        bindsym Down resize grow height 3 px or 3 ppt
+        bindsym Up resize shrink height 3 px or 3 ppt
+        bindsym Right resize grow width 3 px or 3 ppt
+
+        bindsym $mod+Left resize shrink width 10 px or 10 ppt
+        bindsym $mod+Down resize grow height 10 px or 10 ppt
+        bindsym $mod+Up resize shrink height 10 px or 10 ppt
+        bindsym $mod+Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+o mode "default"
+}
+
+bindsym $mod+o mode "resize"
+#<==
+
+#==> Colors
+set $focused "#{{colors.background_bright}}"
+set $unfocused "#{{colors.background}}"
+set $focused_inactive "#{{colors.background}}"
+set $urgent "#{{colors.accent}}"
+set $text "#{{colors.text}}"
+
+# class                 border            background        text  indicator
+client.focused          $focused          $focused          $text $focused
+client.unfocused        $unfocused        $unfocused        $text $unfocused
+client.focused_inactive $focused_inactive $focused_inactive $text $focused_inactive
+client.urgent           $urgent           $urgent           $text $urgent
+client.background       #000000
+#<==
+
+#==> Gaps
+for_window [class="^.*"] border pixel 2
+#gaps inner 10
+#smart_gaps yes
+#smart_borders yes
+
+set $mode_gaps Gaps: (o)uter, (i)nner
+set $mode_gaps_outer Outer Gaps: +|-|0
+set $mode_gaps_inner Inner Gaps: +|-|0
+bindsym $mod+Shift+g mode "$mode_gaps"
+
+mode "$mode_gaps" {
+    bindsym h      mode "$mode_gaps_outer"
+    bindsym i      mode "$mode_gaps_inner"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+mode "$mode_gaps_inner" {
+    bindsym n  gaps inner all plus 5
+    bindsym e  gaps inner all minus 5
+    bindsym 0     gaps inner all set 0
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+mode "$mode_gaps_outer" {
+    bindsym n  gaps outer all plus 5
+    bindsym e  gaps outer all minus 5
+    bindsym 0  gaps outer all set 0
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+#<==
+# Plasma compatibility improvements
+for_window [class="Klipper"]           floating enable; border none;
+for_window [class="Kmix"]              floating enable; border none;
+for_window [class="Plasma"]            floating enable;
+for_window [class="Plasmoidviewer"]    floating enable; border none;
+for_window [class="alacritty"]         floating disable; border none;
+for_window [class="google-chrome"]     floating disable; border none;
+for_window [class="krunner"]           floating enable; border none;
+for_window [class="plasmashell"]       floating enable;
+for_window [class="spotify"]           floating enable; border none;
+for_window [class="systemsettings"]    floating enable;
+for_window [class="androidstudio"]     floating enable; border pixel 5
+for_window [class="unity"]             floating enable; border pixel 5
+for_window [class="Unity.*"]           floating enable; border pixel 5
+for_window [class="unityhub"]          floating enable; border pixel 5
+for_window [class="unityhub-bin"]      floating enable; border pixel 5
+for_window [class="vivaldi"]           floating disable;
+for_window [class="yakuake"]           floating enable;
+for_window [class="kindle"]            floating enable;
+for_window [title="Desktop Plasma"]    kill; floating enable; border none;
+for_window [title="plasma-desktop"]    floating enable; border none;
+# for_window [title="win7"]              floating enable; border none;
+for_window [title="Todoist*"]          floating disable; move container to workspace $work5
+for_window [title="Toggl Track*"]      floating disable; move container to workspace $work6
+for_window [window_role="pop-up"]      floating enable;
+for_window [window_role="task_dialog"] floating enable;
+no_focus   [class="plasmashell" window_type="notification"]
+no_focus   [class="vivaldi" window_type="notification"]
+for_window [class="mpv"] floating enable
+
+# bindsym $mod+z exec --no-startup-id morc_menu
+# exec_always --no-startup-id $HOME/.config/i3/i3blocks.conf
+
+# Startup apps
+exec --no-startup-id nm-applet
+exec --no-startup-id dunst
+exec --no-startup-id fcitx5
+exec --no-startup-id parcellite
+exec --no-startup-id volumeicon
+exec --no-startup-id "feh --bg-scale $HOME/.config/i3/wallpaper.jpg"
+# exec --no-startup-id compton -cbm 0.75
+exec_always killall polybar
+exec_always $HOME/.config/polybar/launch.sh
+
+set $menu --no-startup-id qdbus org.kde.krunner /App display
+bindsym $mod+k exec $menu
+
+# bar {
+        # status_command i3blocks
+        # status_command i3status
+# }
+
+# vim:foldmethod=marker:foldmarker=\=\=>,<\=\=:
