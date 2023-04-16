@@ -17,8 +17,6 @@ function create_link() {
     fi
 }
 
-create_link "nvim/lua/custom" ".config/nvim/lua/custom"
-create_link "fish/config.fish" ".config/fish/config.fish"
 create_link "kaggle" ".kaggle"
 create_link "skk" ".skk"
 create_link "textlintrc" ".textlintrc"
@@ -26,6 +24,7 @@ create_link "bash_profile" ".bash_profile"
 create_link "atcodertools.toml" ".atcodertools.toml"
 create_link "tmux.conf" ".tmux.conf"
 create_link "Xmodmap" ".Xmodmap"
+create_link "config/nvim/lua/custom" ".config/nvim/lua/custom"
 create_link "config/fish/config.fish" ".config/fish/config.fish"
 create_link "config/git/config" ".config/git/config"
 create_link "config/git/ignore" ".config/git/ignore"
