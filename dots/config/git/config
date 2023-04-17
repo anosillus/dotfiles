@@ -169,7 +169,7 @@
 
 [user]
 	name = anosillus
-	email = anosillus@gmail.com
+	email = fix notify
 
 [url "github:"]
     InsteadOf = https://github.com/
@@ -191,13 +191,11 @@
 [merge]
 	tool = vimdiff
 
-[github]
-	user = anosillus
-
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+    
 [init]
 	defaultBranch = main
