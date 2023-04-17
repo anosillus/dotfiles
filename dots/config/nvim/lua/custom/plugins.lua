@@ -222,7 +222,7 @@ local plugins = {
     end
   },
   -- }}}
-  -- View {{{
+-- View {{{
   {
     "tmhedberg/SimpylFold",
     ft = 'python',
@@ -249,8 +249,8 @@ local plugins = {
       { "<C-s>", '<CMD>Twilight<CR>', desc = "zen", mode={"n"} },
     },
   },
-  -- }}}
-  -- utility {{{
+-- }}}
+-- utility {{{
   {
     "max397574/better-escape.nvim",
       event = "InsertEnter",
@@ -258,121 +258,123 @@ local plugins = {
         require("better_escape").setup()
       end,
   },
-  --- }}}
-  -- CMP {{{
+--- }}}
+-- CMP {{{
   {
-    "hrsh7th/cmp-path",
+  "hrsh7th/cmp-path",
   },
   {
-    "zbirenbaum/copilot.lua",
+  "zbirenbaum/copilot.lua",
   },
   {
-    "zbirenbaum/copilot-cmp",
-    after = { "copilot.lua" },
-    config = function ()
-      require("copilot_cmp").setup({
+  "zbirenbaum/copilot-cmp",
+  after = { "copilot.lua" },
+  config = function ()
+    require("copilot_cmp").setup({
+    keymap = {
+      jump_prev = "<C-h>",
+      jump_next = "<C-i>",
+      accept = "<CR>",
+      refresh = "gr",
+      open = "<M-CR>"
+    },
+    suggestion = {
+      enabled = true,
+      auto_trigger = false,
+      debounce = 75,
       keymap = {
-        jump_prev = "<C-h>",
-        jump_next = "<C-i>",
-        accept = "<CR>",
-        refresh = "gr",
-        open = "<M-CR>"
+        accept = "<C-o>",
+        accept_word = false,
+        accept_line = false,
+        next = "<C-u>",
+        prev = "<C-y>",
+        dismiss = "<C-]>",
       },
-      suggestion = {
-        enabled = true,
-        auto_trigger = false,
-        debounce = 75,
-        keymap = {
-          accept = "<C-o>",
-          accept_word = false,
-          accept_line = false,
-          next = "<C-u>",
-          prev = "<C-y>",
-          dismiss = "<C-]>",
-        },
-      },
-      })
-      end,
-  },
-  {
-    "hrsh7th/nvim-cmp",
-    override_options = function() --{{{
-      local cmp = require("cmp")
-      return {
-        mapping = {
-          ["<C-y>"] = cmp.mapping.scroll_docs(-4),
-          ["<C-u>"] = cmp.mapping.scroll_docs(4),
-          ["<C-Space>"] = cmp.mapping.complete(),
-          ["<C-o>"] = cmp.mapping.close(),
-          ["<CR>"] = cmp.mapping.confirm({
-            behavior = cmp.ConfirmBehavior.Replace,
-            select = false,
-          }),
-          ["<C-i>"] = cmp.mapping(function(fallback)
-            if require("luasnip").expand_or_jumpable() then
-              vim.fn.feedkeys(
-                vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true),
-                ""
-              )
-            else
-              vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Right>", true, true, true), "")
-            end
-          end, {
-            "i",
-            "s",
-          }),
-          ["<C-h>"] = cmp.mapping(function(fallback)
-            if require("luasnip").expand_or_jumpable() then
-              vim.fn.feedkeys(
-                vim.api.nvim_replace_termcodes("<Plug>luasnip-jump-prev", true, true, true),
-                ""
-              )
-            else
-              vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Left>", true, true, true), "")
-            end
-          end, {
-            "i",
-            "s",
-          }),
-          ["<C-n>"] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-              cmp.select_next_item()
-            else
-              vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Down>", true, true, true), "")
-            end
-          end, {
-            "i",
-            "s",
-          }),
-          ["<C-e>"] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-              cmp.select_prev_item()
-            else
-              fallback()
-            end
-          end, {
-            "i",
-            "s",
-          }),
-        },
-        sources = {
-          { name = "luasnip" },
-          { name = "buffer" },
-          { name = "nvim_lua" },
-          { name = "skkeleton" },
-          { name = "copilot"},
-          { name = "nvim_lsp"},
-          { name = "path"},
-        },
-      }
-    end, --}}}
-  },
-  {
-    "folke/lsp-colors.nvim",
-    config = function()
-      require("lsp-colors").setup()
+    },
+    })
     end,
   },
+  {
+  "hrsh7th/nvim-cmp",
+  override_options = function() --{{{
+    local cmp = require("cmp")
+    return {
+      mapping = {
+        ["<C-y>"] = cmp.mapping.scroll_docs(-4),
+        ["<C-u>"] = cmp.mapping.scroll_docs(4),
+        ["<C-Space>"] = cmp.mapping.complete(),
+        ["<C-o>"] = cmp.mapping.close(),
+        ["<CR>"] = cmp.mapping.confirm({
+          behavior = cmp.ConfirmBehavior.Replace,
+          select = false,
+        }),
+        ["<C-i>"] = cmp.mapping(function(fallback)
+          if require("luasnip").expand_or_jumpable() then
+            vim.fn.feedkeys(
+              vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true),
+              ""
+            )
+          else
+            vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Right>", true, true, true), "")
+          end
+        end, {
+          "i",
+          "s",
+        }),
+        ["<C-h>"] = cmp.mapping(function(fallback)
+          if require("luasnip").expand_or_jumpable() then
+            vim.fn.feedkeys(
+              vim.api.nvim_replace_termcodes("<Plug>luasnip-jump-prev", true, true, true),
+              ""
+            )
+          else
+            vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Left>", true, true, true), "")
+          end
+        end, {
+          "i",
+          "s",
+        }),
+        ["<C-n>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_next_item()
+          else
+            vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Down>", true, true, true), "")
+          end
+        end, {
+          "i",
+          "s",
+        }),
+        ["<C-e>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_prev_item()
+          else
+            fallback()
+          end
+        end, {
+          "i",
+          "s",
+        }),
+      },
+      sources = {
+        { name = "luasnip" },
+        { name = "buffer" },
+        { name = "nvim_lua" },
+        { name = "skkeleton" },
+        { name = "copilot"},
+        { name = "nvim_lsp"},
+        { name = "path"},
+      },
+    }
+  end, --}}}
+  },
+  {
+  "folke/lsp-colors.nvim",
+  config = function()
+    require("lsp-colors").setup()
+  end,
+  },
+-- }}}
+-- trouble {{{
   {
     "folke/trouble.nvim",
     requires = "nvim-tree/nvim-web-devicons",
@@ -412,8 +414,8 @@ local plugins = {
       })
     end, -- }}}
   },
-  -- }}}
-  -- Motions {{{
+-- }}}
+-- Mapping {{{
   {
     "anuvyklack/hydra.nvim",
     init = function()
@@ -494,11 +496,19 @@ local plugins = {
     -- }}}
     end,
   },
+-- }}}
+-- Move {{{
+  {
+    'rainbowhxch/accelerated-jk.nvim',
+    keys = {
+      {"n", "<Plug>(accelerated_jk_j)", desc = "down", mode={"n", "x", "o"}},
+      {"e", "<Plug>(accelerated_jk_k)", desc = "up",   mode={"n", "x", "o"}},
+  },
   {
     "haya14busa/vim-edgemotion",
     keys = {
-      {"N", "<Plug>(edgemotion-j)", desc = "edgemotion", mode={"n", "x", "o"}},
-      {"E", "<Plug>(edgemotion-k)", desc = "edgemotion", mode={"n", "x", "o"}},
+      {"N", "<Plug>edgemotion-j", desc = "edgemotion", mode={"n", "x", "o"}},
+      {"E", "<Plug>edgemotion-k", desc = "edgemotion", mode={"n", "x", "o"}},
     },
   },
   {
@@ -573,7 +583,7 @@ local plugins = {
     end,
   },
   -- }}}
-  -- Japanese {{{
+-- Japanese {{{
   {
     "vim-jp/vimdoc-ja",
     event = "CmdLineEnter",
