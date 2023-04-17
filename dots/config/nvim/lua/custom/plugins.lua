@@ -968,7 +968,7 @@ local plugins = {
       require("notify").setup({
           render = "simple",
           stages = "fade_in_slide_out",
-          level = 3,
+          level = 2,
           time_out = 3,
           top_down = false,
           background_colour = "#121212",

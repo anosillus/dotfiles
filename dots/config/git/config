@@ -1,5 +1,4 @@
 [core]
-    pager = less -q -R
     excludesfile = ~/.config/ignore
     preloadindex = true
     autocrlf = input                 # CRLFを自動変換
@@ -195,9 +194,6 @@
 [github]
 	user = anosillus
 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
