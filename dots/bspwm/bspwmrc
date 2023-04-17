@@ -1,6 +1,6 @@
 #! /bin/sh
 
-xrandr --output DP-0 --mode 3840x2160 --pos 0x0 --rotate right --output DP-1 --off --output HDMI-0 --off --output DP-2 --off --output DP-3 --off --output DP-4 --primary --mode 3840x2160 --pos 2160x900 --rotate normal --output DP-5 --off
+xrandr --output DP-0 --mode 3840x2160 --pos 0x0 --rotate right --scale 0.5x0.5 --output DP-1 --off --output HDMI-0 --off --output DP-2 --off --output DP-3 --off --output DP-4 --primary --mode 3840x2160 --pos 2160x900 --rotate normal --output --scale 0.5x0.5 DP-5 --off
 
 killall xcape # to prevent xcape daemon duplication
 xmodmap -e 'keycode 255=space'
@@ -36,3 +36,9 @@ bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
 bspc rule -a "Wine" state=floating focus=off
+
+~/.config/polybar/launch.sh &
+picom & 
+feh --bg-fill ~/Pictures/wall/neon.png &
+xrdb merge ~/.Xresources &
+# sxhkd 
