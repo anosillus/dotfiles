@@ -2,17 +2,23 @@
 local M = {}
 
 M.disabled = {
-	n = {
-		["<C-s>"] = ""
-	}
+  n = {
+    ["<C-s>"] = ""
+  },
+  i = {
+    ["<C-j>"] = ""
+  },
+  c = {
+    ["<C-j>"] = ""
+  }
 }
 
 M.colemak = { --{{{
 	n = { --{{{
 		-- h/n {{{
 		-- Single:100% {{{
-		["n"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', opts = { expr = true } },
-		["e"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', opts = { expr = true } },
+		-- ["n"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', opts = { expr = true } },
+		-- ["e"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', opts = { expr = true } },
 		["<Up>"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', opts = { expr = true } },
 		["<Down>"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', opts = { expr = true } },
 		-- Single }}}
@@ -180,6 +186,8 @@ M.colemak = { --{{{
 		-- <j>:
 		-- m }}}
 		-- b/k {{{
+    -- ["b"] = { "", "Repeat the latest search", opts = { nowait = true } },
+
 		["k"] = { "n", "Repeat the latest search", opts = { nowait = true } },
 		["K"] = { "N", "Search opposite direction.", opts = { nowait = true } },
 		-- <>:
@@ -299,7 +307,7 @@ M.colemak = { --{{{
 		-- <j>:
 		-- , / . }}}
 	}, --}}}
-	v = { --{{{
+	x = { --{{{
 		-- h/n {{{
 		-- <>:
 		["n"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', opts = { expr = true } },
@@ -1253,9 +1261,9 @@ M.general = { --{{{
 		-- n only
 		[";"] = { ":", "enter cmdline", opts = { nowait = true } },
 		[":"] = { ";", "Plugin Leader", opts = { nowait = true } },
-		["<CR>"] = { "<C-f>", "Move Screen Down", opts = { nowait = true } },
-		["<S-CR>"] = { "<C-b>", "Move Screen Up", opts = { nowait = true } },
-		["<C-CR>"] = { "<C-d>", "Move half-Screen Down", opts = { nowait = true } },
+		-- ["<CR>"] = { "<C-f>", "Move Screen Down", opts = { nowait = true } },
+		-- ["<S-CR>"] = { "<C-b>", "Move Screen Up", opts = { nowait = true } },
+		-- ["<C-CR>"] = { "<C-d>", "Move half-Screen Down", opts = { nowait = true } },
 		["<leader><leader>"] = { "<Cmd>w <CR> ", "Save File", opts = { nowait = true } },
 		["<"] = { "<<", "Shift leftwards", opts = { nowait = true } },
 		[">"] = { ">>", "Shift leftwards", opts = { nowait = true } },

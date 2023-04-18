@@ -249,6 +249,23 @@ local plugins = {
       { "<C-s>", '<CMD>Twilight<CR>', desc = "zen", mode={"n"} },
     },
   },
+  -- {
+  --   'mvllow/modes.nvim',
+  --   config = function()
+  --     require('modes').setup({
+  --       colors = {
+  --         copy   = "#f5c359",
+  --         delete = "#c75c6a",
+  --         visual = "#9745be",
+  --       },
+  --       line_opacity = 0.15,
+  --       set_cursor = true,
+  --       set_cursorline = true,
+  --       set_number = false,
+  --       ignore_filetypes = { 'NvimTree', 'TelescopePrompt' }
+  --     })
+  --   end
+  -- },
 -- }}}
 -- utility {{{
   {
@@ -258,120 +275,120 @@ local plugins = {
         require("better_escape").setup()
       end,
   },
---- }}}
+-- }}}
 -- CMP {{{
   {
-  "hrsh7th/cmp-path",
+    "hrsh7th/cmp-path",
   },
   {
-  "zbirenbaum/copilot.lua",
+    "zbirenbaum/copilot.lua",
   },
   {
-  "zbirenbaum/copilot-cmp",
-  after = { "copilot.lua" },
-  config = function ()
-    require("copilot_cmp").setup({
-    keymap = {
-      jump_prev = "<C-h>",
-      jump_next = "<C-i>",
-      accept = "<CR>",
-      refresh = "gr",
-      open = "<M-CR>"
-    },
-    suggestion = {
-      enabled = true,
-      auto_trigger = false,
-      debounce = 75,
-      keymap = {
-        accept = "<C-o>",
-        accept_word = false,
-        accept_line = false,
-        next = "<C-u>",
-        prev = "<C-y>",
-        dismiss = "<C-]>",
-      },
-    },
-    })
+    "zbirenbaum/copilot-cmp",
+    after = { "copilot.lua" },
+    config = function ()
+      require("copilot_cmp").setup({
+        keymap = {
+          jump_prev = "<C-h>",
+          jump_next = "<C-i>",
+          accept = "<CR>",
+          refresh = "gr",
+          open = "<M-CR>"
+        },
+        suggestion = {
+          enabled = true,
+          auto_trigger = false,
+          debounce = 75,
+          keymap = {
+            accept = "<C-o>",
+            accept_word = false,
+            accept_line = false,
+            next = "<C-u>",
+            prev = "<C-y>",
+            dismiss = "<C-]>",
+          },
+        },
+      })
     end,
   },
   {
-  "hrsh7th/nvim-cmp",
-  override_options = function() --{{{
-    local cmp = require("cmp")
-    return {
-      mapping = {
-        ["<C-y>"] = cmp.mapping.scroll_docs(-4),
-        ["<C-u>"] = cmp.mapping.scroll_docs(4),
-        ["<C-Space>"] = cmp.mapping.complete(),
-        ["<C-o>"] = cmp.mapping.close(),
-        ["<CR>"] = cmp.mapping.confirm({
-          behavior = cmp.ConfirmBehavior.Replace,
-          select = false,
-        }),
-        ["<C-i>"] = cmp.mapping(function(fallback)
-          if require("luasnip").expand_or_jumpable() then
-            vim.fn.feedkeys(
-              vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true),
-              ""
-            )
-          else
-            vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Right>", true, true, true), "")
-          end
-        end, {
-          "i",
-          "s",
-        }),
-        ["<C-h>"] = cmp.mapping(function(fallback)
-          if require("luasnip").expand_or_jumpable() then
-            vim.fn.feedkeys(
-              vim.api.nvim_replace_termcodes("<Plug>luasnip-jump-prev", true, true, true),
-              ""
-            )
-          else
-            vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Left>", true, true, true), "")
-          end
-        end, {
-          "i",
-          "s",
-        }),
-        ["<C-n>"] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.select_next_item()
-          else
-            vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Down>", true, true, true), "")
-          end
-        end, {
-          "i",
-          "s",
-        }),
-        ["<C-e>"] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.select_prev_item()
-          else
-            fallback()
-          end
-        end, {
-          "i",
-          "s",
-        }),
-      },
-      sources = {
-        { name = "luasnip" },
-        { name = "buffer" },
-        { name = "nvim_lua" },
-        { name = "skkeleton" },
-        { name = "copilot"},
-        { name = "nvim_lsp"},
-        { name = "path"},
-      },
-    }
-  end, --}}}
+    "hrsh7th/nvim-cmp",
+    override_options = function() --{{{
+      local cmp = require("cmp")
+      return {
+        mapping = {
+          ["<C-y>"] = cmp.mapping.scroll_docs(-4),
+          ["<C-u>"] = cmp.mapping.scroll_docs(4),
+          ["<C-Space>"] = cmp.mapping.complete(),
+          ["<C-o>"] = cmp.mapping.close(),
+          ["<CR>"] = cmp.mapping.confirm({
+            behavior = cmp.ConfirmBehavior.Replace,
+            select = false,
+          }),
+          ["<C-i>"] = cmp.mapping(function(fallback)
+            if require("luasnip").expand_or_jumpable() then
+              vim.fn.feedkeys(
+                vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true),
+                ""
+              )
+            else
+              vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Right>", true, true, true), "")
+            end
+          end, {
+            "i",
+            "s",
+          }),
+          ["<C-h>"] = cmp.mapping(function(fallback)
+            if require("luasnip").expand_or_jumpable() then
+              vim.fn.feedkeys(
+                vim.api.nvim_replace_termcodes("<Plug>luasnip-jump-prev", true, true, true),
+                ""
+              )
+            else
+              vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Left>", true, true, true), "")
+            end
+          end, {
+            "i",
+            "s",
+          }),
+          ["<C-n>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              cmp.select_next_item()
+            else
+              vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Down>", true, true, true), "")
+            end
+          end, {
+            "i",
+            "s",
+          }),
+          ["<C-e>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              cmp.select_prev_item()
+            else
+              fallback()
+            end
+          end, {
+            "i",
+            "s",
+          }),
+        },
+        sources = {
+          { name = "luasnip" },
+          { name = "buffer" },
+          { name = "nvim_lua" },
+          { name = "skkeleton" },
+          { name = "copilot"},
+          { name = "nvim_lsp"},
+          { name = "path"},
+        },
+      }
+    end, --}}}
   },
   {
-  "folke/lsp-colors.nvim",
-  config = function()
-    require("lsp-colors").setup()
-  end,
+    "folke/lsp-colors.nvim",
+    config = function()
+      require("lsp-colors").setup()
+    end,
   },
 -- }}}
 -- trouble {{{
@@ -501,27 +518,68 @@ local plugins = {
   {
     'rainbowhxch/accelerated-jk.nvim',
     keys = {
-      {"n", "<Plug>(accelerated_jk_j)", desc = "down", mode={"n", "x", "o"}},
-      {"e", "<Plug>(accelerated_jk_k)", desc = "up",   mode={"n", "x", "o"}},
+      {"n", "<Plug>(accelerated_jk_j)", desc = "down",   mode={"n"}},
+      {"e", "<Plug>(accelerated_jk_k)", desc = "up",   mode={"n"}},
+    },
   },
   {
     "haya14busa/vim-edgemotion",
+    lazy = false,
     keys = {
-      {"N", "<Plug>edgemotion-j", desc = "edgemotion", mode={"n", "x", "o"}},
-      {"E", "<Plug>edgemotion-k", desc = "edgemotion", mode={"n", "x", "o"}},
+      {"N", "<Plug>(edgemotion-j)", desc = "edgemotion", mode={"n", "x", "o"}},
+      {"E", "<Plug>(edgemotion-k)", desc = "edgemotion", mode={"n", "x", "o"}},
     },
   },
   {
     "chaoren/vim-wordmotion",
+    lazy = false,
     init = function()
       vim.g.wordmotion_nomap = 1
+    local filename = vim.fn.expand('%:p')
+    if filename:match('_jp%.md$') then
+        vim.api.nvim_set_keymap('n', 'i', "<Plug>JaSegmentMoveNW" , {noremap = false, silent = true})
+        vim.api.nvim_set_keymap('n', 'I', "<Plug>JaSegmentMoveNE", {noremap = false, silent = true})
+        vim.api.nvim_set_keymap('n', 'h', "<Plug>JaSegmentMoveNB", {noremap = false, silent = true})
+        vim.api.nvim_set_keymap('n', 'H', "ge",                    {noremap = false, silent = true})
+        vim.api.nvim_set_keymap('x', 'i', "<Plug>JaSegmentMoveOW", {noremap = false, silent = true})
+        vim.api.nvim_set_keymap('x', 'I', "<Plug>JaSegmentMoveOE", {noremap = false, silent = true})
+        vim.api.nvim_set_keymap('x', 'h', "<Plug>JaSegmentMoveOB", {noremap = false, silent = true})
+        vim.api.nvim_set_keymap('x', 'H', "ge",                    {noremap = false, silent = true})
+        vim.api.nvim_set_keymap('o', 'i', "<Plug>JaSegmentMoveXW", {noremap = false, silent = true})
+        vim.api.nvim_set_keymap('o', 'I', "<Plug>JaSegmentMoveXE", {noremap = false, silent = true})
+        vim.api.nvim_set_keymap('o', 'h', "<Plug>JaSegmentMoveXB", {noremap = false, silent = true})
+        vim.api.nvim_set_keymap('o', 'H', "ge",                    {noremap = false, silent = true})
+        vim.api.nvim_set_keymap('o', 'si', "<Plug>JaSegmentTextObjI", {noremap = false, silent = true})
+        vim.api.nvim_set_keymap('o', 'ti', "<Plug>JaSegmentTextObjA", {noremap = false, silent = true})
+        vim.api.nvim_set_keymap('x', 'si', "<Plug>JaSegmentTextObjVI", {noremap = false, silent = true})
+        vim.api.nvim_set_keymap('x', 'ti', "<Plug>JaSegmentTextObjVA", {noremap = false, silent = true})
+      else
+        vim.api.nvim_set_keymap('n', 'i', "<Plug>WordMotion_w", {noremap = false, silent = true})
+        vim.api.nvim_set_keymap('n', 'I', "<Plug>WordMotion_e", {noremap = false, silent = true})
+        vim.api.nvim_set_keymap('n', 'h', "<Plug>WordMotion_b", {noremap = false, silent = true})
+        vim.api.nvim_set_keymap('n', 'H', "<Plug>WordMotion_ge", {noremap = false, silent = true})
+        vim.api.nvim_set_keymap('x', 'i', "<Plug>WordMotion_w", {noremap = false, silent = true})
+        vim.api.nvim_set_keymap('x', 'I', "<Plug>WordMotion_e", {noremap = false, silent = true})
+        vim.api.nvim_set_keymap('x', 'h', "<Plug>WordMotion_b", {noremap = false, silent = true})
+        vim.api.nvim_set_keymap('x', 'H', "<Plug>WordMotion_ge", {noremap = false, silent = true})
+        vim.api.nvim_set_keymap('o', 'i', "<Plug>WordMotion_w", {noremap = false, silent = true})
+        vim.api.nvim_set_keymap('o', 'I', "<Plug>WordMotion_e", {noremap = false, silent = true})
+        vim.api.nvim_set_keymap('o', 'h', "<Plug>WordMotion_b", {noremap = false, silent = true})
+        vim.api.nvim_set_keymap('o', 'H', "<Plug>WordMotion_ge", {noremap = false, silent = true})
+      end
     end,
-    keys = {
-      { "i", "<Plug>WordMotion_w", desc = "edgemotion", mode={"n", "x", "o"} },
-      { "I", "<Plug>WordMotion_e", desc = "edgemotion", mode={"n", "x", "o"} },
-      { "h", "<Plug>WordMotion_b", desc = "edgemotion", mode={"n", "x", "o"} },
-    { "H", "<Plug>WordMotion_ge", desc = "edgemotion", mode={"n", "x", "o"} },
+    dependencies = {
+      {
+        "deton/jasegment.vim",
+        ft = { "jpmd" },
+        init = function()
+          vim.g["jasegment#model"]  = "cabocha"
+          vim.g["jasegment_no_default_key_mappings"]  = 1
+        end,
+      },
     },
+--    ,
+
   },
   {
     "easymotion/vim-easymotion",
@@ -582,12 +640,16 @@ local plugins = {
       vim.g.EasyOperator_line_do_mapping = 0
     end,
   },
-  -- }}}
+-- }}}
 -- Japanese {{{
   {
     "vim-jp/vimdoc-ja",
     event = "CmdLineEnter",
   },
+ -- {
+  --    keys = {
+  --    },
+ --  },
   {
     "dnlhc/glance.nvim",
     config = function()
@@ -596,19 +658,22 @@ local plugins = {
   },
   {
     "vim-denops/denops.vim",
-    lazy=false,
   },
   {
     "vim-skk/skkeleton",
-    lazy = false,
-    dependencies = { "nvim-cmp", "denops.vim", "delphinus/skkeleton_indicator.nvim" },
-    keys = { "<C-j>", "<Plug>(skkeleton-toggle)", desc = "skk", mode={"i", "c"},
-    },
+    lazy=false,
+    event = 'VeryLazy',
+    dependencies = { "nvim-cmp", "denops.vim", "delphinus/skkeleton_indicator.nvim", "rinx/cmp-skkeleton"},
     config = function()
-      require("custom.configs.skk")
       require("skkeleton_indicator").setup()
+      require("custom.configs.skk")
     end,
+    keys = {
+      { "<C-j>","<Plug>(skkeleton-toggle)", desc = "skk", mode={"i", "c"}},
+    },
   },
+  -- }}}
+-- Tools {{{
   {
     "numToStr/Comment.nvim",
     event = { "BufRead", "BufNewFile" },
@@ -667,7 +732,7 @@ local plugins = {
       })
     end,
   }, --}}}
-  -- Replace {{{
+-- Replace {{{
   {
     "cshuaimin/ssr.nvim",
     keys = {
@@ -915,11 +980,11 @@ local plugins = {
         cursor_scrolls_alone = true,
       })
       local t = {}
-      -- Syntax: t[keys] = {function, {function arguments}}
       t["m<CR>"] = { "scroll", { "-vim.wo.scroll", "true", "250" } }
       t["<Leader><CR>"] = { "scroll", { "vim.wo.scroll", "true", "250" } }
       t["<S-CR>"] = { "scroll", { "-vim.api.nvim_win_get_height(0)", "true", "450" } }
       t["<CR>"] = { "scroll", { "vim.api.nvim_win_get_height(0)", "true", "450" } }
+      t["<C-CR>"] = { "scroll", { "-vim.wo.scroll", "true", "250" } }
       -- t["mu"] = { "scroll", { "-0.50", "false", "100" } }
       -- t["my"] = { "scroll", { "0.50", "false", "100" } }
       require("neoscroll.config").set_mappings(t)
