@@ -1,10 +1,9 @@
 --vim.fn["skkeleton#register_keymap"]("input", "q", "")
-vim.fn["skkeleton#register_keymap"]("input", ";", "katakana")
--- vim.fn["skkeleton#register_keymap"]("input", "<c-l>", "")
+-- vim.fn["skkeleton#register_keymap"]("input", ";", "katakana")
+vim.fn["skkeleton#register_keymap"]("input", ":", "katakana")
 vim.fn["skkeleton#register_keymap"]("input", "<s-l>", "zenkaku")
 -- vim.fn["skkeleton#register_keymap"]("input", ":", "")
 -- vim.fn["skkeleton#register_keymap"]("input", "'", "henkanPoint")
---
 
 local rule = {}
 
