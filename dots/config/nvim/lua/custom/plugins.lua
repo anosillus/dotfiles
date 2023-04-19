@@ -48,6 +48,10 @@ local plugins = {
     }
   },
   {
+    "folke/which-key.nvim",
+    enabled = false,
+  },
+  {
     "jay-babu/mason-null-ls.nvim",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
@@ -196,7 +200,6 @@ local plugins = {
     dependencies = {
       {
         "rcarriga/nvim-dap-ui",
-
         config = function()
           require("dapui").setup()
         end,
@@ -283,34 +286,34 @@ local plugins = {
   {
     "zbirenbaum/copilot.lua",
   },
-  {
-    "zbirenbaum/copilot-cmp",
-    after = { "copilot.lua" },
-    config = function ()
-      require("copilot_cmp").setup({
-        keymap = {
-          jump_prev = "<C-h>",
-          jump_next = "<C-i>",
-          accept = "<CR>",
-          refresh = "gr",
-          open = "<M-CR>"
-        },
-        suggestion = {
-          enabled = true,
-          auto_trigger = false,
-          debounce = 75,
-          keymap = {
-            accept = "<C-o>",
-            accept_word = false,
-            accept_line = false,
-            next = "<C-u>",
-            prev = "<C-y>",
-            dismiss = "<C-]>",
-          },
-        },
-      })
-    end,
-  },
+  -- {
+  --   "zbirenbaum/copilot-cmp",
+  --   after = { "copilot.lua" },
+  --   config = function ()
+  --     require("copilot_cmp").setup({
+  --       keymap = {
+  --         jump_prev = "<C-h>",
+  --         jump_next = "<C-i>",
+  --         accept = "<CR>",
+  --         refresh = "gr",
+  --         open = "<M-CR>"
+  --       },
+  --       suggestion = {
+  --         enabled = true,
+  --         auto_trigger = false,
+  --         debounce = 75,
+  --         keymap = {
+  --           accept = "<C-o>",
+  --           accept_word = false,
+  --           accept_line = false,
+  --           next = "<C-u>",
+  --           prev = "<C-y>",
+  --           dismiss = "<C-]>",
+  --         },
+  --       },
+  --     })
+  --   end,
+  -- },
   {
     "hrsh7th/nvim-cmp",
     override_options = function() --{{{
@@ -377,7 +380,7 @@ local plugins = {
           { name = "buffer" },
           { name = "nvim_lua" },
           { name = "skkeleton" },
-          { name = "copilot"},
+          -- { name = "copilot"},
           { name = "nvim_lsp"},
           { name = "path"},
         },
@@ -455,7 +458,6 @@ local plugins = {
       local telescope_hint = [[
                  _<space>_: files      _?_: gitfiles
                  _._:  file2      _?_: gitfiles
-
                  _f_: files       _m_: marks
    🭇🬭🬭🬭🬭🬭🬭🬭🬭🬼    _o_: old files   _g_: live grep
   🭉🭁🭠🭘    🭣🭕🭌🬾   _p_: projects    _/_: search in file
@@ -524,7 +526,9 @@ local plugins = {
   },
   {
     "haya14busa/vim-edgemotion",
-    lazy = false,
+    -- config = function()
+      -- require("core.utils").load_mappings("edgemotion")
+    -- end,
     keys = {
       {"N", "<Plug>(edgemotion-j)", desc = "edgemotion", mode={"n", "x", "o"}},
       {"E", "<Plug>(edgemotion-k)", desc = "edgemotion", mode={"n", "x", "o"}},
@@ -578,8 +582,6 @@ local plugins = {
         end,
       },
     },
---    ,
-
   },
   {
     "easymotion/vim-easymotion",
@@ -738,7 +740,6 @@ local plugins = {
     keys = {
       { "<leader>r", "function() require('ssr').open() end", desc = "substitue", mode={"n", "x"}},
     },
-
     config = function()
       require("ssr").setup {
         border = "rounded",
@@ -966,7 +967,6 @@ local plugins = {
     end,
   },
 -- Filetype }}}
-
 -- TODO
 -- https://github.com/nvim-neotest/neotest
   {

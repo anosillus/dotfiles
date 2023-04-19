@@ -1,7 +1,7 @@
 --vim.fn["skkeleton#register_keymap"]("input", "q", "")
 -- vim.fn["skkeleton#register_keymap"]("input", ";", "katakana")
 vim.fn["skkeleton#register_keymap"]("input", ":", "katakana")
-vim.fn["skkeleton#register_keymap"]("input", "<s-l>", "zenkaku")
+-- vim.fn["skkeleton#register_keymap"]("input", "<s-l>", "zenkaku")
 -- vim.fn["skkeleton#register_keymap"]("input", ":", "")
 -- vim.fn["skkeleton#register_keymap"]("input", "'", "henkanPoint")
 
@@ -27,7 +27,6 @@ local function set_rule(s, row, spc_rule)
         set_key(s .. "e", e)
         set_key(s .. "o", o)
         -- 撥音拡張
-    -- 
         set_key(s .. "z", { a, "ん" })
         set_key(s .. "x", { i, "ん" })
         set_key(s .. "c", { u, "ん" })
@@ -144,7 +143,7 @@ set_rule("", nil, {
 
 vim.fn["skkeleton#register_kanatable"]("rom", rule)
 vim.fn["skkeleton#config"]{
-    globalJisyo = "/home/anosillus/.skk/SKK-JISYO.L",
+    globalJisyo = "/home/akizora/.skk/SKK-JISYO.L",
     eggLikeNewline = true,
     keepState = true,
     registerConvertResult = true,

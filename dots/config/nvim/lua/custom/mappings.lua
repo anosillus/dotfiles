@@ -3,7 +3,11 @@ local M = {}
 
 M.disabled = {
   n = {
-    ["<C-s>"] = ""
+    ["<C-s>"] = "",
+    ["N"] = "",
+    ["E"] = "",
+    ["c"] = "",
+    ["v"] = "",
   },
   i = {
     ["<C-j>"] = ""
@@ -633,21 +637,21 @@ M.colemak = { --{{{
 		["<C-c>"] = { "<ESC>", "paste", opts = { nowait = true } },
 	}, --}}}
 } --}}}
-M.edgemotion = { --{{{
-	-- toggle comment in both modes
-	n = {
-		["N"] = { "<Plug>(edgemotion-j)", "Edge forward", opts = { expr = true } },
-		["E"] = { "<Plug>(edgemotion-k)", "Edge previous", opts = { expr = true } },
-	},
-	v = {
-		["N"] = { "<Plug>(edgemotion-j)", "Edge forward", opts = { expr = true } },
-		["E"] = { "<Plug>(edgemotion-k)", "Edge previous", opts = { expr = true } },
-	},
-	o = {
-		["N"] = { "<Plug>(edgemotion-j)", "Edge forward", opts = { expr = true } },
-		["E"] = { "<Plug>(edgemotion-k)", "Edge previous", opts = { expr = true } },
-	},
-} --}}}
+-- M.edgemotion = { --{{{
+-- 	-- toggle comment in both modes
+-- 	n = {
+-- 		["N"] = { "<Plug>(edgemotion-j)", "Edge forward", opts = { expr = true } },
+-- 		["E"] = { "<Plug>(edgemotion-k)", "Edge previous", opts = { expr = true } },
+-- 	},
+-- 	v = {
+-- 		["N"] = { "<Plug>(edgemotion-j)", "Edge forward", opts = { expr = true } },
+-- 		["E"] = { "<Plug>(edgemotion-k)", "Edge previous", opts = { expr = true } },
+-- 	},
+-- 	o = {
+-- 		["N"] = { "<Plug>(edgemotion-j)", "Edge forward", opts = { expr = true } },
+-- 		["E"] = { "<Plug>(edgemotion-k)", "Edge previous", opts = { expr = true } },
+-- 	},
+-- } --}}}
 M.easymotion = { --{{{
 	-- toggle comment in both modes
 	n = {
