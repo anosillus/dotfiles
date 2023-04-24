@@ -153,23 +153,7 @@ local plugins = {
 			{ "<C-b>", "<CMD>SnipRun<cr>", desc = "sniprun", mode = { "n" } },
 			{ "<C-b>", "<CMD>'<,'>SnipRun<cr>", desc = "sniprun", mode = { "v" } },
 		},
-    -- config = function()
-    --   require("sniprun").setup({
-    --     selected_interpreters = { 'Python3_fifo' },
-    --     repl_enable = {'Python3_fifo'},
-    --     interpreter_options = {
-    --       Python3_fifo = {
-    --         interpreter = "python3.11.3",
-    --         venv = { "./venv"},
-    --       },
-    --     },
-    --   })
-    -- end,
 	},
-	{
-		"sansyrox/vim-python-virtualenv",
-		ft = "python",
-  },
 	{
 		"smzm/hydrovim",
 		dependencies = "MunifTanjim/nui.nvim",
@@ -733,18 +717,20 @@ local plugins = {
 	},
 	{
 		"lambdalisue/kensaku-search.vim",
-		-- cond = vim.fn.expand('%:p'):match('_jp%.md$') ~= nil,
-		event = "CmdlineEnter",
-		keys = {
+    -- init = function()
+    --   local filename = vim.fn.expand('%:p')
+    --   if filename:match('_jp%.md$') then
+    --     vim.api.nvim_set_keymap('c', '<CR>', '<Plug>(kensaku-search-replace)<CR>')
+    --   end
+    -- end,
+    keys = {
 			{ "<CR>", "<Plug>(kensaku-search-replace)<CR>", desc = "kensaku", mode = "c" },
-		},
-		-- init = function()
-		--   local filename = vim.fn.expand('%:p')
-		--   if filename:match('_jp%.md$') then
-		--     vim.api.nvim_set_keymap("c", "<CR>", "<Plug>(kensaku-search-replace)<CR>", { noremap = false, silent = true })
-		--   end
-		-- end,
-		dependencies = { "kensaku.vim" },
+    },
+    -- lazy = false
+    -- cond = function()
+      -- return vim.fn.expand('%:p'):match('_jp%.md$') ~= nil
+    -- end,
+		-- lazy = true,
 	},
 	{
 		"easymotion/vim-easymotion",

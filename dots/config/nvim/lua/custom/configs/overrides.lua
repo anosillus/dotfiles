@@ -79,6 +79,7 @@ M.mason = {
     "debugpy",
     "mockdebug",
     "delve",
+    "editorconfig-checker ",
   },
 }
 

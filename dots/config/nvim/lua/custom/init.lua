@@ -25,6 +25,7 @@ local options = {
 	hidden = true, -- Do not close the buffers, hide them
 	history = 1000, -- Remember more commands and search history
 	undolevels = 1000, -- Remember more levels of undo
+  formatoptions = "mMj",
 	-- undofile,
 	-- undodir = "$HOME/.cache/undo",
 	-- noerrorbells = true,        -- No buzz on error
@@ -54,6 +55,7 @@ local options = {
 	list = true, -- display listchars
 	fillchars = { vert = "│", eob = " " }, -- make vertical split sign better
 	listchars = { eol = "↲", tab = "» " }, -- set listchars
+  matchpairs = "(:),{:},[:],<:>,「:」,（:）",
     -- Trailings / tabs }}}
 	--
 	-- -- Better vimdiff{{{
@@ -67,6 +69,14 @@ local options = {
 	scrolloff = 50,
 }
 
+vim.g.node_host_prog = '/home/akizora/.nvm/versions/node/v18.16.0/bin/node'
+
 for k, v in pairs(options) do
 	vim.opt[k] = v
+end
+
+if os.getenv("VIRTUAL_ENV") ~= nil then
+  vim.g.python3_host_prog = string.gsub(io.popen("which -a python3 | head -n2 | tail -n1"):read("*all"), "\n", "")
+else
+  vim.g.python3_host_prog = string.gsub(io.popen("which python3"):read("*all"), "\n", "")
 end

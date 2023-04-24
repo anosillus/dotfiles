@@ -2,19 +2,19 @@
 local M = {}
 
 M.disabled = {
-  n = {
-    ["<C-s>"] = "",
-    ["N"] = "",
-    ["E"] = "",
-    ["c"] = "",
-    ["v"] = "",
-  },
-  i = {
-    ["<C-j>"] = ""
-  },
-  c = {
-    ["<C-j>"] = ""
-  }
+	n = {
+		["<C-s>"] = "",
+		["N"] = "",
+		["E"] = "",
+		["c"] = "",
+		["v"] = "",
+	},
+	i = {
+		["<C-j>"] = "",
+	},
+	c = {
+		["<C-j>"] = "",
+	},
 }
 
 M.colemak = { --{{{
@@ -75,8 +75,7 @@ M.colemak = { --{{{
 		-- TODO PLUG ["<leader>u"] = { "gT", "Go to the previous tab page.", opts = { nowait = true }},
 		-- <C>:
 		["<C-y>"] = { "E", "Forward to the end of WORD", opts = { nowait = true } },
-		["<C-u>"] = { "gE", "Backward to the end of WORD", opts = { nowait = true } },
-
+    ["<C-u>"] = { "gE", "Backward to the end of WORD", opts = { nowait = true } },
 		-- <M>:
 		-- <m>:
 		-- <g>:
@@ -92,7 +91,7 @@ M.colemak = { --{{{
 		-- <L>:
 		-- <C>:
 		-- <M>:
-    --
+		--
 		-- <m>:
 		-- <g>:
 		["gs"] = { ":<C-u>%s/\\v/<Left>", "replace" },
@@ -190,7 +189,7 @@ M.colemak = { --{{{
 		-- <j>:
 		-- m }}}
 		-- b/k {{{
-    -- ["b"] = { "", "Repeat the latest search", opts = { nowait = true } },
+		-- ["b"] = { "", "Repeat the latest search", opts = { nowait = true } },
 
 		["k"] = { "n", "Repeat the latest search", opts = { nowait = true } },
 		["K"] = { "N", "Search opposite direction.", opts = { nowait = true } },
@@ -239,6 +238,8 @@ M.colemak = { --{{{
 		-- Normal+Shift 100% : Easymotion
 		-- <L>:
 		-- <C>:
+		--
+		["<C-p>"] = { "<C-b>", "MoveScreen", opts = { nowait = true } },
 		-- <M>:
 		-- <m>:
 		-- <g>:
@@ -257,7 +258,7 @@ M.colemak = { --{{{
 		-- l {{{
 		-- <>:
 		-- ["l"] = { "[comment]", "for plugins", opts = { nowait = true } },
-		-- ["L"] = { "[block]", "for plugins" },
+		["L"] = { "[block]", "for plugins" },
 		-- l<lhnei>L<lhnie> is comment.
 		-- <S>:
 		-- <L>:
@@ -536,7 +537,7 @@ M.colemak = { --{{{
 		-- g / j }}}
 		-- l {{{
 		["l"] = { "<Nop>", "for plugins", opts = { noremap = true, expr = true } },
-		["L"] = { "<Nop>", "for plugins", opts = { nowait = true } },
+		["L"] = { "<Nop>", "for plugins", opts = { noremap = true, expr = false } },
 		-- <S>:
 		-- <L>:
 		-- <C>:
@@ -623,12 +624,11 @@ M.colemak = { --{{{
 	}, --}}}
 	i = { --{{{
 		["<C-h>"] = { "<Left>", opts = { nowait = true } },
-		["<C-i>"] = { "<Right>", opts = { nowait = true } },
+		-- ["<C-i>"] = { "<Right>", opts = { nowait = true } },
 		["<C-r>"] = { "<ESC>R", "replace line", opts = { nowait = true } },
 		["<C-a>"] = { "<Esc>0i", "move start", opts = { nowait = true } },
 		["<C-d>"] = { "<C-u>", "move previous", opts = { nowait = true } },
-
-		["<C-f>"] = { "<C-e>", "move previous", opts = { nowait = true } },
+		["<C-f>"] = { "<C-e>", "move previous", opts = { nowait = true, noremap = true } },
 		["<C-p>"] = { "<C-y>", "move previous", opts = { nowait = true } },
 
 		["<C-v>"] = { "<C-r><C-r>", "paste", opts = { nowait = true } },
@@ -679,8 +679,8 @@ M.easymotion = { --{{{
 			"Till before the occurrence of {char} to the right.",
 			opts = { expr = true },
 		},
-		["<leader>w"] = { "<Plug>(easymotion-overwin-w)", "jump", opts = { expr = true } },
-		["<leader>s"] = { "<Plug>(easymotion-overwin-f2)", "jump", opts = { expr = true } },
+		-- ["<leader>w"] = { "<Plug>(easymotion-overwin-w)", "jump", opts = { expr = true } },
+		-- ["<leader>s"] = { "<Plug>(easymotion-overwin-f2)", "jump", opts = { expr = true } },
 	},
 	v = {
 		["Y"] = {
@@ -707,8 +707,8 @@ M.easymotion = { --{{{
 			"Till before the occurrence of {char} to the right.",
 			opts = { expr = true },
 		},
-		["<leader>s"] = { "<Plug>(easymotion-bd-f2)", "jump", opts = { expr = true } },
-		["<leader>w"] = { "<Plug>(easymotion-bd-w)", "jump", opts = { expr = true } },
+		-- ["<leader>s"] = { "<Plug>(easymotion-bd-f2)", "jump", opts = { expr = true } },
+		-- ["<leader>w"] = { "<Plug>(easymotion-bd-w)", "jump", opts = { expr = true } },
 	},
 	o = {
 		["Y"] = {
@@ -735,8 +735,8 @@ M.easymotion = { --{{{
 			"Till before the occurrence of {char} to the right.",
 			opts = { expr = true },
 		},
-		["<leader>s"] = { "<Plug>(easymotion-bd-f2)", "jump", opts = { expr = true } },
-		["<leader>w"] = { "<Plug>(easymotion-bd-w)", "jump", opts = { expr = true } },
+		-- ["<leader>s"] = { "<Plug>(easymotion-bd-f2)", "jump", opts = { expr = true } },
+		-- ["<leader>w"] = { "<Plug>(easymotion-bd-w)", "jump", opts = { expr = true } },
 	},
 } --}}}
 M.debug = { --{{{
@@ -1063,7 +1063,7 @@ M.comment = { --{{{
 			end,
 			"toggle comment",
 		},
-		["Ll"] = {
+		["lb"] = {
 			function()
 				require("Comment.api").toggle.blockwise.current()
 			end,
@@ -1087,19 +1087,19 @@ M.comment = { --{{{
 			end,
 			"toggle comment",
 		},
-		["Li"] = {
+		["lB"] = {
 			function()
 				require("Comment.api").insert.blockwise.eol()
 			end,
 			"toggle comment",
 		},
-		["Ln"] = {
+		["lN"] = {
 			function()
 				require("Comment.api").insert.blockwise.below()
 			end,
 			"toggle comment",
 		},
-		["Le"] = {
+		["lE"] = {
 			function()
 				require("Comment.api").insert.blockwise.above()
 			end,
@@ -1109,13 +1109,12 @@ M.comment = { --{{{
 	x = {
 		["l"] = { "<Plug>(comment_toggle_linewise_visual)", "simple", opts = { nowait = true } },
 		["<C-l>"] = { "<Plug>(easyoperator-line-select)", "hoge", opts = { nowait = true } },
-		["L"] = { "<Plug>(comment_toggle_blockwise_visual)", "foo", opts = { nowait = true } },
+		["t"] = { "<Plug>(comment_toggle_blockwise_visual)", "foo", opts = { nowait = true } },
 		-- ["ll"] = { "<Plug>(comment_toggle_linewise_visual)", "toggle comment", opts = { noremap = true } },
 	},
 } --}}}
 M.tabufline = { --{{{
 	plugin = true,
-
 	n = {
 		-- cycle through buffers
 		["<leader>f"] = {
