@@ -3,14 +3,14 @@ realpath() {
 }
 
 # Python {{{
-# layout_python-venv {{{
+layout_python-venv {{{
 # https://github.com/direnv/direnv/wiki/Python#venv-stdlib-module
 
-# layout_activate() {
-#     if [ -n "$(which pyenv)" ]; then
-#         source $(pyenv root)/versions/$1/bin/activate
-#     fi
-# }
+layout_activate() {
+    if [ -n "$(which pyenv)" ]; then
+        source $(pyenv root)/versions/$1/bin/activate
+    fi
+}
 # }}}
 
 # layout_poetry {{

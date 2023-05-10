@@ -336,8 +336,11 @@ fundle plugin demartini/plugin-docker-compose
 fundle plugin Gazorby/fish-git-emojis
 fundle plugin eth-p/fish-plugin-sudo
 fundle plugin decors/fish-ghq
+# fundle plugin FabioAntunes/fish-nvm
+# fundle plugin jorgebucaran/fish-nvm
+
 # fundle plugin 'jethrokuan/z'
-fundle plugin 'patrickf1/colored_man_pages.fish'
+fundle plugin patrickf1/colored_man_pages.fish
 fundle plugin lgathy/google-cloud-sdk-fish-completion
 # fundle plugin 'gazorby/fish-exa'
 # fundle plugin 'oh-my-fish/theme-bobthefish'
@@ -359,7 +362,7 @@ if not test -d ~/.anyenv
     exec $SHELL -l
     anyenv init - fish | source
     anyenv install pyenv
-    anyenv install nodenv
+    # anyenv install nodenv
     git clone https://github.com/pyenv/pyenv-virtualenv.git (pyenv root)/plugins/pyenv-virtualenv
 else
     # set -x PATH $HOME/.anyenv/bin $PATH
@@ -380,6 +383,9 @@ else
     # anyenv init
     eval (direnv hook fish)
 end
+# direnv hook fish | source
+# eval (direnv hook fish)
+
 
 if functions -q aws-cli
     complete --command aws --no-files --arguments '(begin; set --local --export COMP_SHELL fish; set --local --export COMP_LINE (commandline); aws_completer | sed \'s/ $//\'; end)'
@@ -491,7 +497,5 @@ set -g theme_color_scheme solarized-dark
 # set -g ENHANCD_FILTER peco
 # }}}
 
-direnv hook fish | source
-eval (direnv hook fish)
 
 # vim:tw=88 ft=fish ts=4 sw=4 sts=4 fdm=marker si et:
